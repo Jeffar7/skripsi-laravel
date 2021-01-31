@@ -7,7 +7,7 @@ use App\Product;
 
 class PageController extends Controller
 {
-    /**
+/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

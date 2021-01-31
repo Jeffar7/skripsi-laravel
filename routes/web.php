@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -39,7 +39,11 @@ Route::get('/itemdetail', 'PageController@itemdetail');
 Route::get('/managebrand', 'BrandController@index');
 Route::get('/brands/create', 'BrandController@create');
 Route::post('/managebrand', 'BrandController@store');
+Route::get('/brands/{brand}', 'BrandController@show');
 Route::get('/allbrand', 'BrandController@allbrand')->name('brand');
+Route::delete('/brands/{brand}', 'BrandController@destroy');
+Route::get('/brands/{brand}/edit', 'BrandController@edit');
+Route::patch('/brands/{brand}', 'BrandController@update');
 
 Route::get('/manageproduct', 'ProductController@index');
 Route::get('/products/create', 'ProductController@create');

@@ -45,6 +45,11 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'picture' => 'required'
+        ]);
+
         $brand = new Brand;
         $brand->name = $request->name;
         $brand->picture = $request->picture;
@@ -62,9 +67,9 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Brand $brand)
     {
-        //
+        return view('brands.detailbrand',compact('brand'));
     }
 
     /**
@@ -73,9 +78,9 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Brand $brand)
     {
-        //
+        return view('brands.editbrand',compact('brand'));
     }
 
     /**
@@ -85,9 +90,28 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Brand $brand)
     {
-        //
+
+        // $request->validate([
+        //     'name' => 'required | unique:posts',
+        //     'picture' => 'required',
+        //     'owner' => 'required',
+        //     'website' => 'required',
+        //     'about' => 'required'
+        // ]);
+
+        Brand::where('id', $brand->id)
+        ->update([
+            'name' => $request->name,
+            'picture' => $request->picture,
+            'owner' => $request->owner,
+            'website' => $request->website,
+            'about' => $request->about,
+
+        ]);
+
+        return redirect('managebrand')->with('status','brand successfully updated!');
     }
 
     /**
@@ -96,8 +120,10 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Brand $brand)
     {
-        //
+        Brand::destroy($brand->id);
+
+        return redirect('managebrand')->with('status','brand successfully deleted!');
     }
 }

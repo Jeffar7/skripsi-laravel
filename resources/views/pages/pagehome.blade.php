@@ -4,5 +4,6 @@
 
 @section('content')
 
-Home > Man 
+Welcome to TokoLocal
+
 @endsection

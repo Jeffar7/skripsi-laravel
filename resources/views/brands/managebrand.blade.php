@@ -42,8 +42,15 @@
                             <td>{{$brand->website}}</td>
                             <td>{{$brand->created_at}}</td>
                             <td>
-                                <a href="#" class="badge btn-success">edit</a>
-                                <a href="#" class="badge btn-danger">delete</a>
+
+                                <a href="brands/{{$brand->id}}/edit" class="badge btn-success">edit</a>
+
+                                <form action="brands/{{$brand->id}}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+
                             </td>
                         </tr>
                     </tbody>
