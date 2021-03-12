@@ -18,7 +18,7 @@ class Product extends Model
     protected $guarded = ['id'];
 
     public function brand(){
-        return $this->belongsTo('App\Brand','id');
+        return $this->belongsTo('App\Brand','brandid');
     }
 
     public function category(){

@@ -28,7 +28,7 @@
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Created At</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col"> Actions </th>
                         </tr>
                     </thead>
                     @foreach($products as $product)
@@ -36,13 +36,13 @@
                         <tr>
                             <th scope="row">{{$product->id}}</th>
                             <td>{{$product->productname}}</td>
-                            <td><img src="{{asset($product->productimage)}}" alt=""></td>
+                            <td><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
                             <td>{{$product->brand['name']}}</td>
                             <td>{{$product->productprice}}</td>
                             <td>{{$product->productquantity}}</td>
                             <td>{{$product->created_at}}</td>
                             <td>
-                                <a href="#" class="badge btn-success">edit</a>
+                                <a href="products/{{$product->id}}/edit" class="badge btn-success">edit</a>
                                 <a href="#" class="badge btn-danger">delete</a>
                             </td>
                         </tr>

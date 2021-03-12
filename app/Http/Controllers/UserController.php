@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -19,10 +21,11 @@ class UserController extends Controller
         return view('users\userprofile');
     }
 
-    public function usercontrol(){
+    public function usercontrol()
+    {
         $users = DB::table('users')->get();
 
-        return view('users\usercontrol',['users' => $users]);
+        return view('users\usercontrol', ['users' => $users]);
     }
 
     /**
@@ -43,7 +46,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $user = new User();
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email  = $request->email;
+        $user->username = strstr($request->email, '@', true);
+        $user->gender = $request->gender;
+        $user->DOB = $request->DOB;
+        $user->password = Hash::make($request->password);
+        $user->role = $request->role;
+        $user->address = $request->address;
+        $user->site = $request->site;
+        $user->about = $request->about;
+        $user->phone = $request->phonenumber;
+        // $user->picture= $request->picture;
+
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/users/', $filename);
+            $user->picture = $filename;
+        } else {
+            return $request;
+            $user->picture = '';
+        }
+
+        $user->save();
+        return redirect('/usercontrol')->with('status', 'User Successfully Added!');
     }
 
     /**
@@ -63,9 +94,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('users.useredit', compact('user'));
     }
 
     /**
@@ -75,9 +106,38 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/users/', $filename);
+            $user->picture = $filename;
+        } else {
+            return $request;
+            $user->picture = '';
+        }
+
+        User::where('id', $user->id)
+            ->update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'username' => strstr($request->email, '@', true),
+                'gender' => $request->gender,
+                'DOB' => $request->DOB,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+                'address' => $request->address,
+                'site' => $request->site,
+                'about' => $request->about,
+                'picture' => $user->picture,
+                'phone' => $request->phonenumber
+
+            ]);
+
+        return redirect('/usercontrol')->with('status', 'User data successfully updated!');
     }
 
     /**

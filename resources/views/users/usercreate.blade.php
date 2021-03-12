@@ -10,8 +10,8 @@
         <div class="col-10">
             <h2 class="mt-3">Add User</h2>
 
-            <form method="POST" action="/users/create">
-
+            <form method="POST" action="/users/create" enctype="multipart/form-data">
+                @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="first_name">First Name</label>
@@ -52,7 +52,7 @@
                         <option value="2">Female</option>
                     </select>
                 </div>
-
+                Picture
                 <div class="form-group">
                     <div class="custom-file">
                         <label for="picture">Picture</label>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="my-1 mr-2" for="role">Gender</label>
+                    <label class="my-1 mr-2" for="role">Role</label>
                     <select class="custom-select my-1 mr-sm-2" id="Gender" name="role">
                         <option value="Customer" selected>Customer</option>
                         <option value="Admin">Admin</option>
@@ -84,6 +84,8 @@
                     <label for="about">About</label>
                     <textarea class="form-control" id="about" rows="3" placeholder="enter your information here" name="about"></textarea>
                 </div>
+
+                <input type="hidden" name="site" value="-">
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Add User</button>

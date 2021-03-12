@@ -48,7 +48,7 @@
                                 <form action="brands/{{$brand->id}}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="badge btn-danger">Delete</button>
                                 </form>
 
                             </td>

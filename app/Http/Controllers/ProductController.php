@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products\manageproduct',compact('products'));
+        return view('products\manageproduct', compact('products'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function create()
     {
         $brands = Brand::all();
-        return view('products\addproduct',compact('brands'));
+        return view('products\addproduct', compact('brands'));
     }
 
     /**
@@ -40,15 +40,26 @@ class ProductController extends Controller
     {
         $products = new Product;
         $products->productname = $request->productname;
-        $products->productimage = $request->productimage;
+        // $products->productimage = $request->productimage;
         $products->brandid = $request->brandid;
         $products->productprice = $request->productprice;
         $products->productquantity = $request->productquantity;
         $products->productsize = $request->productsize;
         $products->productdescription = $request->productdescription;
 
+        if ($request->hasFile('productimage')) {
+            $file = $request->file('productimage');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/products/', $filename);
+            $products->productimage = $filename;
+        } else {
+            return $request;
+            $products->productimage = '';
+        }
+
         $products->save();
-        return redirect('manageproduct')->with('status','Brand Successfully Added!');
+        return redirect('manageproduct')->with('status', 'Product Successfully Added!');
     }
 
     /**
@@ -68,9 +79,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+
+        $brands = Brand::all();
+        return view('products.editproduct', compact(['product', 'brands']));
     }
 
     /**
@@ -80,9 +93,31 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        if ($request->hasFile('productimage')) {
+            $file = $request->file('productimage');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/products/', $filename);
+            $product->productimage = $filename;
+        } else {
+            return $request;
+            $product->productimage = '';
+        }
+
+        Product::where('id', $product->id)
+            ->update([
+                'brandid' => $request->brandid,
+                'productname' => $request->productname,
+                'productprice' => $request->productprice,
+                'productquantity' => $request->productquantity,
+                'productsize' => $request->productsize,
+                'productdescription' => $request->productdescription,
+                'productimage' => $product->productimage
+            ]);
+
+            return redirect('/manageproduct')->with('status','Product successfully updated!');
     }
 
     /**

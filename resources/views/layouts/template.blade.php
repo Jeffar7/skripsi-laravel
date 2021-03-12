@@ -18,35 +18,77 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Customize Css -->
+    <link href="/public/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md mb-5 shadow navbar-light bg-white">
         <div class="container">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                <div class="position-top pl-5">
+                    <a class="navbar-brand" href="/pagehome">
+                        <img src="{{ asset('image/Store_Logo_210309.jpg') }}" width="50" height="40" alt="">
+                    </a>
+                </div>
 
-                </ul>
-
-                <a class="navbar-brand" href="/pagehome">TokoLocal</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+<!-- Middle Side Of Navbar -->
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="">CATEGORIES <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="/homeman">MAN</a>
-                        <a class="nav-item nav-link" href="#">WOMAN</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">TOP</a>
+                                <a class="dropdown-item" href="#">BOTTOM</a>
+                                <a class="dropdown-item" href="#">SHOES</a>
+                                <a class="dropdown-item" href="#">ACCESSORIES</a>
+                                <a class="dropdown-item" href="#">NEW</a>
+                                <a class="dropdown-item" href="#">SALE</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/men-tops">TOP</a>
+                                <a class="dropdown-item" href="/men-bottoms">BOTTOM</a> 
+                                <a class="dropdown-item" href="/men-shoes">SHOES</a>
+                                <a class="dropdown-item" href="/men-accessories">ACCESSORIES</a>
+                                <a class="dropdown-item" href="/men-new">NEW</a>
+                                <a class="dropdown-item" href="/men-sale">SALE</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">WOMEN</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/women-tops">TOP</a>
+                                <a class="dropdown-item" href="/women-bottoms">BOTTOM</a>
+                                <a class="dropdown-item" href="/women-shoes">SHOES</a>
+                                <a class="dropdown-item" href="/women-accessories">ACCESSORIES</a>
+                                <a class="dropdown-item" href="/women-new">NEW</a>
+                                <a class="dropdown-item" href="/women-sale">SALE</a>
+                            </div>
+                        </li>
                         <a class="nav-item nav-link" href="/allbrand">BRANDS</a>
+                        <a class="nav-item nav-link" href="/allbrand">SIGNATURE</a>
+                        <!-- <a class="nav-item nav-link" href="/homeman">MAN</a>
+                        <a class="nav-item nav-link" href="#">WOMAN</a> -->
+
+
+
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
@@ -54,7 +96,7 @@
                         <a class="nav-item nav-link far fa-user" href="/usercontrol"> Admin</a>
                         <a class="nav-item nav-link far fa-user" href="/managebrand"> Brand</a>
                         <a class="nav-item nav-link far fa-user" href="/manageproduct"> Product</a>
-                        
+
                     </div>
                 </div>
 
@@ -73,7 +115,7 @@
                     @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            
+
                             {{ Auth::user()->username }}
                         </a>
 
@@ -94,51 +136,23 @@
         </div>
     </nav>
 
+    @yield('content')
 
+    <!-- <footer class="fixed-bottom card-footer text-center">
+        <div class="container">
+            <p class="text-muted">TokoLocal 2020</p>
+        </div>
+    </footer> -->
 </body>
 
 
-@yield('content')
+<!-- 
 
-<footer class="bg-light text-center text-lg-start">
-    <!-- Grid container -->
-    <div class="container p-4">
-        <!--Grid row-->
-        <div class="row">
-            <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
 
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
-                </p>
-            </div>
-            <!--Grid column-->
 
-            <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
 
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
-                </p>
-            </div>
-            <!--Grid column-->
-        </div>
-        <!--Grid row-->
-    </div>
-    <!-- Grid container -->
 
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2020 Copyright:
-        <a class="text-dark" href="https://mdbootstrap.com/">TokoLocal</a>
-    </div>
-    <!-- Copyright -->
-</footer>
+
+ -->
 
 </html>

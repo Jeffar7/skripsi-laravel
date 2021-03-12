@@ -27,7 +27,7 @@
                             <label for="picture">Picture</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input @error('picture') is-invalid @enderror" name="picture" id="picture" required value="{{$brand->picture}}">
-                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                <label class="custom-file-label" for="validatedCustomFile">{{$brand->picture}}</label>
                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
                             </div>
                             @error('picture')
@@ -49,11 +49,11 @@
                             @error('website')
                             <div class="invalid-feedback">{{$message}}</div>
                             @enderror
-                       </div>
+                        </div>
 
                         <div class="form-group">
                             <label for="About">About</label>
-                            <textarea class="form-control  @error('website') is-invalid @enderror" id="About" rows="3" placeholder="add brand information here..." name="about"></textarea>
+                            <textarea class="form-control  @error('website') is-invalid @enderror" id="About" rows="3" placeholder="add brand information here..." name="about" value="{{$brand->about}}"></textarea>
                             @error('about')
                             <div class="invalid-feedback">{{$message}}</div>
                             @enderror

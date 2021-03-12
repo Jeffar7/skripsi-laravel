@@ -12,7 +12,7 @@
                     <h5>Add Product</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/manageproduct">
+                    <form method="POST" action="/manageproduct" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group ">
                             <label for="name">Item Name</label>
