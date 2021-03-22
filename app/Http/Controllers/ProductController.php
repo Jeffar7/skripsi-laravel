@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Brand;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
+use App\product_user;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -26,8 +29,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $brands = Brand::all();
-        return view('products\addproduct', compact('brands'));
+        $products = Product::all();
+        $categories = Category::all();
+        return view('products\addproduct', compact(['products','categories']));
+    }
+
+    public function productwish(){
+        $productwishs = product_user::where('user_id','=',Auth::user()->id)->get();
+        // foreach($productwishs as $productwish)
+        // dd($productwish->product->brand->name);
+        return view('products\pagewish',compact('productwishs'));
     }
 
     /**
@@ -41,6 +52,7 @@ class ProductController extends Controller
         $products = new Product;
         $products->productname = $request->productname;
         // $products->productimage = $request->productimage;
+        $products->categoryid = $request->categoryid;
         $products->brandid = $request->brandid;
         $products->productprice = $request->productprice;
         $products->productquantity = $request->productquantity;
@@ -83,7 +95,8 @@ class ProductController extends Controller
     {
 
         $brands = Brand::all();
-        return view('products.editproduct', compact(['product', 'brands']));
+        $categories = Category::all();
+        return view('products.editproduct', compact(['product', 'brands','categories']));
     }
 
     /**
@@ -108,6 +121,7 @@ class ProductController extends Controller
 
         Product::where('id', $product->id)
             ->update([
+                'categoryid' => $request->categoryid,
                 'brandid' => $request->brandid,
                 'productname' => $request->productname,
                 'productprice' => $request->productprice,
@@ -126,8 +140,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        Product::destroy($product->id);
+
+        return redirect('manageproduct')->with('status','Product successfully deleted!');
     }
 }

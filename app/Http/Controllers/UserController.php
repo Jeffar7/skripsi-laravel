@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -19,6 +20,13 @@ class UserController extends Controller
         $user = DB::table('users')->get();
 
         return view('users\userprofile');
+    }
+
+    public function usersettings()
+    {
+        $user = DB::table('users')->get();
+
+        return view('users\usersetting', compact('user'));
     }
 
     public function usercontrol()
@@ -83,9 +91,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        
     }
 
     /**
@@ -146,8 +154,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        User::destroy($user->id);
+
+        return redirect('usercontrol')->with('status', 'User successfully deleted!');
     }
 }

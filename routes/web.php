@@ -26,35 +26,41 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/userprofile','UserController@index');
-Route::get('/users/create','UserController@create');
-Route::post('/users/create','UserController@store');
-Route::get('/users/{user}/edit','UserController@edit');
-Route::patch('/users/{user}', 'UserController@update');
-Route::get('/pagehome', 'PageController@home');
-Route::get('/usercontrol', 'UserController@usercontrol');
+Route::get('/pagehome', 'PageController@home'); //testadmin
+Route::get('/userprofile','UserController@index');//testuser
+Route::get('/usersettings','UserController@usersettings');
+Route::get('/users/create','UserController@create')->middleware('role:admin');
+Route::post('/users/create','UserController@store')->middleware('role:admin');
+Route::get('/users/{user}/edit','UserController@edit')->middleware('role:admin');
+Route::get('/usercontrol', 'UserController@usercontrol')->middleware('role:admin');
 Route::get('/homeman', 'PageController@homeman')->name('homeman');
+Route::patch('/users/{user}', 'UserController@update')->middleware('role:admin');
+Route::delete('users/{user}','UserController@destroy')->middleware('role:admin');
 
 Route::get('/itemlist', 'PageController@itemlist');
 Route::get('/itemdetail', 'PageController@itemdetail');
 Route::get('/itemdetail', 'PageController@itemdetail');
 
-Route::get('/managebrand', 'BrandController@index');
-Route::get('/brands/create', 'BrandController@create');
-Route::post('/managebrand', 'BrandController@store');
-Route::get('/brands/{brand}', 'BrandController@show');
-Route::get('/allbrand', 'BrandController@allbrand')->name('brand');
-Route::delete('/brands/{brand}', 'BrandController@destroy');
-Route::get('/brands/{brand}/edit', 'BrandController@edit');
-Route::patch('/brands/{brand}', 'BrandController@update');
+Route::get('/managebrand', 'BrandController@index')->middleware('role:admin');
+Route::get('/brands/create', 'BrandController@create')->middleware('role:admin');
+Route::post('/managebrand', 'BrandController@store')->middleware('role:admin');
+Route::get('/brands/{brand}', 'BrandController@show')->middleware('role:admin|customer');
+Route::get('/allbrand', 'BrandController@allbrand')->name('brand')->middleware('role:admin|customer');
+Route::delete('/brands/{brand}', 'BrandController@destroy')->middleware('role:admin');
+Route::get('/brands/{brand}/edit', 'BrandController@edit')->middleware('role:admin');
+Route::patch('/brands/{brand}', 'BrandController@update')->middleware('role:admin');
 
-Route::get('/manageproduct', 'ProductController@index');
-Route::get('/products/create', 'ProductController@create');
-Route::post('/manageproduct', 'ProductController@store');
-Route::get('/products/{product}/edit', 'ProductController@edit');
-Route::patch('/products/{product}', 'ProductController@update');
+Route::get('/manageproduct', 'ProductController@index')->middleware('role:admin');
+Route::get('/products/create', 'ProductController@create')->middleware('role:admin');
+Route::post('/manageproduct', 'ProductController@store')->middleware('role:admin');
+Route::get('/products/{product}/edit', 'ProductController@edit')->middleware('role:admin');
+Route::patch('/products/{product}', 'ProductController@update')->middleware('role:admin');
+Route::delete('/products/{product}','ProductController@destroy')->middleware('role:admin');
+
+Route::get('/product-wish','ProductController@productwish')->middleware('role:customer|admin');
 
 Route::get('/men-tops','ManController@tops');
+Route::get('/men-tops/detail/{product}','ManController@topsdetail');
 Route::get('/men-bottoms','ManController@bottoms');
 Route::get('/men-shoes','ManController@shoes');
 Route::get('/men-accessories','ManController@accessories');

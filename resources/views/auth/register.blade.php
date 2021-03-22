@@ -55,13 +55,23 @@
                             </div>
 
 
-                            <input type="hidden" value="Customer" name=role>
+                            <input type="hidden" value="customer" name=role>
                             <input type="hidden" value="-" name=address>
                             <input type="hidden" value="-" name=site>
                             <input type="hidden" value="-" name=about>
                             <input type="hidden" value="-" name=picture>
                             <input type="hidden" value="-" name=phone>
 
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- end new register -->
 
                             <!-- Old register -->
                             <!-- <div>
@@ -130,16 +140,6 @@
                             </div>
 
                         </div> -->
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
-                                </div>
-                            </div>
-
-
                     </form>
                 </div>
             </div>

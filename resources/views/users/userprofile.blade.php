@@ -14,10 +14,10 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Profile</a>
+                            <a class="nav-link active" href="userprofile">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Notification</a>
+                            <a class="nav-link" href="/usersettings">Settings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Privacy</a>
@@ -43,16 +43,14 @@
                     <p1 class="mb-0">E-mail: {{Auth::user()->email}} </p1> <br>
                     <p1 class="mb-0">Site: {{Auth::user()->site}} </p1> <br> <br>
 
-                   <h2> Basic Information: </h2><br>
+                    <h2> Basic Information: </h2><br>
                     <p1 class="mb-0">Phone: {{Auth::user()->DOB}} </p1> <br>
                     <p1 class="mb-0">Gender: {{Auth::user()->gender}} </p1> <br>
 
 
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
 

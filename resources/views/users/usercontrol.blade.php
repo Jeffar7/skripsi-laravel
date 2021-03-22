@@ -39,8 +39,14 @@
                         <td>{{$user->role}}</td>
                         <td>{{$user->created_at}}</td>
                         <td>
-                            <a href="users/{{$user->id}}/edit" class="badge badge-success">edit</a>
-                            <a href="" class="badge badge-danger">delete</a>
+                            <a href="users/{{$user->id}}/edit" class="badge badge-success">Edit</a>
+
+                            <form action="/users/{{$user->id}}" method="POST" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="badge btn-danger">Delete</button>
+                            </form>
+
                         </td>
 
                     </tr>

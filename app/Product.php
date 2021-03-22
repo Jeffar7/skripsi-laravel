@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table = "products";
+
     protected $fillable = [
+    'categoryid',
+    'brandid',
     'productname',
     'productpicture',
     'productprice',
     'prodcutquantity',
     'productdescription'
+
 
     ];
 
@@ -22,6 +27,14 @@ class Product extends Model
     }
 
     public function category(){
-        return $this->belongsTo('App\Category','id');
+        return $this->belongsTo('App\Category','categoryid');
+    }
+
+    public function review(){
+        return $this->hasMany(Review::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class,'user_id');
     }
 }
