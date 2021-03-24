@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Gender;
 use App\Product;
 use App\Review;
 use Illuminate\Http\Request;
@@ -15,6 +16,12 @@ class ManController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function men()
+    {
+        $products = Product::where('gender_id', '=', 1)->get();
+        return view('menpage/men', compact('products'));
+    }
+
     public function tops()
     {
         $tops = Category::where('name', 'TOP')->get();
@@ -23,10 +30,10 @@ class ManController extends Controller
 
     public function topsdetail(Product $product)
     {
-        $product_tops = Product::where('id','=',$product->id)->first();
+        $product_tops = Product::where('id', '=', $product->id)->first();
         $reviews = Review::all();
 
-        return view('/menpage/tops_detail', compact('product_tops','reviews'));
+        return view('/menpage/tops_detail', compact('product_tops', 'reviews'));
     }
 
     public function bottoms()

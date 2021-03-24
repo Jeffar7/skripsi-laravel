@@ -20,3 +20,7 @@ body {
     /* Set the fixed height of the footer here */
     height: 50px;
 }
+
+body {
+    min-height: 2000px;
+}

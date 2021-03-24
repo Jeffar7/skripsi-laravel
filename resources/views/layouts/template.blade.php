@@ -51,7 +51,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
+                    <a class="nav-link " data-toggle="dropdown" href="/men" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/men-tops">TOP</a>
                         <a class="dropdown-item" href="/men-bottoms">BOTTOM</a>

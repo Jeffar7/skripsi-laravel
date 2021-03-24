@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\DetailAddress;
 use App\Product;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -24,8 +26,7 @@ class UserController extends Controller
 
     public function usersettings()
     {
-        $user = DB::table('users')->get();
-
+        $user = User::where('id', '=', Auth::user()->id)->first();
         return view('users\usersetting', compact('user'));
     }
 
@@ -81,7 +82,23 @@ class UserController extends Controller
             $user->picture = '';
         }
 
+        if ($request->role == "customer") {
+            $user->assignRole('customer');
+        } else {
+            $user->assignRole('admin');
+        }
+
         $user->save();
+
+        $detailaddress = new DetailAddress();
+        $detailaddress->city = '-';
+        $detailaddress->zip_code = '-';
+        $detailaddress->province = '-';
+        $detailaddress->country = '-';
+        $detailaddress->user_id = $user->id;
+        $detailaddress->save();
+
+
         return redirect('/usercontrol')->with('status', 'User Successfully Added!');
     }
 
@@ -93,7 +110,6 @@ class UserController extends Controller
      */
     public function show()
     {
-        
     }
 
     /**
@@ -116,6 +132,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $extension = $file->getClientOriginalExtension();
@@ -126,6 +143,9 @@ class UserController extends Controller
             return $request;
             $user->picture = '';
         }
+
+
+
 
         User::where('id', $user->id)
             ->update([
@@ -141,7 +161,54 @@ class UserController extends Controller
                 'site' => $request->site,
                 'about' => $request->about,
                 'picture' => $user->picture,
-                'phone' => $request->phonenumber
+                'phone' => $request->phone
+
+            ]);
+
+        DetailAddress::where('user_id', $user->id)
+            ->update([
+                'city' => $request->city,
+                'province' => $request->province,
+                'zip_code' => $request->zip_code,
+                'country' => $request->country
+            ]);
+
+
+        return redirect('/userprofile')->with('status', 'User data successfully updated!');
+    }
+
+
+    public function updateadm(Request $request, User $user)
+    {
+        if ($request->hasFile('picture')) {
+            $file = $request->file('picture');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/users/', $filename);
+            $user->picture = $filename;
+        } else {
+            return $request;
+            $user->picture = '';
+        }
+
+
+
+
+        User::where('id', $user->id)
+            ->update([
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'username' => strstr($request->email, '@', true),
+                'gender' => $request->gender,
+                'DOB' => $request->DOB,
+                'password' => Hash::make($request->password),
+                'role' => $request->role,
+                'address' => $request->address,
+                'site' => $request->site,
+                'about' => $request->about,
+                'picture' => $user->picture,
+                'phone' => $request->phone
 
             ]);
 

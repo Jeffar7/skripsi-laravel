@@ -13,7 +13,7 @@
                     <h5>Edit User</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/users/{{$user->id}}" enctype="multipart/form-data">
+                    <form method="POST" action="/users/adm/{{$user->id}}" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
 
@@ -78,12 +78,12 @@
 
                         <div class="form-group">
                             <label for="phonenumber">Phone Number</label>
-                            <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="ex : 081212345678" value="{{$user->phonenumber}}">
+                            <input type="text" class="form-control" id="phonenumber" name="phone" placeholder="ex : 081212345678" value="{{$user->phonenumber}}">
                         </div>
 
                         <div class="form-group">
                             <label for="Address">Address</label>
-                            <textarea class="form-control" id="Address" rows="3" placeholder="enter your current address here" name="address" >{{$user->address}}</textarea>
+                            <textarea class="form-control" id="Address" rows="3" placeholder="enter your current address here" name="address">{{$user->address}}</textarea>
                         </div>
 
                         <div class="form-group">

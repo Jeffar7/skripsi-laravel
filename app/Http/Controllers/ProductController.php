@@ -31,14 +31,15 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $categories = Category::all();
-        return view('products\addproduct', compact(['products','categories']));
+        return view('products\addproduct', compact(['products', 'categories']));
     }
 
-    public function productwish(){
-        $productwishs = product_user::where('user_id','=',Auth::user()->id)->get();
+    public function productwish()
+    {
+        $productwishs = product_user::where('user_id', '=', Auth::user()->id)->get();
         // foreach($productwishs as $productwish)
         // dd($productwish->product->brand->name);
-        return view('products\pagewish',compact('productwishs'));
+        return view('products\pagewish', compact('productwishs'));
     }
 
     /**
@@ -96,7 +97,7 @@ class ProductController extends Controller
 
         $brands = Brand::all();
         $categories = Category::all();
-        return view('products.editproduct', compact(['product', 'brands','categories']));
+        return view('products.editproduct', compact(['product', 'brands', 'categories']));
     }
 
     /**
@@ -131,7 +132,7 @@ class ProductController extends Controller
                 'productimage' => $product->productimage
             ]);
 
-            return redirect('/manageproduct')->with('status','Product successfully updated!');
+        return redirect('/manageproduct')->with('status', 'Product successfully updated!');
     }
 
     /**
@@ -144,6 +145,6 @@ class ProductController extends Controller
     {
         Product::destroy($product->id);
 
-        return redirect('manageproduct')->with('status','Product successfully deleted!');
+        return redirect('manageproduct')->with('status', 'Product successfully deleted!');
     }
 }
