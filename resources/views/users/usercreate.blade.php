@@ -48,8 +48,8 @@
                     <label class="my-1 mr-2" for="gender">Gender</label>
                     <select class="custom-select my-1 mr-sm-2" id="Gender" name="gender">
                         <option selected>Choose...</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>
                 Picture
@@ -65,8 +65,8 @@
                 <div class="form-group">
                     <label class="my-1 mr-2" for="role">Role</label>
                     <select class="custom-select my-1 mr-sm-2" id="Gender" name="role">
-                        <option value="Customer" selected>Customer</option>
-                        <option value="Admin">Admin</option>
+                        <option value="customer" selected>Customer</option>
+                        <option value="admin">Admin</option>
                     </select>
                 </div>
 

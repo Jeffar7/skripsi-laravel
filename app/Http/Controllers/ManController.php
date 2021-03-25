@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Gender;
+use App\Product;
+use App\Review;
 use Illuminate\Http\Request;
 
 class ManController extends Controller
@@ -12,24 +16,43 @@ class ManController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function men()
+    {
+        $products = Product::where('gender_id', '=', 1)->get();
+        return view('menpage/men', compact('products'));
+    }
+
     public function tops()
     {
-        return view('/menpage/tops');
+        $tops = Category::where('name', 'TOP')->get();
+        return view('/menpage/tops', compact('tops'));
+    }
+
+    public function topsdetail(Product $product)
+    {
+        $product_tops = Product::where('id', '=', $product->id)->first();
+        $reviews = Review::all();
+
+        return view('/menpage/tops_detail', compact('product_tops', 'reviews'));
     }
 
     public function bottoms()
     {
-        return view('/menpage/bottoms');
+        $bottoms = Category::where('name', 'BOTTOM')->get();
+        return view('/menpage/bottoms', compact('bottoms'));
     }
 
     public function shoes()
     {
-        return view('/menpage/shoes');
+
+        $shoes = Category::where('name', 'SHOES')->get();
+        return view('/menpage/shoes', compact('shoes'));
     }
 
     public function accessories()
     {
-        return view('/menpage/accessories');
+        $accessories = Category::where('name', 'ACCESSORIES')->get();
+        return view('/menpage/accessories', compact('accessories'));
     }
 
     public function new()
@@ -41,7 +64,7 @@ class ManController extends Controller
     {
         return view('/menpage/sale');
     }
-    
+
 
     public function index()
     {

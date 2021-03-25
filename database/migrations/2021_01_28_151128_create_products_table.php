@@ -17,8 +17,9 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
 
             $table->bigIncrements('id');
-            // $table->bigInteger('categoryid')->unsigned();
+            $table->bigInteger('categoryid')->unsigned();
             $table->bigInteger('brandid')->unsigned();
+            $table->bigInteger('gender_id')->unsigned();
             $table->string('productname');
             $table->string('productdescription');
             $table->string('productprice');
@@ -30,8 +31,9 @@ class CreateProductsTable extends Migration
         });
 
         Schema::table('products', function (Blueprint $table) {
-            // $table->foreign('categoryid')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('categoryid')->references('id')->on('categorys')->onDelete('cascade');
             $table->foreign('brandid')->references('id')->on('brands')->onDelete('cascade');
+            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
         });
     }
 

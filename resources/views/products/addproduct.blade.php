@@ -28,12 +28,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group ">
+                            <label for="category">Category</label>
+                            <select class="form-control" name="categoryid">
+                                @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
 
                         <div class="form-group ">
                             <label for="brand">Brand</label>
                             <select class="form-control" name="brandid">
-                                @foreach($brands as $brand)
-                                <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                @foreach($products as $product)
+                                <option value="{{$product->brand->id}}">{{$product->brand->name}}</option>
                                 @endforeach
                             </select>
                         </div>

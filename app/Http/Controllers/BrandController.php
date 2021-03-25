@@ -124,6 +124,6 @@ class BrandController extends Controller
     {
         Brand::destroy($brand->id);
 
-        return redirect('managebrand')->with('status','brand successfully deleted!');
+        return redirect('managebrand')->with('status','Brand successfully deleted!');
     }
 }

@@ -13,7 +13,7 @@
                     <h5>Edit User</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/users/{{$user->id}}" enctype="multipart/form-data">
+                    <form method="POST" action="/users/adm/{{$user->id}}" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
 
@@ -54,8 +54,8 @@
                             <label class="my-1 mr-2" for="gender">Gender</label>
                             <select class="custom-select my-1 mr-sm-2" id="Gender" name="gender">
                                 <option selected>Choose...</option>
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
                         Picture
@@ -71,19 +71,19 @@
                         <div class="form-group">
                             <label class="my-1 mr-2" for="role">Role</label>
                             <select class="custom-select my-1 mr-sm-2" id="Gender" name="role">
-                                <option value="Customer" selected>Customer</option>
-                                <option value="Admin">Admin</option>
+                                <option value="customer" selected>Customer</option>
+                                <option value="admin">Admin</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="phonenumber">Phone Number</label>
-                            <input type="text" class="form-control" id="phonenumber" name="phonenumber" placeholder="ex : 081212345678" value="{{$user->phonenumber}}">
+                            <input type="text" class="form-control" id="phonenumber" name="phone" placeholder="ex : 081212345678" value="{{$user->phonenumber}}">
                         </div>
 
                         <div class="form-group">
                             <label for="Address">Address</label>
-                            <textarea class="form-control" id="Address" rows="3" placeholder="enter your current address here" name="address" >{{$user->address}}</textarea>
+                            <textarea class="form-control" id="Address" rows="3" placeholder="enter your current address here" name="address">{{$user->address}}</textarea>
                         </div>
 
                         <div class="form-group">

@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 
+        'first_name',
         'last_name',
         'email',
         'username',
@@ -30,6 +31,8 @@ class User extends Authenticatable
         'picture',
         'phone'
     ];
+
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -48,4 +51,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function detailaddress()
+    {
+        return $this->hasOne(DetailAddress::class);
+    }
 }
