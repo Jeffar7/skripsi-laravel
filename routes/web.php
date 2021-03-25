@@ -25,6 +25,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/load', function () {
+    return view('loading');
+});
+
+Route::get('/about', function () {
+    return view('pages/aboutus');
+});
+
+Route::get('/contact', function () {
+    return view('pages/contactus');
+});
+
+Route::get('/faq', function () {
+    return view('pages/faq');
+});
+
+Route::get('/termsandcondition', function () {
+    return view('pages/terms');
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/userprofile','UserController@index');
 Route::get('/users/create','UserController@create');
