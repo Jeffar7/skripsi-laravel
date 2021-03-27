@@ -1,6 +1,6 @@
-@extends('layouts.template')
+@extends('layouts.app')
 
-@section('title','User Create')
+@section('title','TokoLokal | Add User')
 
 @section('content')
 

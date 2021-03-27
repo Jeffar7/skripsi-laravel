@@ -1,3 +1,5 @@
+<div id="preloader">
+
 @extends('layouts.template')
 
 @section('title','TokoLokal')
@@ -48,3 +50,5 @@
 <script src="{{asset('js/app.js')}}"></script> -->
 
 @endsection
+</div>
+<script src="{{asset('js/app.js')}}"></script> 

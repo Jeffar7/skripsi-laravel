@@ -13,3 +13,8 @@ require('./bootstrap');
  */
 
 require('./components/Example');
+require('./components/Loading');
+require('./components/Button.css');
+require('./components/BestSeller');
+require('./components/HomeSlider');
+require('./components/BestSeller.css');

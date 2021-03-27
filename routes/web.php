@@ -34,6 +34,27 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/load', function () {
+    return view('loading');
+});
+
+Route::get('/about', function () {
+    return view('pages/aboutus');
+});
+
+Route::get('/contact', function () {
+    return view('pages/contactus');
+});
+
+Route::get('/faq', function () {
+    return view('pages/faq');
+});
+
+Route::get('/termsandcondition', function () {
+    return view('pages/terms');
+});
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pagehome', 'PageController@home'); //testadmin
 Route::get('/userprofile', 'UserController@index'); //testuser
@@ -54,8 +75,10 @@ Route::get('/itemdetail', 'PageController@itemdetail');
 Route::get('/managebrand', 'BrandController@index')->middleware('role:admin');
 Route::get('/brands/create', 'BrandController@create')->middleware('role:admin');
 Route::post('/managebrand', 'BrandController@store')->middleware('role:admin');
-Route::get('/brands/{brand}', 'BrandController@show')->middleware('role:admin|customer');
-Route::get('/allbrand', 'BrandController@allbrand')->name('brand')->middleware('role:admin|customer');
+// Route::get('/brands/{brand}', 'BrandController@show')->middleware('role:admin|customer');
+Route::get('/brands/{brand}', 'BrandController@show');
+// Route::get('/allbrand', 'BrandController@allbrand')->name('brand')->middleware('role:admin|customer');
+Route::get('/allbrand', 'BrandController@allbrand')->name('brand');
 Route::delete('/brands/{brand}', 'BrandController@destroy')->middleware('role:admin');
 Route::get('/brands/{brand}/edit', 'BrandController@edit')->middleware('role:admin');
 Route::patch('/brands/{brand}', 'BrandController@update')->middleware('role:admin');

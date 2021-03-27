@@ -1,12 +1,12 @@
-@extends('layouts.template')
+@extends('layouts.app')
 
-@section('title','Men | TokoLokal')
+@section('title','TokoLokal | Men')
 
 @section('content')
 
 <div class="jumbotron bg-transparent" style="margin-top: -3rem;">
     <div class="text-center">
-        <h5 class="text-left" style="margin-left: 1rem;">Home > Men </h5>
+        <h5 class="text-left" style="margin-left: 1rem;">Home > Men Test </h5>
         <img src="image/men.jpg" class="img-fluid p-3" alt="men" height="40rem">
     </div>
 

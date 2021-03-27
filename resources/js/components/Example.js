@@ -1,20 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
+import './Button.css'
+import Loading from './Loading'
+// import Button from './Button'
+
 
 function Example() {
-    
-    return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Jeffar</div>
+    const [loading, setLoading] = React.useState(false);
 
-                        <div className="card-body">I'm an example Test!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    return (
+        <button className="btn-login" type="submit" onClick={() => {
+            setLoading(true);
+            setTimeout(function(){ 
+                setLoading(false);
+            }, 5000);
+            }}>
+                {/* { !!loading && <Loading /> } */}
+                {loading ? <Loading /> : null }
+                SIGN IN
+        </button>
+
+        
     );
 }
 
