@@ -45,7 +45,7 @@
                             <td>{{$product->created_at}}</td>
                             <td>
                                 <a href="products/{{$product->id}}/edit" class="badge btn-success">Edit</a>
-                            
+
                                 <form action="products/{{$product->id}}" method="POST" class="d-inline">
                                     @method('delete')
                                     @csrf

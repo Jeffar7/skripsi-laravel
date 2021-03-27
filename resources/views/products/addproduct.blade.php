@@ -32,8 +32,17 @@
                             <label for="category">Category</label>
                             <select class="form-control" name="categoryid">
                                 @foreach($categories as $category)
+
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="brand">Product Gender</label>
+                            <select class="form-control" name="gender_id">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
 
@@ -41,8 +50,8 @@
                         <div class="form-group ">
                             <label for="brand">Brand</label>
                             <select class="form-control" name="brandid">
-                                @foreach($products as $product)
-                                <option value="{{$product->brand->id}}">{{$product->brand->name}}</option>
+                                @foreach($brands as $brand)
+                                <option value="{{$brand->id}}">{{$brand->name}}</option>
                                 @endforeach
                             </select>
                         </div>

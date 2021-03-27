@@ -1,9 +1,10 @@
 <?php
 
+use App\DetailAddress;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use PhpParser\Node\Expr\Match_;
 
 class UsersTableSeeder extends Seeder
 {
@@ -29,7 +30,11 @@ class UsersTableSeeder extends Seeder
             'picture' => 'picture.jpg',
             'phone' => '082186135540'
         ]);
+
+
         $admin->assignRole('admin');
+
+
 
         $customer = User::create([
             'first_name' => 'customer',

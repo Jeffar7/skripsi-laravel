@@ -10,6 +10,12 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
 
+            @if(session('status'))
+            <div class="alert alert-success">
+                {{session('statuss')}}
+            </div>
+            @endif
+
             <div class="card" style="width: 18rem;">
                 <img src="{{asset('uploads/products/' . $product_tops->productimage)}}" width="100px;" height="100px;" alt="Image">
                 <div class="card-body">
@@ -19,7 +25,18 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Price: Rp. {{$product_tops->productprice}}</li>
                     <li class="list-group-item">Size: {{$product_tops->productsize}}</li>
-                    <li class="list-group-item"><a href="#"><i class="bi bi-heart-fill"></a></i></li>
+
+                    <!-- wish list button -->
+                    <form action="/wish-list/save" method="POST">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                        <input type="hidden" name="product_id" value="{{$product_tops->id}}">
+                        <li class="list-group-item">
+                            <button type="submit" class="bg-white"><i class="bi bi-heart-fill"></i></button>
+                        </li>
+                    </form>
+                    <!--akhir wish list button -->
+
                 </ul>
                 <div class="card">
                     <a href="#" class="card-link">Select Size</a>
@@ -59,9 +76,15 @@
 
                     @endforeach
                 </div>
+                <div class="form-group">
+                    <label for="commentbox">Comment</label>
+                    <textarea name="review" id="commentbox" rows="3"></textarea>
+                </div>
+
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
             </div>
+
 
         </div>
     </div>

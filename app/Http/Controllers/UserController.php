@@ -32,7 +32,7 @@ class UserController extends Controller
 
     public function usercontrol()
     {
-        $users = DB::table('users')->get();
+        $users = User::all();
 
         return view('users\usercontrol', ['users' => $users]);
     }
@@ -173,6 +173,12 @@ class UserController extends Controller
                 'country' => $request->country
             ]);
 
+        if ($request->role == "customer") {
+            $user->assignRole('customer');
+        } else {
+            $user->assignRole('admin');
+        }
+
 
         return redirect('/userprofile')->with('status', 'User data successfully updated!');
     }
@@ -211,6 +217,12 @@ class UserController extends Controller
                 'phone' => $request->phone
 
             ]);
+
+        if ($request->role == "customer") {
+            $user->assignRole('customer');
+        } else {
+            $user->assignRole('admin');
+        }
 
         return redirect('/usercontrol')->with('status', 'User data successfully updated!');
     }

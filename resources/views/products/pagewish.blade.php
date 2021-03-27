@@ -35,8 +35,14 @@
                             <td>{{$productwish->product->productname}}</td>
                             <td>{{$productwish->product->productprice}}</td>
                             <td>
-                                <a href="#products/{{$productwish->id}}/edit" class="badge btn-danger">Hapus</a>
-                                <a href="#products/{{$productwish->id}}/edit" class="badge btn-success">+ Keranjang</a>
+                                <form action="/wish-list/{{$productwish->id}}" method="POST" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="badge btn-danger" type="submit">
+                                        Delete
+                                    </button>
+                                </form>
+                                <a href="/products/{{$productwish->id}}/edit" class="badge btn-success">+ Keranjang</a>
                             </td>
                         </tr>
                     </tbody>

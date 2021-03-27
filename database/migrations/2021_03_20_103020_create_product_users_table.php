@@ -18,6 +18,7 @@ class CreateProductUsersTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::table('product_users', function (Blueprint $table) {

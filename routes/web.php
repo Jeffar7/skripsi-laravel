@@ -4,8 +4,12 @@ use App\Brand;
 use App\Category;
 use App\Gender;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WomenController;
+use App\Product;
 use App\product_user;
+use App\Review;
+use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,6 +69,8 @@ Route::patch('/products/{product}', 'ProductController@update')->middleware('rol
 Route::delete('/products/{product}', 'ProductController@destroy')->middleware('role:admin');
 
 Route::get('/product-wish', 'ProductController@productwish')->middleware('role:customer|admin');
+Route::post('/wish-list/save', 'ProductController@productwishsave');
+Route::delete('/wish-list/{product}', 'ProductController@destroywish')->middleware('role:admin|customer');
 
 Route::get('/men-tops', 'ManController@tops');
 Route::get('/men-tops/detail/{product}', 'ManController@topsdetail');
@@ -97,4 +103,15 @@ Route::get('/check', function () {
     //         dd($product->productname);
     //     }
     // }
+
+    $user = User::onlyTrashed()->get();
+    dd($user);
+
+    $reviews = Review::all();
+    $product_tops = Product::where('id', '=', 1)->first();
+
+    foreach ($reviews as $review) {
+        if ($review->product_id == $product_tops->id) {
+        }
+    }
 });

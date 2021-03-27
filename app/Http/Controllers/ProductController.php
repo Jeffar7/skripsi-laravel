@@ -31,15 +31,35 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $categories = Category::all();
-        return view('products\addproduct', compact(['products', 'categories']));
+        $brands = Brand::all();
+        return view('products\addproduct', compact(['products', 'categories', 'brands']));
     }
 
     public function productwish()
     {
+
         $productwishs = product_user::where('user_id', '=', Auth::user()->id)->get();
-        // foreach($productwishs as $productwish)
-        // dd($productwish->product->brand->name);
+
         return view('products\pagewish', compact('productwishs'));
+    }
+
+    //save wish list
+
+    public function productwishsave(Request $request)
+    {
+        $wishlist = product_user::all();
+
+        if (product_user::where('product_id', '=', $request->product_id)->exists() & product_user::where('user_id', '=', $request->user_id)->exists()) {
+            return redirect('/product-wish')->with('status', 'item already on product wish');
+        } else {
+
+            $productwishsave = new product_user();
+            $productwishsave->product_id = $request->product_id;
+            $productwishsave->user_id = $request->user_id;
+            $productwishsave->save();
+
+            return redirect('/product-wish')->with('status', 'item successfully added to product wish');
+        }
     }
 
     /**
@@ -50,11 +70,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->gender_id == "Male") {
+            $request->gender_id = 1;
+        } else {
+            $request->gender_id = 2;
+        }
+
         $products = new Product;
         $products->productname = $request->productname;
         // $products->productimage = $request->productimage;
         $products->categoryid = $request->categoryid;
         $products->brandid = $request->brandid;
+        $products->gender_id = $request->gender_id;
         $products->productprice = $request->productprice;
         $products->productquantity = $request->productquantity;
         $products->productsize = $request->productsize;
@@ -109,6 +136,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+
+        //update gender_id product belom
+
+        if ($request->gender_id == "Male") {
+            $request->gender_id = 1;
+        } else {
+            $request->gender_id = 2;
+        }
+
         if ($request->hasFile('productimage')) {
             $file = $request->file('productimage');
             $extension = $file->getClientOriginalExtension();
@@ -124,6 +160,7 @@ class ProductController extends Controller
             ->update([
                 'categoryid' => $request->categoryid,
                 'brandid' => $request->brandid,
+                'gender_id' => $request->gender_id,
                 'productname' => $request->productname,
                 'productprice' => $request->productprice,
                 'productquantity' => $request->productquantity,
@@ -146,5 +183,12 @@ class ProductController extends Controller
         Product::destroy($product->id);
 
         return redirect('manageproduct')->with('status', 'Product successfully deleted!');
+    }
+
+    public function destroywish(product_user $product)
+    {
+        product_user::destroy($product->id);
+
+        return redirect('product-wish')->with('status', 'Product successfully deleted');
     }
 }
