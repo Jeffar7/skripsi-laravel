@@ -23,7 +23,26 @@ class BrandController extends Controller
     {
         $brands = Brand::all();
 
-        return view('brands\allbrand',compact('brands'));
+        // return view('brands\allbrand',compact('brands'));
+
+        $categories = Brand::orderBy('name', 'asc')->get();
+
+        $groups = $categories->reduce(function ($carry, $category) {
+    
+            // get first letter
+            $first_letter = $category['name'][0];
+    
+            if ( !isset($carry[$first_letter]) ) {
+                $carry[$first_letter] = [];
+            }
+    
+            $carry[$first_letter][] = $category;
+    
+            return $carry;
+    
+        }, []);
+    
+        return view('brands\allbrand',compact('brands'))->with('groups', $groups);
     }
 
 

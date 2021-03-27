@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal')
+@section('title','TokoLokal | About Us')
 
 @section('content')
     <div class="container">
@@ -23,8 +23,8 @@
                 <h4>Our Location</h4>
                 <div class="">
                     <div class="my-2">
-                        <h5 class="card-title" style="">Office 8 Building, 19th Floor Unit A</h5>
-                        <p class="card-text" style="">Jl. Jend. Sudirman Kav.52-53
+                        <h5 class="card-title">Office 8 Building, 19th Floor Unit A</h5>
+                        <p class="card-text">Jl. Jend. Sudirman Kav.52-53
                         RT.8/RW.3 Senayan, Kebayoran Baru
                         Jakarta Selatan 12190
                         Indonesia</p>
@@ -44,7 +44,7 @@
 
         <div class="row justify-content-center my-4">
             <div class="col-md-4">
-                <div class="card" style="">
+                <div class="card">
                     <i class="far fa-comment fa-2x" style="text-align:center;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Live Chat</h5>
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card" style="">
+                <div class="card">
                     <i class="fas fa-shoe-prints fa-2x" style="text-align:center;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Raffle</h5>
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card" style="">
+                <div class="card">
                     <i class="fas fa-tshirt fa-2x" style="text-align:center;"></i>
                     <div class="card-body">
                         <h5 class="card-title">Complete The Look</h5>
