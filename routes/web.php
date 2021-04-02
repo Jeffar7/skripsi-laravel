@@ -56,7 +56,7 @@ Route::get('/termsandcondition', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/pagehome', 'PageController@home'); //testadmin
+Route::get('/pagehome', 'PageController@home')->middleware('auth');
 Route::get('/userprofile', 'UserController@index'); //testuser
 Route::get('/usersettings', 'UserController@usersettings');
 Route::get('/users/create', 'UserController@create')->middleware('role:admin');
@@ -72,7 +72,7 @@ Route::get('/itemlist', 'PageController@itemlist');
 Route::get('/itemdetail', 'PageController@itemdetail');
 Route::get('/itemdetail', 'PageController@itemdetail');
 
-Route::get('/managebrand', 'BrandController@index')->middleware('role:admin');
+Route::get('/managebrand', 'BrandController@index')->middleware('role:admin', 'auth');
 Route::get('/brands/create', 'BrandController@create')->middleware('role:admin');
 Route::post('/managebrand', 'BrandController@store')->middleware('role:admin');
 // Route::get('/brands/{brand}', 'BrandController@show')->middleware('role:admin|customer');
@@ -83,7 +83,6 @@ Route::delete('/brands/{brand}', 'BrandController@destroy')->middleware('role:ad
 Route::get('/brands/{brand}/edit', 'BrandController@edit')->middleware('role:admin');
 Route::patch('/brands/{brand}', 'BrandController@update')->middleware('role:admin');
 
-
 Route::get('/manageproduct', 'ProductController@index')->middleware('role:admin');
 Route::get('/products/create', 'ProductController@create')->middleware('role:admin');
 Route::post('/manageproduct', 'ProductController@store')->middleware('role:admin');
@@ -93,7 +92,29 @@ Route::delete('/products/{product}', 'ProductController@destroy')->middleware('r
 
 Route::get('/product-wish', 'ProductController@productwish')->middleware('role:customer|admin');
 Route::post('/wish-list/save', 'ProductController@productwishsave');
-Route::delete('/wish-list/{product}', 'ProductController@destroywish')->middleware('role:admin|customer');
+Route::delete('/wish-list/delete/{id}', 'ProductController@destroywish');
+Route::delete('/wish-list/addtocart/{id}', 'ProductController@addtocart');
+
+Route::get('/product-cart', 'ProductController@productcart');
+Route::delete('/product-cart/delete/{id}', 'ProductController@destroylist');
+
+Route::get('/raffle', 'RaffleController@raffle');
+Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
+Route::get('/manageraffle', 'RaffleController@index');
+Route::get('/raffles/create', 'RaffleController@create');
+Route::post('/manageraffle', 'RaffleController@store');
+Route::get('/raffles/{raffle}/edit', 'RaffleController@edit');
+Route::patch('/raffles/{raffle}', 'RaffleController@update');
+Route::delete('/raffles/{raffle}', 'RaffleController@destroy');
+
+Route::get('/event', 'EventController@event');
+Route::get('/events/detail/{event}', 'EventController@eventdetail');
+Route::get('/manageevent', 'EventController@index');
+Route::get('/events/create', 'EventController@create');
+Route::post('/manageevent', 'EventController@store');
+Route::get('/events/{event}/edit', 'EventController@edit');
+Route::patch('/events/{event}', 'EventController@update');
+Route::delete('/events/{event}', 'EventController@destroy');
 
 Route::get('/men-tops', 'ManController@tops');
 Route::get('/men-tops/detail/{product}', 'ManController@topsdetail');
@@ -112,6 +133,8 @@ Route::get('/women-accessories', 'WomenController@accessories');
 Route::get('/women-new', 'WomenController@new');
 Route::get('/women-sale', 'WomenController@sale');
 
+
+//route for testing
 Route::get('/check', function () {
     // mencari product dengan product gender 'MEN' category 'SHOES' dan produk dengan category 'SHOES'
     // $genders = Gender::find(1)->category()->where('name', 'SHOES')->first();
@@ -127,14 +150,18 @@ Route::get('/check', function () {
     //     }
     // }
 
-    $user = User::onlyTrashed()->get();
-    dd($user);
+    // $user = User::onlyTrashed()->get();
+    // dd($user);
 
-    $reviews = Review::all();
-    $product_tops = Product::where('id', '=', 1)->first();
+    // $reviews = Review::all();
+    // $product_tops = Product::where('id', '=', 1)->first();
 
-    foreach ($reviews as $review) {
-        if ($review->product_id == $product_tops->id) {
-        }
-    }
+    // foreach ($reviews as $review) {
+    //     if ($review->product_id == $product_tops->id) {
+    //     }
+    // }
+
+    // $cartlist = product_user::onlyTrashed()->get();
+
+    // dd($cartlist);
 });

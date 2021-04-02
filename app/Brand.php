@@ -17,8 +17,14 @@ class Brand extends Model
 
     protected $guarded = ['id'];
 
-    public function product(){
+    public function product()
+    {
         return $this->hasMany('App\Product');
+    }
+
+    public function raffle()
+    {
+        return $this->hasMany(Raffle::class);
     }
 
     public $timestamps = true;

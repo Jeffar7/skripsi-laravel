@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,13 +20,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Customize Css -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    
+
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
+
 <body>
     <div id="app pt-0">
         <div class="container">
@@ -37,7 +39,7 @@
                     <div class="pt-4 mb-4">
                         <h6 style="font-weight: 200" class="mb-3">WELCOME TO</h6>
                         <a href="{{ url('/') }}">
-                            <img src="{{ asset('images/Store_Logo_210309.jpg') }}" width="70" height="60" alt="" class="mb-3">  
+                            <img src="{{ asset('images/Store_Logo_210309.jpg') }}" width="70" height="60" alt="" class="mb-3">
                         </a>
                         <h6>Register to get in the moment updates on the things that interest you</h6>
                     </div>
@@ -48,24 +50,51 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6 inner-addon left-addon-regist">
                                     <i class="fas fa-user"></i>
-                                    <input type="text" class="log-field" id="first_name" name="first_name" placeholder="First Name" autofocus>
+                                    <input type="text" class="log-field  @error('first_name') is-invalid @enderror" id="first_name" name="first_name" placeholder="First Name" autofocus>
+
+                                    @error('first_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+
 
                                 <div class="form-group col-md-6 inner-addon left-addon-regist">
                                     <i class="fas fa-user"></i>
-                                    <input type="text" class="log-field" id="last_name" name="last_name" placeholder="Last Name">
+                                    <input type="text" class="log-field  @error('last_name') is-invalid @enderror" id="last_name" name="last_name" placeholder="Last Name">
+
+                                    @error('last_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+
+
                             </div>
 
                             <div class="form-group inner-addon left-addon-email">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" class="log-field" id="email" name="email" placeholder="Email">
+                                <input type="text" class="log-field  @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email">
+
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6 inner-addon left-addon-regist">
                                     <i class="fas fa-lock"></i>
-                                    <input type="password" class="log-field" id="password" name="password" placeholder="Password">
+                                    <input type="password" class="log-field  @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password">
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
                                 </div>
                                 <div class="form-group col-md-6 inner-addon left-addon-regist">
                                     <i class="fas fa-lock"></i>
@@ -76,18 +105,23 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" id="Gender" name="gender" value="Female">Female
+                                        <input type="radio" class="form-check-input  @error('gender') is-invalid @enderror" id="Gender" name="gender" value="Female">Female
                                     </label>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" id="Gender" name="gender" value="Male">Male
-                                </label>
+                                        <input type="radio" class="form-check-input  @error('gender') is-invalid @enderror" id="Gender" name="gender" value="Male">Male
+                                    </label>
                                 </div>
                             </div>
 
                             <div class="form group mb-3">
-                                <input id="datepicker" width="276" name="DOB" type="date" class="log-field">
+                                <input id="datepicker" width="276" name="DOB" type="date" class="log-field @error('DOB') is-invalid @enderror">
+                                @error('DOB')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>The Date Of Birth fields is required.</strong>
+                                </span>
+                                @enderror
                             </div>
 
                             <input type="hidden" value="customer" name=role>
@@ -114,11 +148,11 @@
                             </div>
 
                             <div class="form-row">
-                            <div class="form-group col-md-12 justify-content-center mb-0">
-                                <label>Have an account?</label>
-                                <a href="{{ route('login') }}">Sign In</a>
+                                <div class="form-group col-md-12 justify-content-center mb-0">
+                                    <label>Have an account?</label>
+                                    <a href="{{ route('login') }}">Sign In</a>
+                                </div>
                             </div>
-                        </div>
                             <hr class="mt-1 mb-1">
                             <div class="form-row">
                                 <label>By creating or registering an account, you are agree to the contents of the <a href="#">Terms and Conditions</a> & Our <a href="#">Privacy Policy</a></label>
@@ -131,4 +165,5 @@
         </div>
     </div>
 </body>
+
 </html>

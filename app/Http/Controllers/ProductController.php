@@ -50,7 +50,8 @@ class ProductController extends Controller
         $wishlist = product_user::all();
 
         if (product_user::where('product_id', '=', $request->product_id)->exists() & product_user::where('user_id', '=', $request->user_id)->exists()) {
-            return redirect('/product-wish')->with('status', 'item already on product wish');
+            return back()->with('status', 'item already on product wish');
+            // return view()->route('men-tops/detail/'1);
         } else {
 
             $productwishsave = new product_user();
@@ -58,7 +59,7 @@ class ProductController extends Controller
             $productwishsave->user_id = $request->user_id;
             $productwishsave->save();
 
-            return redirect('/product-wish')->with('status', 'item successfully added to product wish');
+            return back()->with('status', 'item successfully added to product wish');
         }
     }
 
@@ -185,10 +186,35 @@ class ProductController extends Controller
         return redirect('manageproduct')->with('status', 'Product successfully deleted!');
     }
 
-    public function destroywish(product_user $product)
+    public function destroywish($id)
     {
-        product_user::destroy($product->id);
+        $wishlist = product_user::where('product_id', '=', $id)->first();
+        $wishlist->forceDelete();
 
         return redirect('product-wish')->with('status', 'Product successfully deleted');
+    }
+
+    public function destroylist($id)
+    {
+        $wishlist = product_user::where('product_id', '=', $id)->onlyTrashed()->first();
+        $wishlist->forceDelete();
+
+        return redirect('product-cart')->with('status', 'Product successfully deleted from cart');
+    }
+
+    //add product to cart
+    public function addtocart($id)
+    {
+        $wishlist = product_user::where('product_id', '=', $id)->first();
+        $wishlist->delete();
+
+        return redirect('product-wish')->with('status', 'Product successfully added to cart');
+    }
+
+    public function productcart()
+    {
+        $cartlists = product_user::onlyTrashed()->get();
+
+        return view('/products/pagecart', compact('cartlists'));
     }
 }

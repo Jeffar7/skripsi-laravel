@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Middleware\Authenticate;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -55,6 +60,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users',
+            'gender' => 'required',
+            'DOB' => 'required',
+            'password' => 'required|string|min:8|confirmed',
+            'role' => 'required|string',
+            'address' => 'required|string',
+            'about' => 'required|string|max:255',
+            'picture' => 'required|file',
+            'phone' => 'required'
+        ]);
+
 
         $user = new User();
         $user->first_name = $request->first_name;
@@ -68,7 +87,7 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->site = $request->site;
         $user->about = $request->about;
-        $user->phone = $request->phonenumber;
+        $user->phone = $request->phone;
         // $user->picture= $request->picture;
 
         if ($request->hasFile('picture')) {
