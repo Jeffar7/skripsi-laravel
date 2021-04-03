@@ -163,14 +163,11 @@ class UserController extends Controller
             $user->picture = '';
         }
 
-
-
-
         User::where('id', $user->id)
             ->update([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
-                'email' => $request->email,
+                // 'email' => $request->email,
                 'username' => strstr($request->email, '@', true),
                 'gender' => $request->gender,
                 'DOB' => $request->DOB,

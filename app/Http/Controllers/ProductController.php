@@ -50,8 +50,7 @@ class ProductController extends Controller
         $wishlist = product_user::all();
 
         if (product_user::where('product_id', '=', $request->product_id)->exists() & product_user::where('user_id', '=', $request->user_id)->exists()) {
-            return back()->with('status', 'item already on product wish');
-            // return view()->route('men-tops/detail/'1);
+            return back()->with('status', 'Item has already on wish list.');
         } else {
 
             $productwishsave = new product_user();
@@ -59,7 +58,7 @@ class ProductController extends Controller
             $productwishsave->user_id = $request->user_id;
             $productwishsave->save();
 
-            return back()->with('status', 'item successfully added to product wish');
+            return back()->with('status', 'item successfully added to wish wish!');
         }
     }
 

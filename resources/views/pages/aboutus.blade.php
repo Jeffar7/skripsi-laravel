@@ -39,7 +39,7 @@
         <hr>
 
         <div class="row justify-content-center my-4">
-            <label class="title-home">Our Awesome Futures</label>
+            <label class="title-home">Our Awesome Features</label>
         </div>
 
         <div class="row justify-content-center my-4">
