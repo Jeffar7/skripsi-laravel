@@ -31,14 +31,14 @@ class WomenController extends Controller
                 AllowedFilter::exact('brand', 'brandid'),
                 AllowedFilter::exact('categoryid')->default('1'),
                 AllowedFilter::exact('gender_id')->default('2')
-                ])
+            ])
             ->get();
- 
-        if($products->count() == 0)
-            return view('womenpage/tops', compact('tops', 'topscount', 'brands','products'))
+
+        if ($products->count() == 0)
+            return view('womenpage/tops', compact('tops', 'topscount', 'brands', 'products'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('womenpage/tops', compact('tops', 'topscount', 'brands','products'));
+            return view('womenpage/tops', compact('tops', 'topscount', 'brands', 'products'));
     }
 
     public function bottoms()
@@ -56,14 +56,14 @@ class WomenController extends Controller
                 AllowedFilter::exact('brand', 'brandid'),
                 AllowedFilter::exact('categoryid')->default('2'),
                 AllowedFilter::exact('gender_id')->default('2')
-                ])
+            ])
             ->get();
-    
-        if($products->count() == 0)
-            return view('womenpage/bottoms', compact('bottoms', 'bottomscount', 'brands','products'))
+
+        if ($products->count() == 0)
+            return view('womenpage/bottoms', compact('bottoms', 'bottomscount', 'brands', 'products'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('womenpage/bottoms', compact('bottoms', 'bottomscount', 'brands','products'));
+            return view('womenpage/bottoms', compact('bottoms', 'bottomscount', 'brands', 'products'));
     }
 
     public function shoes()
@@ -81,14 +81,14 @@ class WomenController extends Controller
                 AllowedFilter::exact('brand', 'brandid'),
                 AllowedFilter::exact('categoryid')->default('3'),
                 AllowedFilter::exact('gender_id')->default('2')
-                ])
+            ])
             ->get();
-    
-        if($products->count() == 0)
-            return view('womenpage/shoes', compact('shoes', 'shoescount', 'brands','products'))
+
+        if ($products->count() == 0)
+            return view('womenpage/shoes', compact('shoes', 'shoescount', 'brands', 'products'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('womenpage/shoes', compact('shoes', 'shoescount', 'brands','products'));
+            return view('womenpage/shoes', compact('shoes', 'shoescount', 'brands', 'products'));
     }
 
     public function accessories()
@@ -106,14 +106,14 @@ class WomenController extends Controller
                 AllowedFilter::exact('brand', 'brandid'),
                 AllowedFilter::exact('categoryid')->default('4'),
                 AllowedFilter::exact('gender_id')->default('2')
-                ])
+            ])
             ->get();
-    
-        if($products->count() == 0)
-            return view('womenpage/accessories', compact('accessories', 'accessoriescount', 'brands','products'))
+
+        if ($products->count() == 0)
+            return view('womenpage/accessories', compact('accessories', 'accessoriescount', 'brands', 'products'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('womenpage/accessories', compact('accessories', 'accessoriescount', 'brands','products'));
+            return view('womenpage/accessories', compact('accessories', 'accessoriescount', 'brands', 'products'));
     }
 
     public function index()
@@ -124,20 +124,20 @@ class WomenController extends Controller
         $categories = Category::all();
 
         $brands = Brand::all();
-    
+
         $products = QueryBuilder::for(Product::class)
             ->allowedFilters([
                 AllowedFilter::exact('brand', 'brandid'),
                 AllowedFilter::exact('category', 'categoryid'),
                 AllowedFilter::exact('gender_id')->default('2')
-                ])
+            ])
             ->get();
 
-        if($products->count() == 0)
-            return view('womenpage/women', compact('products', 'brands', 'categories','productscount'))
+        if ($products->count() == 0)
+            return view('womenpage/women', compact('products', 'brands', 'categories', 'productscount'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('womenpage/women', compact('products', 'brands', 'categories','productscount'));
+            return view('womenpage/women', compact('products', 'brands', 'categories', 'productscount'));
     }
 
     public function new()
