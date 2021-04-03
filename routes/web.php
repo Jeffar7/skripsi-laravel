@@ -103,14 +103,16 @@ Route::get('/men-accessories', 'ManController@accessories');
 Route::get('/men-new', 'ManController@new');
 Route::get('/men-sale', 'ManController@sale');
 Route::get('/men', 'ManController@men');
+Route::get('/men', 'ManController@index');
 
-
+Route::get('/women', 'WomenController@women');
 Route::get('/women-tops', 'WomenController@tops');
 Route::get('/women-bottoms', 'WomenController@bottoms');
 Route::get('/women-shoes', 'WomenController@shoes');
 Route::get('/women-accessories', 'WomenController@accessories');
 Route::get('/women-new', 'WomenController@new');
 Route::get('/women-sale', 'WomenController@sale');
+Route::get('/women', 'WomenController@index');
 
 Route::get('/check', function () {
     // mencari product dengan product gender 'MEN' category 'SHOES' dan produk dengan category 'SHOES'

@@ -16,7 +16,7 @@
                             <div class="my-2">
                                 <h5 class="card-title" style="text-align: center">MEN</h5>
                                 <p class="card-text" style="text-align: center;font-weight: bold;">COLLECTION</p>
-                                <button href="#" class="btn-gender">VIEW MORE</button>
+                                <button href="/men" class="btn-gender">VIEW MORE</button>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             <div class="my-2">
                                 <h5 class="card-title" style="text-align: center">WOMEN</h5>
                                 <p class="card-text" style="text-align: center;font-weight: bold;">COLLECTION</p>
-                                <button href="#" class="btn-gender">VIEW MORE</button>
+                                <button href="/women" class="btn-gender">VIEW MORE</button>
                             </div>
                         </div>
                     </div>

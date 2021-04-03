@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Men - Bottoms')
+@section('title','TokoLokal | Women')
 
 @section('content')
 <div class="container py-4">
-    <div><p class="text-left">Home > Men > Bottom</p></div>
+    <div><p class="text-left">Home > Women</p></div>
     <div class="text-center">
         <img src="image/men.jpg" alt="" height="472px;" width="1110px;">
     </div>
@@ -13,39 +13,37 @@
 <div class="container mb-5">
     <div class="row">
     <div class="col-md-2 ml-3 mr-5 border border-dark">
-            <p class="mb-1 pt-3 font-weight-bold">Men's Bottom ({{$bottomscount}})</p>
+            <p class="mb-1 pt-3 font-weight-bold">Women's ({{$productscount}})</p>
+            <p class="mb-0 font-weight-bold">Categories</p>
+            @foreach ($categories as $category)
+            <div>
+                <label>
+                    <input
+                        id = "reset-filter" name="category" type="checkbox" value="{{ $category->id }}"
+                        @if (in_array($category->id, explode(',', request()->input('filter.category'))))
+                            checked
+                        @endif
+                    >
+                    {{ $category->name }}
+                </label>
+            </div>
+            @endforeach
+            <hr>
             <p class="mb-0 font-weight-bold">Price</p>
             <hr>
             <div>
-                <p class="mb-0 font-weight-bold">Brands</p>
-                    @foreach ($brands as $brand)
-                        <label class="m-checkbox">
-                            <input
-                                id="reset-filter" name="brand" type="checkbox" value="{{ $brand->id }}"
-                                @if (in_array($brand->id, explode(',', request()->input('filter.brand'))))
-                                    checked
-                                @endif
-                            >
-                            {{ $brand->name }}
-                        </label>
-                    @endforeach
-            </div>
-            <hr>
-            <p class="mb-0 font-weight-bold">Size</p>
-            <div class="row">
-                    <div class="col-md-12">
-                    @foreach ($products as $product)
-                        <label class="m-checkbox mr-3">
-                            <input
-                                id="reset-filter" name="size" type="checkbox" value="{{ $product->productsize }}"
-                                @if (in_array($brand->id, explode(',', request()->input('filter.size'))))
-                                    checked
-                                @endif
-                            >
-                            {{ $product->productsize }}
-                        </label>
-                    @endforeach
-                    </div>
+            <p class="mb-0 font-weight-bold">Brands</p>
+                @foreach ($brands as $brand)
+                    <label class="m-checkbox">
+                        <input
+                            id="reset-filter" name="brand" type="checkbox" value="{{ $brand->id }}"
+                            @if (in_array($brand->id, explode(',', request()->input('filter.brand'))))
+                                checked
+                            @endif
+                        >
+                        {{ $brand->name }}
+                    </label>
+                @endforeach
             </div>
             <button class="btn-filter mt-3 mb-3" href="#" id="filter">
                 FILTER
@@ -62,7 +60,7 @@
             <div>
             @enderror
             <div class="row">
-                @foreach($bottoms as $product)
+                @foreach($products as $product)
                 <div class="col-4 pt-4">
                     <!-- Gambar 1 -->
                     <div class="card" style="width: 250px; border:none;height:270px;">
@@ -94,7 +92,7 @@
     function filterResults () {
         let brandIds = getIds("brand");
 
-        let sizeIds = getIds("size");
+        let catagoryIds = getIds("category");
 
         let href = 'men?';
 
@@ -102,8 +100,8 @@
             href += 'filter[brand]=' + brandIds;
         }
 
-        if(sizeIds.length) {
-            href += '&filter[size]=' + sizeIds;
+        if(catagoryIds.length) {
+            href += '&filter[category]=' + catagoryIds;
         }
 
         document.location.href=href;

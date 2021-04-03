@@ -26,8 +26,6 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
-
-
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -50,7 +48,7 @@
                         <a class="nav-item nav-link" href="#">EVENT</a>
                         <a class="nav-item nav-link" href="#">FORUM</a>
                     @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link " href="#" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
                                 <ul class="dropdown-menu">
                                     <a class="dropdown-item" href="#">TOP</a>
@@ -60,7 +58,7 @@
                                     <a class="dropdown-item" href="#">NEW</a>
                                     <a class="dropdown-item" href="#">SALE</a>
                                 </ul>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="/men" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
@@ -75,7 +73,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="#" role="button" aria-haspopup="true" aria-expanded="false">WOMEN</a>
+                            <a class="nav-link " href="/women" role="button" aria-haspopup="true" aria-expanded="false">WOMEN</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="/women-tops">TOP</a>
                                 <a class="dropdown-item" href="/women-bottoms">BOTTOM</a>
@@ -87,6 +85,7 @@
                         </li>
                         <a class="nav-item nav-link" href="/allbrand">BRANDS</a>
                         <a class="nav-item nav-link" href="/#">EVENTS</a>
+                        <a class="nav-item nav-link" href="/#">RAFFLES</a>
                     </ul>
                     @endif
                     <!-- Middle Side of Navbar -->
@@ -102,7 +101,7 @@
 
                         @if(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="far fa-heart"></i></a>
+                                <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i></a>
@@ -160,15 +159,15 @@
                     </div>
                     <div class="col-2">
                         <div class="row"><p>EXPLORE</p></div>
-                        <div class="row"><a href="/">Home</a></div>
-                        <div class="row"><a href="/about">About Us</a></div>
-                        <div class="row"><a href="/contact">Contact Us</a></div>
-                        <div class="row"><a href="/termsandcondition">Term & Condition</a></div>
-                        <div class="row"><a href="#">Privacy Policy</a></div>
+                        <div class="row"><a style="color:black;" href="/">Home</a></div>
+                        <div class="row"><a style="color:black;" href="/about">About Us</a></div>
+                        <div class="row"><a style="color:black;" href="/contact">Contact Us</a></div>
+                        <div class="row"><a style="color:black;" href="/termsandcondition">Term & Condition</a></div>
+                        <div class="row"><a style="color:black;" href="#">Privacy Policy</a></div>
                     </div>
                     <div class="col-2">
                         <label>HELP CENTER</label>
-                        <a href="/faq">Customer Services</a>
+                        <a href="/faq" style="color:black;">Customer Services</a>
                     </div>
                     <div class="col-4">
                         <p>VISIT</p>

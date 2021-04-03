@@ -30,13 +30,10 @@ class UsersTableSeeder extends Seeder
             'picture' => 'picture.jpg',
             'phone' => '082186135540'
         ]);
-
-
         $admin->assignRole('admin');
 
-
-
-        $customer = User::create([
+        $customer = User::create(
+        [
             'first_name' => 'customer',
             'last_name' => 'customer1',
             'email' => 'customer1@test.com',    
