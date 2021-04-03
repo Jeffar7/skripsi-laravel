@@ -50,19 +50,6 @@
                         <a class="nav-item nav-link" href="/manageevent">EVENT</a>
                         <a class="nav-item nav-link" href="#">FORUM</a>
                         @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
-                        <li class="nav-item dropdown">
-                            <a class="nav-link " href="#" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
-                            <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="#">TOP</a>
-                                <a class="dropdown-item" href="#">BOTTOM</a>
-                                <a class="dropdown-item" href="#">SHOES</a>
-                                <a class="dropdown-item" href="#">ACCESSORIES</a>
-                                <a class="dropdown-item" href="#">NEW</a>
-                                <a class="dropdown-item" href="#">SALE</a>
-                            </ul>
-                        </li>
-
-                        @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
                         <!-- <li class="nav-item dropdown">
                             <a class="nav-link " href="#" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
                                 <ul class="dropdown-menu">
@@ -74,7 +61,6 @@
                                     <a class="dropdown-item" href="#">SALE</a>
                                 </ul>
                         </li> -->
-
 
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="/men" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
@@ -101,7 +87,7 @@
                         </li>
                         <a class="nav-item nav-link" href="/allbrand">BRANDS</a>
                         <a class="nav-item nav-link" href="/event">EVENTS</a>
-                        <a class="nav-item nav-link" href="/raffle">RAFFLE</a>
+                        <a class="nav-item nav-link" href="/raffle">RAFFLES</a>
                     </ul>
                     @endif
                     <!-- Middle Side of Navbar -->
@@ -121,14 +107,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"></i></a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i></a>
-                        </li>
-
                         @endif
                         @guest
                         <li class="nav-item">
@@ -169,7 +147,8 @@
         <main class="pt-0">
             @yield('content')
         </main>
-        <!-- <footer class="footer mt-auto py-3">
+
+        <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-4">
@@ -179,7 +158,9 @@
                         <p>© 2021 TokoLokal. All Rights Reserved.</p>
                     </div>
                     <div class="col-2">
-                        <div class="row"><p>EXPLORE</p></div>
+                        <div class="row">
+                            <p>EXPLORE</p>
+                        </div>
                         <div class="row"><a style="color:black;" href="/">Home</a></div>
                         <div class="row"><a style="color:black;" href="/about">About Us</a></div>
                         <div class="row"><a style="color:black;" href="/contact">Contact Us</a></div>
@@ -197,7 +178,7 @@
                     </div>
                 </div>
             </div>
-        </footer> -->
+        </footer>
     </div>
     <script>
         $(window).load(function() {

@@ -7,11 +7,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <p class="title-home">Wish List</p>
-        @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-        @endif
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -23,13 +18,6 @@
         <div class="col-md-4">
             <p>Manage</p>
         </div>
-    </div>
-    <div class="row justify-content-center">
-        @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-        @endif
     </div>
 </div>
 <div class="container">
@@ -50,14 +38,19 @@
                     </div>
                 </div>
                 <div class="row text-left ml-3">
-                    <form action="/wish-list/{{$productwish->id}}" method="POST" class="d-inline">
+                    <form action="/wish-list/delete/{{$productwish->id}}" method="POST" class="d-inline">
                         @method('delete')
                         @csrf
                         <button class="badge btn-danger" type="submit" style="height: 30px;width: 30px">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </form>
-                    <button href="/products/{{$productwish->id}}/edit" class="badge btn-success ml-2" style="height: 30px;width: 350px;">+ Cart</button>
+
+                    <form action="/wish-list/addtocart/{{$productwish->id}}" method="POST" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button class="badge btn-success ml-2" style="height: 30px;width: 350px;">+ Cart</button>
+                    </form>
                 </div>
             </div>
             @endforeach
