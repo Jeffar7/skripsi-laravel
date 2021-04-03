@@ -187,7 +187,7 @@ class ProductController extends Controller
 
     public function destroywish($id)
     {
-        $wishlist = product_user::where('product_id', '=', $id)->first();
+        $wishlist = product_user::where('id', '=', $id)->first();
         $wishlist->forceDelete();
 
         return redirect('product-wish')->with('status', 'Product successfully deleted');
@@ -195,7 +195,7 @@ class ProductController extends Controller
 
     public function destroylist($id)
     {
-        $wishlist = product_user::where('product_id', '=', $id)->onlyTrashed()->first();
+        $wishlist = product_user::where('id', '=', $id)->onlyTrashed()->first();
         $wishlist->forceDelete();
 
         return redirect('product-cart')->with('status', 'Product successfully deleted from cart');
@@ -204,7 +204,7 @@ class ProductController extends Controller
     //add product to cart
     public function addtocart($id)
     {
-        $wishlist = product_user::where('product_id', '=', $id)->first();
+        $wishlist = product_user::where('id', '=', $id)->first();
         $wishlist->delete();
 
         return redirect('product-wish')->with('status', 'Product successfully added to cart');

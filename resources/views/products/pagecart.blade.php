@@ -38,7 +38,7 @@
                             <td>{{$cartlist->product->productsize}}</td>
                             <td>{{$cartlist->product->productprice}}</td>
                             <td>
-                                <form action="/product-cart/delete/{{$cartlist->product->id}}" method="POST" class="d-inline">
+                                <form action="/product-cart/delete/{{$cartlist->id}}" method="POST" class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button class="badge btn-danger" type="submit">
