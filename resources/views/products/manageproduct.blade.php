@@ -1,6 +1,6 @@
-@extends('layouts.template')
+@extends('layouts.app')
 
-@section('title','Manage Product')
+@section('title','TokoLokal | Manage Product')
 
 @section('content')
 
@@ -23,12 +23,13 @@
                         <tr>
                             <th scope="col">Item ID</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Category</th>
                             <th scope="col">Picture</th>
                             <th scope="col">Brand</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Created At</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col"> Actions </th>
                         </tr>
                     </thead>
                     @foreach($products as $product)
@@ -36,14 +37,20 @@
                         <tr>
                             <th scope="row">{{$product->id}}</th>
                             <td>{{$product->productname}}</td>
-                            <td><img src="{{asset($product->productimage)}}" alt=""></td>
+                            <td>{{$product->category->name}}</td>
+                            <td><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
                             <td>{{$product->brand['name']}}</td>
                             <td>{{$product->productprice}}</td>
                             <td>{{$product->productquantity}}</td>
                             <td>{{$product->created_at}}</td>
                             <td>
-                                <a href="#" class="badge btn-success">edit</a>
-                                <a href="#" class="badge btn-danger">delete</a>
+                                <a href="products/{{$product->id}}/edit" class="badge btn-success">Edit</a>
+
+                                <form action="products/{{$product->id}}" method="POST" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="badge btn-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     </tbody>

@@ -1,6 +1,6 @@
-@extends('layouts.template')
+@extends('layouts.app')
 
-@section('title','Manage Brand')
+@section('title','TokoLokal | Manage Brand')
 
 @section('content')
 
@@ -43,12 +43,12 @@
                             <td>{{$brand->created_at}}</td>
                             <td>
 
-                                <a href="brands/{{$brand->id}}/edit" class="badge btn-success">edit</a>
+                                <a href="brands/{{$brand->id}}/edit" class="badge btn-success">Ecdit</a>
 
                                 <form action="brands/{{$brand->id}}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="badge btn-danger">Delete</button>
                                 </form>
 
                             </td>

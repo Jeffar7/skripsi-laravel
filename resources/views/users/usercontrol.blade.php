@@ -1,6 +1,6 @@
-@extends('layouts.template')
+@extends('layouts.app')
 
-@section('title','User Control')
+@section('title','TokoLokal | Manage User')
 
 @section('content')
 
@@ -10,6 +10,12 @@
             <h1 class="text-center mt-3">User Control</h1>
 
             <a href="/users/create" class="btn btn-primary my-3">Add User</a>
+
+            @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+            @endif
 
             <table class="table">
                 <thead class="thead-dark">
@@ -29,12 +35,18 @@
                     <tr>
                         <th scope="row">{{$user->id}}</th>
                         <td>{{$user->first_name}} {{$user->last_name}}</td>
-                        <td>{{$user->username}}</td>
+                        <td>{{$user->email}}</td>
                         <td>{{$user->role}}</td>
                         <td>{{$user->created_at}}</td>
                         <td>
-                            <a href="" class="badge badge-success">edit</a>
-                            <a href="" class="badge badge-danger">delete</a>
+                            <a href="users/{{$user->id}}/edit" class="badge badge-success">Edit</a>
+
+                            <form action="/users/{{$user->id}}" method="POST" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="badge btn-danger">Delete</button>
+                            </form>
+
                         </td>
 
                     </tr>

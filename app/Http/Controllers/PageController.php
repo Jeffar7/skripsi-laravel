@@ -7,7 +7,7 @@ use App\Product;
 
 class PageController extends Controller
 {
-/**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -22,7 +22,7 @@ class PageController extends Controller
     {
         $products  = Product::all();
 
-        return view('pages\homeman',compact('products'));
+        return view('pages\homeman', compact('products'));
     }
 
     /**
@@ -135,6 +135,4 @@ class PageController extends Controller
     {
         return view('pages\transactionhistory');
     }
-
-
 }
