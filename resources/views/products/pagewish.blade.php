@@ -4,10 +4,19 @@
 
 @section('content')
 
+
+
 <div class="container">
     <div class="row justify-content-center">
         <p class="title-home">Wish List</p>
     </div>
+
+    @if(session('status'))
+    <div class="alert alert-success">
+        {{session('status')}}
+    </div>
+    @endif
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="search-group rounded left-addon-search inner-addon" style="width:730px;">
@@ -46,8 +55,13 @@
                         </button>
                     </form>
 
-                    <form action="/wish-list/addtocart/{{$productwish->id}}" method="POST" class="d-inline">
+                    <!-- <form action="/wish-list/addtocart/{{$productwish->id}}" method="POST" class="d-inline">
                         @method('delete')
+                        @csrf
+                        <button class="badge btn-success ml-2" style="height: 30px;width: 350px;">+ Cart</button>
+                    </form> -->
+
+                    <form action="addtocart/{{$productwish->id}}" method="POST" class="d-inline">
                         @csrf
                         <button class="badge btn-success ml-2" style="height: 30px;width: 350px;">+ Cart</button>
                     </form>

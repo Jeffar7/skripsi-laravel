@@ -15,6 +15,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <!-- Customize Script -->
+    <script src="{{ asset('js/script.js') }}" defer></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -26,6 +29,8 @@
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+    @livewireStyles
 </head>
 
 <body>
@@ -118,8 +123,15 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
+
+                            <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/userprofile">Waiting <span class="badge badge-primary badge-pill"></span></a>
+
+                            </div>
+
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -148,7 +160,7 @@
             @yield('content')
         </main>
 
-        <footer>
+        <!-- <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-4">
@@ -178,13 +190,15 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> -->
     </div>
     <script>
         $(window).load(function() {
             $('#preloader').hide();
         });
     </script>
+
+    @livewireScripts
 </body>
 
 </html>

@@ -76,7 +76,7 @@
                     <button class="btn btn-light border border-dark ml-3" style="width:300px; background-color:white;"><a href="/product-cart" class="card-link" style="color:black;">Add to Cart</a></button>
                 </div>
                 <div class="row">
-                    <button class="btn btn-dark" style="width:338px;"><a href="#" class="card-link" style="color:white;">Buy Now</a></button>
+                    <button class="btn btn-dark" style="width:338px;"><a href="/buy-now/{{$product_tops->id}}" class="card-link" style="color:white;">Buy Now</a></button>
                 </div>
                 @endguest
             </div>
