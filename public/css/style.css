@@ -11,7 +11,7 @@ main{
   line-height: 1.6;
   color: #212529;
   /* text-align: left; */
-  background-color: white;
+  /* background-color: white; */
 }
 
 /* body { */
@@ -83,7 +83,7 @@ margin-top: 1rem;
 margin-bottom: 1rem;
 text-align: center;
 text-transform: uppercase;
-font-family: Roboto;
+font-family: "Roboto";
 font-style: normal;
 font-weight: normal;
 font-size: 18px;
@@ -140,10 +140,10 @@ cursor: pointer;
 }
 
 .img-log{
-width: 653px;
-margin-left: 15px;
-margin-top: -10px;
-height: 705px;
+width: 100%;
+height: 100%;
+float:right;
+margin-left:20px;
 }
 
 .img-regist{
@@ -190,7 +190,6 @@ box-sizing: border-box;
 }
 
 .btn-gender{
-position: absolute;
 width: 213.89px;
 height: 47px;
 background: #FFFFFF;
@@ -222,14 +221,14 @@ background-clip: padding-box;
 border-radius: 1.5rem;
 cursor: pointer;
 }
-.card-body{
+/* .card-body{
 height: 180px;
-}
+} */
 
-.con-photo {
+/* .con-photo {
 position: relative;
 margin-left:246px;
-}
+} */
 
 .con-photo-left {
 position: relative;
@@ -239,11 +238,10 @@ margin-right:246px;
 .image-cat {
 opacity: 1;
 display: block;
-width: 320px;
-height: 260px;
+/* width: 320px;
+height: 240px; */
 transition: .5s ease;
 backface-visibility: hidden;
-/* align-items: center; */
 }
 
 .middle-cat {
@@ -259,10 +257,12 @@ text-align: center;
 
 .con-photo:hover .image-cat {
 opacity: 0.3;
+cursor: pointer;
 }
 
 .con-photo:hover .middle-cat {
 opacity: 1;
+cursor: pointer;
 }
 
 .con-photo-left:hover .image-cat {
@@ -359,7 +359,7 @@ color: #000000;
 }
 
 .btn-filter{
-  width: 158px;
+  width: 180px;
   height: 30px;
   background: #FFFFFF;
   border: 1px solid #6c757d;
@@ -373,6 +373,114 @@ color: #000000;
   box-sizing: border-box;
   }
 
+.big-image {
+  height: 400px;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-image: url("ahhagang.png");
+}
 
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.425);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
+.overlay h1 {
+  letter-spacing: 0px;
+  margin: 0 0 5px;
+}
 
+.overlay p {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+
+    .carousel-item{
+      margin-right:0;
+    }
+
+    .carousel-inner .active,
+    .carousel-inner .active + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item  {
+        display: block;
+    }
+    
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+        transition: none;
+    }
+    
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+      position: relative;
+      transform: translate3d(0, 0, 0);
+    }
+    
+    /* last visible item + 1 */
+    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -25%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    
+    /* left or forward direction */
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+    
+    /* farthest right hidden item must be abso position for animations */
+    .carousel-inner .carousel-item-next.carousel-item-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    
+    .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: -25%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+    
+    /* right or prev direction */
+    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        display: block;
+        visibility: visible;
+    }
+
+}

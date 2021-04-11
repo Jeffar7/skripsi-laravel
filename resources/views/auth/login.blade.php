@@ -30,10 +30,10 @@
     <div id="app pt-0">
         <div class="container">
             <div class="row">
-                <div class="col-md-6" style="text-align: center;padding-right: 110px;padding-top: 50px;">
+                <div class="col-md-6" style="text-align: center;padding-top: 50px;">
                     <div class="pt-5 mb-4">
                         <h6 style="font-weight: 200" class="mb-3">WELCOME BACK TO</h6>
-                        <a href="{{ url('/') }}"><img src="{{ asset('images/Store_Logo_210309.jpg') }}" width="70" height="60" alt="" class="mb-3"></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('images/tokolocal.png') }}" width="70" height="60" alt="" class="mb-3"></a>
                         <h6>Log in to get in the moment updates on the things that interest you</h6>
                     </div>
                     
@@ -115,7 +115,7 @@
                     </form>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ asset('images/login.jpg') }}" class="img-log" alt="">
+                    <img src="{{ asset('images/login.jpg') }}" class="img-fluid float-right" alt="">
                 </div>
             </div>
         </div>
