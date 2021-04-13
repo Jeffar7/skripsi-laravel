@@ -41,6 +41,8 @@ Route::get('/load', function () {
     return view('loading');
 });
 
+Route::get('/', 'ManController@bestseller');
+
 Route::get('/about', function () {
     return view('pages/aboutus');
 });

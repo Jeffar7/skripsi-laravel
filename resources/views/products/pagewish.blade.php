@@ -19,20 +19,20 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="search-group rounded left-addon-search inner-addon" style="width:730px;">
+            <div class="search-group rounded left-addon-search inner-addon" style="width:100%;">
                 <i class="fas fa-search"></i>
-                <input type="search" class="search-field rounded" placeholder="Find your wishlist item" aria-label="Search" aria-describedby="search-addon" style="width:730px;" />
+                <input type="search" class="search-field rounded" placeholder="Find your wishlist item" aria-label="Search" aria-describedby="search-addon" style="width:100%;" />
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
             <p>Manage</p>
         </div>
     </div>
 </div>
 <div class="container">
+    @foreach($productwishs as $productwish)
     <div class="card mt-4 pl-3 pr-3 mb-4" style="border-radius: 10px; box-shadow: 1px 2px #888888; width:820px;">
         <div class="row mb-3">
-            @foreach($productwishs as $productwish)
             <div class="col-sm-4">
                 <div class="card-body">
                     <img src="{{asset('uploads/products/' . $productwish->product->productimage)}}" width="100px;" height="100px;" alt="Image">
@@ -67,9 +67,9 @@
                     </form>
                 </div>
             </div>
-            @endforeach
         </div>
     </div>
+    @endforeach
 </div>
 
 @endsection

@@ -21,22 +21,22 @@ class BestSeller extends Component {
         <Slider {...settings}>
           <div className="card-wrapper">
             {/* <div className="card"> */}
-              <div className="card-image"> <img src={require('./bestseller/clothes1.png')} alt="Credit to Joshua Earle on Unsplash"/></div>
+              <div className="card-image"> <img src={require('./bestseller/clothes1.jpg')} alt="Credit to Joshua Earle on Unsplash"/></div>
             {/* </div> */}
           </div>
           <div className="card-wrapper">
             {/* <div className="card"> */}
-              <div className="card-image"> <img src={require('./bestseller/clothes2.png')} alt="Credit to Joshua Earle on Unsplash"/></div>
+              <div className="card-image"> <img src={require('./bestseller/clothes2.jpg')} alt="Credit to Joshua Earle on Unsplash"/></div>
             {/* </div> */}
           </div>
           <div className="card-wrapper">
             {/* <div className="card"> */}
-              <div className="card-image"> <img src={require('./bestseller/clothes3.png')} alt="Credit to Joshua Earle on Unsplash"/></div>
+              <div className="card-image"> <img src={require('./bestseller/clothes3.jpg')} alt="Credit to Joshua Earle on Unsplash"/></div>
             {/* </div> */}
           </div>
           <div className="card-wrapper">
             {/* <div className="card"> */}
-              <div className="card-image"> <img src={require('./bestseller/clothes4.png')} alt="Credit to Joshua Earle on Unsplash"/></div>
+              <div className="card-image"> <img src={require('./bestseller/clothes4.jpg')} alt="Credit to Joshua Earle on Unsplash"/></div>
             {/* </div> */}
           </div>
         </Slider>

@@ -6669,7 +6669,7 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2018 Jed Watson.
+  Copyright (c) 2017 Jed Watson.
   Licensed under the MIT License (MIT), see
   http://jedwatson.github.io/classnames
 */
@@ -6680,7 +6680,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 	var hasOwn = {}.hasOwnProperty;
 
-	function classNames() {
+	function classNames () {
 		var classes = [];
 
 		for (var i = 0; i < arguments.length; i++) {
@@ -6691,22 +6691,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 			if (argType === 'string' || argType === 'number') {
 				classes.push(arg);
-			} else if (Array.isArray(arg)) {
-				if (arg.length) {
-					var inner = classNames.apply(null, arg);
-					if (inner) {
-						classes.push(inner);
-					}
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
 				}
 			} else if (argType === 'object') {
-				if (arg.toString === Object.prototype.toString) {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
 					}
-				} else {
-					classes.push(arg.toString());
 				}
 			}
 		}
@@ -8641,7 +8635,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, ".awssld__container figure, .awssld__content, .awssld__box {\n  display: block;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0; }\n\n.awssld__controls button, .awssld__bullets button {\n  outline-color: 0;\n  outline-style: none;\n  outline-width: 0; }\n\n.awssld {\n  --organic-arrow-thickness: 4px;\n  --organic-arrow-height: 40px;\n  --slider-height-percentage: 60%;\n  --loader-bar-color: #851515;\n  --loader-bar-height: 6px;\n  --control-button-width: 10%;\n  --control-button-height: 25%;\n  --control-button-opacity: 0.5;\n  --control-button-hover-opacity: 0.75;\n  --control-button-background: transparent;\n  --transition-bezier: cubic-bezier(0.5, 0.075, 0.25, 0.95);\n  --slider-transition-duration: 575ms;\n  --organic-arrow-color: #6a6a6a;\n  --organic-arrow-border-radius: 0;\n  --control-bullet-color: #6a6a6a;\n  --control-bullet-active-color: #6a6a6a;\n  --content-background-color: #2f2f2f; }\n\n.awssld {\n  display: block;\n  position: relative;\n  width: 100%;\n  max-width: 100%; }\n  .awssld__wrapper {\n    display: block;\n    overflow: hidden;\n    position: relative;\n    height: 100%;\n    width: 100%; }\n  .awssld__container {\n    display: block;\n    width: 100%;\n    height: 0;\n    padding-bottom: var(--slider-height-percentage); }\n    @media all and (max-width: 500px) {\n      .awssld__container {\n        padding-bottom: calc(var(--slider-height-percentage) * 1.25); } }\n  .awssld__startUp {\n    background-color: red;\n    height: 100%;\n    width: 100%; }\n    .awssld__startUp > div {\n      height: 100%;\n      width: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .awssld__startUp img {\n      width: 35%;\n      height: auto; }\n  .awssld__content {\n    background-color: var(--content-background-color);\n    overflow: hidden;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .awssld__content > img,\n    .awssld__content > video {\n      -o-object-fit: cover;\n         object-fit: cover;\n      width: 100%;\n      height: 100%;\n      position: absolute;\n      top: 0;\n      left: 0; }\n  .awssld__controls button {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: var(--control-button-width);\n    height: var(--control-button-height);\n    position: absolute;\n    z-index: 10;\n    top: calc(50% - (0.5 * var(--control-button-height)));\n    border: none;\n    background-color: var(--control-button-background);\n    color: #fff;\n    cursor: pointer; }\n    .awssld__controls button .awssld__controls__arrow-left,\n    .awssld__controls button .awssld__controls__arrow-right {\n      opacity: var(--control-button-opacity); }\n    .awssld__controls button:hover .awssld__controls__arrow-left,\n    .awssld__controls button:hover .awssld__controls__arrow-right {\n      opacity: var(--control-button-opacity-hover); }\n  .awssld__controls--active .awssld__controls__arrow-left {\n    opacity: var(--control-button-opacity-hover);\n    transform: translate3d(-100%, 0, 0); }\n  .awssld__controls--active .awssld__controls__arrow-right {\n    opacity: var(--control-button-opacity-hover);\n    transform: translate3d(100%, 0, 0); }\n  .awssld__controls--hidden {\n    display: none; }\n  @media all and (max-width: 520px) {\n    .awssld__controls {\n      visibility: hidden; } }\n  .awssld__bar {\n    display: block;\n    width: 100%;\n    height: var(--loader-bar-height);\n    background-color: var(--loader-bar-color);\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 101;\n    transition: transform 3000ms var(--transition-bezier);\n    transform: translate3d(-100%, 0, 0); }\n    .awssld__bar--active {\n      transform: translate3d(-20%, 0, 0); }\n    .awssld__bar--end {\n      transition-duration: 300ms;\n      transform: translate3d(0, 0, 0); }\n  .awssld__next {\n    right: 0; }\n  .awssld__prev {\n    left: 0; }\n  .awssld__box {\n    z-index: 1;\n    visibility: hidden; }\n  .awssld--animated {\n    will-change: transform;\n    visibility: visible; }\n  .awssld--animated-mobile {\n    will-change: transform;\n    transition: transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1); }\n  .awssld--active {\n    visibility: visible;\n    z-index: 2;\n    transform: translate3d(0, 0, 0); }\n  .awssld--moveRight, .awssld--moveLeft {\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden; }\n  .awssld--moveRight {\n    -webkit-animation: slideFromRight var(--slider-transition-duration) both var(--transition-bezier);\n            animation: slideFromRight var(--slider-transition-duration) both var(--transition-bezier); }\n  .awssld--moveLeft {\n    -webkit-animation: slideFromLeft var(--slider-transition-duration) both var(--transition-bezier);\n            animation: slideFromLeft var(--slider-transition-duration) both var(--transition-bezier); }\n  .awssld--exit {\n    z-index: 0; }\n    .awssld--exit.awssld--moveLeft {\n      -webkit-animation: slideToLeft var(--slider-transition-duration) both var(--transition-bezier);\n              animation: slideToLeft var(--slider-transition-duration) both var(--transition-bezier); }\n    .awssld--exit.awssld--moveRight {\n      -webkit-animation: slideToRight var(--slider-transition-duration) both var(--transition-bezier);\n              animation: slideToRight var(--slider-transition-duration) both var(--transition-bezier); }\n  .awssld--first .awssld__prev {\n    visibility: hidden; }\n  .awssld--last .awssld__next {\n    visibility: hidden; }\n  .awssld--fill-parent {\n    position: absolute !important;\n    width: 100% !important;\n    height: 100% !important;\n    top: 0;\n    left: 0; }\n    .awssld--fill-parent .awssld__container {\n      height: 100%;\n      padding: 0; }\n  .awssld__bullets {\n    position: absolute;\n    bottom: -40px;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .awssld__bullets button {\n      padding: 0;\n      display: block;\n      width: 16px;\n      height: 16px;\n      margin: 5px;\n      border-radius: 50%;\n      background: var(--control-bullet-color);\n      text-indent: -9999px;\n      overflow: hidden;\n      cursor: pointer;\n      border: none;\n      transition: transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45), background-color 0.175s ease-out; }\n      .awssld__bullets button:hover {\n        transform: scale(1.2); }\n    .awssld__bullets .awssld__bullets--loading {\n      transform: scale(1.2); }\n    .awssld__bullets .awssld__bullets--active {\n      transform: scale(1.5);\n      background: var(--control-bullet-active-color); }\n      .awssld__bullets .awssld__bullets--active:hover {\n        transform: scale(1.5); }\n  .awssld__controls__arrow-left, .awssld__controls__arrow-right {\n    width: 100%;\n    height: var(--organic-arrow-height);\n    position: relative;\n    display: block;\n    transition: transform 0.2s ease-out 0.125s, opacity 0.2s ease-out; }\n    .awssld__controls__arrow-left:before, .awssld__controls__arrow-left:after, .awssld__controls__arrow-right:before, .awssld__controls__arrow-right:after {\n      content: ' ';\n      position: absolute;\n      right: calc( 50% - ( 0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness)) ) / 2);\n      height: 100%;\n      border-radius: var(--organic-arrow-border-radius);\n      width: var(--organic-arrow-thickness);\n      background-color: var(--organic-arrow-color);\n      transition: transform 0.15s ease-out, background-color 0.15s ease-out; }\n    .awssld__controls__arrow-left:before, .awssld__controls__arrow-right:before {\n      transform-origin: 100% 100% 0;\n      top: -50%;\n      transform: rotate(-45deg); }\n    .awssld__controls__arrow-left:after, .awssld__controls__arrow-right:after {\n      transform-origin: 100% 0% 0;\n      top: 50%;\n      transform: rotate(45deg); }\n  .awssld__controls__arrow-right--active {\n    transform: translate3d(100%, 0, 0); }\n    .awssld__controls__arrow-right--active:after {\n      transform: rotate(90deg) translate3d(50%, 0, 0) !important; }\n    .awssld__controls__arrow-right--active:before {\n      transform: rotate(-90deg) translate3d(50%, 0, 0) !important; }\n  .awssld__controls__arrow-left:before, .awssld__controls__arrow-left:after {\n    right: auto;\n    left: calc( 50% - ( 0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness)) ) / 2); }\n  .awssld__controls__arrow-left:before {\n    transform-origin: 0 100% 0;\n    top: -50%;\n    transform: rotate(45deg); }\n  .awssld__controls__arrow-left:after {\n    transform-origin: 0 0 0;\n    top: 50%;\n    transform: rotate(-45deg); }\n  .awssld__controls__arrow-left--active {\n    transform: translate3d(-100%, 0, 0); }\n    .awssld__controls__arrow-left--active:after {\n      transform: rotate(-90deg) translate3d(-50%, 0, 0) !important; }\n    .awssld__controls__arrow-left--active:before {\n      transform: rotate(90deg) translate3d(-50%, 0, 0) !important; }\n  .awssld__controls button:hover .awssld__controls__arrow-left:before {\n    opacity: 1;\n    transform: rotate(30deg); }\n  .awssld__controls button:hover .awssld__controls__arrow-left:after {\n    opacity: 1;\n    transform: rotate(-30deg); }\n  .awssld__controls button:hover .awssld__controls__arrow-right:before {\n    opacity: 1;\n    transform: rotate(-30deg); }\n  .awssld__controls button:hover .awssld__controls__arrow-right:after {\n    opacity: 1;\n    transform: rotate(30deg); }\n  .awssld__timer {\n    --timer-delay: 2000ms;\n    --timer-release: 200ms;\n    --timer-height: 4px;\n    --timer-background-color: rgba(0, 0, 0, 0.15);\n    width: 100%;\n    height: var(--timer-height);\n    background-color: var(--timer-background-color);\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 100;\n    transform: translateX(-100%); }\n    .awssld__timer--animated {\n      will-change: transform;\n      transition: transform var(--timer-delay) linear; }\n    .awssld__timer--run {\n      transform: translateX(0); }\n    .awssld__timer--fast {\n      transition: transform calc(var(--timer-release) / 2) linear;\n      transform: translateX(-0.00001px); }\n    .awssld__timer--end {\n      transform: translateX(-0.0001px);\n      transition: transform var(--timer-release) linear; }\n    .awssld__timer--hidden {\n      display: none; }\n\n@-webkit-keyframes slideFromLeft {\n  from {\n    transform: translate3d(-100%, 0, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes slideFromLeft {\n  from {\n    transform: translate3d(-100%, 0, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@-webkit-keyframes slideFromRight {\n  from {\n    transform: translate3d(100%, 0, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes slideFromRight {\n  from {\n    transform: translate3d(100%, 0, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@-webkit-keyframes slideToLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    transform: translate3d(-100%, 0, 0); } }\n\n@keyframes slideToLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    transform: translate3d(-100%, 0, 0); } }\n\n@-webkit-keyframes slideToRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    transform: translate3d(100%, 0, 0); } }\n\n@keyframes slideToRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    transform: translate3d(100%, 0, 0); } }\n\n", ""]);
+exports.push([module.i, ".awssld__container figure, .awssld__content, .awssld__box {\n  display: block;\n  position: absolute;\n  width: 100%;\n  height: 420px;\n  top: 0;\n  left: 0; }\n\n.awssld__controls button, .awssld__bullets button {\n  outline-color: 0;\n  outline-style: none;\n  outline-width: 0; }\n\n.awssld {\n  --organic-arrow-thickness: 4px;\n  --organic-arrow-height: 20px;\n  --slider-height-percentage: 60%;\n  --loader-bar-color: #851515;\n  --loader-bar-height: 6px;\n  --control-button-width: 10%;\n  --control-button-height: 25%;\n  --control-button-opacity: 0.5;\n  --control-button-hover-opacity: 0.75;\n  --control-button-background: transparent;\n  --transition-bezier: cubic-bezier(0.5, 0.075, 0.25, 0.95);\n  --slider-transition-duration: 575ms;\n  --organic-arrow-color: black;\n  --organic-arrow-border-radius: 0;\n  --control-bullet-color: rgb(196, 196, 196);\n  --control-bullet-active-color: black;\n  --content-background-color: #2f2f2f; }\n\n.awssld {\n  display: block;\n  position: relative;\n  height: 420px;\n  width: 100%;\n  max-width: 100%; }\n  .awssld__wrapper {\n    display: block;\n    overflow: hidden;\n    position: relative;\n    height: 420px;\n    width: 100%; }\n  .awssld__container {\n    display: block;\n    width: 100%;\n    height: 0;\n    padding-bottom: var(--slider-height-percentage); }\n    @media all and (max-width: 500px) {\n      .awssld__container {\n        padding-bottom: calc(var(--slider-height-percentage) * 1.25); } }\n  .awssld__startUp {\n    background-color: red;\n    height: 100%;\n    width: 100%; }\n    .awssld__startUp > div {\n      height: 100%;\n      width: 100%;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .awssld__startUp img {\n      width: 35%;\n      height: 420px; }\n  .awssld__content {\n    background-color: var(--content-background-color);\n    overflow: hidden;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .awssld__content > img,\n    .awssld__content > video {\n      -o-object-fit: cover;\n         object-fit: cover;\n      width: 100%;\n      height: 420px;\n      position: absolute;\n      top: 0;\n      left: 0; }\n  .awssld__controls button {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: var(--control-button-width);\n    height: var(--control-button-height);\n    position: absolute;\n    z-index: 10;\n    top: calc(50% - (0.5 * var(--control-button-height)));\n    border: none;\n    background-color: var(--control-button-background);\n    color: #fff;\n    cursor: pointer; }\n    .awssld__controls button .awssld__controls__arrow-left,\n    .awssld__controls button .awssld__controls__arrow-right {\n      opacity: var(--control-button-opacity); }\n    .awssld__controls button:hover .awssld__controls__arrow-left,\n    .awssld__controls button:hover .awssld__controls__arrow-right {\n      opacity: var(--control-button-opacity-hover); }\n  .awssld__controls--active .awssld__controls__arrow-left {\n    opacity: var(--control-button-opacity-hover);\n    transform: translate3d(-100%, 0, 0); }\n  .awssld__controls--active .awssld__controls__arrow-right {\n    opacity: var(--control-button-opacity-hover);\n    transform: translate3d(100%, 0, 0); }\n  .awssld__controls--hidden {\n    display: none; }\n  @media all and (max-width: 520px) {\n    .awssld__controls {\n      visibility: hidden; } }\n  .awssld__bar {\n    display: block;\n    width: 100%;\n    height: var(--loader-bar-height);\n    background-color: var(--loader-bar-color);\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 101;\n    transition: transform 3000ms var(--transition-bezier);\n    transform: translate3d(-100%, 0, 0); }\n    .awssld__bar--active {\n      transform: translate3d(-20%, 0, 0); }\n    .awssld__bar--end {\n      transition-duration: 300ms;\n      transform: translate3d(0, 0, 0); }\n  .awssld__next {\n    right: 0; }\n  .awssld__prev {\n    left: 0; }\n  .awssld__box {\n    z-index: 1;\n    visibility: hidden; }\n  .awssld--animated {\n    will-change: transform;\n    visibility: visible; }\n  .awssld--animated-mobile {\n    will-change: transform;\n    transition: transform 325ms cubic-bezier(0.15, 0.65, 0.1, 1); }\n  .awssld--active {\n    visibility: visible;\n    z-index: 2;\n    transform: translate3d(0, 0, 0); }\n  .awssld--moveRight, .awssld--moveLeft {\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden; }\n  .awssld--moveRight {\n    -webkit-animation: slideFromRight var(--slider-transition-duration) both var(--transition-bezier);\n            animation: slideFromRight var(--slider-transition-duration) both var(--transition-bezier); }\n  .awssld--moveLeft {\n    -webkit-animation: slideFromLeft var(--slider-transition-duration) both var(--transition-bezier);\n            animation: slideFromLeft var(--slider-transition-duration) both var(--transition-bezier); }\n  .awssld--exit {\n    z-index: 0; }\n    .awssld--exit.awssld--moveLeft {\n      -webkit-animation: slideToLeft var(--slider-transition-duration) both var(--transition-bezier);\n              animation: slideToLeft var(--slider-transition-duration) both var(--transition-bezier); }\n    .awssld--exit.awssld--moveRight {\n      -webkit-animation: slideToRight var(--slider-transition-duration) both var(--transition-bezier);\n              animation: slideToRight var(--slider-transition-duration) both var(--transition-bezier); }\n  .awssld--first .awssld__prev {\n    visibility: hidden; }\n  .awssld--last .awssld__next {\n    visibility: hidden; }\n  .awssld--fill-parent {\n    position: absolute !important;\n    width: 100% !important;\n    height: 100% !important;\n    top: 0;\n    left: 0; }\n    .awssld--fill-parent .awssld__container {\n      height: 100%;\n      padding: 0; }\n  .awssld__bullets {\n    z-index: 2;\n    position: absolute;\n    /* bottom: -10px; */\n    top: 390px;\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .awssld__bullets button {\n      padding: 0;\n      display: block;\n      width: 9px;\n      height: 9px;\n      margin: 5px;\n      border-radius: 50%;\n      background: var(--control-bullet-color);\n      text-indent: -9999px;\n      overflow: hidden;\n      cursor: pointer;\n      border: none;\n      transition: transform 0.225s cubic-bezier(0.8, 1.35, 0.75, 1.45), background-color 0.175s ease-out; }\n      .awssld__bullets button:hover {\n        transform: scale(1.2); }\n    .awssld__bullets .awssld__bullets--loading {\n      transform: scale(1.2); }\n    .awssld__bullets .awssld__bullets--active {\n      transform: scale(1.5);\n      background: var(--control-bullet-active-color); }\n      .awssld__bullets .awssld__bullets--active:hover {\n        transform: scale(1.5); }\n  .awssld__controls__arrow-left, .awssld__controls__arrow-right {\n    width: 100%;\n    height: var(--organic-arrow-height);\n    position: relative;\n    display: block;\n    transition: transform 0.2s ease-out 0.125s, opacity 0.2s ease-out; }\n    .awssld__controls__arrow-left:before, .awssld__controls__arrow-left:after, .awssld__controls__arrow-right:before, .awssld__controls__arrow-right:after {\n      content: ' ';\n      position: absolute;\n      right: calc( 50% - ( 0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness)) ) / 2);\n      height: 100%;\n      border-radius: var(--organic-arrow-border-radius);\n      width: var(--organic-arrow-thickness);\n      background-color: var(--organic-arrow-color);\n      transition: transform 0.15s ease-out, background-color 0.15s ease-out; }\n    .awssld__controls__arrow-left:before, .awssld__controls__arrow-right:before {\n      transform-origin: 100% 100% 0;\n      top: -50%;\n      transform: rotate(-45deg); }\n    .awssld__controls__arrow-left:after, .awssld__controls__arrow-right:after {\n      transform-origin: 100% 0% 0;\n      top: 50%;\n      transform: rotate(45deg); }\n  .awssld__controls__arrow-right--active {\n    transform: translate3d(100%, 0, 0); }\n    .awssld__controls__arrow-right--active:after {\n      transform: rotate(90deg) translate3d(50%, 0, 0) !important; }\n    .awssld__controls__arrow-right--active:before {\n      transform: rotate(-90deg) translate3d(50%, 0, 0) !important; }\n  .awssld__controls__arrow-left:before, .awssld__controls__arrow-left:after {\n    right: auto;\n    left: calc( 50% - ( 0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness)) ) / 2); }\n  .awssld__controls__arrow-left:before {\n    transform-origin: 0 100% 0;\n    top: -50%;\n    transform: rotate(45deg); }\n  .awssld__controls__arrow-left:after {\n    transform-origin: 0 0 0;\n    top: 50%;\n    transform: rotate(-45deg); }\n  .awssld__controls__arrow-left--active {\n    transform: translate3d(-100%, 0, 0); }\n    .awssld__controls__arrow-left--active:after {\n      transform: rotate(-90deg) translate3d(-50%, 0, 0) !important; }\n    .awssld__controls__arrow-left--active:before {\n      transform: rotate(90deg) translate3d(-50%, 0, 0) !important; }\n  .awssld__controls button:hover .awssld__controls__arrow-left:before {\n    opacity: 1;\n    transform: rotate(30deg); }\n  .awssld__controls button:hover .awssld__controls__arrow-left:after {\n    opacity: 1;\n    transform: rotate(-30deg); }\n  .awssld__controls button:hover .awssld__controls__arrow-right:before {\n    opacity: 1;\n    transform: rotate(-30deg); }\n  .awssld__controls button:hover .awssld__controls__arrow-right:after {\n    opacity: 1;\n    transform: rotate(30deg); }\n  .awssld__timer {\n    --timer-delay: 2000ms;\n    --timer-release: 200ms;\n    --timer-height: 4px;\n    --timer-background-color: rgba(0, 0, 0, 0.15);\n    width: 100%;\n    height: var(--timer-height);\n    background-color: var(--timer-background-color);\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: 100;\n    transform: translateX(-100%); }\n    .awssld__timer--animated {\n      will-change: transform;\n      transition: transform var(--timer-delay) linear; }\n    .awssld__timer--run {\n      transform: translateX(0); }\n    .awssld__timer--fast {\n      transition: transform calc(var(--timer-release) / 2) linear;\n      transform: translateX(-0.00001px); }\n    .awssld__timer--end {\n      transform: translateX(-0.0001px);\n      transition: transform var(--timer-release) linear; }\n    .awssld__timer--hidden {\n      display: none; }\n\n@-webkit-keyframes slideFromLeft {\n  from {\n    transform: translate3d(-100%, 0, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes slideFromLeft {\n  from {\n    transform: translate3d(-100%, 0, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@-webkit-keyframes slideFromRight {\n  from {\n    transform: translate3d(100%, 0, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes slideFromRight {\n  from {\n    transform: translate3d(100%, 0, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@-webkit-keyframes slideToLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    transform: translate3d(-100%, 0, 0); } }\n\n@keyframes slideToLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    transform: translate3d(-100%, 0, 0); } }\n\n@-webkit-keyframes slideToRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    transform: translate3d(100%, 0, 0); } }\n\n@keyframes slideToRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    transform: translate3d(100%, 0, 0); } }\n\n", ""]);
 
 // exports
 
@@ -8661,7 +8655,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, "@charset 'UTF-8';\n/* Slider */\n.slick-loading .slick-list\n{\n    background: #fff url(" + escape(__webpack_require__(/*! ./ajax-loader.gif */ "./node_modules/slick-carousel/slick/ajax-loader.gif")) + ") center center no-repeat;\n}\n\n/* Icons */\n@font-face\n{\n    font-family: 'slick';\n    font-weight: normal;\n    font-style: normal;\n\n    src: url(" + escape(__webpack_require__(/*! ./fonts/slick.eot */ "./node_modules/slick-carousel/slick/fonts/slick.eot")) + ");\n    src: url(" + escape(__webpack_require__(/*! ./fonts/slick.eot */ "./node_modules/slick-carousel/slick/fonts/slick.eot")) + "?#iefix) format('embedded-opentype'), url(" + escape(__webpack_require__(/*! ./fonts/slick.woff */ "./node_modules/slick-carousel/slick/fonts/slick.woff")) + ") format('woff'), url(" + escape(__webpack_require__(/*! ./fonts/slick.ttf */ "./node_modules/slick-carousel/slick/fonts/slick.ttf")) + ") format('truetype'), url(" + escape(__webpack_require__(/*! ./fonts/slick.svg */ "./node_modules/slick-carousel/slick/fonts/slick.svg")) + "#slick) format('svg');\n}\n/* Arrows */\n.slick-prev,\n.slick-next\n{\n    font-size: 0;\n    line-height: 0;\n\n    position: absolute;\n    top: 50%;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 0;\n    transform: translate(0, -50%);\n\n    cursor: pointer;\n\n    color: transparent;\n    border: none;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover,\n.slick-prev:focus,\n.slick-next:hover,\n.slick-next:focus\n{\n    color: transparent;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover:before,\n.slick-prev:focus:before,\n.slick-next:hover:before,\n.slick-next:focus:before\n{\n    opacity: 1;\n}\n.slick-prev.slick-disabled:before,\n.slick-next.slick-disabled:before\n{\n    opacity: .25;\n}\n\n.slick-prev:before,\n.slick-next:before\n{\n    font-family: 'slick';\n    font-size: 20px;\n    line-height: 1;\n\n    opacity: .75;\n    color: white;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n\n.slick-prev\n{\n    left: -25px;\n}\n[dir='rtl'] .slick-prev\n{\n    right: -25px;\n    left: auto;\n}\n.slick-prev:before\n{\n    content: '\\2190';\n}\n[dir='rtl'] .slick-prev:before\n{\n    content: '\\2192';\n}\n\n.slick-next\n{\n    right: -25px;\n}\n[dir='rtl'] .slick-next\n{\n    right: auto;\n    left: -25px;\n}\n.slick-next:before\n{\n    content: '\\2192';\n}\n[dir='rtl'] .slick-next:before\n{\n    content: '\\2190';\n}\n\n/* Dots */\n.slick-dotted.slick-slider\n{\n    margin-bottom: 30px;\n}\n\n.slick-dots\n{\n    position: absolute;\n    bottom: -25px;\n\n    display: block;\n\n    width: 100%;\n    padding: 0;\n    margin: 0;\n\n    list-style: none;\n\n    text-align: center;\n}\n.slick-dots li\n{\n    position: relative;\n\n    display: inline-block;\n\n    width: 20px;\n    height: 20px;\n    margin: 0 5px;\n    padding: 0;\n\n    cursor: pointer;\n}\n.slick-dots li button\n{\n    font-size: 0;\n    line-height: 0;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 5px;\n\n    cursor: pointer;\n\n    color: transparent;\n    border: 0;\n    outline: none;\n    background: transparent;\n}\n.slick-dots li button:hover,\n.slick-dots li button:focus\n{\n    outline: none;\n}\n.slick-dots li button:hover:before,\n.slick-dots li button:focus:before\n{\n    opacity: 1;\n}\n.slick-dots li button:before\n{\n    font-family: 'slick';\n    font-size: 6px;\n    line-height: 20px;\n\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    width: 20px;\n    height: 20px;\n\n    content: '\\2022';\n    text-align: center;\n\n    opacity: .25;\n    color: black;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n.slick-dots li.slick-active button:before\n{\n    opacity: .75;\n    color: black;\n}\n", ""]);
+exports.push([module.i, "@charset 'UTF-8';\n/* Slider */\n.slick-loading .slick-list\n{\n    background: #fff url(" + escape(__webpack_require__(/*! ./ajax-loader.gif */ "./node_modules/slick-carousel/slick/ajax-loader.gif")) + ") center center no-repeat;\n}\n\n/* Icons */\n@font-face\n{\n    font-family: 'slick';\n    font-weight: normal;\n    font-style: normal;\n\n    src: url(" + escape(__webpack_require__(/*! ./fonts/slick.eot */ "./node_modules/slick-carousel/slick/fonts/slick.eot")) + ");\n    src: url(" + escape(__webpack_require__(/*! ./fonts/slick.eot */ "./node_modules/slick-carousel/slick/fonts/slick.eot")) + "?#iefix) format('embedded-opentype'), url(" + escape(__webpack_require__(/*! ./fonts/slick.woff */ "./node_modules/slick-carousel/slick/fonts/slick.woff")) + ") format('woff'), url(" + escape(__webpack_require__(/*! ./fonts/slick.ttf */ "./node_modules/slick-carousel/slick/fonts/slick.ttf")) + ") format('truetype'), url(" + escape(__webpack_require__(/*! ./fonts/slick.svg */ "./node_modules/slick-carousel/slick/fonts/slick.svg")) + "#slick) format('svg');\n}\n/* Arrows */\n.slick-prev,\n.slick-next\n{\n    font-size: 0;\n    line-height: 0;\n\n    position: absolute;\n    top: 50%;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 0;\n    transform: translate(0, -50%);\n\n    cursor: pointer;\n\n    color: transparent;\n    border: none;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover,\n.slick-prev:focus,\n.slick-next:hover,\n.slick-next:focus\n{\n    color: transparent;\n    outline: none;\n    background: transparent;\n}\n.slick-prev:hover:before,\n.slick-prev:focus:before,\n.slick-next:hover:before,\n.slick-next:focus:before\n{\n    opacity: 1;\n}\n.slick-prev.slick-disabled:before,\n.slick-next.slick-disabled:before\n{\n    opacity: .25;\n}\n\n.slick-prev:before,\n.slick-next:before\n{\n    font-family: 'slick';\n    font-size: 20px;\n    line-height: 1;\n\n    opacity: .75;\n    color: black;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n\n.slick-prev\n{\n    left: -25px;\n}\n[dir='rtl'] .slick-prev\n{\n    right: -25px;\n    left: auto;\n}\n.slick-prev:before\n{\n    content: '\\2190';\n}\n[dir='rtl'] .slick-prev:before\n{\n    content: '\\2192';\n}\n\n.slick-next\n{\n    right: -25px;\n}\n[dir='rtl'] .slick-next\n{\n    right: auto;\n    left: -25px;\n}\n.slick-next:before\n{\n    content: '\\2192';\n}\n[dir='rtl'] .slick-next:before\n{\n    content: '\\2190';\n}\n\n/* Dots */\n.slick-dotted.slick-slider\n{\n    margin-bottom: 30px;\n}\n\n.slick-dots\n{\n    position: absolute;\n    bottom: -25px;\n\n    display: block;\n\n    width: 100%;\n    padding: 0;\n    margin: 0;\n\n    list-style: none;\n\n    text-align: center;\n}\n.slick-dots li\n{\n    position: relative;\n\n    display: inline-block;\n\n    width: 20px;\n    height: 20px;\n    margin: 0 5px;\n    padding: 0;\n\n    cursor: pointer;\n}\n.slick-dots li button\n{\n    font-size: 0;\n    line-height: 0;\n\n    display: block;\n\n    width: 20px;\n    height: 20px;\n    padding: 5px;\n\n    cursor: pointer;\n\n    color: transparent;\n    border: 0;\n    outline: none;\n    background: transparent;\n}\n.slick-dots li button:hover,\n.slick-dots li button:focus\n{\n    outline: none;\n}\n.slick-dots li button:hover:before,\n.slick-dots li button:focus:before\n{\n    opacity: 1;\n}\n.slick-dots li button:before\n{\n    font-family: 'slick';\n    font-size: 6px;\n    line-height: 20px;\n\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    width: 20px;\n    height: 20px;\n\n    content: '\\2022';\n    text-align: center;\n\n    opacity: .25;\n    color: black;\n\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n.slick-dots li.slick-active button:before\n{\n    opacity: .75;\n    color: black;\n}\n", ""]);
 
 // exports
 
@@ -42000,7 +41994,6 @@ RepeaterModifier.prototype.processShapes = function (_isFirstFrame) {
   var i;
   var dir;
   var cont;
-  var hasReloaded = false;
   if (this._mdf || _isFirstFrame) {
     var copies = Math.ceil(this.c.v);
     if (this._groups.length < copies) {
@@ -42018,7 +42011,6 @@ RepeaterModifier.prototype.processShapes = function (_isFirstFrame) {
         this._currentCopies += 1;
       }
       this.elem.reloadShapes();
-      hasReloaded = true;
     }
     cont = 0;
     var renderFlag;
@@ -42026,16 +42018,6 @@ RepeaterModifier.prototype.processShapes = function (_isFirstFrame) {
       renderFlag = cont < copies;
       this._groups[i]._render = renderFlag;
       this.changeGroupRender(this._groups[i].it, renderFlag);
-      if (!renderFlag) {
-        var elems = this.elemsData[i].it;
-        var transformData = elems[elems.length - 1];
-        if (transformData.transform.op.v !== 0) {
-          transformData.transform.op._mdf = true;
-          transformData.transform.op.v = 0;
-        } else {
-          transformData.transform.op._mdf = false;
-        }
-      }
       cont += 1;
     }
 
@@ -42085,10 +42067,7 @@ RepeaterModifier.prototype.processShapes = function (_isFirstFrame) {
       jLen = itemsTransform.length;
       items[items.length - 1].transform.mProps._mdf = true;
       items[items.length - 1].transform.op._mdf = true;
-      items[items.length - 1].transform.op.v = this._currentCopies === 1
-        ? this.so.v
-        : this.so.v + (this.eo.v - this.so.v) * (i / (this._currentCopies - 1));
-
+      items[items.length - 1].transform.op.v = this.so.v + (this.eo.v - this.so.v) * (i / (this._currentCopies - 1));
       if (iteration !== 0) {
         if ((i !== 0 && dir === 1) || (i !== this._currentCopies - 1 && dir === -1)) {
           this.applyTransforms(this.pMatrix, this.rMatrix, this.sMatrix, this.tr, 1, false);
@@ -42124,7 +42103,6 @@ RepeaterModifier.prototype.processShapes = function (_isFirstFrame) {
       i += dir;
     }
   }
-  return hasReloaded;
 };
 
 RepeaterModifier.prototype.addShape = function () {};
@@ -42466,11 +42444,7 @@ var ImagePreloader = (function () {
       this._imageLoaded();
     }.bind(this), false);
     img.setAttributeNS('http://www.w3.org/1999/xlink', 'href', path);
-    if (this._elementHelper.append) {
-      this._elementHelper.append(img);
-    } else {
-      this._elementHelper.appendChild(img);
-    }
+    this._elementHelper.append(img);
     var ob = {
       img: img,
       assetData: assetData,
@@ -42592,16 +42566,14 @@ var filtersFactory = (function () {
   ob.createFilter = createFilter;
   ob.createAlphaToLuminanceFilter = createAlphaToLuminanceFilter;
 
-  function createFilter(filId, skipCoordinates) {
+  function createFilter(filId) {
     var fil = createNS('filter');
     fil.setAttribute('id', filId);
-    if (skipCoordinates !== true) {
-      fil.setAttribute('filterUnits', 'objectBoundingBox');
-      fil.setAttribute('x', '0%');
-      fil.setAttribute('y', '0%');
-      fil.setAttribute('width', '100%');
-      fil.setAttribute('height', '100%');
-    }
+    fil.setAttribute('filterUnits', 'objectBoundingBox');
+    fil.setAttribute('x', '0%');
+    fil.setAttribute('y', '0%');
+    fil.setAttribute('width', '100%');
+    fil.setAttribute('height', '100%');
     return fil;
   }
 
@@ -42633,11 +42605,13 @@ var assetLoader = (function () {
   function loadAsset(path, callback, errorCallback) {
     var response;
     var xhr = new XMLHttpRequest();
+    xhr.open('GET', path, true);
     // set responseType after calling open or IE will break.
     try {
       // This crashes on Android WebView prior to KitKat
       xhr.responseType = 'json';
     } catch (err) {} // eslint-disable-line no-empty
+    xhr.send();
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
@@ -42655,8 +42629,6 @@ var assetLoader = (function () {
         }
       }
     };
-    xhr.open('GET', path, true);
-    xhr.send();
   }
   return {
     load: loadAsset,
@@ -44098,54 +44070,6 @@ var bezierLengthPool = (function () {
   }
   return poolFactory(8, create);
 }());
-
-/* exported markerParser */
-
-var markerParser = (
-
-  function () {
-    function parsePayloadLines(payload) {
-      var lines = payload.split('\r\n');
-      var keys = {};
-      var line;
-      var keysCount = 0;
-      for (var i = 0; i < lines.length; i += 1) {
-        line = lines[i].split(':');
-        if (line.length === 2) {
-          keys[line[0]] = line[1].trim();
-          keysCount += 1;
-        }
-      }
-      if (keysCount === 0) {
-        throw new Error();
-      }
-      return keys;
-    }
-
-    return function (_markers) {
-      var markers = [];
-      for (var i = 0; i < _markers.length; i += 1) {
-        var _marker = _markers[i];
-        var markerData = {
-          time: _marker.tm,
-          duration: _marker.dr,
-        };
-        try {
-          markerData.payload = JSON.parse(_markers[i].cm);
-        } catch (_) {
-          try {
-            markerData.payload = parsePayloadLines(_markers[i].cm);
-          } catch (__) {
-            markerData.payload = {
-              name: _markers[i],
-            };
-          }
-        }
-        markers.push(markerData);
-      }
-      return markers;
-    };
-  }());
 
 /* global AudioElement, FontManager */
 
@@ -46603,14 +46527,8 @@ IShapeElement.prototype = {
     }
 
     len = this.shapeModifiers.length;
-    var shouldBreakProcess;
     for (i = len - 1; i >= 0; i -= 1) {
-      shouldBreakProcess = this.shapeModifiers[i].processShapes(this._isFirstFrame);
-      // workaround to fix cases where a repeater resets the shape so the following processes get called twice
-      // TODO: find a better solution for this
-      if (shouldBreakProcess) {
-        break;
-      }
+      this.shapeModifiers[i].processShapes(this._isFirstFrame);
     }
   },
   lcEnum: {
@@ -48084,7 +48002,7 @@ function SVGEffects(elem) {
   var i;
   var len = elem.data.ef ? elem.data.ef.length : 0;
   var filId = createElementID();
-  var fil = filtersFactory.createFilter(filId, true);
+  var fil = filtersFactory.createFilter(filId);
   var count = 0;
   this.filters = [];
   var filterManager;
@@ -50201,7 +50119,7 @@ var animationManager = (function () {
 /* global createElementID, subframeEnabled, ProjectInterface, ImagePreloader, audioControllerFactory, extendPrototype, BaseEvent,
 CanvasRenderer, SVGRenderer, HybridRenderer, assetLoader, dataManager, expressionsPlugin, BMEnterFrameEvent, BMCompleteLoopEvent,
 BMCompleteEvent, BMSegmentStartEvent, BMDestroyEvent, BMEnterFrameEvent, BMCompleteLoopEvent, BMCompleteEvent, BMSegmentStartEvent,
-BMDestroyEvent, BMRenderFrameErrorEvent, BMConfigErrorEvent, markerParser */
+BMDestroyEvent, BMRenderFrameErrorEvent, BMConfigErrorEvent */
 
 var AnimationItem = function () {
   this._cbs = [];
@@ -50234,7 +50152,6 @@ var AnimationItem = function () {
   this.projectInterface = ProjectInterface();
   this.imagePreloader = new ImagePreloader();
   this.audioController = audioControllerFactory();
-  this.markers = [];
 };
 
 extendPrototype([BaseEvent], AnimationItem);
@@ -50471,7 +50388,6 @@ AnimationItem.prototype.configAnimation = function (animData) {
     this.frameRate = this.animationData.fr;
     this.frameMult = this.animationData.fr / 1000;
     this.renderer.searchExtraCompositions(animData.assets);
-    this.markers = markerParser(animData.markers || []);
     this.trigger('config_ready');
     this.preloadImages();
     this.loadSegments();
@@ -50536,7 +50452,7 @@ AnimationItem.prototype.gotoFrame = function () {
 };
 
 AnimationItem.prototype.renderFrame = function () {
-  if (this.isLoaded === false || !this.renderer) {
+  if (this.isLoaded === false) {
     return;
   }
   try {
@@ -50593,28 +50509,11 @@ AnimationItem.prototype.stop = function (name) {
   this.setCurrentRawFrameValue(0);
 };
 
-AnimationItem.prototype.getMarkerData = function (markerName) {
-  var marker;
-  for (var i = 0; i < this.markers.length; i += 1) {
-    marker = this.markers[i];
-    if (marker.payload && marker.payload.name === markerName) {
-      return marker;
-    }
-  }
-  return null;
-};
-
 AnimationItem.prototype.goToAndStop = function (value, isFrame, name) {
   if (name && this.name !== name) {
     return;
   }
-  var numValue = Number(value);
-  if (isNaN(numValue)) {
-    var marker = this.getMarkerData(value);
-    if (marker) {
-      this.goToAndStop(marker.time, true);
-    }
-  } else if (isFrame) {
+  if (isFrame) {
     this.setCurrentRawFrameValue(value);
   } else {
     this.setCurrentRawFrameValue(value * this.frameModifier);
@@ -50623,22 +50522,7 @@ AnimationItem.prototype.goToAndStop = function (value, isFrame, name) {
 };
 
 AnimationItem.prototype.goToAndPlay = function (value, isFrame, name) {
-  if (name && this.name !== name) {
-    return;
-  }
-  var numValue = Number(value);
-  if (isNaN(numValue)) {
-    var marker = this.getMarkerData(value);
-    if (marker) {
-      if (!marker.duration) {
-        this.goToAndStop(marker.time, true);
-      } else {
-        this.playSegments([marker.time, marker.time + marker.duration], true);
-      }
-    }
-  } else {
-    this.goToAndStop(numValue, isFrame, name);
-  }
+  this.goToAndStop(value, isFrame, name);
   this.play();
 };
 
@@ -53728,7 +53612,7 @@ lottie.mute = animationManager.mute;
 lottie.unmute = animationManager.unmute;
 lottie.getRegisteredAnimations = animationManager.getRegisteredAnimations;
 lottie.__getFactory = getFactory;
-lottie.version = '5.7.7';
+lottie.version = '5.7.6';
 
 function checkReady() {
   if (document.readyState === 'complete') {
@@ -91165,28 +91049,28 @@ var BestSeller = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-image"
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: __webpack_require__(/*! ./bestseller/clothes1.png */ "./resources/js/components/bestseller/clothes1.png"),
+        src: __webpack_require__(/*! ./bestseller/clothes1.jpg */ "./resources/js/components/bestseller/clothes1.jpg"),
         alt: "Credit to Joshua Earle on Unsplash"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-image"
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: __webpack_require__(/*! ./bestseller/clothes2.png */ "./resources/js/components/bestseller/clothes2.png"),
+        src: __webpack_require__(/*! ./bestseller/clothes2.jpg */ "./resources/js/components/bestseller/clothes2.jpg"),
         alt: "Credit to Joshua Earle on Unsplash"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-image"
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: __webpack_require__(/*! ./bestseller/clothes3.png */ "./resources/js/components/bestseller/clothes3.png"),
+        src: __webpack_require__(/*! ./bestseller/clothes3.jpg */ "./resources/js/components/bestseller/clothes3.jpg"),
         alt: "Credit to Joshua Earle on Unsplash"
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-wrapper"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-image"
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: __webpack_require__(/*! ./bestseller/clothes4.png */ "./resources/js/components/bestseller/clothes4.png"),
+        src: __webpack_require__(/*! ./bestseller/clothes4.jpg */ "./resources/js/components/bestseller/clothes4.jpg"),
         alt: "Credit to Joshua Earle on Unsplash"
       })))));
     }
@@ -91376,13 +91260,13 @@ function HomeSlider() {
     src: __webpack_require__(/*! ./Wallpaper/image1.png */ "./resources/js/components/Wallpaper/image1.png")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "img-home",
-    src: __webpack_require__(/*! ./Wallpaper/image2.jpg */ "./resources/js/components/Wallpaper/image2.jpg")
+    src: __webpack_require__(/*! ./Wallpaper/image1.png */ "./resources/js/components/Wallpaper/image1.png")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "img-home",
-    src: __webpack_require__(/*! ./Wallpaper/image3.jpg */ "./resources/js/components/Wallpaper/image3.jpg")
+    src: __webpack_require__(/*! ./Wallpaper/image1.png */ "./resources/js/components/Wallpaper/image1.png")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     className: "img-home",
-    src: __webpack_require__(/*! ./Wallpaper/image4.jpg */ "./resources/js/components/Wallpaper/image4.jpg")
+    src: __webpack_require__(/*! ./Wallpaper/image1.png */ "./resources/js/components/Wallpaper/image1.png")
   }))));
 }
 
@@ -91584,84 +91468,51 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/image1.png?81226a8a9f2526a18da2faf39fccdb7c";
+module.exports = "/images/image1.png?090fae33916f1603b3ed638cb8cb6df4";
 
 /***/ }),
 
-/***/ "./resources/js/components/Wallpaper/image2.jpg":
-/*!******************************************************!*\
-  !*** ./resources/js/components/Wallpaper/image2.jpg ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/image2.jpg?b27ae1357c63ed5774ecd53667aa9427";
-
-/***/ }),
-
-/***/ "./resources/js/components/Wallpaper/image3.jpg":
-/*!******************************************************!*\
-  !*** ./resources/js/components/Wallpaper/image3.jpg ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/image3.jpg?827695951837375a56f5d097b3196414";
-
-/***/ }),
-
-/***/ "./resources/js/components/Wallpaper/image4.jpg":
-/*!******************************************************!*\
-  !*** ./resources/js/components/Wallpaper/image4.jpg ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/image4.jpg?b9546fe92eeb222d6eb4d95d9b14eff3";
-
-/***/ }),
-
-/***/ "./resources/js/components/bestseller/clothes1.png":
+/***/ "./resources/js/components/bestseller/clothes1.jpg":
 /*!*********************************************************!*\
-  !*** ./resources/js/components/bestseller/clothes1.png ***!
+  !*** ./resources/js/components/bestseller/clothes1.jpg ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/clothes1.png?e6434b06a475c41fe794a543a0c8820a";
+module.exports = "/images/clothes1.jpg?82edc38cbb64035cf3938731b10e3bfd";
 
 /***/ }),
 
-/***/ "./resources/js/components/bestseller/clothes2.png":
+/***/ "./resources/js/components/bestseller/clothes2.jpg":
 /*!*********************************************************!*\
-  !*** ./resources/js/components/bestseller/clothes2.png ***!
+  !*** ./resources/js/components/bestseller/clothes2.jpg ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/clothes2.png?29b5ad1a634b61b697f010787d5c5200";
+module.exports = "/images/clothes2.jpg?ef5110b7be2df94697a65bb3e9909720";
 
 /***/ }),
 
-/***/ "./resources/js/components/bestseller/clothes3.png":
+/***/ "./resources/js/components/bestseller/clothes3.jpg":
 /*!*********************************************************!*\
-  !*** ./resources/js/components/bestseller/clothes3.png ***!
+  !*** ./resources/js/components/bestseller/clothes3.jpg ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/clothes3.png?967d458274264af5dcf24220e039752e";
+module.exports = "/images/clothes3.jpg?91abe1537e6f085136cff97ebb0f24fa";
 
 /***/ }),
 
-/***/ "./resources/js/components/bestseller/clothes4.png":
+/***/ "./resources/js/components/bestseller/clothes4.jpg":
 /*!*********************************************************!*\
-  !*** ./resources/js/components/bestseller/clothes4.png ***!
+  !*** ./resources/js/components/bestseller/clothes4.jpg ***!
   \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/clothes4.png?029a520e043762a757ce4ec6c3f9369b";
+module.exports = "/images/clothes4.jpg?03804ed01776b9c4f444a4841d80928a";
 
 /***/ }),
 
@@ -91705,8 +91556,8 @@ module.exports = JSON.parse("{\"v\":\"5.7.6\",\"fr\":25,\"ip\":0,\"op\":72,\"w\"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\SKRIPSI\Laravel\blog\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\SKRIPSI\Laravel\blog\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\hp\Desktop\BINUS\tokolocal\skripsi-laravel\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\hp\Desktop\BINUS\tokolocal\skripsi-laravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
