@@ -1,28 +1,33 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Event')
+@section('title','TokoLokal | ' .e($event->name))
 
 @section('content')
+<div class="container pt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb p-0 bg-transparent">
+            <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
+            <li class="breadcrumb-item"><a href="/event" class="text-dark">Event</a></li>
+            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$event->name}}</li>
+        </ol>
+    </nav>
+</div>
 
-<div class="container mt-5">
-    <div class="row justify-content-center mb-5">
-        <h2 class="font-weight-bolder mb-5">{{$event->name}}</h2>
-        <img src="{{asset('/uploads/events/'. $event->picture)}}" class="img-fluid img-thumbnail" alt="picture">
-    </div>
-
-    <div class="row justify-content-center mb-5">
-        <div class="col-12 text-center">
-            <label for="website" class="h4 font-weight-bold">Website</label><br>
-            <a href="/{{$event->website}}" id="website" class="h3 font-weight-bolder">{{$event->website}}</a>
-        </div>
-    </div>
-
+<div class="container pb-5">
     <div class="row justify-content-center">
-        <div class="col-12 text-center">
-            <label for="website" class="h4 font-weight-bold">About Us</label><br>
-            <p id="website" class="h5 ">{{$event->about_us}}</p>
+        <div class="col-md-10">
+            <h1 class="text-center mt-3" style="text-transform:capitalize;font-weight:bold">{{$event->name}}</h1>
+
+            <div class="text-center">
+                <img src="{{asset('uploads/events/' . $event->picture)}}" class="img-fluid p-3" alt="Couldn't process image" height="323px" width="400px">
+            </div>
+
+            <h5 class="text-center mt-3" style="font-weight:bold">Website</h5>
+            <div class="text-center"><a href="">{{$event->website}}</a></div>
+
+            <h5 class="text-center mt-3" style="font-weight:bold">About Us</h5>
+            <p class="text-center">{{$event->about_us}}</p>
         </div>
     </div>
 </div>
-
 @endsection

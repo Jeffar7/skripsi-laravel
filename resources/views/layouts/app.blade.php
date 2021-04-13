@@ -10,22 +10,28 @@
 
     <title>@yield('title')</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- Bootstrap Data Table CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Customize Css -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+    <!-- fav icon -->
+    <link rel="shortcut icon" href="images/tokolocal.png" type="image/png"> 
 </head>
 
 <body>
@@ -48,20 +54,8 @@
                         <a class="nav-item nav-link" href="/manageraffle">RAFFLE</a>
                         <a class="nav-item nav-link" href="/managebrand">BRAND</a>
                         <a class="nav-item nav-link" href="/manageevent">EVENT</a>
-                        <a class="nav-item nav-link" href="#">FORUM</a>
+                        
                         @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link " href="#" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES</a>
-                                <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">TOP</a>
-                                    <a class="dropdown-item" href="#">BOTTOM</a>
-                                    <a class="dropdown-item" href="#">SHOES</a>
-                                    <a class="dropdown-item" href="#">ACCESSORIES</a>
-                                    <a class="dropdown-item" href="#">NEW</a>
-                                    <a class="dropdown-item" href="#">SALE</a>
-                                </ul>
-                        </li> -->
-
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="/men" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
                             <div class="dropdown-menu">
@@ -180,11 +174,6 @@
             </div>
         </footer>
     </div>
-    <script>
-        $(window).load(function() {
-            $('#preloader').hide();
-        });
-    </script>
 </body>
 
 </html>

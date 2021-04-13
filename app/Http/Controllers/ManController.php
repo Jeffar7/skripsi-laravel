@@ -24,6 +24,12 @@ class ManController extends Controller
         return view('menpage/men', compact('products'));
     }
 
+    public function bestseller()
+    {
+        $products = Product::all();
+        return view('/home', compact('products'));
+    }
+
     public function tops()
     {
         //filter product categories top for men

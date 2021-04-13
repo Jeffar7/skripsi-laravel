@@ -4,7 +4,12 @@
 
 @section('content')
 <div class="container py-4">
-    <div><p class="text-left">Home > Men</p></div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb p-0 bg-transparent">
+            <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
+            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Men</li>
+        </ol>
+    </nav>
     <div class="text-center">
         <img src="image/men.jpg" alt="" height="472px;" width="1110px;">
     </div>

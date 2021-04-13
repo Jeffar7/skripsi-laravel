@@ -1,16 +1,23 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Raffle')
+@section('title','TokoLokal | ' .e($raffle->rafflename))
 
 @section('content')
+<div class="container py-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb p-0 bg-transparent">
+            <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
+            <li class="breadcrumb-item"><a href="/raffle" class="text-dark">Raffle</a></li>
+            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$raffle->rafflename}}</li>
+        </ol>
+    </nav>
+</div>
 
 <div class="container">
     <div class="row justify-content-center mb-5">
-        <div class="mt-5">
-            <div class="col">
-                <img src="{{asset('/uploads/raffles/'. $raffle->raffleimage)}}" class="img-fluidd" alt="image">
+            <div class="col-12 text-center">
+                <img src="{{asset('/uploads/raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 400px; max-width: 100%;">
             </div>
-        </div>
     </div>
 
     <div class="row justify-content-center">
@@ -19,17 +26,19 @@
         </div>
     </div>
 
-    <div class="row justify-content-center mb-5">
+    <div class="row justify-content-center mb-3">
         <div class="col-12 text-center">
             <p>DAYS | HOURS | MINUTES | SECOND</p>
         </div>
     </div>
 
-    <div class="row justify-content-center mb-5">
+    <div class="row justify-content-center">
         <div class="col-12 text-center">
             <p class="h3 font-weight-bold"> {{$raffle->rafflename}}</p>
         </div>
     </div>
+
+    <hr>
 
     <form action="">
         <div class="form-row justify-content-around">
@@ -86,7 +95,7 @@
                     <input type="text" id="city" class="form-control" value="{{Auth::user()->detailaddress->city}}" name="city">
                 </div>
 
-                <div class="row mb-1">
+                <div class="row mb-3">
                     <label for="firstname">Country*</label>
                     <select id="country" name="country" class="form-control" value="{{Auth::user()->detailaddress->country}}">
 
@@ -340,30 +349,28 @@
                 </div>
 
                 <div class="row mb-1 text-center">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, accusantium.</p>
+                    <p>By submitting the form you agree to the Terms & Conditions below.</p>
                 </div>
 
-                <div class="row text-center">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis tempora explicabo nesciunt ab autem non, ducimus totam exercitationem voluptatum odit sequi rem, veritatis aut molestiae?</p>
+                <div class="row mb-1 text-center">
+                    <p>Once you have completed the payment,  you have commited to purchasing the product should you win. If you win, payment will be taken and the product will be sent via your choosen delivery method after draw has closed. If unsucessful your held payment will be released after the close of the draw, depending on your bank this may take 3-5 days. You’ll receive a confirmation email when entering and once the draw closes if sucessful or unsuccesful. Full T&C’s are on our site.</p>
                 </div>
 
-                <div class="row text-center">
+                <div class="row justify-content-around">
                     <p><input type="checkbox">
-                        I Understand the raffle payment terms
+                        I understand the raffle payment terms.
                     </p>
                 </div>
-
-                <div class="row">
-                    <button type="input" class="btn btn-dark btn-block">Confirm Here</button>
-                </div>
-
             </div>
-
         </div>
-
+        <div class="form-row justify-content-around mt-3">
+            <div class="col-md-8">
+                <button type="input" class="btn btn-dark btn-block">Confirm Here</button>
+            </div>
+        </div>
     </form>
 
-
+    <div class="mb-5"></div>
 </div>
 
 @endsection()
