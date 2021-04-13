@@ -113,8 +113,9 @@ Route::get('/buy-now/{id}', 'OrderController@buynow');
 Route::get('/checkout/delivery', 'OrderController@delivery');
 Route::get('/delivery/address/{id}', 'OrderController@chooseaddress');
 Route::get('/delivery/addaddress', 'OrderController@addaddresspage');
-Route::get('/payment', 'OrderController@payment');
-Route::get('/order-summary', 'OrderController@summary');
+Route::post('/payment', 'OrderController@payment');
+Route::post('/order-summary', 'OrderController@summary');
+
 Route::post('/delivery/addaddress', 'OrderController@addaddress');
 
 

@@ -5,12 +5,15 @@ namespace App\Http\Livewire;
 use App\Address_Delivery_Users;
 use App\DetailAddress;
 use App\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class OrderIndex extends Component
 {
     public $addresses;
+    public $address;
+    public $search;
 
     protected $listeners = [
         'addressStored' => 'handleStored'
@@ -19,19 +22,22 @@ class OrderIndex extends Component
 
     public function render()
     {
-        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $this->addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
 
-        if ($addresses) {
-            $this->addresses = $addresses;
+
+        if ($this->search === null) {
+            $this->address = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->first();
         } else {
-            $this->addresses = null;
+            $this->address = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->where('id', '=', $this->search)->first();
         }
+
+
 
         return view('livewire.order-index');
     }
 
     public function handleStored($address)
     {
-        // dd($address);
+        Session()->flash('message', 'Address was stored!');
     }
 }

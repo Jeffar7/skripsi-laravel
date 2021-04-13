@@ -53,7 +53,8 @@ class OrderController extends Controller
     {
         $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
         $shipments = Shipment::all();
-        $products = Product::where('id', '=', $id)->get();
+        $products = Product::where('id', '=', $id)->first();
+
 
         return view('/transactions/delivery', compact('addresses', 'shipments', 'products'));
     }
@@ -102,15 +103,21 @@ class OrderController extends Controller
         return view('/transactions/delivery', compact('addresses', 'detailaddresses'));
     }
 
-    public function payment()
+    public function payment(Request $request)
     {
+
+
         $payments = Payment::all();
         return view('/transactions/payment', compact('payments'));
     }
 
-    public function summary()
+    public function summary(Request $request)
     {
-        return view('/transactions/ordersummary');
+        $products = Product::where('id', '=', $request->products)->get();
+        $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
+        $shipment = Shipment::where('id', '=', $request->shipment)->first();
+
+        return view('/transactions/ordersummary', compact('products', 'address', 'shipment'));
     }
     /**
      * Display a listing of the resource.

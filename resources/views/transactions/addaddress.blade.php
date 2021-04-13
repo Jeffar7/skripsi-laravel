@@ -13,13 +13,8 @@
             </div>
             <div class="card-body">
                 <livewire:address-delivery-create></livewire:address-delivery-create>
-
             </div>
-
-
         </div>
-
-
     </div>
 
 </div>
