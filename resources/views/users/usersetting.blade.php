@@ -11,14 +11,14 @@
 <div id="exTab1" class="container pb-5">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item active">
-            <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home"
+            <a class="nav-link active bg-transparent" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home"
             aria-selected="true">Profile</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="notification-tab" data-toggle="tab" href="#2a" role="tab" aria-controls="profile" aria-selected="false">Notification</a>
+            <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#2a" role="tab" aria-controls="profile" aria-selected="false">Notification</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="privacy-tab" data-toggle="tab" href="#3a" role="tab" aria-controls="profile" aria-selected="false">Privacy</a>
+            <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#3a" role="tab" aria-controls="profile" aria-selected="false">Privacy</a>
         </li>
     </ul>	
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">

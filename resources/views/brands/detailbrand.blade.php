@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Detail Brand')
+@section('title','TokoLokal | ' .e($brand->name))
 
 @section('content')
 <div class="container pt-4">
-    <div><p class="text-left">Brands > {{$brand->name}}</p></div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb p-0 bg-transparent">
+            <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
+            <li class="breadcrumb-item"><a href="/allbrand" class="text-dark">Brand</a></li>
+            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$brand->name}}</li>
+        </ol>
+    </nav>
 </div>
 
 <div class="container pb-5">

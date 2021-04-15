@@ -3,14 +3,13 @@
 @section('title','TokoLokal | Edit User')
 
 @section('content')
-
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card ">
-                <div class="card-header text-center">
-                    <h5>Edit User</h5>
+            <h1 class="title-home mt-3">Edit User</h1>
+            <div class="card shadow-lg">
+                <div class="card-header text-left bg-dark">
+                    <h5 class="text-white">USER</h5>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="/users/adm/{{$user->id}}" enctype="multipart/form-data">
@@ -94,12 +93,13 @@
                         <input type="hidden" name="site" value="-">
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Update user data</button>
+                            <button type="submit" class="btn btn-primary btn-block">Update User</button>
                         </div>
 
                     </form>
                 </div>
             </div>
+            <div class="mt-4"></div>
         </div>
     </div>
 </div>

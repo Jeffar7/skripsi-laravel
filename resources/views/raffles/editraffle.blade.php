@@ -7,9 +7,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card ">
-                <div class="card-header text-center">
-                    <h5>Edit Raffle</h5>
+            <h1 class="title-home mt-3">Edit Raffle</h1>
+            <div class="card shadow-lg">
+                <div class="card-header text-left bg-dark">
+                    <h5 class="text-white">RAFFLE</h5>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="/raffles/{{$raffle->id}}" enctype="multipart/form-data">
@@ -74,12 +75,13 @@
 
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Add Brand to Store</button>
+                            <button type="submit" class="btn btn-primary btn-block">Update Raffle</button>
                         </div>
 
                     </form>
                 </div>
             </div>
+            <div class="mt-4"></div>
         </div>
     </div>
 </div>
