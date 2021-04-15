@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Cart;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
 use App\product_user;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -195,8 +201,8 @@ class ProductController extends Controller
 
     public function destroylist($id)
     {
-        $wishlist = product_user::where('id', '=', $id)->onlyTrashed()->first();
-        $wishlist->forceDelete();
+        $wishlist = Cart::where('id', '=', $id)->first();
+        $wishlist->delete();
 
         return redirect('product-cart')->with('status', 'Product successfully deleted from cart');
     }
@@ -210,9 +216,26 @@ class ProductController extends Controller
         return redirect('product-wish')->with('status', 'Product successfully added to cart');
     }
 
+    //new cart
+    public function addtocartt($id)
+    {
+        $wish = product_user::where('id', '=', $id)->first();
+
+        if (Cart::where('product_id', '=', $wish->product_id)->exists() & Cart::where('user_id', '=', $wish->user_id)->exists()) {
+            return back()->with('status', 'Item has already on cart list.');
+        } else {
+
+            Cart::create([
+                'product_id' => $wish->product_id,
+                'user_id' => $wish->user_id
+            ]);
+            return back()->with('status', 'item successfully added to cart list!');
+        }
+    }
+
     public function productcart()
     {
-        $cartlists = product_user::onlyTrashed()->get();
+        $cartlists = Cart::where('user_id', '=', Auth::user()->id)->get();
 
         return view('/products/pagecart', compact('cartlists'));
     }

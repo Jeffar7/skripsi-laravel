@@ -48,4 +48,9 @@ class Product extends Model
     {
         return $this->belongsTo(Gender::class, 'gender_id');
     }
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class, 'user_id', 'id');
+    }
 }

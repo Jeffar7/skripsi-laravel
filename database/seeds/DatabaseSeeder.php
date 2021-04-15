@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoryRaffleTableSeeder::class);
         $this->call(RaffleTableSeeder::class);
         $this->call(EventsTableSeeder::class);
+        $this->call(ShipmentsTableSeeder::class);
     }
 }
