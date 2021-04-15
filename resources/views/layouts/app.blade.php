@@ -10,6 +10,10 @@
 
     <title>@yield('title')</title>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 948a8daec364a3d79d91aeb8574b89be4b80dc04
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -30,7 +34,6 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
-    @livewireStyles
     <!-- fav icon -->
     <link rel="shortcut icon" href="images/tokolocal.png" type="image/png"> 
 </head>
@@ -150,7 +153,7 @@
             @yield('content')
         </main>
 
-        <!-- <footer>
+        <footer>
             <div class="container">
                 <div class="row">
                     <div class="col-4">
@@ -180,7 +183,7 @@
                     </div>
                 </div>
             </div>
-        </footer> -->
+        </footer>
     </div>
 </body>
 

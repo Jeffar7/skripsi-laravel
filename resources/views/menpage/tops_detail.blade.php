@@ -93,6 +93,7 @@
                     </div>
                 </div>
                 <div class="row">
+
                     <div class="col">
                         <button class="btn btn-dark" style="width:100%;"><a href="/buy-now/{{$product_tops->id}}" class="card-link" style="color:white;">Buy Now</a></button>
                     </div>
