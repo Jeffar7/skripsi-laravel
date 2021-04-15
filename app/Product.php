@@ -13,6 +13,7 @@ class Product extends Model
         'categoryid',
         'brandid',
         'gender_id',
+        'image_detail_id',
         'productname',
         'productpicture',
         'productprice',
@@ -52,5 +53,10 @@ class Product extends Model
     public function cart()
     {
         return $this->hasOne(Cart::class, 'user_id', 'id');
+    }
+
+    public function imagedetail()
+    {
+        return $this->belongsTo(ImageDetail::class, 'image_detail_id', 'id');
     }
 }

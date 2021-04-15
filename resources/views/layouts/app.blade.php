@@ -10,17 +10,6 @@
 
     <title>@yield('title')</title>
 
-<<<<<<< HEAD
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- Customize Script -->
-    <script src="{{ asset('js/script.js') }}" defer></script>
-
-=======
->>>>>>> 0eaddd3681f608b9881bd585874fab070173ec8e
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -193,16 +182,6 @@
             </div>
         </footer> -->
     </div>
-<<<<<<< HEAD
-    <script>
-        $(window).load(function() {
-            $('#preloader').hide();
-        });
-    </script>
-
-    @livewireScripts
-=======
->>>>>>> 0eaddd3681f608b9881bd585874fab070173ec8e
 </body>
 
 </html>

@@ -61,25 +61,29 @@ class OrderController extends Controller
 
     public function addaddress(Request $request)
     {
+        if ($request->has('formaddress')) {
 
 
-        $address = new Address_Delivery_Users();
 
-        $address->recipient_name = $request->recipient_name;
-        $address->contact_number = $request->contact_number;
-        $address->address = $request->address;
-        $address->address_note = $request->address_note;
-        $address->post_code = $request->post_code;
-        $address->province = $request->province;
-        $address->city = $request->city;
-        $address->district = $request->district;
-        $address->user_id = Auth::user()->id;
+            $address = new Address_Delivery_Users();
 
-        $address->save();
+            $address->recipient_name = $request->recipient_name;
+            $address->contact_number = $request->contact_number;
+            $address->address = $request->address;
+            $address->address_note = $request->address_note;
+            $address->post_code = $request->post_code;
+            $address->province = $request->province;
+            $address->city = $request->city;
+            $address->district = $request->district;
+            $address->user_id = Auth::user()->id;
 
-        // dd($address);
+            $address->save();
+        } else {
+            return back();
+        }
 
-        return redirect()->action([OrderController::class, 'checkout']);
+        return back();
+        // return redirect()->action([OrderController::class, 'checkout']);
     }
 
     public function addaddresspage()
@@ -105,10 +109,55 @@ class OrderController extends Controller
 
     public function payment(Request $request)
     {
+        // Place Order Summary to Order Table
 
+        $order = new Order();
+        $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
+        $order->status = 'pending';
+        $order->user_id = Auth::user()->id;
+        $order->grand_total = "10000";
+        $order->address_id = $request->address;
+        // $order->payment_id = $request->payment;
+        $order->shipment_id = $request->shipment;
+
+        $order->save();
 
         $payments = Payment::all();
-        return view('/transactions/payment', compact('payments'));
+        return view('/transactions/payment', compact('payments', 'order'));
+    }
+
+    public function makepayment(Request $request)
+    {
+        $payment = new Payment();
+
+        if ($request->payment_type === 'credit') {
+
+            $payment->payment_type = 'credit';
+            $payment->first_name = $request->first_name;
+            $payment->last_name = $request->last_name;
+            $payment->card_number = $request->card_number;
+            $payment->cvv = $request->cvv;
+            $payment->credit_type = $request->credit_type;
+            $payment->valid_until = $request->valid_until;
+            $payment->user_id = Auth::user()->id;
+            $payment->save();
+        } else {
+            $payment->payment_type = 'debit';
+            $payment->first_name = $request->first_name;
+            $payment->last_name = $request->last_name;
+            $payment->bank_name = $request->bank_name;
+            $payment->bank_type = $request->bank_type;
+            $payment->account_number = $request->account_number;
+            $payment->user_id = Auth::user()->id;
+            $payment->save();
+        }
+
+        Order::where('id', '=', $request->order)->update([
+            'status' => 'completed',
+            'payment_id' => $payment->id
+        ]);
+
+        return redirect('/');
     }
 
     public function summary(Request $request)

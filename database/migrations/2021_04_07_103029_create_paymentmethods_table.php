@@ -18,13 +18,13 @@ class CreatePaymentmethodsTable extends Migration
             $table->enum('payment_type', ['debit', 'credit'])->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->enum('bank_name', [null, 'BCA', 'BNI', 'MANDIRI', 'BRI'])->nullable();
-            $table->enum('bank_type', [null, 'M-Banking', 'BRIVA', 'VIRTUAL ACCOUNT'])->nullable();
+            $table->enum('bank_name', ['BCA', 'BNI', 'MANDIRI', 'BRI'])->nullable();
+            $table->enum('bank_type', ['M-Banking', 'BRIVA', 'VIRTUAL ACCOUNT'])->nullable();
             $table->string('account_number')->nullable();
             $table->string('card_number')->nullable();
             $table->string('cvv')->nullable();
-            $table->enum('credit_type', [null, 'VISA', 'MasterCard', 'AmericanExpress', 'Discover'])->nullable();
-            $table->date('valid_until')->nullable();
+            $table->enum('credit_type', ['VISA', 'MasterCard', 'AmericanExpress', 'Discover'])->nullable();
+            $table->string('valid_until')->nullable();
             $table->string('user_id');
             $table->softDeletes();
             $table->timestamps();

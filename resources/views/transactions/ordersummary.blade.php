@@ -57,6 +57,7 @@
         <!-- End Table -->
 
         <!-- Detail Address -->
+        @if (!empty($address))
         <div class="row justify-content-center m-3">
           <div class="col-md-5 bg-light">
             <div class="text-left">
@@ -71,6 +72,22 @@
             </div>
           </div>
         </div>
+        @else
+        <div class="row justify-content-center m-3">
+          <div class="col-md-5 bg-light">
+            <div class="text-left">
+              <p>Recipient Name:</p>
+              <p>Contact Number:</p>
+              <p>Address:</p>
+              <p>Address Note (optional):</p>
+              <p>Post Code:</p>
+              <p>Province:</p>
+              <p>City: </p>
+              <p>District: </p>
+            </div>
+          </div>
+        </div>
+        @endif
         <!--End Detail Address -->
 
         <!-- Shipping Option-->
@@ -167,8 +184,8 @@
     @csrf
 
     <input type="hidden" name="product" value="{{$product}}">
-    <input type="hidden" name="address" value="{{$address}}">
-    <input type="hidden" name="shipment" value="{{$shipment}}">
+    <input type="hidden" name="address" value="{{$address->id}}">
+    <input type="hidden" name="shipment" value="{{$shipment->id}}">
         <button type="submit" class="btn btn-dark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
