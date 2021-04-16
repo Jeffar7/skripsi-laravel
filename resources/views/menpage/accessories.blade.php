@@ -37,9 +37,11 @@
                     @endforeach
             </div>
 
-            <button class="btn-filter mt-3 mb-3" href="#" id="filter">
-                FILTER
-            </button>
+            <div>
+                <button class="btn btn-light border border-dark mt-3 mb-3" style="width:100%; background-color:white;" id="filter">
+                    FILTER
+                </button>
+            </div>
         </div>
         <!-- Akhir Drop Down -->
         <!-- Tampilan Gambar Produk -->

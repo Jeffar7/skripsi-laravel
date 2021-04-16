@@ -35,6 +35,17 @@
             @endforeach
             <hr>
             <p class="mb-0 font-weight-bold">Price</p>
+            <div>
+                <div id="slider-range" class="price-filter-range" name="rangeInput">
+                </div>
+
+                <div style="margin:30px auto">
+                    <input type="number" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
+                    <input type="number" min=0 max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" />
+                </div>
+                <!-- <button class="price-range-search" id="price-range-submit">Search</button>
+                <div id="searchResults" class="search-results-block"></div> -->
+            </div>
             <hr>
             <div>
             <p class="mb-0 font-weight-bold">Brands</p>
@@ -50,9 +61,11 @@
                     </label>
                 @endforeach
             </div>
-            <button class="btn-filter mt-3 mb-3" href="#" id="filter">
-                FILTER
-            </button>
+            <div>
+                <button class="btn btn-light border border-dark mt-3 mb-3" style="width:100%; background-color:white;" id="filter">
+                    FILTER
+                </button>
+            </div>
         </div>
 
         <!-- Tampilan Gambar Produk -->
@@ -113,5 +126,72 @@
     }
 
     document.getElementById("filter").addEventListener("click", filterResults);
+</script>
+<script>
+    $(document).ready(function(){
+	    // $('#price-range-submit').hide();
+	    // $("#min_price,#max_price").on('change', function () {
+        //     $('#price-range-submit').show();
+        //     var min_price_range = parseInt($("#min_price").val());
+        //     var max_price_range = parseInt($("#max_price").val());
+
+        //     if (min_price_range > max_price_range) {
+        //         $('#max_price').val(min_price_range);
+        //     }
+
+        //     $("#slider-range").slider({
+        //         values: [min_price_range, max_price_range]
+        //     });
+        // });
+
+
+	    $("#min_price,#max_price").on("paste keyup", function () {                                        
+            $('#price-range-submit').show();
+            var min_price_range = parseInt($("#min_price").val());
+            var max_price_range = parseInt($("#max_price").val());
+	  
+	        if(min_price_range == max_price_range){
+			    max_price_range = min_price_range + 100;
+                $("#min_price").val(min_price_range);		
+                $("#max_price").val(max_price_range);
+            }
+
+            $("#slider-range").slider({
+                values: [min_price_range, max_price_range]
+            });
+        });
+
+
+	    $(function () {
+            $("#slider-range").slider({
+                range: true,
+                orientation: "horizontal",
+                min: 0,
+                max: 10000,
+                values: [0, 10000],
+                step: 100,
+
+                slide: function (event, ui) {
+                    if (ui.values[0] == ui.values[1]) {
+                        return false;
+                    }
+		  
+                    $("#min_price").val(ui.values[0]);
+                    $("#max_price").val(ui.values[1]);
+                }
+	        });
+
+            $("#min_price").val($("#slider-range").slider("values", 0));
+            $("#max_price").val($("#slider-range").slider("values", 1));
+        });
+
+	    $("#slider-range,#price-range-submit").click(function () {
+            var min_price = $('#min_price').val();
+            var max_price = $('#max_price').val();
+
+	    $("#searchResults").text("Here List of products will be shown which are cost between " + min_price  +" "+ "and" + " "+ max_price + ".");
+	});
+});
+
 </script>
 @endsection

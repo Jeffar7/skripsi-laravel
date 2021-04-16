@@ -51,12 +51,13 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="btn-group">
-                            <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Quantity
-                            </button>
-                            <div class="dropdown-menu">
-                                ...
+                        <div class="input-group quantity">
+                            <div class="input-group-prepend decrement-btn" style="cursor: pointer">
+                                <span class="input-group-text">-</span>
+                            </div>
+                            <input type="text" class="qty-input form-control text-center" maxlength="2" max="10" value="1">
+                            <div class="input-group-append increment-btn" style="cursor: pointer">
+                                <span class="input-group-text">+</span>
                             </div>
                         </div>
                     </div>
@@ -197,5 +198,31 @@
         </div>
     </div>
 </div>
+
+<script>    
+    $(document).ready(function () {
+        $('.increment-btn').click(function (e) {
+        e.preventDefault();
+        var incre_value = $(this).parents('.quantity').find('.qty-input').val();
+        var value = parseInt(incre_value, 10);
+        value = isNaN(value) ? 0 : value;
+        if(value < 10){
+            value++;
+            $(this).parents('.quantity').find('.qty-input').val(value);
+        }
+    });
+
+    $('.decrement-btn').click(function (e) {
+            e.preventDefault();
+            var decre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(decre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if(value>1){
+                value--;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
+        });
+    });
+</script>
 
 @endsection
