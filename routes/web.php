@@ -1,11 +1,13 @@
 <?php
 
 use App\Brand;
+use App\Cart;
 use App\Category;
 use App\Gender;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WomenController;
+use App\Order;
 use App\Product;
 use App\product_user;
 use App\Review;
@@ -29,6 +31,7 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 Route::get('/', function () {
+
     return view('home');
 });
 
@@ -97,8 +100,25 @@ Route::post('/wish-list/save', 'ProductController@productwishsave');
 Route::delete('/wish-list/delete/{id}', 'ProductController@destroywish');
 Route::delete('/wish-list/addtocart/{id}', 'ProductController@addtocart');
 
+//new cart
+Route::post('/addtocart/{id}', 'ProductController@addtocartt');
+
 Route::get('/product-cart', 'ProductController@productcart');
 Route::delete('/product-cart/delete/{id}', 'ProductController@destroylist');
+
+//checkout
+Route::get('/checkout', 'OrderController@checkout');
+
+Route::get('/buy-now/{id}', 'OrderController@buynow');
+
+//delivery
+Route::get('/checkout/delivery', 'OrderController@delivery');
+Route::get('/delivery/address/{id}', 'OrderController@chooseaddress');
+Route::get('/delivery/addaddress', 'OrderController@addaddresspage');
+Route::get('/payment', 'OrderController@payment');
+Route::get('/order-summary', 'OrderController@summary');
+Route::post('/delivery/addaddress', 'OrderController@addaddress');
+
 
 Route::get('/raffle', 'RaffleController@raffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
@@ -168,4 +188,7 @@ Route::get('/check', function () {
     // $cartlist = product_user::onlyTrashed()->get();
 
     // dd($cartlist);
+
+    $Order = Order::find(1);
+    dd($Order->address_delivery_users);
 });
