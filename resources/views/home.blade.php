@@ -46,7 +46,6 @@
         </div>
     </div> 
 
-
     <div class="container mb-5">
         <p class="title-home">BEST SELLER</p>
         <div class="row justify-content-around">

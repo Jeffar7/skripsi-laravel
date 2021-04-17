@@ -37,6 +37,7 @@
                 <p>{{$product_tops->productdescription}}</p>
                 
                 <!-- button size and quantity -->
+                
                 <div class="row mb-3">
                     <div class="col"> 
                         <div class="btn-group">
@@ -52,12 +53,8 @@
                     </div>
                     <div class="col">
                         <div class="btn-group">
-                            <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Quantity
-                            </button>
-                            <div class="dropdown-menu">
-                                ...
-                            </div>
+                            <label for="quantity" class="form-group">Quantity</label>
+                            <input type="number" name="quantity" for="quantity" class="form-group">
                         </div>
                     </div>
                 </div>

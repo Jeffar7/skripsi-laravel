@@ -26,6 +26,17 @@ class AddressDeliveryCreate extends Component
 
     public function store()
     {
+
+        $this->validate([
+            'recipient_name' => 'required|min:4',
+            'contact_number' => 'required|min:8',
+            'address' => 'required',
+            'post_code' => 'required|min:5',
+            'province' => 'required',
+            'city' => 'required',
+            'district' => 'required'
+        ]);
+
         $address =  Address_Delivery_Users::create([
             'recipient_name' => $this->recipient_name,
             'contact_number' => $this->contact_number,

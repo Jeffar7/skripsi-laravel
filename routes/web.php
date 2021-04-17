@@ -115,8 +115,10 @@ Route::get('/buy-now/{id}', 'OrderController@buynow');
 Route::get('/checkout/delivery', 'OrderController@delivery');
 Route::get('/delivery/address/{id}', 'OrderController@chooseaddress');
 Route::get('/delivery/addaddress', 'OrderController@addaddresspage');
-Route::get('/payment', 'OrderController@payment');
-Route::get('/order-summary', 'OrderController@summary');
+Route::post('/payment', 'OrderController@payment');
+Route::post('/order-summary', 'OrderController@summary');
+Route::post('/makepayment', 'OrderController@makepayment');
+
 Route::post('/delivery/addaddress', 'OrderController@addaddress');
 
 
@@ -160,6 +162,10 @@ Route::get('/women', 'WomenController@index');
 
 //route for testing
 Route::get('/check', function () {
+
+    $productimagedetail = Product::find(2)->imagedetail(6)->first();
+    dd($productimagedetail);
+
     // mencari product dengan product gender 'MEN' category 'SHOES' dan produk dengan category 'SHOES'
     // $genders = Gender::find(1)->category()->where('name', 'SHOES')->first();
     // dd($genders->product);
@@ -189,6 +195,6 @@ Route::get('/check', function () {
 
     // dd($cartlist);
 
-    $Order = Order::find(1);
-    dd($Order->address_delivery_users);
+    //     $Order = Order::find(1);
+    // dd($Order->address_delivery_users);
 });
