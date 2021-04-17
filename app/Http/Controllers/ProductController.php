@@ -186,6 +186,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        unlink(public_path('uploads/products') . '/' . $product->productimage);
         Product::destroy($product->id);
 
         return redirect('manageproduct')->with('status', 'Product successfully deleted!');

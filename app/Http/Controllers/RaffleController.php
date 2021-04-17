@@ -61,6 +61,7 @@ class RaffleController extends Controller
         $raffle->raffleimage = $request->raffleimage;
         $raffle->rafflequantity = $request->rafflequantity;
         $raffle->rafflereleasedate = $request->rafflereleasedate;
+        $raffle->raffleclosedate = $request->raffleclosedate;
         $raffle->brand_id = $request->brand_id;
         $raffle->category_id = $request->category_id;
 
@@ -131,6 +132,7 @@ class RaffleController extends Controller
             'raffleimage' => $raffle->raffleimage,
             'rafflequantity' => $request->rafflequantity,
             'rafflereleasedate' => $request->rafflereleasedate,
+            'raffleclosedate' => $request->raffleclosedate,
             'brand_id' => $request->brand_id,
             'category_id' => $request->category_id
         ]);

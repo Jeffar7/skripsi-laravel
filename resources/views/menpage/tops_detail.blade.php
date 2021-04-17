@@ -37,6 +37,7 @@
                 <p>{{$product_tops->productdescription}}</p>
                 
                 <!-- button size and quantity -->
+                
                 <div class="row mb-3">
                     <div class="col"> 
                         <div class="btn-group">

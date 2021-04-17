@@ -10,7 +10,7 @@ class Raffle extends Model
     use SoftDeletes;
 
     protected $table = "raffles";
-    protected $fillable = ['rafflename', 'rafledescription', 'raffleprice', 'raffleimage', 'rafflequantity', 'releasedate', 'brand_id', 'category_id'];
+    protected $fillable = ['rafflename', 'rafledescription', 'raffleprice', 'raffleimage', 'rafflequantity', 'rafflereleasedate', 'raffleclosedate', 'brand_id', 'category_id'];
     protected $guarded = ['id'];
 
     public function brand()
