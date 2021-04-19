@@ -69,6 +69,7 @@ class UserController extends Controller
             'password' => 'required|string|min:8|confirmed',
             'role' => 'required|string',
             'address' => 'required|string',
+            'site' => 'required',
             'about' => 'required|string|max:255',
             'picture' => 'required|file',
             'phone' => 'required'
@@ -92,10 +93,11 @@ class UserController extends Controller
 
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/users/', $filename);
-            $user->picture = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Users/', $filenamesave);
+            $user->picture = $filenamesave;
+            
         } else {
             return $request;
             $user->picture = '';
@@ -154,10 +156,10 @@ class UserController extends Controller
 
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/users/', $filename);
-            $user->picture = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Users/', $filenamesave);
+            $user->picture = $filenamesave;
         } else {
             return $request;
             $user->picture = '';
@@ -204,10 +206,10 @@ class UserController extends Controller
     {
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/users/', $filename);
-            $user->picture = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Users/', $filenamesave);
+            $user->picture = $filenamesave;
         } else {
             return $request;
             $user->picture = '';

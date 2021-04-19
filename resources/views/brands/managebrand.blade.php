@@ -34,7 +34,7 @@
                     <tr>
                         <th scope="row">{{$brand->id}}</th>
                         <td>{{$brand->name}}</td>
-                        <td>{{$brand->picture}}</td>
+                        <td><img src="{{asset('../storage/images/Brands/' . $brand->picture)}}" class="img-fluid p-3" alt="Couldn't process image" height="323px" width="400px"></td>
                         <td>{{$brand->owner}}</td>
                         <td>{{$brand->website}}</td>
                         <td>{{$brand->created_at}}</td>

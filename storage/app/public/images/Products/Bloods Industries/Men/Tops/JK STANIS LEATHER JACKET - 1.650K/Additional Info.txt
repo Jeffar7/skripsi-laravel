@@ -1,0 +1,12 @@
+Name: JK STANIS LEATHER JACKET
+Brand: Bloods Industries
+Price: 1.650k
+Description: Leather jacket type motorcycle jacket made of high quality sheepskin, wearing tartan and inside pockets, with Bloods signature button detail and YKK zipper.
+SKU: BL.BLO-TG081
+Category: Tops, Men
+Additional Info: 
+	WEIGHT = 2 kg
+	SIZE = L, M, XL, XXL
+	COLOR = BLACK
+
+

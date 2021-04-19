@@ -1,0 +1,26 @@
+Name: Guteninc - Andrew Boardshort Cream
+Brand: Guten Inc
+Price: 100K
+Description: Garment:
+	Andrew boardshort
+ 
+	Category:
+	Pants
+ 
+	Inspiration:
+	casual sportswear, summer outfit
+ 
+	Fabric:
+	Soft premium corduroy
+ 
+	Fitting:
+	Regular fit
+
+	Quick review:
+	Boardshort is a trendy item for a casual occasion or light sports activities such as cycling.
+ 
+	Features:
+	Pocket for storing stuff safely
+SKU: GI.BLO-UA003
+Categories: Bottom, Men
+Additional Information: -

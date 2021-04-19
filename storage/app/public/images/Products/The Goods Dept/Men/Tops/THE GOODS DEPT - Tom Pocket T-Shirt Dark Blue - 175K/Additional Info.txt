@@ -1,0 +1,12 @@
+Name: THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue
+Brand: The Goods Dept
+Price: 175K
+Description: - Solid color T-Shirt
+	- Round neck
+	- Short sleeves
+	- Front pocket
+	- Regular fit
+	- Material: Cotton
+SKU: TG.BLO-UA019
+Categories: Tops, Men
+Additional Information: -

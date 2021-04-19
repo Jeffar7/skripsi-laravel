@@ -21,19 +21,20 @@ class CreateProductsTable extends Migration
             $table->bigInteger('brandid')->unsigned();
             $table->bigInteger('gender_id')->unsigned();
             $table->string('productname');
-            $table->string('productdescription');
-            $table->string('productprice');
+            $table->text('productdescription');
+            $table->string('sku');
+            $table->integer('productprice');
             $table->string('productsize');
-            $table->string('productquantity');
+            $table->integer('productquantity');
             $table->string('productimage');
             $table->rememberToken();
             $table->timestamps();
         });
 
         Schema::table('products', function (Blueprint $table) {
-            $table->foreign('categoryid')->references('id')->on('categorys')->onDelete('cascade');
-            $table->foreign('brandid')->references('id')->on('brands')->onDelete('cascade');
-            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->foreign('categoryid')->references('id')->on('categorys')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('brandid')->references('id')->on('brands')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('gender_id')->references('id')->on('genders')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 

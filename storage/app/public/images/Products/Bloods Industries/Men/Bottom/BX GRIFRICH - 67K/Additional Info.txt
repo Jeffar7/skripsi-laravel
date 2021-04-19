@@ -1,0 +1,13 @@
+Name: BX GRIFRICH
+Brand: Bloods Industries
+Price: 67K
+Description: MATERIAL : COTTON
+WITH BLOODS PLASTISOL INK SCREEN PRINTED
+SKU: BL.BLO-TC129
+Categories: Accessories, Men
+Additional Info: 
+	WEIGHT = 0.3 kg
+	SIZE = L, M
+	COLOR = Black
+
+

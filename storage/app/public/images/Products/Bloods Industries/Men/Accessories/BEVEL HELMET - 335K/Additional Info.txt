@@ -1,0 +1,9 @@
+Name: Bevel Helment
+Brand: Bloods Industries
+Price: 335K
+Description: WHITE RETRO OPEN FACE SNI HELMET WITH SHIELD ON IT
+SKU: BL.BLO-UA091
+Categories: Accessories, Men
+Additional Info: 
+	WEIGHT = 3 kg
+

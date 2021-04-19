@@ -83,23 +83,24 @@ class ProductController extends Controller
         $products->brandid = $request->brandid;
         $products->gender_id = $request->gender_id;
         $products->productprice = $request->productprice;
+        $products->sku = $request->sku;
         $products->productquantity = $request->productquantity;
         $products->productsize = $request->productsize;
         $products->productdescription = $request->productdescription;
 
         if ($request->hasFile('productimage')) {
             $file = $request->file('productimage');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/products/', $filename);
-            $products->productimage = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Products/', $filenamesave);
+            $products->productimage = $filenamesave;
         } else {
             return $request;
             $products->productimage = '';
         }
 
         $products->save();
-        return redirect('manageproduct')->with('status', 'Product Successfully Added!');
+        return redirect('manageproduct')->with('status', 'Item Successfully Added!');
     }
 
     /**
@@ -147,10 +148,10 @@ class ProductController extends Controller
 
         if ($request->hasFile('productimage')) {
             $file = $request->file('productimage');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/products/', $filename);
-            $product->productimage = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Products/', $filenamesave);
+            $product->productimage = $filenamesave;
         } else {
             return $request;
             $product->productimage = '';
@@ -163,6 +164,7 @@ class ProductController extends Controller
                 'gender_id' => $request->gender_id,
                 'productname' => $request->productname,
                 'productprice' => $request->productprice,
+                'sku' => $request->sku,
                 'productquantity' => $request->productquantity,
                 'productsize' => $request->productsize,
                 'productdescription' => $request->productdescription,

@@ -26,7 +26,7 @@
             <p>photo slider box</p>
         </div>
         <div class="col-5 border border-dark">
-            <img src="{{asset('uploads/products/' . $product_tops->productimage)}}" width="100px;" height="100px;" alt="Image">
+            <img src="{{asset('../storage/images/Products/' . $product_tops->productimage)}}" width="100px;" height="100px;" alt="Image">
         </div>
         <div class="col border border-dark" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: white">
             <div class="card-body">
@@ -151,7 +151,7 @@
             <div class="card mb-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
                 <div class="media ml-3 mt-3">
                     <div class="col-md-2">
-                        <img src="{{asset('uploads/users/' . $review->user->picture)}}" width="100px;" height="100px;" alt="Image" class="mr-3">
+                        <img src="{{asset('../storage/images/Users/' . $review->user->picture)}}" width="100px;" height="100px;" alt="Image" class="mr-3">
                     </div>
                     <div class="col-md-8">
                         <div class="media-body">

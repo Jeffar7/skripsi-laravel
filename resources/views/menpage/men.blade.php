@@ -11,7 +11,7 @@
         </ol>
     </nav>
     <div class="text-center">
-        <img src="image/men.jpg" alt="" height="472px;" width="1110px;">
+        <img src="../storage/images/MenPage/men.jpg" alt="" height="472px;" width="1110px;">
     </div>
 </div>
 
@@ -69,7 +69,7 @@
                 <div class="col-4 pt-4">
                     <!-- Gambar 1 -->
                     <div class="card" style="width: 250px; border:none;height:270px;">
-                    <a href="/men-tops/detail/{{$product->id}}" style="width: 250px;height:270px;"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="250px;" height="270px;" alt="Image" class="card-img-top border border-dark"></a>
+                    <a href="/men-tops/detail/{{$product->id}}" style="width: 250px;height:270px;"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="250px;" height="270px;" alt="Image" class="card-img-top border border-dark"></a>
                     </div>
                     <div class="card" style="width: 250px; border:none;">
                         <a href="/men-tops/detail/{{$product->id}}" style="color:black;"><p class="mt-3 mb-0" style="font-weight:bold;">{{$product->productname}}</p></a>
