@@ -20,7 +20,8 @@ class CreateRafflesTable extends Migration
             $table->integer('raffleprice');
             $table->string('raffleimage');
             $table->integer('rafflequantity');
-            $table->string('rafflereleasedate');
+            $table->date('rafflereleasedate');
+            $table->date('raffleclosedate');
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();

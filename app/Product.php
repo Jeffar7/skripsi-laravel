@@ -13,6 +13,7 @@ class Product extends Model
         'categoryid',
         'brandid',
         'gender_id',
+        'image_detail_id',
         'productname',
         'productdescription',
         'sku',
@@ -49,5 +50,15 @@ class Product extends Model
     public function gender()
     {
         return $this->belongsTo(Gender::class, 'gender_id');
+    }
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class, 'user_id', 'id');
+    }
+
+    public function imagedetail()
+    {
+        return $this->belongsTo(ImageDetail::class, 'image_detail_id', 'id');
     }
 }

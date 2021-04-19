@@ -10,6 +10,10 @@
 
     <title>@yield('title')</title>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 948a8daec364a3d79d91aeb8574b89be4b80dc04
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -112,8 +116,15 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
                             <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
+
+                            <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/userprofile">Waiting <span class="badge badge-primary badge-pill"></span></a>
+
+                            </div>
+
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

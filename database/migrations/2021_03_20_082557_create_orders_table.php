@@ -11,16 +11,21 @@ class CreateOrdersTable extends Migration
      *
      * @return void
      */
-    // public function up()
-    // {
-    //     Schema::create('orders', function (Blueprint $table) {
-    //         $table->bigIncrements('id');
-    //         $table->unsignedBigInteger('user_id');
-    //         $table->string('ordernumber');
-    //         $table->string('orderdate');
-    //         $table->timestamps();
-    //     });
-    // }
+    public function up()
+    {
+        Schema::create('orders', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('order_number')->unique();
+            $table->enum('status', ['pending', 'processing', 'completed', 'decline'])->default('pending');
+            $table->string('grand_total');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('address_id')->nullable();
+            $table->unsignedBigInteger('payment_id')->nullable();
+            $table->unsignedBigInteger('shipment_id')->nullable();
+            $table->softDeletes();
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

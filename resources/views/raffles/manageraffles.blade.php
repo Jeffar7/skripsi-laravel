@@ -28,6 +28,7 @@
                         <th scope="col">Price</th>
                         <th scope="col">Description</th>
                         <th scope="col">Released Date</th>
+                        <th scope="col">Close Date</th>
                         <th scope="col">Actions </th>
                     </tr>
                 </thead>
@@ -43,6 +44,7 @@
                         <td>{{$raffle->raffleprice}}</td>
                         <td>{{$raffle->raffledescription}}</td>
                         <td>{{$raffle->rafflereleasedate}}</td>
+                        <td>{{$raffle->raffleclosedate}}</td>
                         <td>
                             <a href="raffles/{{$raffle->id}}/edit" class="badge btn-success"><i class="fas fa-edit" style="color:white"></i></a>
 

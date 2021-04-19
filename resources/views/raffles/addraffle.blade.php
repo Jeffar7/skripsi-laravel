@@ -68,6 +68,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="raffleclosedate">Close Date</label>
+                            <input type="date" class="form-control" id="raffleclosedate" name="raffleclosedate">
+                        </div>
+
+                        <div class="form-group">
                             <label for="raffledescription">Description</label>
                             <textarea class="form-control" id="raffledescription" rows="3" placeholder="add product information here..." name="raffledescription"></textarea>
                         </div>
