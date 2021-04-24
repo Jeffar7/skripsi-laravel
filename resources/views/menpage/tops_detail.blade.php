@@ -35,11 +35,12 @@
                 <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
                 <p style="font-weight:bold;">Rp. {{$product_tops->productprice}}</p>
                 <p>{{$product_tops->productdescription}}</p>
-                
+
                 <!-- button size and quantity -->
-                
+
                 <div class="row mb-3">
-                    <div class="col"> 
+
+                    <div class="col-auto">
                         <div class="btn-group">
                             <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Select Size
@@ -51,10 +52,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+
+                    <div class="col-auto">
                         <div class="btn-group">
-                            <label for="quantity" class="form-group">Quantity</label>
-                            <input type="number" name="quantity" for="quantity" class="form-group">
+                            <input type="number" name="quantity" for="quantity" class="form-control border-dark" value="1">
                         </div>
                     </div>
                 </div>
@@ -89,7 +90,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/product-cart" class="card-link" style="color:black;">Add to Cart</a></button>
+                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/product-cart/{{$product_tops->id}}" class="card-link" style="color:black;">Add to Cart</a></button>
                     </div>
                 </div>
                 <div class="row">
@@ -124,6 +125,7 @@
         <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">Detail</div>
         <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">Size Detail</div>
         <div class="tab-pane fade mt-3" id="review" role="tabpanel" aria-labelledby="review-tab">
+            <!--            
             @guest
             <div class="card mb-3" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: #F8F8F8">
                 <div class="form-group text-center mb-0 pt-2 bg-white">
@@ -142,7 +144,7 @@
                     </div>
                 </div>
             </div>
-            @endguest
+            @endguest -->
 
             @foreach($reviews as $review)
             @if($review->product_id == $product_tops->id)

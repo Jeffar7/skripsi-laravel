@@ -10,10 +10,7 @@
 
     <title>@yield('title')</title>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 948a8daec364a3d79d91aeb8574b89be4b80dc04
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -119,10 +116,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
 
-                            <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
-                                <a class="dropdown-item" href="/userprofile">Waiting <span class="badge badge-primary badge-pill"></span></a>
-
+                                <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>
                             </div>
 
                         </li>
@@ -147,8 +144,10 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+    </nav>
 
+        
+        
         <main class="pt-0">
             @yield('content')
         </main>
