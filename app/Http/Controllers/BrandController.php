@@ -66,18 +66,32 @@ class BrandController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'picture' => 'required'
+            'picture' => 'required',
+            'owner' => 'required',
+            'website' => 'required',
+            'about' => 'required',
         ]);
 
-        $brand = new Brand;
+        $brand = new Brand();
         $brand->name = $request->name;
-        $brand->picture = $request->picture;
+        // $brand->picture = $request->picture;
         $brand->owner = $request->owner;
         $brand->website = $request->website;
         $brand->about = $request->about;
-        $brand->save();
 
-        return redirect('managebrand')->with('status','Brand Successfully Added!');
+        if($request->hasFile('picture')){
+            $file = $request->file('picture');
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Brands/', $filenamesave);
+            $brand->picture = $filenamesave;
+        }else{
+            return $request;
+            $brand->picture = '';
+        }
+
+        $brand->save();
+        return redirect('/managebrand')->with('status','Brand Successfully Added!');
     }
 
     /**
@@ -111,6 +125,16 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
+        if($request->hasFile('picture')){
+            $file = $request->file('picture');
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Brands/', $filenamesave);
+            $brand->picture = $filenamesave;
+        }else{
+            return $request;
+            $brand->picture = '';
+        }
 
         // $request->validate([
         //     'name' => 'required | unique:posts',
@@ -130,7 +154,7 @@ class BrandController extends Controller
 
         ]);
 
-        return redirect('managebrand')->with('status','brand successfully updated!');
+        return redirect('/managebrand')->with('status','brand successfully updated!');
     }
 
     /**

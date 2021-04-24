@@ -19,7 +19,7 @@
             <h1 class="text-center mt-3" style="text-transform:capitalize;font-weight:bold">{{$brand->name}}</h1>
             <h5 class="text-center mt-3" style="text-transform:capitalize;font-weight:bold">Owned by {{$brand->owner}}</h5>
             <div class="text-center">
-                <img src="{{asset('uploads/brands/' . $brand->picture)}}" class="img-fluid p-3" alt="Couldn't process image" height="323px" width="400px">
+                <img src="{{asset('../storage/images/Brands/' . $brand->picture)}}" class="img-fluid p-3" alt="Couldn't process image" height="323px" width="400px">
             </div>
 
             <h5 class="text-center mt-3" style="font-weight:bold">Website</h5>

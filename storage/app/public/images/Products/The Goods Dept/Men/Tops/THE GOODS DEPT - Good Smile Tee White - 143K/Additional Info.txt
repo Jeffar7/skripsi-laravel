@@ -1,0 +1,11 @@
+Name: THE GOODS DEPT - Good Smile Tee White
+Brand: The Goods Dept
+Price: 143K
+Description: - Printed T-Shirt
+	- Round neck
+	- Short sleeves
+	- Regular fit
+	- Material: Cotton
+SKU: TG.BLO-UA015
+Categories: Tops, Men
+Additional Information: -

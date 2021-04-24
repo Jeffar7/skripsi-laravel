@@ -13,7 +13,7 @@
                     <h5 class="text-white">BRAND</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/managebrand" >
+                    <form method="POST" action="/managebrand" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group ">
                             <label for="name">Brand Name</label>

@@ -1,0 +1,10 @@
+Name: LT SLICY 04
+Brand: Bloods Industries
+Price: 160K
+Description: PREMIUM LOTTO FABRIC ZIPPERED JACKET WITH BLOODS LOGO WOVEN PATCH AND ZIPPERED POCKET ON THE SIDE.
+SKU: BL.BLA-TF007
+Categories: Tops, Men
+Additional Information: 
+	WEIGHT = 1 kg
+	SIZE = L, M
+	COLOR = CHOCOLATE BROWN

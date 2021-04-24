@@ -35,7 +35,7 @@
                     <tr>
                         <th scope="row">{{$event->id}}</th>
                         <td>{{$event->name}}</td>
-                        <td><img src="{{asset('uploads/events/' . $event->picture)}}" width="100px;" height="100px;" alt="Image"></td>
+                        <td><img src="{{asset('../storage/images/Events/' . $event->picture)}}" width="100px;" height="100px;" alt="Image"></td>
                         <td>{{$event->held_on}}</td>
                         <td>{{$event->website}}</td>
                         <td>{{$event->capacity}}</td>

@@ -1,0 +1,12 @@
+Name: T FLAGY 04
+Brand: Bloods Industries
+Price: 100k
+Description: ULTRASOFT COTTON COMBED 30’S T-SHIRT WITH PLASTISOL INK SCREEN PRINTING
+SKU: BL.BLO-TF144
+Categories: Tops, Men
+Additional Info: 
+	WEIGHT = 0.3 kg
+	SIZE = L, M, S. XL, XS
+	COLOR = Navy Blue
+
+

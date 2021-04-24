@@ -15,10 +15,12 @@ class Product extends Model
         'gender_id',
         'image_detail_id',
         'productname',
-        'productpicture',
+        'productdescription',
+        'sku',
         'productprice',
+        'productsize',
         'prodcutquantity',
-        'productdescription'
+        'productimage'
 
 
     ];

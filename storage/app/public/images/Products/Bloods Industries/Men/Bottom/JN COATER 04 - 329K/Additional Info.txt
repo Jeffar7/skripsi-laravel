@@ -1,0 +1,12 @@
+Name: JN COATER 04
+Brand: Bloods Industries
+Price: 329K
+Description: MATERIAL : DENIM JEANS LONGPANTS WITH BLOODS WOVEN PATCH.
+	COLOUR : DARK GREY
+SKU: BL.BLO-UB233
+Categories: Accessories, Men
+Additional Info: 
+	SIZE = 28, 30, 32, 34, 36
+	COLOR = Dark Grey
+
+

@@ -1,0 +1,10 @@
+Name: SD CAPITAL 01
+Brand: Bloods Industries
+Price: 199K
+Description: BLACK RUBBER WEBBING STRAP SANDALS WITH BLOODS WOVEN PATCH
+SKU: BL.BLO-UA113
+Categories: Shoes, Men
+Additional Information: 
+	WEIGHT = 1 kg
+	SIZE = 39, 40, 41, 42, 43
+	COLOR = 	BLACK

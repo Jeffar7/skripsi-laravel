@@ -1,0 +1,12 @@
+Name: JK REVIVAL 01
+Brand: Bloods Industries
+Price: 250K
+Description: HIGHLY DURABLE WATER RESISTANT TASLAN FABRIC OUTDOOR BOMBER JACKET WITH  BLOODS LOGO AT FRONT
+SKU: BL.BLO-SH075
+Categories: Tops, Men
+Additional Info: 
+	WEIGHT = 1 kg
+	SIZE = L, M, S, XL
+	COLOR = Brown
+
+

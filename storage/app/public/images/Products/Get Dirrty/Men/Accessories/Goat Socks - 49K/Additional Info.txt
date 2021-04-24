@@ -1,0 +1,8 @@
+Name: Goat Socks
+Price: 49K
+Description: color. multicolor
+	100% cotton
+	sizes. one size
+SKU: GS.BLO-UA001
+Categories: Accessories, Men
+Additional Information: -

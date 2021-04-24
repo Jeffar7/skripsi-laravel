@@ -1,0 +1,8 @@
+Name: SD ZAGATO 02
+Brand: Bloods Industries
+Price: 199k
+Description: RUBBER WEBBING STRAP SANDALS WITH BLOODS WOVEN PATCH
+SKU: BL.BLO-TI059
+Categories: Shoes, Men
+Additional Information: 
+	WEIGHT = 1 Kg

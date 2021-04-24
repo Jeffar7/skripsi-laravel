@@ -37,7 +37,7 @@
                     <tr>
                         <th scope="row">{{$raffle->id}}</th>
                         <td>{{$raffle->rafflename}}</td>
-                        <td><img src="{{asset('uploads/raffles/' . $raffle->raffleimage)}}" width="100px;" height="100px;" alt="Image"></td>
+                        <td><img src="{{asset('../storage/images/Raffles/' . $raffle->raffleimage)}}" width="100px;" height="100px;" alt="Image"></td>
                         <td>{{$raffle->brand->name}}</td>
                         <td>{{$raffle->categoryraffle->categoryname}}</td>
                         <td>{{$raffle->rafflequantity}}</td>

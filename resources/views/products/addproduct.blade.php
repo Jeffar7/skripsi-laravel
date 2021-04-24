@@ -58,6 +58,11 @@
                         </div>
 
                         <div class="form-group ">
+                            <label for="sku">SKU</label>
+                            <input type="text" class="form-control" id="sku" placeholder="" name="sku">
+                        </div>
+
+                        <div class="form-group ">
                             <label for="productprice">Price</label>
                             <input type="text" class="form-control" id="productprice" placeholder="" name="productprice">
                         </div>
@@ -79,7 +84,7 @@
 
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Add Brand to Store</button>
+                            <button type="submit" class="btn btn-primary btn-block">Add Product to Store</button>
                         </div>
 
                     </form>

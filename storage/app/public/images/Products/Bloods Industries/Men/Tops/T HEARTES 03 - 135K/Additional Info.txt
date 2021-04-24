@@ -1,0 +1,10 @@
+Name: T HEARTES 03
+Brand: Bloods Industries
+Price: 135k
+Description: BLACK 30S COTTON SHORT SLEEVE T-SHIRT WITH BUTTON AND WOVEN BLOODS LOGO
+SKU: BL.BLO-UA049
+Categories: Tops, Men
+Additional Information: 
+	WEIGHT = 0.3 kg
+	SIZE = L, M, S, XL
+	COLOR = BLACK

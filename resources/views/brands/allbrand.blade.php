@@ -11,7 +11,7 @@
         </ol>
     </nav>
     <div class="text-center">
-        <img src="images/localpride.png" class="img-fluid p-3" alt="" height="323px" width="400px">
+        <img src="../storage/images/Brand Page/localpride.png" class="img-fluid p-3" alt="" height="323px" width="400px">
     </div>
 </div>
 <div id="exTab1" class="container pb-5">

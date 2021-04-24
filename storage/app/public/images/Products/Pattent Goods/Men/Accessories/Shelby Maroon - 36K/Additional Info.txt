@@ -1,0 +1,10 @@
+Name: Shelby Maroon
+Brand: Pattent Goods
+Price: 36K
+Description: It's Shelby Maroon from Unknown Series!
+
+	Care Instruction:
+	Hand wash normal, Line dry, No bleach, No tumble dry, Iron medium heat
+SKU: PG.BLO-UA004
+Categories: Accessories, Men
+Additional Information: -

@@ -1,0 +1,12 @@
+Name: SW KENNYS 01
+Brand: Bloods Industries
+Price: 299K
+Description: GREEN ARMY PREMIUM COTTON FLEECE HOODIE WITH BLOODS FONT PLASTISOL INK SCREEN PRINTING.
+SKU: BL.BLO-TL140
+Categories: Tops, Men
+Additional Info: 
+	WEIGHT = 1 kg
+	SIZE = L, M,
+	COLOR = Green Army
+
+
