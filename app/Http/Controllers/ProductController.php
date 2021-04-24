@@ -205,7 +205,7 @@ class ProductController extends Controller
     public function destroylist($id)
     {
         $wishlist = Cart::where('id', '=', $id)->first();
-        $wishlist->delete();
+        $wishlist->forceDelete();
 
         return redirect('product-cart')->with('status', 'Product successfully deleted from cart');
     }
@@ -233,6 +233,24 @@ class ProductController extends Controller
                 'user_id' => $wish->user_id
             ]);
             return back()->with('status', 'item successfully added to cart list!');
+        }
+    }
+
+    //add product to cart via product detail
+
+    public function addtocartviadetail($id){
+
+        //validation for not add same product
+        if(Cart::where('product_id',$id)->exists() & Cart::where('user_id',Auth::user()->id)->exists()){
+            return back()->with('status', 'Item has already on cart list.');
+
+        }else{
+
+         Cart::create([
+            'product_id' => $id,
+            'user_id' => Auth::user()->id
+         ]);
+            return back()->with('status', 'Item successfully added to cart list!');
         }
     }
 

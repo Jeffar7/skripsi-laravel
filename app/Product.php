@@ -25,11 +25,11 @@ class Product extends Model
 
     ];
 
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
 
     public function brand()
     {
-        return $this->belongsTo('App\Brand', 'brandid');
+        return $this->belongsTo('App\Brand', 'brandid','id');
     }
 
     public function category()
@@ -60,5 +60,10 @@ class Product extends Model
     public function imagedetail()
     {
         return $this->belongsTo(ImageDetail::class, 'image_detail_id', 'id');
+    }
+
+    public function order()
+    {
+        return $this->belongsToMany(Order::class)->withPivot('is_review');
     }
 }

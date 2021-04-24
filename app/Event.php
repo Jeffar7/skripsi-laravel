@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
+
+
     use SoftDeletes;
 
     protected $table = "events";
@@ -20,4 +22,5 @@ class Event extends Model
         'about_us'
     ];
     protected $guarded = ['id'];
+
 }

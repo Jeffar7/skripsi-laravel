@@ -37,7 +37,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($products as $product)
                     <tr>
                       <th scope="row"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
                       <td>{{$product->brand->name}}</td>
@@ -47,7 +46,6 @@
                       <td>{{$product->productquantity}}</td>
                       <td>A</td>
                     </tr>
-                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -169,9 +167,7 @@
         </span>
 
       </div>
-
-
-
+      w
     </div>
   </div>
   <!-- End Address -->
@@ -180,10 +176,10 @@
   <!-- Button -->
 
 
-  <form action="/payment" method="post">
+  <form action="/payment/buy_now" method="post">
     @csrf
 
-    <input type="hidden" name="products" value="{{ json_encode($products,TRUE)}}">
+    <input type="hidden" name="product" value="{{$product->id}}">
     <input type="hidden" name="address" value="{{$address->id}}">
     <input type="hidden" name="shipment" value="{{$shipment->id}}">
         <button type="submit" class="btn btn-dark">

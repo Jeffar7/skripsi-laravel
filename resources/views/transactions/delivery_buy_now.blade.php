@@ -2,7 +2,7 @@
 
 <div class="container pt-2">
 
-    <form method="post" action="/order-summary">
+    <form method="post" action="/order-summary-buy-now">
         @csrf
         <!-- Address -->
         <div class="row justify-content-center mb-3 ">
@@ -22,8 +22,8 @@
                         <div class="col-sm-8">
                             <select class="form-control" id="payment_type" wire:model="search" name="address_detail">
                                 @foreach($addresses as $address)
-                                <option value="{{$address->id}}" selected>{{$address->address}}</option>
-                                {{-- <input type="hidden" wire:model="search"> --}}
+                                    <option value="{{$address->id}}" selected>{{$address->address}}</option>
+                                    {{-- <input type="hidden" wire:model="search"> --}}
                                 @endforeach
                             </select>
                         </div>
@@ -38,9 +38,7 @@
 
                     <div class="row justify-content-center m-3">
                         <div class="col-md-5 bg-light">
-
-
-                            @if ($addresses->count() > 0)
+                            @if (empty($addresses))
                             <div class="text-left">
                                 <p>Recipient Name: {{$address->recipient_name}}</p>
                                 <p>Contact Number: {{$address->contact_number}}</p>
@@ -78,17 +76,17 @@
 
                     <div class="card-header text-left bg-dark text-white">
                         <strong>
-                            Shipping Option
-                        </strong>
+                        Shipping Option
+                    </strong>
                     </div>
 
                     <div class="row justify-content-center m-3">
                         <div class="col-sm-10">
                             <select class="form-control" id="payment_type" name="shipment">
-                                @foreach($shipments as $shipment)
-                                <option value="{{$shipment->id}}">{{$shipment->shipment_method}}</option>
-                                @endforeach
-                            </select>
+                            @foreach($shipments as $shipment)
+                            <option value="{{$shipment->id}}">{{$shipment->shipment_method}}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
 
@@ -113,25 +111,22 @@
             </div>
             <!--End Shipping Option-->
 
-            <input type="hidden" value="{{ json_encode($products,TRUE)}}" name="products">
+            <input type="hidden" value="{{$products->id}}" name="product">
 
             <button type="submit" name="formsummary">NEXT</button>
     </form>
 
-    {{-- Address Form --}}
+    <!-- {{-- Address Form --}} -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title " id="exampleModalLabel">Add Address</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                 </div>
-
-
-
-                <form method="post" action="/delivery/addaddress">
+                <form method="post" action="/delivery/addaddress/buy_now">
                     @csrf
                     <div class="modal-body">
                         <div class="form-row">
@@ -139,8 +134,8 @@
                                 <label for="recipient_name">Recipient Name</label>
                                 <input wire:model="recipient_name" type="text" class="form-control  @error('recipient_name') is-invalid @enderror" id="recipient_name" placeholder="Name" name="recipient_name"> @error('recipient_name')
                                 <span class="invalid-feedback">
-                                    <strong> {{$message}}</strong>
-                                </span> @enderror
+                                                        <strong> {{$message}}</strong>
+                                                        </span> @enderror
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="contact_number">Contact Number</label>
@@ -200,9 +195,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <input type="hidden" value="{{ json_encode($products,TRUE)}}" name="products">
-                    <input type="hidden" value="{{$order->id}}" name="order">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" name="formaddress">Add New Address</button>
@@ -211,8 +203,8 @@
             </div>
         </div>
     </div>
-    {{-- End Address Form --}}
+    <!-- {{-- End Address Form --}} -->
 
-</div>
+    </div>
 
-@endsection
+    @endsection
