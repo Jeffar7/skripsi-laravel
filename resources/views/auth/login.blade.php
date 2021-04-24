@@ -33,7 +33,7 @@
                 <div class="col-md-6" style="text-align: center;padding-top: 50px;">
                     <div class="pt-5 mb-4">
                         <h6 style="font-weight: 200" class="mb-3">WELCOME BACK TO</h6>
-                        <a href="{{ url('/') }}"><img src="{{ asset('images/tokolocal.png') }}" width="70" height="60" alt="" class="mb-3"></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="70" height="60" alt="" class="mb-3"></a>
                         <h6>Log in to get in the moment updates on the things that interest you</h6>
                     </div>
                     
@@ -125,7 +125,7 @@
             <div class="leftside">
                 <div style="text-align: center;">
                     <h6 style="font-weight: 200" class="mb-3">WELCOME BACK TO</h6>
-                    <a href="{{ url('/') }}"><img src="{{ asset('images/tokolocal.png') }}" width="70" height="60" alt="" class="mb-3"></a>
+                    <a href="{{ url('/') }}"><img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="70" height="60" alt="" class="mb-3"></a>
                     <h6>Log in to get in the moment updates on the things that interest you</h6>
                 </div>
                     

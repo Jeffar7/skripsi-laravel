@@ -16,10 +16,10 @@ class CreateRafflesTable extends Migration
         Schema::create('raffles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('rafflename');
-            $table->string('raffledescription');
-            $table->string('raffleprice');
+            $table->text('raffledescription');
+            $table->integer('raffleprice');
             $table->string('raffleimage');
-            $table->string('rafflequantity');
+            $table->integer('rafflequantity');
             $table->date('rafflereleasedate');
             $table->date('raffleclosedate');
             $table->unsignedBigInteger('brand_id');
@@ -29,8 +29,8 @@ class CreateRafflesTable extends Migration
         });
 
         Schema::table('raffles', function (Blueprint $table) {
-            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categoryraffles')->onDelete('cascade');
+            $table->foreign('brand_id')->references('id')->on('brands')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('category_id')->references('id')->on('categoryraffles')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 

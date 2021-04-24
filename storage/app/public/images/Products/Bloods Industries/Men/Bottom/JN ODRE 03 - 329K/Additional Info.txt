@@ -1,0 +1,12 @@
+Name: JN ODRE 03
+Brand: Bloods Industries
+Price: 329K
+Description: Dark Blue Denim Jeans Longpants With Bloods Woven Patch.
+SKU: BL.BLO-UB126
+Categories: Accessories, Men
+Additional Info: 
+	WEIGHT = 1 kg
+	SIZE = 28, 30, 32, 34, 36
+	COLOR = 	DENIM
+
+

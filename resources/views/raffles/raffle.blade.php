@@ -29,7 +29,7 @@
         @foreach($raffles as $raffle)
         <div class="col-sm- mb-3">
             <div class="card rounded-lg shadow-lg" style="width: 18rem;">
-                <img src="{{asset('/uploads/raffles/'. $raffle->raffleimage)}}" class="card-img-top p-3" alt="Image">
+                <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="card-img-top p-3" alt="Image">
                 <div class="card-body border" style="background: #E5E5E5;">
                     <div class="row">
                         <div class="col align-self-end">

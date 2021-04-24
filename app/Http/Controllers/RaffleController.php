@@ -58,7 +58,7 @@ class RaffleController extends Controller
         $raffle->rafflename = $request->rafflename;
         $raffle->raffledescription = $request->raffledescription;
         $raffle->raffleprice = $request->raffleprice;
-        $raffle->raffleimage = $request->raffleimage;
+        // $raffle->raffleimage = $request->raffleimage;
         $raffle->rafflequantity = $request->rafflequantity;
         $raffle->rafflereleasedate = $request->rafflereleasedate;
         $raffle->raffleclosedate = $request->raffleclosedate;
@@ -67,17 +67,17 @@ class RaffleController extends Controller
 
         if ($request->hasFile('raffleimage')) {
             $file = $request->file('raffleimage');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/raffles/', $filename);
-            $raffle->raffleimage = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Raffles/', $filenamesave);
+            $raffle->raffleimage = $filenamesave;
         } else {
             return $request;
             $raffle->raffleimage = '';
         }
 
         $raffle->save();
-        return redirect('manageraffle')->with('status', 'Product Raffle Successfully Added!');
+        return redirect('manageraffle')->with('status', 'Raffle Item Successfully Added!');
     }
 
     /**
@@ -116,10 +116,10 @@ class RaffleController extends Controller
 
         if ($request->hasFile('raffleimage')) {
             $file = $request->file('raffleimage');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/raffles/', $filename);
-            $raffle->raffleimage = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Raffles/', $filenamesave);
+            $raffle->raffleimage = $filenamesave;
         } else {
             return $request;
             $raffle->raffleimage = '';

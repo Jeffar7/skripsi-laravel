@@ -1,0 +1,12 @@
+Name: SW DREAD
+Brand: Bloods Industries
+Price: 315K
+Description: PREMIUM YELLOW COTTON FLEECE PULLOVER HOODIE, WITH PRINTED PLASTISOL INK BLOODS ARTWORK
+SKU: BL.BLO-UB041
+Categories: Tops, Men
+Additional Info: 	
+	WEIGHT = 1 kg
+	SIZE = L, M, S, XL
+	COLOR = MUSTARD
+
+

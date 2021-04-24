@@ -22,10 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->string('DOB');
             $table->string('password');
-            $table->string('role');
+            $table->string('role');    
             $table->string('address')->nullable();
             $table->string('site')->nullable();
-            $table->string('about')->nullable();
+            $table->text('about')->nullable();
             $table->string('picture');
             $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();

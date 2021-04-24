@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
     <!-- fav icon -->
-    <link rel="shortcut icon" href="images/tokolocal.png" type="image/png"> 
+    <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png"> 
 </head>
 
 <body>
@@ -43,7 +43,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('images/Store_Logo_210309.jpg') }}" width="50" height="40" alt="">
+                    <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::check() && Auth::user()->role === 'admin')
-                        <a class="nav-item nav-link" href="/usercontrol">ADMIN</a>
+                        <a class="nav-item nav-link" href="/usercontrol">USER</a>
                         <a class="nav-item nav-link" href="/manageproduct">PRODUCT</a>
                         <a class="nav-item nav-link" href="/manageraffle">RAFFLE</a>
                         <a class="nav-item nav-link" href="/managebrand">BRAND</a>
@@ -157,7 +157,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <img src="{{ asset('images/Store_Logo_210309.jpg') }}" width="50" height="40" alt="">
+                        <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
                         <br>
                         <p>TokoLokal is a concept store based in Jakarta. Started in 2021, TokoLokal become a point for fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local products to compete with international products.</p>
                         <p>© 2021 TokoLokal. All Rights Reserved.</p>

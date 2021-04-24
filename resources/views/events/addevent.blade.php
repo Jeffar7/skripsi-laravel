@@ -16,8 +16,13 @@
                     <form method="POST" action="/manageevent" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group ">
-                            <label for="rafflename">Event Name</label>
-                            <input type="text" class="form-control" id="rafflename" name="name">
+                            <label for="name">Event Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="theme">Theme</label>
+                            <input type="text" class="form-control" id="theme" name="theme">
                         </div>
 
                         <div class="form-group ">

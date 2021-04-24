@@ -35,7 +35,7 @@
         <div class="row mb-3">
             <div class="col-sm-4">
                 <div class="card-body">
-                    <img src="{{asset('uploads/products/' . $productwish->product->productimage)}}" width="100px;" height="100px;" alt="Image">
+                    <img src="{{asset('../storage/images/Products/' . $productwish->product->productimage)}}" width="100px;" height="100px;" alt="Image">
                 </div>
             </div>
             <div class="col-sm-8">

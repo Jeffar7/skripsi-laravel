@@ -33,7 +33,8 @@
                     @foreach($cartlists as $cartlist)
                     <tbody>
                         <tr>
-                            <td><img src="{{asset('uploads/products/' . $cartlist->product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
+                            <td><input type="checkbox"></td>
+                            <td><img src="{{asset('../storage/images/Products/' . $cartlist->product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
                             <td>{{$cartlist->product->brand->name}}</td>
                             <td>{{$cartlist->product->productname}}</td>
                             <td>{{$cartlist->product->productsize}}</td>

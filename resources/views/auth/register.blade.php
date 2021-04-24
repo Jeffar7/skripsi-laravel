@@ -33,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <img src="{{ asset('images/signup.jpg') }}" class="img-regist" alt="">
+                    <img src="{{ asset('../storage/images/SignUp Page/signup.jpg') }}" class="img-regist" alt="">
                 </div>
                 <div class="col-md-5" style="text-align: center;">
                     <div class="pt-4 mb-4">

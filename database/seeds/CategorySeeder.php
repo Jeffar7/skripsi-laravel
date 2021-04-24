@@ -15,22 +15,22 @@ class CategorySeeder extends Seeder
     {
         DB::table('categorys')->insert([
             [
-                'name' => 'TOP',
+                'name' => 'Top',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'name' => 'BOTTOM',
+                'name' => 'Bottom',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'name' => 'SHOES',
+                'name' => 'Shoes',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'name' => 'ACCESSORIES',
+                'name' => 'Accessories',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]

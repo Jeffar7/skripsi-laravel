@@ -26,7 +26,7 @@
             <div class="tab-pane active" id="1a">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="{{asset('uploads/users/' . Auth::user()->picture)}}" class="rounded img-thumbnail rounded-circle" alt="..." width="200" height="150" style="margin-left: 80px;">
+                        <img src="{{asset('../storage/images/Users/'.Auth::user()->picture)}}" class="rounded img-thumbnail rounded-circle" alt="..." width="200" height="150" style="margin-left: 80px;">
                         <div style="padding-top: 20px;text-decoration: underline;text-align: center;"><a href="/usersettings">Edit My Profile</a></div>
                     </div>
                     <div class="col-md-8">

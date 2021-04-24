@@ -1,0 +1,12 @@
+Name: THE GOODS DEPT - Sam Pocket T-Shirt Dark Green
+Brand: The Goods Dept
+Price: 225K
+Description: - Solid color T-Shirt
+	- Round neck
+	- Long sleeves
+	- Front pocket
+	- Regular fit
+	- Material: Cotton
+SKU: TG.BLO-UA018
+Categories: Tops, Men
+Additional Information: -

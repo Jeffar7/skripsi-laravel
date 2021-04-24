@@ -1,0 +1,9 @@
+Name: SL OUNWEL 02
+Brand: Bloods Industries
+Price: 59K
+Description: MATERIAL : COTTON FABRIC
+	COLOUR : BLUE
+SKU: BL.BLO-UB203
+Categories: Accessories, Men
+Additional Info: -
+
