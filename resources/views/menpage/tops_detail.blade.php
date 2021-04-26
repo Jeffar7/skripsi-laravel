@@ -37,68 +37,69 @@
                 <p>{{$product_tops->productdescription}}</p>
                 
                 <!-- button size and quantity -->
-                
-                <div class="row mb-3">
-                    <div class="col"> 
-                        <div class="btn-group">
-                            <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Select Size
-                            </button>
-                            <div class="dropdown-menu">
-                                <li>
-                                    <a href="">{{$product_tops->productsize}}</a>
-                                </li>
+                <form action="{{ url('pagecart') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product_tops->id }}">
+                    <div class="row mb-3">
+                        <div class="col"> 
+                            <div class="btn-group">
+                                <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required="">
+                                    Select Size
+                                </button>
+                                <div class="dropdown-menu">
+                                    <li>
+                                        <a href="">{{$product_tops->productsize}}</a>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group quantity">
+                                <div class="input-group-prepend decrement-btn" style="cursor: pointer">
+                                    <span class="input-group-text">-</span>
+                                </div>
+                                <input name="quantity" type="number" class="qty-input form-control text-center" maxlength="2" max="10" value="1" required="">
+                                <div class="input-group-append increment-btn" style="cursor: pointer">
+                                    <span class="input-group-text">+</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="input-group quantity">
-                            <div class="input-group-prepend decrement-btn" style="cursor: pointer">
-                                <span class="input-group-text">-</span>
-                            </div>
-                            <input type="text" class="qty-input form-control text-center" maxlength="2" max="10" value="1">
-                            <div class="input-group-append increment-btn" style="cursor: pointer">
-                                <span class="input-group-text">+</span>
+                </form>
+                    <!-- wish list button -->
+                    @guest
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <div class="text-center pt-2">
+                                <a href="/login" class="card-link"><i class="far fa-heart" style="font-size: 22px; color:black;"></i></a>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- wish list button -->
-                @guest
-                <div class="row mb-3">
-                    <div class="col-2">
-                        <div class="text-center pt-2">
-                            <a href="/login" class="card-link"><i class="far fa-heart" style="font-size: 22px; color:black;"></i></a>
+                        <div class="col">
+                            <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
                         </div>
                     </div>
-                    <div class="col">
-                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
+                        </div>
                     </div>
-                </div>
+                    @else
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <div class="text-center">
+                                <form action="/wish-list/save" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                    <input type="hidden" name="product_id" value="{{$product_tops->id}}">
+                                    <button type="submit" class="pt-2 bg-white" style="height:34px;border-width: 0px;"><i class="far fa-heart" style="font-size: 22px;"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/product-cart" class="card-link" style="color:black;">Add to Cart</a></button>
+                        </div>
+                    </div>
                 <div class="row">
-                    <div class="col">
-                        <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
-                    </div>
-                </div>
-                @else
-                <div class="row mb-3">
-                    <div class="col-2">
-                        <div class="text-center">
-                            <form action="/wish-list/save" method="POST">
-                                @csrf
-                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                                <input type="hidden" name="product_id" value="{{$product_tops->id}}">
-                                <button type="submit" class="pt-2 bg-white" style="height:34px;border-width: 0px;"><i class="far fa-heart" style="font-size: 22px;"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/product-cart" class="card-link" style="color:black;">Add to Cart</a></button>
-                    </div>
-                </div>
-                <div class="row">
-
                     <div class="col">
                         <button class="btn btn-dark" style="width:100%;"><a href="/buy-now/{{$product_tops->id}}" class="card-link" style="color:white;">Buy Now</a></button>
                     </div>

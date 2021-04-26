@@ -15,7 +15,7 @@
                         <div class="card-body text-center pt-4">
                             <h5 class="card-title">MEN</h5>
                             <p class="card-text font-weight-bold">COLLECTION</p>
-                            <button href="/men" class="btn-gender">VIEW MORE</button>
+                            <a href="/men" class="btn-gender text-decoration-none">VIEW MORE</a>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -33,7 +33,7 @@
                         <div class="card-body text-center pt-4">
                             <h5 class="card-title">WOMEN</h5>
                             <p class="card-text font-weight-bold">COLLECTION</p>
-                            <button href="/women" class="btn-gender">VIEW MORE</button>
+                            <a href="/women" class="btn-gender text-decoration-none">VIEW MORE</a>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -128,7 +128,7 @@
             <h6>EXPLORE MORE BRAND THAT WE LOVE</h6>
         </div>
         <div class="row justify-content-center">
-            <button href="/allbrand" class="btn-gender my-1">EXPLORE MORE</button>
+            <a href="/allbrand" class="btn-gender my-1 text-decoration-none">EXPLORE MORE</a>
         </div>
     </div>
 </div>
