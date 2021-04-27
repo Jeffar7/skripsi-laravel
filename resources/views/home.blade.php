@@ -15,12 +15,12 @@
                         <div class="card-body text-center pt-4">
                             <h5 class="card-title">MEN</h5>
                             <p class="card-text font-weight-bold">COLLECTION</p>
-                            <a href="/men" class="btn-gender text-decoration-none">VIEW MORE</a>
+                            <button href="/men" class="btn-gender">VIEW MORE</button>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card-body text-center">
-                            <img src="{{ asset('images/men.png') }}" alt="" height="141px" width="135px">
+                            <img src="{{ asset('../storage/images/Category/men.png') }}" alt="" height="141px" width="135px">
                         </div>
                     </div>
                 </div>
@@ -33,12 +33,12 @@
                         <div class="card-body text-center pt-4">
                             <h5 class="card-title">WOMEN</h5>
                             <p class="card-text font-weight-bold">COLLECTION</p>
-                            <a href="/women" class="btn-gender text-decoration-none">VIEW MORE</a>
+                            <button href="/women" class="btn-gender">VIEW MORE</button>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card-body text-center">
-                            <img src="{{ asset('images/woman.png') }}" alt="" height="141px" width="135px">
+                            <img src="{{ asset('../storage/images/Category/woman.png') }}" alt="" height="141px" width="135px">
                         </div>
                     </div>
                 </div>
@@ -57,10 +57,10 @@
                         <!-- Gambar 1 -->
                         <!-- <div class="col col-sm-3 mb-3"> -->
                             <div class="card">
-                            <a href="/men-tops/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="239.5px;" height="272px;" alt="Image" class="card-img-top border border-dark"></a>
+                            <a href="/men-tops/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="239.5px;" height="272px;" alt="Image" class="card-img-top border border-dark"></a>
                             </div>
-                            <div class="card">
-                                <a href="/men-tops/detail/{{$product->id}}" style="color:black;"><p class="mt-3 mb-0" style="font-weight:bold;">{{$product->productname}}</p></a>
+                            <div class="card px-2 border border-dark">
+                                <a href="/men-tops/detail/{{$product->id}}" style="color:black;"><p class="mt-3 mb-0 text-truncate" style="font-weight:bold;">{{$product->productname}}</p></a>
                                 <a class="about-title mb-0" style="text-decoration:normal;" href="/brands/{{$product->brand->id}}">{{$product->brand->name}}</a>
                                 <p style="font-weight:bold;">Rp. {{$product->productprice}}</p>
                             </div>
@@ -86,7 +86,7 @@
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col-md-3 offset-md-3 mb-1 mr-1 p-0">
                 <div class="card rounded-0 border-0 con-photo">
-                    <img src="{{ asset('images/top.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
+                    <img src="{{ asset('../storage/images/Category/top.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
                     <div class="middle-cat">
                         <div class="text-cat">TOP</div>
                     </div>
@@ -95,7 +95,7 @@
 
             <div class="col-md-3 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo">
-                    <img src="{{ asset('images/bottom.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
+                    <img src="{{ asset('../storage/images/Category/bottom.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
                     <div class="middle-cat">
                         <div class="text-cat">BOTTOM</div>
                     </div>
@@ -104,7 +104,7 @@
 
             <div class="col-md-3 offset-md-3 mb-1 mr-1 p-0">
                 <div class="card rounded-0 border-0 con-photo">
-                    <img src="{{ asset('images/shoes.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
+                    <img src="{{ asset('../storage/images/Category/shoes.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
                     <div class="middle-cat">
                         <div class="text-cat">SHOES</div>
                     </div>
@@ -113,7 +113,7 @@
 
             <div class="col-md-3 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo">
-                    <img src="{{ asset('images/accessories.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
+                    <img src="{{ asset('../storage/images/Category/accessories.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
                     <div class="middle-cat">
                         <div class="text-cat">ACCESSORIES</div>
                     </div>
@@ -128,7 +128,7 @@
             <h6>EXPLORE MORE BRAND THAT WE LOVE</h6>
         </div>
         <div class="row justify-content-center">
-            <a href="/allbrand" class="btn-gender my-1 text-decoration-none">EXPLORE MORE</a>
+            <button href="/allbrand" class="btn-gender my-1">EXPLORE MORE</button>
         </div>
     </div>
 </div>

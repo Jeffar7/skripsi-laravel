@@ -203,6 +203,8 @@
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" value="{{ json_encode($products,TRUE)}}" name="products">
+                    <input type="hidden" value="{{$order->id}}" name="order">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" name="formaddress">Save & Continue</button>
@@ -252,6 +254,10 @@
             var shipMethod = $("#shipment-"+this.value).data('shipmethod');
             var delivCost = $("#shipment-"+this.value).data('shipcost');
             var estimatedCost = $("#shipment-"+this.value).data('shipestimated');
+
+            if(shipMethod === undefined && delivCost === undefined && estimatedCost === undefined){
+                document.getElementById(details_shipment).innerHTML = "Please select shipment.";
+            }
 
             //layout for the detail
             $('#details_shipment').html(

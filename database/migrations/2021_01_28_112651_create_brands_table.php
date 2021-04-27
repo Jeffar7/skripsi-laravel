@@ -19,7 +19,7 @@ class CreateBrandsTable extends Migration
             $table->string('picture');
             $table->string('owner');
             $table->string('website');
-            $table->string('about');
+            $table->text('about');
             $table->rememberToken();
             $table->timestamps();
         });

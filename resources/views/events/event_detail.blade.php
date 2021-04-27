@@ -19,7 +19,7 @@
             <h1 class="text-center mt-3" style="text-transform:capitalize;font-weight:bold">{{$event->name}}</h1>
 
             <div class="text-center">
-                <img src="{{asset('uploads/events/' . $event->picture)}}" class="img-fluid p-3" alt="Couldn't process image" height="323px" width="400px">
+                <img src="{{asset('../storage/images/Events/' . $event->picture)}}" class="img-fluid p-3" alt="Couldn't process image" height="323px" width="400px">
             </div>
 
             <h5 class="text-center mt-3" style="font-weight:bold">Website</h5>

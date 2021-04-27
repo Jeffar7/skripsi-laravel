@@ -36,7 +36,7 @@
                         <th scope="row">{{$product->id}}</th>
                         <td>{{$product->productname}}</td>
                         <td>{{$product->category->name}}</td>
-                        <td><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
+                        <td><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
                         <td>{{$product->brand['name']}}</td>
                         <td>{{$product->productprice}}</td>
                         <td>{{$product->productquantity}}</td>

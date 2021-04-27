@@ -15,22 +15,22 @@ class CategoryRaffleTableSeeder extends Seeder
     {
         DB::table('categoryraffles')->insert([
             [
-                'categoryname' => 'TOP',
+                'categoryname' => 'Top',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'categoryname' => 'BOTTOM',
+                'categoryname' => 'Bottom',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'categoryname' => 'SHOES',
+                'categoryname' => 'Shoes',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'categoryname' => 'ACCESSORIES',
+                'categoryname' => 'Accessories',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],

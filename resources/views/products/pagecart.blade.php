@@ -3,6 +3,7 @@
 @section('title','TokoLokal | Cart')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -13,7 +14,6 @@
                 {{ session('status') }}
             </div>
             @endif
-
             <div class="card ">
                 <table class="table">
                     <thead class="bg-transparent">
@@ -48,27 +48,20 @@
                                     </div>
                                 </div>
                             </td>
-                            <!-- <td class="text-center"><input style="text-align:center; width: 70px;" type="text" name="subtotal" id="subtotal" value=""></td> -->
+
+                                    <!-- <input style="text-align:center; width: 70px;" type="text" name="subtotal" id="subtotal" value="{{$cartlist->product->productprice}}" > -->
                             <td class="text-center">
-                                <span>Rp. {{ number_format($cartlist->product->productquantity * $cartlist->product->productprice)}}</span>
+                                <span id="subtotal">Rp. {{ number_format($cartlist->product->productprice)}}</span>
                             </td>
                             <td class="text-center">
-                                <form action="/product-cart/delete/{{$cartlist->id}}" method="POST" class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="badge btn-danger" type="submit">
-                                        Delete
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
-
-                    @endforeach
-                </table>
-            </div>
-
-            <div class="text-left mt-3">
+                                <a href="/product-cart/delete/{{$cartlist->id}}" class="d-inline btn btn-danger">Delete</a>
+                            </td> 
+                            </tr>
+                        </tbody>
+                        @endforeach
+                    </table>
+                </div>
+                <div class="text-left mt-3">
                 <h5 class="bold">Total: <span>Rp. {{ number_format($cartlist->product->productquantity * $cartlist->product->productprice)}}</span></h5>
                 <p>Delivery and discount will be calculated during the checkout process.</p>
             </div>
@@ -86,7 +79,7 @@
     </div>
 </div>
 
-<script>    
+<script>
     $(document).ready(function () {
             $('.increment-btn').click(function (e) {
             e.preventDefault();
@@ -111,36 +104,62 @@
         });
     });
 
-    //update cart
-    $(document).ready(function () {
+    // document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
 
-        $('.changeQuantity').click(function (e) {
-            e.preventDefault();
+    //taking value to increment or decrement input value
+    var valueCount
 
-            var quantity = $(this).closest(".cartpage").find('.qty-input').val();
-            var product_id = $(this).closest(".cartpage").find('.product_id').val();
+    //taking price value in variable
+    var price = document.getElementById("price").innerText;
 
-            var data = {
-                '_token': $('input[name=_token]').val(),
-                'quantity':quantity,
-                'product_id':product_id,
-            };
+    //price calculation function
 
-            $.ajax({
-                url: '/update-to-cart',
-                type: 'POST',
-                data: data,
-                success: function (response) {
-                    window.location.reload();
-                    alertify.set('notifier','position','top-right');
-                    alertify.success(response.status);
-                }
-            });
-    });
+    function priceTotal() {
+        var total = valueCount * price;
+        document.getElementById("subtotal").innerText = total;
+    }
 
-});
+    //plus button
+    document.querySelector(".plus-btn").addEventListener("click", function() {
+        //getting value from input
+        valueCount = document.getElementById("quantity").value;
 
+        //input value increment by 1
+        valueCount++;
+
+        //setting increment input value
+        document.getElementById("quantity").value = valueCount
+
+        if (valueCount > 1) {
+            document.querySelector(".minus-btn").removeAttribute("disabled");
+            document.querySelector(".minus-btn").classList.remove("disabled");
+        }
+
+        // calling price function
+        priceTotal()
+
+    })
+
+    //minus button
+    document.querySelector(".minus-btn").addEventListener("click", function() {
+        //getting value from input
+        valueCount = document.getElementById("quantity").value;
+
+        //input value decrement by 1
+        valueCount--;
+
+        //setting decrement input value
+        document.getElementById("quantity").value = valueCount
+
+        if (valueCount == 1) {
+            document.querySelector(".minus-btn").setAttribute("disabled", "disabled")
+        }
+
+        // calling price function
+        priceTotal()
+
+    })
 </script>
-    
+
 
 @endsection

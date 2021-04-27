@@ -49,8 +49,19 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'theme' => 'required',
+            'website' => 'required',
+            'capacity' => 'required',
+            'held_on' => 'required',
+            'about_us' => 'required|string',
+            'picture' => 'required|file',
+        ]);
+
         $event = new Event();
         $event->name = $request->name;
+        $event->theme = $request->theme;
         $event->website = $request->website;
         $event->capacity = $request->capacity;
         $event->held_on = $request->held_on;
@@ -59,17 +70,17 @@ class EventController extends Controller
 
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/events/', $filename);
-            $event->picture = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Events/', $filenamesave);
+            $event->picture = $filenamesave;
         } else {
             return $request;
-            $event->raffleimage = '';
+            $event->picture = '';
         }
 
         $event->save();
-        return redirect('manageevent')->with('status', 'Event Successfully Added!');
+        return redirect('/manageevent')->with('status', 'Event Successfully Added!');
     }
 
     /**
@@ -105,10 +116,10 @@ class EventController extends Controller
     {
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/events/', $filename);
-            $event->picture = $filename;
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Events/', $filenamesave);
+            $event->picture = $filenamesave;
         } else {
             return $request;
             $event->picture = '';
@@ -116,6 +127,7 @@ class EventController extends Controller
 
         Event::where('id', $event->id)->update([
             'name' => $request->name,
+            'theme' => $request->theme,
             'website' => $request->website,
             'capacity' => $request->capacity,
             'held_on' => $request->held_on,
@@ -123,7 +135,7 @@ class EventController extends Controller
             'about_us' => $event->about_us
         ]);
 
-        return redirect('manageevent')->with('status', 'Event successfully updated!');
+        return redirect('/manageevent')->with('status', 'Event successfully updated!');
     }
 
     /**

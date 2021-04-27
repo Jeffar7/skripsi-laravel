@@ -10,6 +10,7 @@
 
     <title>@yield('title')</title>
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -17,7 +18,6 @@
     <!-- Bootstrap Data Table CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <!-- JQuery UI CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Customize Css -->
@@ -29,26 +29,23 @@
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
-
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
     <!-- fav icon -->
-    <link rel="shortcut icon" href="images/tokolocal.png" type="image/png"> 
+    <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png"> 
 </head>
 
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('images/Store_Logo_210309.jpg') }}" width="50" height="40" alt="">
-                </a>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -107,7 +104,6 @@
                         </li>
                     </ul>
                     @endif
-                    
                     <!-- Middle Side of Navbar -->
                     <form class="form-inline my-2 my-lg-0 rounded left-addon-search inner-addon">
                         <i class="fas fa-search"></i>
@@ -116,6 +112,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <!-- Authentication Links -->
+
                         @if(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
                         <li class="nav-item">
                             <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
@@ -139,8 +137,8 @@
 
                             <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
-                                <a class="dropdown-item" href="/userprofile">Waiting <span class="badge badge-primary badge-pill"></span></a>
-
+                                <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>
                             </div>
 
                         </li>
@@ -167,6 +165,8 @@
             </div>
         </nav>
 
+        
+        
         <main class="pt-0">
             @yield('content')
         </main>
@@ -175,7 +175,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <img src="{{ asset('images/Store_Logo_210309.jpg') }}" width="50" height="40" alt="">
+                        <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
                         <br>
                         <p>TokoLokal is a concept store based in Jakarta. Started in 2021, TokoLokal become a point for fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local products to compete with international products.</p>
                         <p>© 2021 TokoLokal. All Rights Reserved.</p>

@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
+
+
     use SoftDeletes;
 
     protected $table = "events";
     protected $fillable = [
         'name',
+        'theme',
         'picture',
         'held_on',
         'website',
@@ -19,4 +22,5 @@ class Event extends Model
         'about_us'
     ];
     protected $guarded = ['id'];
+
 }

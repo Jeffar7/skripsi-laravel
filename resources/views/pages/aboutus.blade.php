@@ -8,7 +8,7 @@
             <p class="title-home">About Us</p>
         </div>
 
-        <img src="{{ asset('images/about.png') }}" class="img-ab" alt="">
+        <img src="{{ asset('../storage/images/About Page/about.png') }}" class="img-ab" alt="">
 
         <div class="row justify-content-center my-4">
             <div class="col-md-12">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <img src="{{ asset('images/location.png') }}" class="" alt="">
+                <img src="{{ asset('../storage/images/About Page/location.png') }}" class="" alt="">
             </div>
         </div>
 

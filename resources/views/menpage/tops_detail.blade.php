@@ -26,7 +26,7 @@
             <p>photo slider box</p>
         </div>
         <div class="col-5 border border-dark">
-            <img src="{{asset('uploads/products/' . $product_tops->productimage)}}" width="100px;" height="100px;" alt="Image">
+            <img src="{{asset('../storage/images/Products/' . $product_tops->productimage)}}" width="100px;" height="100px;" alt="Image">
         </div>
         <div class="col border border-dark" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: white">
             <div class="card-body">
@@ -35,71 +35,70 @@
                 <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
                 <p style="font-weight:bold;">Rp. {{$product_tops->productprice}}</p>
                 <p>{{$product_tops->productdescription}}</p>
-                
+
                 <!-- button size and quantity -->
-                <form action="{{ url('pagecart') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $product_tops->id }}">
-                    <div class="row mb-3">
-                        <div class="col"> 
-                            <div class="btn-group">
-                                <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required="">
-                                    Select Size
-                                </button>
-                                <div class="dropdown-menu">
-                                    <li>
-                                        <a href="">{{$product_tops->productsize}}</a>
-                                    </li>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="input-group quantity">
-                                <div class="input-group-prepend decrement-btn" style="cursor: pointer">
-                                    <span class="input-group-text">-</span>
-                                </div>
-                                <input name="quantity" type="number" class="qty-input form-control text-center" maxlength="2" max="10" value="1" required="">
-                                <div class="input-group-append increment-btn" style="cursor: pointer">
-                                    <span class="input-group-text">+</span>
-                                </div>
+
+                <div class="row mb-3">
+                    <div class="col"> 
+                        <div class="btn-group">
+                            <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required="">
+                                Select Size
+                            </button>
+                            <div class="dropdown-menu">
+                                <li>
+                                    <a href="">{{$product_tops->productsize}}</a>
+                                </li>
                             </div>
                         </div>
                     </div>
-                </form>
-                    <!-- wish list button -->
-                    @guest
-                    <div class="row mb-3">
-                        <div class="col-2">
-                            <div class="text-center pt-2">
-                                <a href="/login" class="card-link"><i class="far fa-heart" style="font-size: 22px; color:black;"></i></a>
+                    <div class="col">
+                        <div class="input-group quantity">
+                            <div class="input-group-prepend decrement-btn" style="cursor: pointer">
+                                <span class="input-group-text">-</span>
+                            </div>
+                            <input name="quantity" type="number" class="qty-input form-control text-center" maxlength="2" max="10" value="1" required="">
+                            <div class="input-group-append increment-btn" style="cursor: pointer">
+                                <span class="input-group-text">+</span>
                             </div>
                         </div>
-                        <div class="col">
-                            <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
+                    </div>
+                </div>
+
+                <!-- wish list button -->
+                @guest
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <div class="text-center pt-2">
+                            <a href="/login" class="card-link"><i class="far fa-heart" style="font-size: 22px; color:black;"></i></a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
-                        </div>
+                    <div class="col">
+                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
                     </div>
-                    @else
-                    <div class="row mb-3">
-                        <div class="col-2">
-                            <div class="text-center">
-                                <form action="/wish-list/save" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                                    <input type="hidden" name="product_id" value="{{$product_tops->id}}">
-                                    <button type="submit" class="pt-2 bg-white" style="height:34px;border-width: 0px;"><i class="far fa-heart" style="font-size: 22px;"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/product-cart" class="card-link" style="color:black;">Add to Cart</a></button>
-                        </div>
-                    </div>
+                </div>
                 <div class="row">
+                    <div class="col">
+                        <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
+                    </div>
+                </div>
+                @else
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <div class="text-center">
+                            <form action="/wish-list/save" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                <input type="hidden" name="product_id" value="{{$product_tops->id}}">
+                                <button type="submit" class="pt-2 bg-white" style="height:34px;border-width: 0px;"><i class="far fa-heart" style="font-size: 22px;"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/product-cart/{{$product_tops->id}}" class="card-link" style="color:black;">Add to Cart</a></button>
+                    </div>
+                </div>
+                <div class="row">
+
                     <div class="col">
                         <button class="btn btn-dark" style="width:100%;"><a href="/buy-now/{{$product_tops->id}}" class="card-link" style="color:white;">Buy Now</a></button>
                     </div>
@@ -130,6 +129,7 @@
         <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">Detail</div>
         <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">Size Detail</div>
         <div class="tab-pane fade mt-3" id="review" role="tabpanel" aria-labelledby="review-tab">
+            <!--            
             @guest
             <div class="card mb-3" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: #F8F8F8">
                 <div class="form-group text-center mb-0 pt-2 bg-white">
@@ -148,14 +148,14 @@
                     </div>
                 </div>
             </div>
-            @endguest
+            @endguest -->
 
             @foreach($reviews as $review)
             @if($review->product_id == $product_tops->id)
             <div class="card mb-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
                 <div class="media ml-3 mt-3">
                     <div class="col-md-2">
-                        <img src="{{asset('uploads/users/' . $review->user->picture)}}" width="100px;" height="100px;" alt="Image" class="mr-3">
+                        <img src="{{asset('../storage/images/Users/' . $review->user->picture)}}" width="100px;" height="100px;" alt="Image" class="mr-3">
                     </div>
                     <div class="col-md-8">
                         <div class="media-body">
@@ -201,31 +201,5 @@
         </div>
     </div>
 </div>
-
-<script>    
-    $(document).ready(function () {
-        $('.increment-btn').click(function (e) {
-        e.preventDefault();
-        var incre_value = $(this).parents('.quantity').find('.qty-input').val();
-        var value = parseInt(incre_value, 10);
-        value = isNaN(value) ? 0 : value;
-        if(value < 10){
-            value++;
-            $(this).parents('.quantity').find('.qty-input').val(value);
-        }
-    });
-
-    $('.decrement-btn').click(function (e) {
-            e.preventDefault();
-            var decre_value = $(this).parents('.quantity').find('.qty-input').val();
-            var value = parseInt(decre_value, 10);
-            value = isNaN(value) ? 0 : value;
-            if(value>1){
-                value--;
-                $(this).parents('.quantity').find('.qty-input').val(value);
-            }
-        });
-    });
-</script>
 
 @endsection

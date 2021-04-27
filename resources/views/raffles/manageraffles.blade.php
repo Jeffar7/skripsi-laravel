@@ -37,7 +37,7 @@
                     <tr>
                         <th scope="row">{{$raffle->id}}</th>
                         <td>{{$raffle->rafflename}}</td>
-                        <td><img src="{{asset('uploads/raffles/' . $raffle->raffleimage)}}" width="100px;" height="100px;" alt="Image"></td>
+                        <td><img src="{{asset('../storage/images/Raffles/' . $raffle->raffleimage)}}" width="100px;" height="100px;" alt="Image"></td>
                         <td>{{$raffle->brand->name}}</td>
                         <td>{{$raffle->categoryraffle->categoryname}}</td>
                         <td>{{$raffle->rafflequantity}}</td>
@@ -48,9 +48,10 @@
                         <td>
                             <a href="raffles/{{$raffle->id}}/edit" class="badge btn-success"><i class="fas fa-edit" style="color:white"></i></a>
 
-                            <!-- <form action="raffles/{{$raffle->id}}" method="POST" class="d-inline">-->
-                                
-                                <button type="submit" class="badge btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt" style="color:white"></i></button>
+                            <!-- <form action="raffles/{{$raffle->id}}" method="POST" class="d-inline"> -->
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="badge btn-danger"><i class="fas fa-trash-alt" style="color:white"></i></button>
                             <!-- </form> -->
                         </td>
                     </tr>

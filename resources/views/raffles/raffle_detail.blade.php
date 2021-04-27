@@ -16,10 +16,10 @@
 <div class="container">
     <div class="row justify-content-center mb-5">
             <div class="col-12 text-center">
-                <img src="{{asset('/uploads/raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 400px; max-width: 100%;">
+                <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 400px; max-width: 100%;">
             </div>
     </div>
-    
+
     <div class="row justify-content-center mb-3">
         <div class="col-12 text-center">
             <p class="h3 font-weight-bold" id="countdown"></p>
@@ -40,8 +40,7 @@
             <p class="h6 font-weight-bold">Draw closes on {{$raffle->raffleclosedate}}</p>
         </div>
     </div>
-
-    <hr>                            
+    <hr>
 
     <form action="">
         <div class="form-row justify-content-around">
