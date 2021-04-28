@@ -49,12 +49,15 @@ Route::get('/about', function () {
 });
 
 Route::get('/contact', function () {
-    return view('pages/contactus');
+    return view('pages/contactus'); 
 });
 
-Route::get('/faq', function () {
-    return view('pages/faq');
-});
+Route::get('/contact', 'ContactInformationController@create');
+Route::post('/contact', 'ContactInformationController@store');
+
+Route::get('/faq', 'FAQController@index');
+
+Route::get('faq/detailfaqinfo/{faq}','DetailFAQInformationController@show');
 
 Route::get('/termsandcondition', function () {
     return view('pages/terms');

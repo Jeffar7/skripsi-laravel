@@ -15,10 +15,10 @@ class CreateDetailaddressesTable extends Migration
     {
         Schema::create('detailaddresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('city');
-            $table->string('province');
-            $table->string('zip_code');
-            $table->string('country');
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('country')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
