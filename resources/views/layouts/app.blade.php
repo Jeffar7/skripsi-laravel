@@ -10,7 +10,6 @@
 
     <title>@yield('title')</title>
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -168,7 +167,7 @@
                         <div class="row"><a style="color:black;" href="/">Home</a></div>
                         <div class="row"><a style="color:black;" href="/about">About Us</a></div>
                         <div class="row"><a style="color:black;" href="/contact">Contact Us</a></div>
-                        <div class="row"><a style="color:black;" href="/termsandcondition">Term & Condition</a></div>
+                        <div class="row"><a style="color:black;" href="/termsandcondition">Terms & Condition</a></div>
                         <div class="row"><a style="color:black;" href="#">Privacy Policy</a></div>
                     </div>
                     <div class="col-2">
