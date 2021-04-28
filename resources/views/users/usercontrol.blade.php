@@ -54,8 +54,8 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-    $('#dtBasicExample').DataTable();
+    $(document).ready(function() {
+        $('#dtBasicExample').DataTable();
     });
 </script>
 

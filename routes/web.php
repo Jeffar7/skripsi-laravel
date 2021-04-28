@@ -132,11 +132,11 @@ Route::post('/makepayment', 'OrderController@makepayment');
 Route::get('/payment-history', 'StatusController@payment_history');
 
 //waiting for review
-Route::get('/waiting-for-review','StatusController@waiting_for_review');
+Route::get('/waiting-for-review', 'StatusController@waiting_for_review');
 
 //make review
-Route::get('/products/review/{id}','StatusController@product_review_detail');
-Route::post('/submit/review','StatusController@product_submit_review');
+Route::get('/products/review/{id}', 'StatusController@product_review_detail');
+Route::post('/submit/review', 'StatusController@product_submit_review');
 
 Route::get('/raffle', 'RaffleController@raffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
@@ -146,6 +146,10 @@ Route::post('/manageraffle', 'RaffleController@store');
 Route::get('/raffles/{raffle}/edit', 'RaffleController@edit');
 Route::patch('/raffles/{raffle}', 'RaffleController@update');
 Route::delete('/raffles/{raffle}', 'RaffleController@destroy');
+
+//place raffle
+Route::post('/raffle/submit', 'RaffleController@submit');
+Route::get('/raffle/history', 'RaffleController@history');
 
 Route::get('/event', 'EventController@event');
 Route::get('/events/detail/{event}', 'EventController@eventdetail');
@@ -178,57 +182,57 @@ Route::get('/women', 'WomenController@index');
 
 //route for debug
 
-Route::get('/read_product',function(){
+Route::get('/read_product', function () {
     $order = Order::find(1);
 
     $products = $order->product;
 
-    foreach($products as $product){
+    foreach ($products as $product) {
         echo $product->productname . '<br>';
     }
 });
 
 Route::get('/check', function () {
 
-//check order dengan id 1
-    $order = Order::find(1);
-//menambahkan value ke order_product dengan value order_id 1 dan product_id 4
-    $order->product()->attach(4);
-    return $order;
+    //check order dengan id 1
+    // $order = Order::find(1);
+    // //menambahkan value ke order_product dengan value order_id 1 dan product_id 4
+    // $order->product()->attach(4);
+    // return $order;
 
-    
+
     // return Order::with('user')->get();
 
     // mencari product dengan product gender 'MEN' category 'SHOES' dan produk dengan category 'SHOES'
     // $genders = Gender::find(1)->category()->where('name', 'SHOES')->first();
     // dd($genders->product);
-    
+
     //mencari product dengan gender 'MEN' dan Category ALL
     // $genders = Gender::find(1)->category()->get();
     // dd();
-    
+
     // foreach ($categories as $category) {
-        //     foreach ($category->product as $product) {
-            //         dd($product->productname);
-            //     }
-            // }
-            
-            // $user = User::onlyTrashed()->get();
-            // dd($user);
-            
-            // $reviews = Review::all();
-            // $product_tops = Product::where('id', '=', 1)->first();
-            
-            // foreach ($reviews as $review) {
-                //     if ($review->product_id == $product_tops->id) {
-                    //     }
-                    // }
-                    
-                    // $cartlist = product_user::onlyTrashed()->get();
-                    
-                    // dd($cartlist);
-                    
-                    //     $Order = Order::find(1);
-                    // dd($Order->address_delivery_users);
-                    
+    //     foreach ($category->product as $product) {
+    //         dd($product->productname);
+    //     }
+    // }
+
+    // $user = User::onlyTrashed()->get();
+    // dd($user);
+
+    // $reviews = Review::all();
+    // $product_tops = Product::where('id', '=', 1)->first();
+
+    // foreach ($reviews as $review) {
+    //     if ($review->product_id == $product_tops->id) {
+    //     }
+    // }
+
+    // $cartlist = product_user::onlyTrashed()->get();
+
+    // dd($cartlist);
+
+    //     $Order = Order::find(1);
+    // dd($Order->address_delivery_users);
+
 });

@@ -56,6 +56,25 @@ class UsersTableSeeder extends Seeder
 
         $customer = User::create(
             [
+                'first_name' => 'Customer',
+                'last_name' => 'Test',
+                'email' => 'customer1@test.com',
+                'username' => 'custumer test',
+                'gender' => 'Female',
+                'DOB' => '1989-06-21',
+                'password' => bcrypt("test123"),
+                'role' => 'customer',
+                'address' => 'Tunas Patriot Tarumanegara, Jalan Ahmad Yani',
+                'site' => 'www.AmyJones.com',
+                'about' => '',
+                'picture' => 'Amy_Jones.jpg',
+                'phone' => '085530125921'
+            ]
+        );
+        $customer->assignRole('customer');
+
+        $customer = User::create(
+            [
                 'first_name' => 'Bruce',
                 'last_name' => 'Wayne',
                 'email' => 'BruceWayne@yahoo.com',

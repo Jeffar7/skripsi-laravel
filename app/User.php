@@ -77,4 +77,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function voucher()
+    {
+        return $this->belongsToMany(Voucher::class);
+    }
+
+    public function raffle()
+    {
+        return $this->belongsToMany(Raffle::class)->withPivot('address_raffle_id');
+    }
 }

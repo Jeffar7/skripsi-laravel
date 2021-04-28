@@ -19,13 +19,13 @@ class BuynowController extends Controller
         $shipments = Shipment::all();
         $products = Product::where('id', '=', $id)->first();
 
-        return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products','products'));
+        return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products', 'products'));
     }
 
     public function summary(Request $request)
     {
 
-        $product = Product::where('id',$request->product)->first();
+        $product = Product::where('id', $request->product)->first();
 
         $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
         $shipment = Shipment::where('id', '=', $request->shipment)->first();
@@ -93,7 +93,7 @@ class BuynowController extends Controller
         return redirect('/payment-history');
     }
 
-    
+
     public function addaddress(Request $request)
     {
         if ($request->has('formaddress')) {
@@ -113,7 +113,7 @@ class BuynowController extends Controller
         } else {
             return back();
         }
-         return back();
+        return back();
         // return redirect()->action([OrderController::class, 'checkout']);
     }
 }

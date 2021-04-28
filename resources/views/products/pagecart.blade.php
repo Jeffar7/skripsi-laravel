@@ -46,9 +46,9 @@
                                 </td>
                                 <td>
 
-                                    <!-- <input style="text-align:center; width: 70px;" type="text" name="subtotal" id="subtotal" value="{{$cartlist->product->productprice}}" > -->
+                                    <input style="text-align:center; width: 70px;" type="text" name="subtotal" id="subtotal" value="{{$cartlist->product->productprice}}">
 
-                                    <span id="subtotal">{{$cartlist->product->productprice}}</span>
+                                    <!-- <span id="subtotal">{{$cartlist->product->productprice}}</span> -->
 
                                 </td>
                                 <th>

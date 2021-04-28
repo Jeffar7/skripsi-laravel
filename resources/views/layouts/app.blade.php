@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
     <!-- fav icon -->
-    <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png"> 
+    <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png">
 </head>
 
 <body>
@@ -55,7 +55,7 @@
                         <a class="nav-item nav-link" href="/manageraffle">RAFFLE</a>
                         <a class="nav-item nav-link" href="/managebrand">BRAND</a>
                         <a class="nav-item nav-link" href="/manageevent">EVENT</a>
-                        
+
                         @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="/men" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
@@ -118,6 +118,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/raffle/history">Raffle History <span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>
                             </div>
@@ -144,10 +145,10 @@
                     </ul>
                 </div>
             </div>
-    </nav>
+        </nav>
 
-        
-        
+
+
         <main class="pt-0">
             @yield('content')
         </main>
