@@ -1,5 +1,9 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.wordWrap": "on",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "blade.format.enable": true,
+  "[blade]": {
+    "editor.defaultFormatter": "onecentlin.laravel-blade"
+  }
 }

@@ -39,7 +39,7 @@
                     <div class="pt-4 mb-4">
                         <h6 style="font-weight: 200" class="mb-3">WELCOME TO</h6>
                         <a href="{{ url('/') }}">
-                            <img src="{{ asset('images/Store_Logo_210309.jpg') }}" width="70" height="60" alt="" class="mb-3">
+                            <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="70" height="60" alt="" class="mb-3">
                         </a>
                         <h6>Register to get in the moment updates on the things that interest you</h6>
                     </div>
