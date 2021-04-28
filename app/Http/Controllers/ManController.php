@@ -59,6 +59,7 @@ class ManController extends Controller
     {
         $product_tops = Product::where('id', '=', $product->id)->first();
         $reviews = Review::all();
+        
 
         return view('/menpage/tops_detail', compact('product_tops', 'reviews'));
     }

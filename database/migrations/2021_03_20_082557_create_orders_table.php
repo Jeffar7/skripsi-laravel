@@ -16,12 +16,12 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('order_number')->unique();
-            $table->enum('status', ['pending', 'processing', 'completed', 'decline'])->default('pending');
+            $table->enum('status', ['pending', 'failed', 'completed'])->default('pending');
             $table->string('grand_total');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('address_id')->nullable();
-            $table->unsignedBigInteger('payment_id')->nullable();
-            $table->unsignedBigInteger('shipment_id')->nullable();
+            $table->unsignedBigInteger('address_id')->nullable()->default(0);
+            $table->unsignedBigInteger('payment_id')->nullable()->default(0);
+            $table->unsignedBigInteger('shipment_id')->nullable()->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
