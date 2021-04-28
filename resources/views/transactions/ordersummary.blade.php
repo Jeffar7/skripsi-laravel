@@ -140,8 +140,8 @@
   <!-- Button -->
   <form action="/payment" method="post">
     @csrf
-    <!-- check di git -->
-    <input type="hidden" name="product" value="{{ json_encode($products,TRUE)}}">
+
+    <input type="hidden" name="products" value="{{ json_encode($products,TRUE)}}">
     <input type="hidden" name="address" value="{{$address->id}}">
     <input type="hidden" name="shipment" value="{{$shipment->id}}">
   

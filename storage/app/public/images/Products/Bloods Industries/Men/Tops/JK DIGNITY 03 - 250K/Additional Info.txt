@@ -1,0 +1,12 @@
+Name: JK DIGNITY 03
+Brand: Bloods Industries
+Price: 250K
+Description: HIGHLY DURABLE WATER RESISTANT TASLAN FABRIC OUTDOOR BOMBER JACKET WITH  BLOODS LOGO AT FRONT
+SKU: BL.BLO-SI053
+Categories: Tops, Men
+Additional Info: 
+	WEIGHT = 1 kg
+	SIZE = L, M, XL, XXL
+	COLOR = Army Green
+
+

@@ -1,0 +1,10 @@
+Name: SC WIRE
+Brand: Bloods Industries
+Price: 69K
+Description: Black Wool Cotton Socks With Bloods Embroidery Logo
+SKU: BL.BLO-UB117
+Categories: Accessories, Men
+Additional Info: 
+	WEIGHT = 0.3 kg
+
+

@@ -1,0 +1,14 @@
+Name: Campbell Classic Sneakers
+Brand: Guten Inc
+Price: 250K
+Description: Classic black and white sneakers is a staple for almost everyone in almost every occasion nowadays. Some of them are mr. President in a meeting, guests at weddings, or the youngsters at local eatery, just name it. This type of footwear is essential and versatile so you can't go wrong with it. Name your outfit, and we got your sneakers choice here!
+
+	Specification:
+	Sturdy canvas fabric upper
+	Cementing construction
+	Leather piping
+	Contrast stitching
+	Soft insole
+SKU: GI.BLO-UA009
+Categories: Shoes, Men
+Additional Information: -

@@ -44,26 +44,28 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div class="container mb-5">
         <p class="title-home">BEST SELLER</p>
         <div class="row justify-content-around">
             <div id="myCarousel" class="carousel slide  w-100" data-interval="false">
                 <div class="carousel-inner w-100 px-3">
-                
-                @foreach($products as $key => $product)
+
+                    @foreach($products as $key => $product)
                     <div class="carousel-item col col-md-3 {{$key == 0 ? 'active' : '' }}">
                         <!-- Gambar 1 -->
                         <!-- <div class="col col-sm-3 mb-3"> -->
-                            <div class="card">
+                        <div class="card">
                             <a href="/men-tops/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="239.5px;" height="272px;" alt="Image" class="card-img-top border border-dark"></a>
-                            </div>
-                            <div class="card px-2 border border-dark">
-                                <a href="/men-tops/detail/{{$product->id}}" style="color:black;"><p class="mt-3 mb-0 text-truncate" style="font-weight:bold;">{{$product->productname}}</p></a>
-                                <a class="about-title mb-0" style="text-decoration:normal;" href="/brands/{{$product->brand->id}}">{{$product->brand->name}}</a>
-                                <p style="font-weight:bold;">Rp. {{$product->productprice}}</p>
-                            </div>
+                        </div>
+                        <div class="card px-2 border border-dark">
+                            <a href="/men-tops/detail/{{$product->id}}" style="color:black;">
+                                <p class="mt-3 mb-0 text-truncate" style="font-weight:bold;">{{$product->productname}}</p>
+                            </a>
+                            <a class="about-title mb-0" style="text-decoration:normal;" href="/brands/{{$product->brand->id}}">{{$product->brand->name}}</a>
+                            <p style="font-weight:bold;">Rp. {{$product->productprice}}</p>
+                        </div>
                         <!-- </div> -->
                         <!-- Akhir Gambar 1 -->
                     </div>

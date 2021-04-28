@@ -1,0 +1,11 @@
+Name: THE GOODS DEPT - Good Heart T-Shirt Brown
+Brand: The Goods Dept
+Price: 135K
+Description: - Printed T-Shirt
+	- Round neck
+	- Long sleeves
+	- Regular fit
+	- Material: Cotton
+SKU: TG.BLO-UA013
+Categories: Tops, Men
+Additional Information: -

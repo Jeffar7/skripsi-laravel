@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,13 +20,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Customize Css -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    
+
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="row no-gutters">
         <div class="col-md-6 no-gutters">
@@ -35,17 +37,17 @@
                     <a href="{{ url('/') }}"><img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="70" height="60" alt="" class="mb-3"></a>
                     <h6>Log in to get in the moment updates on the things that interest you</h6>
                 </div>
-                    
+
                 <form method="POST" action="{{ route('login') }}" id="formlogin">
                     @csrf
-                    <div class="form-group row justify-content-center">  
+                    <div class="form-group row justify-content-center">
                         <div class="col-md-12 inner-addon left-addon">
                             <i class="fas fa-user"></i>
-                            <input id="email" type="email" placeholder="Email" class="log-field @error('email') is-invalid @enderror " name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
+                            <input id="email" type="email" placeholder="Email" class="log-field @error('email') is-invalid @enderror " name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
                             @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -56,9 +58,9 @@
                             <input id="password" placeholder="Password" type="password" class="log-field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                             @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -80,9 +82,9 @@
                             </label>
 
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}" class="ml-4">
-                                    {{ __('Reset Password') }}
-                                </a>
+                            <a href="{{ route('password.request') }}" class="ml-4">
+                                {{ __('Reset Password') }}
+                            </a>
                             @endif
                         </div>
                     </div>
@@ -118,4 +120,5 @@
         </div>
     </div>
 </body>
+
 </html>

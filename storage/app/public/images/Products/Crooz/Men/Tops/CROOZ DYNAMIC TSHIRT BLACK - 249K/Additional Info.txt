@@ -1,0 +1,19 @@
+Name: CROOZ DYNAMIC TSHIRT BLACK
+Brand: Crooz
+Price: 249K
+Description: 
+		Weight: 250 Gram
+		Category: Tops
+		Etalase: T-Shirt
+SKU: CR.BLO-UA005
+Categories: Tops, Men
+Additional Information: 
+			Material: Cotton
+			Clothing Style: Casual Occasion
+			Sleeve Length: Short Sleeve
+			Additional Info:
+			Weight: 250 Gram
+			Category: Men's T-Shirt
+			Showcase: T-Shirt
+
+

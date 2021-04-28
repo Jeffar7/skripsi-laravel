@@ -10,7 +10,6 @@
 
     <title>@yield('title')</title>
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -135,7 +134,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
 
-                            <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>
@@ -163,7 +162,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+    </nav>
 
         
         
@@ -187,7 +186,7 @@
                         <div class="row"><a style="color:black;" href="/">Home</a></div>
                         <div class="row"><a style="color:black;" href="/about">About Us</a></div>
                         <div class="row"><a style="color:black;" href="/contact">Contact Us</a></div>
-                        <div class="row"><a style="color:black;" href="/termsandcondition">Term & Condition</a></div>
+                        <div class="row"><a style="color:black;" href="/termsandcondition">Terms & Condition</a></div>
                         <div class="row"><a style="color:black;" href="#">Privacy Policy</a></div>
                     </div>
                     <div class="col-2">
