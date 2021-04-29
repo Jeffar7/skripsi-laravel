@@ -15,7 +15,7 @@ class CreateDetailaddressesTable extends Migration
     {
         Schema::create('detailaddresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('city');
+            $table->string('city')->nullable();
             $table->string('province')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('country')->nullable();
