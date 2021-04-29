@@ -64,8 +64,8 @@
                     </table>
                 </div>
                 <div class="text-left mt-3">
-                    <input type="hidden" name="grandtotal" id="grandtotal">
-                    <h5 class="bold">Total: <span name="grandtotal" id="grandtotal"></span></h5>
+                    <!-- <input type="hidden" name="subtotal" id="grandtotal"> -->
+                    <h5 class="bold">Total: <span name="subtotal" id="grandtotal"></span></h5>
                     <p>Delivery and discount will be calculated during the checkout process.</p>
                 </div>
                 <input type="hidden" value="{{$cartlists}}" name="cartlists">
