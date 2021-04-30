@@ -6,8 +6,8 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
-            <h1 class="text-center mt-3">Cart List</h1>
+        <div class="col-md-12">
+            <h3 class="text-left mt-3">Your Cart</h3>
 
             @if (session('status'))
             <div class="alert alert-success">
@@ -19,57 +19,58 @@
 
                 <div class="card ">
                     <table class="table">
-                        <thead class="thead-dark">
+                        <thead class="bg-transparent">
                             <tr>
-                                <th scope="col">Thumbnail</th>
-                                <th scope="col">Brand</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Size</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Subtotal</th>
-                                <th scope="col"> </th>
+                                <th scope="col" class="text-center">Thumbnail</th>
+                                <th scope="col" class="text-center">Brand</th>
+                                <th scope="col" class="text-center">Product</th>
+                                <th scope="col" class="text-center">Size</th>
+                                <th scope="col" class="text-center">Price</th>
+                                <th scope="col" class="text-center">Quantity</th>
+                                <th scope="col" class="text-center">Subtotal</th>
+                                <th scope="col" class="text-center">Actions</th>
                             </tr>
                         </thead>
                         @foreach($cartlists as $cartlist)
-                        <tbody>
-                            <tr>
-                                <td><img src="{{asset('uploads/products/' . $cartlist->product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
-                                <td>{{$cartlist->product->brand->name}}</td>
-                                <td>{{$cartlist->product->productname}}</td>
-                                <td>{{$cartlist->product->productsize}}</td>
-                                <td id="price">{{$cartlist->product->productprice}}</td>
-                                <td>
-                                    <button type="button" class="minus-btn btn btn-outline-secondary btn-sm">-</button>
-                                    <input id="quantity" style="text-align:center; width: 40px;" type="text" name="quantity" id="quantity" value="1">
-                                    <button type="button" class="plus-btn btn btn-outline-secondary btn-sm">+</button>
+                        <tbody class="bg-transparent" class="checkout_cart">
+                            <tr class="cartpage">
+                                <td class="text-center"><img src="{{asset('uploads/products/' . $cartlist->product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
+                                <td class="text-center">{{$cartlist->product->brand->name}}</td>
+                                <td class="text-center">{{$cartlist->product->productname}}</td>
+                                <td class="text-center">{{$cartlist->product->productsize}}</td>
+                                <td class="price text-center">Rp. <span id="price" data-price="{{$cartlist->product->productprice}}">{{ $cartlist->product->productprice}}</span></td>
+                                <td class="cart-product-quantity text-center" width="132px">
+                                    <div class="input-group quantity">
+                                        <div class="input-group-prepend decrement-btn changeQuantity" style="cursor: pointer">
+                                            <span class="input-group-text">-</span>
+                                        </div>
+                                        <input type="text" class="qty-input form-control text-center" maxlength="2" value="1" id="qty-input">
+                                        <div class="input-group-append increment-btn changeQuantity" style="cursor: pointer">
+                                            <span class="input-group-text">+</span>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td>
 
-                                    <!-- <input style="text-align:center; width: 70px;" type="text" name="subtotal" id="subtotal" value="{{$cartlist->product->productprice}}" > -->
-
-                                    <span id="subtotal">{{$cartlist->product->productprice}}</span>
-
+                                <!-- <input style="text-align:center; width: 70px;" type="text" name="subtotal" id="subtotal" value="{{$cartlist->product->productprice}}" > -->
+                                <td class="text-center">
+                                    <span id="subtotal">Rp. {{ number_format($cartlist->product->productprice)}}</span>
                                 </td>
-                                <th>
-                                    <!-- <form action="/product-cart/delete/{{$cartlist->id}}" method="POST" class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="badge btn-danger" type="submit">
-                                        Delete
-                                    </button>
-                                </form> -->
+                                <td class="text-center">
                                     <a href="/product-cart/delete/{{$cartlist->id}}" class="d-inline btn btn-danger">Delete</a>
-                                </th>
+                                </td>
                             </tr>
                         </tbody>
-
                         @endforeach
                     </table>
                 </div>
+                <div class="text-left mt-3">
+                    <!-- <input type="hidden" name="subtotal" id="grandtotal"> -->
+                    <h5 class="bold">Total: <span name="subtotal" id="grandtotal"></span></h5>
+                    <p>Delivery and discount will be calculated during the checkout process.</p>
+                </div>
                 <input type="hidden" value="{{$cartlists}}" name="cartlists">
                 <div class="form-group ">
-                    <button type="submit" class="btn btn-dark col-2 mt-5" for="form_checkout">Checkout</button>
+                    <button type="submit" class="btn btn-primary col-2 mt-5" for="form_checkout">Checkout</button>
                 </div>
         </div>
         </form>
@@ -77,61 +78,43 @@
 </div>
 
 <script>
-    document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
-
-    //taking value to increment or decrement input value
-    var valueCount
-
-    //taking price value in variable
-    var price = document.getElementById("price").innerText;
-
-    //price calculation function
-
-    function priceTotal() {
-        var total = valueCount * price;
-        document.getElementById("subtotal").innerText = total;
+    function priceTotal(value) {
+        var grandTotal = 0;
+        $('#subtotal').each(function() {
+            var qty = value;
+            var price = parseInt($("#price").text());
+            var subTotal = value * price;
+            grandTotal = grandTotal + subTotal;
+            document.getElementById("subtotal").innerText = "Rp. " + subTotal.toLocaleString('en');
+        });
+        document.getElementById("grandtotal").innerText = "Rp. " + grandTotal.toLocaleString('en');
     }
 
-    //plus button
-    document.querySelector(".plus-btn").addEventListener("click", function() {
-        //getting value from input
-        valueCount = document.getElementById("quantity").value;
-
-        //input value increment by 1
-        valueCount++;
-
-        //setting increment input value
-        document.getElementById("quantity").value = valueCount
-
-        if (valueCount > 1) {
-            document.querySelector(".minus-btn").removeAttribute("disabled");
-            document.querySelector(".minus-btn").classList.remove("disabled");
+    $('.increment-btn').click(function(e) {
+        e.preventDefault();
+        var incre_value = $(this).parents('.quantity').find('#qty-input').val();
+        var value = parseInt(incre_value, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value < 100) {
+            value++;
+            $(this).parents('.quantity').find('#qty-input').val(value);
         }
 
-        // calling price function
-        priceTotal()
+        priceTotal(value);
+    });
 
-    })
-
-    //minus button
-    document.querySelector(".minus-btn").addEventListener("click", function() {
-        //getting value from input
-        valueCount = document.getElementById("quantity").value;
-
-        //input value decrement by 1
-        valueCount--;
-
-        //setting decrement input value
-        document.getElementById("quantity").value = valueCount
-
-        if (valueCount == 1) {
-            document.querySelector(".minus-btn").setAttribute("disabled", "disabled")
+    $('.decrement-btn').click(function(e) {
+        e.preventDefault();
+        var decre_value = $(this).parents('.quantity').find('#qty-input').val();
+        var value = parseInt(decre_value, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value > 1) {
+            value--;
+            $(this).parents('.quantity').find('#qty-input').val(value);
         }
 
-        // calling price function
-        priceTotal()
-
-    })
+        priceTotal(value);
+    });
 </script>
 
 

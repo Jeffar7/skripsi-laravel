@@ -8,22 +8,23 @@
         <h4>My Profile</h4>
     </div>
 </div>
-<div id="exTab1" class="container pb-5">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item active">
-            <a class="nav-link active bg-transparent" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home"
-            aria-selected="true">Profile</a>
+
+<div class="container pb-5">
+    <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active bg-transparent" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">Profile</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#2a" role="tab" aria-controls="profile" aria-selected="false">Notification</a>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#notification" role="tab" aria-controls="notification" aria-selected="false">Notification</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#3a" role="tab" aria-controls="profile" aria-selected="false">Privacy</a>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab" aria-controls="privacy" aria-selected="false">Privacy</a>
         </li>
     </ul>	
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
-        <div class="tab-content clearfix py-3">
-            <div class="tab-pane active" id="1a">
+        <div class="tab-content py-3" id="myTabContent">
+            <div class="tab-pane fade show active mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row">
                     <div class="col-md-4">
                         <img src="{{asset('../storage/images/Users/'.Auth::user()->picture)}}" class="rounded img-thumbnail rounded-circle" alt="..." width="200" height="150" style="margin-left: 80px;">
@@ -54,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="2a">
+            <div class="tab-pane fade mt-3" id="notification" role="tabpanel" aria-labelledby="notification-tab">
                 <h4>Notification</h4>
                 <p>Set the notifications you want to receive here</p>
                 <table class="table mt-2">
@@ -83,7 +84,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane mb-3" id="3a">
+            <div class="tab-pane fade mt-3" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
                 <h4>Change Password</h4>
                 <div class="row mt-4">
                     <div class="col-md-6">

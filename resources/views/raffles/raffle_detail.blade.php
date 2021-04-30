@@ -20,13 +20,10 @@
             </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="col-12 text-center">
-            <p class="h3 font-weight-bold">{{$raffle->rafflereleasedate}}</p>
-        </div>
-    </div>
-
     <div class="row justify-content-center mb-3">
+        <div class="col-12 text-center">
+            <p class="h3 font-weight-bold" id="countdown"></p>
+        </div>
         <div class="col-12 text-center">
             <p>DAYS | HOURS | MINUTES | SECOND</p>
         </div>
@@ -38,6 +35,11 @@
         </div>
     </div>
 
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <p class="h6 font-weight-bold">Draw closes on {{$raffle->raffleclosedate}}</p>
+        </div>
+    </div>
     <hr>
 
     <form action="">
@@ -373,4 +375,48 @@
     <div class="mb-5"></div>
 </div>
 
-@endsection()
+<script>
+    CountDownTimer('{{$raffle->rafflereleasedate}}', 'countdown');
+    function CountDownTimer(dt, id)
+    {
+        var end = new Date('{{$raffle->raffleclosedate}}');
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+        var timer;
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById(id).innerHTML = "EXPIRED";
+                return;
+            }
+            var days = Math.floor(distance / _day);
+            var hours = Math.floor((distance % _day) / _hour);
+            var minutes = Math.floor((distance % _hour) / _minute);
+            var seconds = Math.floor((distance % _minute) / _second);
+
+            if (days.toString().length == 1) {
+                days = "0" + days;
+            }
+            if (hours.toString().length == 1) {
+                hours = "0" + hours;
+            }
+            if (minutes.toString().length == 1) {
+                minutes = "0" + minutes;
+            }
+            if (seconds.toString().length == 1) {
+                seconds = "0" + seconds;
+            }
+
+            document.getElementById(id).innerHTML = days + ': ';
+            document.getElementById(id).innerHTML += hours + ': ';
+            document.getElementById(id).innerHTML += minutes + ': ';
+            document.getElementById(id).innerHTML += seconds;
+        }
+        timer = setInterval(showRemaining, 1000);
+    }
+</script>
+@endsection

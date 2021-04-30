@@ -5,13 +5,10 @@
 @section('content')
 
 <div class="container pt-2">
-
   <!-- Address -->
-  <div class="row justify-content-center mb-3 ">
-    <div class="col-md-10 text-center ">
-
-      <div class="card shadow-lg mb-5 " style="height: 1000px">
-
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-10 text-center">
+      <div class="card shadow-lg">
         <!-- Title -->
         <div class="card-header text-left bg-dark text-white">
           <strong>
@@ -22,51 +19,50 @@
 
         <!-- Table -->
         <div class="row justify-content-center m-3">
-          <div class="col-sm-10">
+          <div class="col-sm-11">
             <div class="table-responsive-sm">
               <table class="table">
-                <thead class="thead-light">
+                <thead class="bg-transparent">
                   <tr>
-                    <th>Thumbnail</th>
-                    <th>Brand</th>
-                    <th>Product</th>
-                    <th>Size</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
+                    <th scope="col" class="text-center">Thumbnail</th>
+                    <th scope="col" class="text-center">Brand</th>
+                    <th scope="col" class="text-center">Product</th>
+                    <th scope="col" class="text-center">Size</th>
+                    <th scope="col" class="text-center">Price</th>
+                    <th scope="col" class="text-center">Quantity</th>
+                    <th scope="col" class="text-center">Subtotal</th>
                   </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                      <th scope="row"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
-                      <td>{{$product->brand->name}}</td>
-                      <td>{{$product->productname}}</td>
-                      <td>{{$product->productsize}}</td>
-                      <td>{{$product->productprice}}</td>
-                      <td>{{$product->productquantity}}</td>
-                      <td>A</td>
-                    </tr>
+                <tbody class="bg-transparent">
+                  <tr>
+                    <th scope="row"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
+                    <td>{{$product->brand->name}}</td>
+                    <td class="text-center">{{$product->productname}}</td>
+                    <td class="text-center">{{$product->productsize}}</td>
+                    <td class="text-center">{{$product->productprice}}</td>
+                    <td class="text-center">{{$product->productquantity}}</td>
+                    <td class="text-center">Rp. X,XXX,XXX</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
-
         </div>
         <!-- End Table -->
 
         <!-- Detail Address -->
         @if (!empty($address))
-        <div class="row justify-content-center m-3">
-          <div class="col-md-5 bg-light">
+        <div class="row justify-content-around">
+          <div class="col-sm-10 bg-light card mb-3">
             <div class="text-left">
-              <p>Recipient Name: {{$address->recipient_name}}</p>
-              <p>Contact Number: {{$address->contact_number}}</p>
-              <p>Address: {{$address->address}}</p>
-              <p>Address Note (optional): {{$address->address_note}}</p>
-              <p>Post Code: {{$address->post_code}}</p>
-              <p>Province: {{$address->province}}</p>
-              <p>City: {{$address->city}}</p>
-              <p>District: {{$address->district}}</p>
+              <p class="mb-1 mt-3 text-capitalize">Recipient Name: {{$address->recipient_name}}</p>
+              <p class="mb-1 text-capitalize">Contact Number: {{$address->contact_number}}</p>
+              <p class="mb-1 text-capitalize">Address: {{$address->address}}</p>
+              <p class="mb-1 text-capitalize">Address Note (optional): {{$address->address_note}}</p>
+              <p class="mb-1 text-capitalize">Post Code: {{$address->post_code}}</p>
+              <p class="mb-1 text-capitalize">Province: {{$address->province}}</p>
+              <p class="mb-1 text-capitalize">City: {{$address->city}}</p>
+              <p class="mb-1 text-capitalize">District: {{$address->district}}</p>
             </div>
           </div>
         </div>
@@ -74,14 +70,7 @@
         <div class="row justify-content-center m-3">
           <div class="col-md-5 bg-light">
             <div class="text-left">
-              <p>Recipient Name:</p>
-              <p>Contact Number:</p>
-              <p>Address:</p>
-              <p>Address Note (optional):</p>
-              <p>Post Code:</p>
-              <p>Province:</p>
-              <p>City: </p>
-              <p>District: </p>
+              Data selected null.
             </div>
           </div>
         </div>
@@ -89,109 +78,78 @@
         <!--End Detail Address -->
 
         <!-- Shipping Option-->
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-10 text-center ">
-            <div class="card shadow-lg">
-
-              <div class="row justify-content-center m-3">
-                  <div class="col-md-4 bg-light">
-                    <h4>{{$shipment->shipment_method}}</h4>
-                  </div>
-
-
-                <div class="col-md-4 bg-light">
-                  <div class="text-left">
-                    <p>Delivery Cost: {{$shipment->delivery_cost}}</p>
-                    <p>Estimated Delivery: {{$shipment->estimated_delivery}}</p>
-                  </div>
-                </div>
+        <div class="row justify-content-around">
+          <div class="col-sm-10 bg-light card mb-3">
+            <div class="text-left">
+              <h5 class='mb-1 mt-3'>{{$shipment->shipment_method}}</h5>
+              <p class='mb-1'>Delivery Cost: {{$shipment->delivery_cost}}</p>
+              <p class='mb-3'>Estimated Delivery: {{$shipment->estimated_delivery}}</p>
             </div>
           </div>
         </div>
         <!--End Shipping Option-->
 
-        {{-- Message for --}}
-
+        <!-- Message for -->
         <div class="row justify-content-center mb-5">
-          <div class="col-md-10 text-center ">
-         <textarea name="notes" id="notes" cols="9" rows="5" placeholder="Special shipping request or anything you need to know"></textarea>
-
+          <div class="col-sm-11 text-center ">
+            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know"></textarea>
           </div>
         </div>
 
-        <span class="border">
-
-          <div class="row">
-            <div class="col-md-6">
-              <h4>VOUCHERS</h4>
-              <p>Ignore it if you dont have any voucher</p>
-              <div>
-                <input type="text" class="form-control" name="vouchers">
-                <button type="submit" class="btn btn-dark">SELECT VOUCHERS</button>
-              </div>
-              <p>Take Advantage of our exclusive offers
-              </p>
-
+        <!-- Table voucher -->
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="table-responsive-sm">
+              <table class="table mb-0">
+                <tr>
+                  <td class="text-left border-top font-weight-bold">VOUCHERS</td>
+                  <td class="text-right border-top"></td>
+                  <td class="text-right border">Total Product (tax incl.)</td>
+                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                </tr>
+                <tr>
+                  <td class="text-left border-0">Ignore it if you dont have any voucher</td>
+                  <td class="text-right border-0"></td>
+                  <td class="text-right border">Delivery Cost</td>
+                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                </tr>
+                <tr>
+                  <td class="text-left border-0"><input type="text" class="form-control" name="vouchers"></td>
+                  <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button></td>
+                  <td class="text-right border">Total Voucher</td>
+                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                </tr>
+                <tr>
+                  <td class="text-left border-0">Take Advantage of our exclusive offers</td>
+                  <td class="text-right border-0"></td>
+                  <td class="text-right border font-weight-bold">TOTAL</td>
+                  <td class="text-right border font-weight-bold">Rp. X,XXX,XXX</td>
+                </tr>
+              </table>
             </div>
-            <div class="col-md-3">
-              <div class="row">
-                <p>Total Product (tax incl.)</p>
-              </div>
-              <div class="row">
-                <p>Delivery Cost</p>
-              </div>
-              <div class="row">
-                <p>Total Voucers</p>
-              </div>
-              <div class="row">
-                <p>Total</p>
-              </div>
-            </div>
-
-            <div class="col-md-3 ">
-              <div class="row">
-                <p></p>
-              </div>
-              <div class="row">
-                <p></p>
-              </div>
-              <div class="row">
-                <p></p>
-              </div>
-              <div class="row">
-                <p></p>
-              </div>
-            </div>
-
           </div>
-        </span>
+        </div>
 
       </div>
-      w
     </div>
   </div>
   <!-- End Address -->
 
-
   <!-- Button -->
-
-
   <form action="/payment/buy_now" method="post">
     @csrf
-
+    <!-- check di git -->
     <input type="hidden" name="product" value="{{$product->id}}">
     <input type="hidden" name="address" value="{{$address->id}}">
     <input type="hidden" name="shipment" value="{{$shipment->id}}">
-        <button type="submit" class="btn btn-dark">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-          </svg> PROCEED TO PAYMENT
-        </button>
+
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-10 text-right">
+        <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> PROCEED TO PAYMENT</button>
+      </div>
+    </div>
   </form>
-
-
   <!-- End Button -->
-
 </div>
 
 

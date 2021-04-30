@@ -24,7 +24,7 @@
                         <div class="form-group ">
                             <label for="raffleimage">Picture</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="raffleimage" id="raffleimage" value="{{$raffle->raffleimage}}" required>
+                                <input type="file" class="custom-file-input" name="raffleimage" id="raffleimage" value="{{$raffle->raffleimage}}">
                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
                             </div>
@@ -65,12 +65,12 @@
 
                         <div class="form-group">
                             <label for="rafflereleasedate">Release Date</label>
-                            <input type="date" class="form-control" id="rafflereleasedate" name="rafflereleasedate" value="{{$raffle->rafflereleasedate}}">
+                            <input type="datetime-local" class="form-control" id="rafflereleasedate" name="rafflereleasedate" value="{{$raffle->rafflereleasedate}}">
                         </div>
 
                         <div class="form-group">
                             <label for="raffleclosedate">Close Date</label>
-                            <input type="date" class="form-control" id="raffleclosedate" name="raffleclosedate" value="{{$raffle->raffleclosedate}}">
+                            <input type="datetime-local" class="form-control" id="raffleclosedate" name="raffleclosedate" value="{{$raffle->raffleclosedate}}">
                         </div>
 
 

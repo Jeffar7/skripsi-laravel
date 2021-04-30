@@ -9,21 +9,21 @@
     </div>
 </div>
 <div id="exTab1" class="container pb-5">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item active">
+    <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
             <a class="nav-link active bg-transparent" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home"
             aria-selected="true">Profile</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" role="presentation">
             <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#2a" role="tab" aria-controls="profile" aria-selected="false">Notification</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" role="presentation">
             <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#3a" role="tab" aria-controls="profile" aria-selected="false">Privacy</a>
         </li>
     </ul>	
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
-        <div class="tab-content clearfix pt-4">
-            <div class="tab-pane fade show active" id="1a">
+        <div class="tab-content pt-4">
+            <div class="tab-pane fade show active" id="1a" role="tabpanel">
                 <h4>Edit Profile</h4>
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -398,7 +398,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="2a">
+            <div class="tab-pane fade" id="2a" role="tabpanel">
                 <h4>Notification</h4>
                 <p>Set the notifications you want to receive here</p>
                 <table class="table mt-2">
@@ -427,7 +427,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="tab-pane fade mb-3" id="3a">
+            <div class="tab-pane fade mb-3" id="3a" role="tabpanel">
                 <h4>Change Password</h4>
                 <div class="row mt-4">
                     <div class="col-md-6">
