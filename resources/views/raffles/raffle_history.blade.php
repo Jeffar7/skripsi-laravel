@@ -22,6 +22,7 @@
                     <th scope="col">Price</th>
                     <th scope="col">Raffle Close Date</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Message</th>
                 </tr>
             </thead>
             @if($raffles->count() > 0)
@@ -32,7 +33,8 @@
                     <td>{{$raffle->rafflename}}</td>
                     <td>Rp. {{$raffle->raffleprice}}</td>
                     <td>{{$raffle->raffleclosedate}}</td>
-                    <td>PENDING</td>
+                    <td>CLOSED</td>
+                    <td>Try again next time!</td>
                 </tr>
             </tbody>
             @endforeach

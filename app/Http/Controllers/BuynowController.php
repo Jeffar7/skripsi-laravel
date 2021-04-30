@@ -26,7 +26,6 @@ class BuynowController extends Controller
     {
 
         $product = Product::where('id', $request->product)->first();
-
         $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
         $shipment = Shipment::where('id', '=', $request->shipment)->first();
 

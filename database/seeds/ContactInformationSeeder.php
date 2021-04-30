@@ -3,6 +3,7 @@
 use App\ContactInformation;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ContactInformationSeeder extends Seeder
 {

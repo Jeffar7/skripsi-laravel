@@ -64,12 +64,12 @@
 
                         <div class="form-group">
                             <label for="rafflereleasedate">Release Date</label>
-                            <input type="date" class="form-control" id="rafflereleasedate" name="rafflereleasedate">
+                            <input type="datetime-local" class="form-control" id="rafflereleasedate" name="rafflereleasedate">
                         </div>
 
                         <div class="form-group">
                             <label for="raffleclosedate">Close Date</label>
-                            <input type="date" class="form-control" id="raffleclosedate" name="raffleclosedate">
+                            <input type="datetime-local" class="form-control" id="raffleclosedate" name="raffleclosedate">
                         </div>
 
                         <div class="form-group">
