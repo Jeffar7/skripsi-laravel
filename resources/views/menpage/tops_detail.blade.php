@@ -25,8 +25,8 @@
         <div class="col col-lg-2 border border-dark">
             <p>photo slider box</p>
         </div>
-        <div class="col-5 border border-dark">
-            <img src="{{asset('../storage/images/Products/' . $product_tops->productimage)}}" width="100px;" height="100px;" alt="Image">
+        <div class="col-5 border border-dark p-0">
+            <img src="{{asset('../storage/images/Products/' . $product_tops->productimage)}}" width="100%;" height="300px;" alt="Image">
         </div>
         <div class="col border border-dark" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: white">
             <div class="card-body">
@@ -42,7 +42,7 @@
 
                     <div class="col-auto">
                         <div class="btn-group">
-                            <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required="">
                                 Select Size
                             </button>
                             <div class="dropdown-menu">
@@ -52,10 +52,15 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-auto">
-                        <div class="btn-group">
-                            <input type="number" name="quantity" for="quantity" class="form-control border-dark" value="1">
+                    <div class="col">
+                        <div class="input-group quantity">
+                            <div class="input-group-prepend decrement-btn changeQuantity" style="cursor: pointer">
+                                <span class="input-group-text">-</span>
+                            </div>
+                            <input type="text" class="qty-input form-control text-center" maxlength="2" value="1" id="qty-input">
+                            <div class="input-group-append increment-btn changeQuantity" style="cursor: pointer">
+                                <span class="input-group-text">+</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,5 +202,32 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.increment-btn').click(function(e) {
+            e.preventDefault();
+            var incre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(incre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value < 100) {
+                value++;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
+        });
+
+        $('.decrement-btn').click(function(e) {
+            e.preventDefault();
+            var decre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(decre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value > 1) {
+                value--;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
+        });
+    });
+</script>
+
 
 @endsection

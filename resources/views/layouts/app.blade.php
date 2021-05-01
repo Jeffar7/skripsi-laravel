@@ -16,6 +16,7 @@
 
     <!-- Bootstrap Data Table CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <!-- JQuery UI CSS -->
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Customize Css -->
@@ -36,7 +37,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
@@ -47,15 +48,26 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        @if(Auth::check() && Auth::user()->role === 'admin')
-                        <a class="nav-item nav-link" href="/usercontrol">USER</a>
-                        <a class="nav-item nav-link" href="/manageproduct">PRODUCT</a>
-                        <a class="nav-item nav-link" href="/manageraffle">RAFFLE</a>
-                        <a class="nav-item nav-link" href="/managebrand">BRAND</a>
-                        <a class="nav-item nav-link" href="/manageevent">EVENT</a>
-                        
-                        @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
+                    @if(Auth::check() && Auth::user()->role === 'admin')
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/usercontrol">ADMIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manageproduct">PRODUCT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manageraffle">RAFFLE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/managebrand">BRAND</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manageevent">EVENT</a>
+                        </li>
+                    </ul>
+                    @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link " href="/men" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
                             <div class="dropdown-menu">
@@ -79,19 +91,26 @@
                                 <a class="dropdown-item" href="/women-sale">SALE</a>
                             </div>
                         </li>
-                        <a class="nav-item nav-link" href="/allbrand">BRANDS</a>
-                        <a class="nav-item nav-link" href="/event">EVENTS</a>
-                        <a class="nav-item nav-link" href="/raffle">RAFFLES</a>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/allbrand">BRANDS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/event">EVENTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/raffle">RAFFLES</a>
+                        </li>
                     </ul>
                     @endif
                     <!-- Middle Side of Navbar -->
-                    <div class="search-group rounded left-addon-search inner-addon">
+                    <form class="form-inline my-2 my-lg-0 rounded left-addon-search inner-addon">
                         <i class="fas fa-search"></i>
                         <input type="search" class="search-field rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                    </div>
+                    </form>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <!-- Authentication Links -->
 
                         @if(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
