@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use RoleSeeder;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -77,4 +79,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    // public function roles(){
+    //     return $this->belongsToMany(User::class, 'users');
+    // }
+
+    // public function getIsAdminAttribute(){
+    //     return $this->roles()->where('id', 1)->exists();
+    // }
 }

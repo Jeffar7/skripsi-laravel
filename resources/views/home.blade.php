@@ -48,6 +48,22 @@
         </div>
     </div>
 
+    {{-- Iseng Code --}}
+    {{-- @if(auth()->user()->is_admin)
+    @forelse($notifications as $notification)
+    <div class="alert alert-sucess" role="alert">
+        [{{ $notification->created_at}}] User {{ $notification->data['username']}} ({{ $notification->data['email']}}) has just registered.
+        <a href="#" class="float-right mark-as-read" data-id="{{ $notification->id }}">Mark as read</a>
+    </div>
+
+    @if($loop->last)
+        <a href="#" id="mark-all">Mark all as read</a>
+    @endif
+    @empty
+        There are no new notifications
+    @endforelse
+    @endif --}}
+
     <div class="container mb-5">
         <p class="title-home">BEST SELLER</p>
         <div class="row justify-content-around">

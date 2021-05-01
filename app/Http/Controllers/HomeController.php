@@ -26,10 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $notifications = auth()->user()->unreadNotifications;
 
-
+        return view('home', compact('notifications'));
         // dd($waitingpayment);
 
-        return view('\home');
+        // return view('\home');
     }
 }
