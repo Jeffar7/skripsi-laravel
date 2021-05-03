@@ -17,7 +17,9 @@ class CreateOrderProductTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('product_id');
-            $table->enum('is_review',['yes','no']);
+            $table->enum('is_review', ['yes', 'no']);
+            $table->integer('quantity')->nullable();
+            $table->integer('subtotal')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

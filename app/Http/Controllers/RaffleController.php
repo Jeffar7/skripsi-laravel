@@ -202,4 +202,9 @@ class RaffleController extends Controller
 
         return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
     }
+
+    public function check()
+    {
+        return view('raffles.check');
+    }
 }

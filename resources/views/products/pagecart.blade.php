@@ -50,11 +50,12 @@
                                         </div>
                                     </div>
                                 </td>
-
-                                <!-- <input style="text-align:center; width: 70px;" type="text" name="subtotal" id="subtotal" value="{{$cartlist->product->productprice}}" > -->
-                                <td class="text-center">
-                                    <span id="subtotal">Rp. {{ number_format($cartlist->product->productprice)}}</span>
+                                <td>
+                                    <input style="text-align:center; width: 70px;" type="text" name="subtotal" id="subtotal" value="{{$cartlist->product->productprice}}">
                                 </td>
+                                <!-- <td class="text-center">
+                                    <span id="subtotal">Rp. {{ number_format($cartlist->product->productprice)}}</span>
+                                </td> -->
                                 <td class="text-center">
                                     <a href="/product-cart/delete/{{$cartlist->id}}" class="d-inline btn btn-danger">Delete</a>
                                 </td>

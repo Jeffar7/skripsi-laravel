@@ -136,7 +136,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
-                                <a class="dropdown-item" href="/raffle/history">Raffle History <span class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/raffle/history">My Raffle <span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>
                             </div>

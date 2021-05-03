@@ -49,7 +49,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/contact', function () {
-    return view('pages/contactus'); 
+    return view('pages/contactus');
 });
 
 Route::get('/contact', 'ContactInformationController@create');
@@ -57,7 +57,7 @@ Route::post('/contact', 'ContactInformationController@store');
 
 Route::get('/faq', 'FAQController@index');
 
-Route::get('faq/detailfaqinfo/{faq}','DetailFAQInformationController@show');
+Route::get('faq/detailfaqinfo/{faq}', 'DetailFAQInformationController@show');
 
 Route::get('/termsandcondition', function () {
     return view('pages/terms');
@@ -122,6 +122,9 @@ Route::post('/payment/buy_now', 'BuynowController@payment');
 Route::post('/makepayment/buy_now', 'BuynowController@makepayment');
 Route::post('/delivery/addaddress/buy_now', 'BuynowController@addaddress');
 
+// // buynow redirect
+// Route::get('states/{product}/regions/{address}/{shipment}', ['as' => 'index', 'uses' => 'BuynowController@index']);
+
 //delivery
 Route::get('/checkout/delivery', 'OrderController@delivery');
 Route::get('/delivery/address/{id}', 'OrderController@chooseaddress');
@@ -145,6 +148,7 @@ Route::get('/raffle', 'RaffleController@raffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
 Route::get('/manageraffle', 'RaffleController@index');
 Route::get('/raffles/create', 'RaffleController@create');
+Route::get('/raffles/check', 'RaffleController@check');
 Route::post('/manageraffle', 'RaffleController@store');
 Route::get('/raffles/{raffle}/edit', 'RaffleController@edit');
 Route::patch('/raffles/{raffle}', 'RaffleController@update');
