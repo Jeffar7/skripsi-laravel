@@ -81,7 +81,7 @@
         <div class="row justify-content-around">
           <div class="col-sm-10 bg-light card mb-3">
             <div class="text-left">
-              <h5 class='mb-1 mt-3'>{{$shipment->shipment_method}}</h5>
+              <h5 class='mb-1 mt-3 font-weight-bold'>{{$shipment->shipment_method}}</h5>
               <p class='mb-1'>Delivery Cost: {{$shipment->delivery_cost}}</p>
               <p class='mb-3'>Estimated Delivery: {{$shipment->estimated_delivery}}</p>
             </div>

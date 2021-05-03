@@ -40,7 +40,7 @@ class OrderController extends Controller
             $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
             $order->status = 'pending';
             $order->user_id = Auth::user()->id;
-            $order->grand_total = $request->subtotal;
+            $order->grand_total = $request->grandtotal;
             $order->save();
 
             foreach ($carts as $cart) {

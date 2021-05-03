@@ -33,7 +33,7 @@
                 <!-- product about -->
                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
                 <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
-                <p style="font-weight:bold;">Rp. {{$product_tops->productprice}}</p>
+                <p style="font-weight:bold;">Rp. {{number_format($product_tops->productprice)}}</p>
                 <p>{{$product_tops->productdescription}}</p>
 
                 <!-- button size and quantity -->

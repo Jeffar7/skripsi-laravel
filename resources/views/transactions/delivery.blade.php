@@ -70,34 +70,34 @@
                                 @endforeach
                             </select>
                         </div>
+                    </div>
 
-                        <div class="row justify-content-around">
-                            <div class="col-sm-11 bg-light card mb-3">
-                                <div class="detail-info-shipment">
-                                    @if (empty($shipments))
-                                    <div class="text-left">
-                                        Please select the shipment type.
-                                    </div>
-                                    @else
-                                    <div class="info-address text-left">
-                                        <div id="details_shipment"></div>
-                                    </div>
-                                    @endif
+                    <div class="row justify-content-around">
+                        <div class="col-sm-11 bg-light card mb-3">
+                            <div class="detail-info-shipment">
+                                @if (empty($shipments))
+                                <div class="text-left">
+                                    Please select the shipment type.
                                 </div>
+                                @else
+                                <div class="info-address text-left">
+                                    <div id="details_shipment"></div>
+                                </div>
+                                @endif
                             </div>
-
                         </div>
                     </div>
                 </div>
-                <!--End Shipping Option-->
+            </div>
+        </div>
 
-                <input type="hidden" value="{{ json_encode($products,TRUE)}}" name="products">
+        <input type="hidden" value="{{ json_encode($products,TRUE)}}" name="products">
 
-                <div class="row justify-content-end mb-3">
-                    <div class="col-md-12 text-right">
-                        <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> NEXT</button>
-                    </div>
-                </div>
+        <div class="row justify-content-end mb-3">
+            <div class="col-md-12 text-right">
+                <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> NEXT</button>
+            </div>
+        </div>
     </form>
 
     {{-- Address Form --}}

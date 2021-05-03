@@ -35,15 +35,15 @@
                 </thead>
                 <tbody class="bg-transparent">
                   @foreach ($products as $product)
-                    <tr>
-                      <th scope="row" class="text-center"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
-                      <td class="text-center">{{$product->brand['name']}}</td>
-                      <td class="text-center">{{$product->productname}}</td>
-                      <td class="text-center">{{$product->productsize}}</td>
-                      <td class="text-center">{{$product->productprice}}</td>
-                      <td class="text-center">{{$product->productquantity}}</td>
-                      <td class="text-center">Rp. X,XXX,XXX</td>
-                    </tr>
+                  <tr>
+                    <th scope="row" class="text-center"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
+                    <td class="text-center">{{$product->brand['name']}}</td>
+                    <td class="text-center">{{$product->productname}}</td>
+                    <td class="text-center">{{$product->productsize}}</td>
+                    <td class="text-center">{{$product->productprice}}</td>
+                    <td class="text-center">{{$product->productquantity}}</td>
+                    <td class="text-center">Rp. {{number_format($product->productprice*$product->productquantity)}}</td>
+                  </tr>
                   @endforeach
                 </tbody>
               </table>
@@ -81,14 +81,14 @@
 
         <!-- Shipping Option-->
         <div class="row justify-content-around">
-            <div class="col-sm-10 bg-light card mb-3">
-              <div class="text-left">
-                <h5 class='mb-1 mt-3'>{{$shipment->shipment_method}}</h5>
-                <p class='mb-1'>Delivery Cost: {{$shipment->delivery_cost}}</p>
-                <p class='mb-3'>Estimated Delivery: {{$shipment->estimated_delivery}}</p>
-              </div>
+          <div class="col-sm-10 bg-light card mb-3">
+            <div class="text-left">
+              <h5 class='mb-1 mt-3 font-weight-bold '>{{$shipment->shipment_method}}</h5>
+              <p class='mb-1'>Delivery Cost: {{$shipment->delivery_cost}}</p>
+              <p class='mb-3'>Estimated Delivery: {{$shipment->estimated_delivery}}</p>
             </div>
           </div>
+        </div>
         <!--End Shipping Option-->
 
         <!-- Message for -->
@@ -103,30 +103,30 @@
           <div class="col-sm-12">
             <div class="table-responsive-sm">
               <table class="table mb-0">
-                  <tr>
-                    <td class="text-left border-top font-weight-bold">VOUCHERS</td>
-                    <td class="text-right border-top"></td>
-                    <td class="text-right border">Total Product (tax incl.)</td>
-                    <td class="text-right border">Rp. X,XXX,XXX</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left border-0">Ignore it if you dont have any voucher</td>
-                    <td class="text-right border-0"></td>
-                    <td class="text-right border">Delivery Cost</td>
-                    <td class="text-right border">Rp. X,XXX,XXX</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left border-0"><input type="text" class="form-control" name="vouchers"></td>
-                    <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button></td>
-                    <td class="text-right border">Total Voucher</td>
-                    <td class="text-right border">Rp. X,XXX,XXX</td>
-                  </tr>
-                  <tr>
-                    <td class="text-left border-0">Take Advantage of our exclusive offers</td>
-                    <td class="text-right border-0"></td>
-                    <td class="text-right border font-weight-bold">TOTAL</td>
-                    <td class="text-right border font-weight-bold">Rp. X,XXX,XXX</td>
-                  </tr>
+                <tr>
+                  <td class="text-left border-top font-weight-bold">VOUCHERS</td>
+                  <td class="text-right border-top"></td>
+                  <td class="text-right border">Total Product (tax incl.)</td>
+                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                </tr>
+                <tr>
+                  <td class="text-left border-0">Ignore it if you dont have any voucher</td>
+                  <td class="text-right border-0"></td>
+                  <td class="text-right border">Delivery Cost</td>
+                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                </tr>
+                <tr>
+                  <td class="text-left border-0"><input type="text" class="form-control" name="vouchers"></td>
+                  <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button></td>
+                  <td class="text-right border">Total Voucher</td>
+                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                </tr>
+                <tr>
+                  <td class="text-left border-0">Take Advantage of our exclusive offers</td>
+                  <td class="text-right border-0"></td>
+                  <td class="text-right border font-weight-bold">TOTAL</td>
+                  <td class="text-right border font-weight-bold">Rp. X,XXX,XXX</td>
+                </tr>
               </table>
             </div>
           </div>
@@ -144,11 +144,11 @@
     <input type="hidden" name="products" value="{{ json_encode($products,TRUE)}}">
     <input type="hidden" name="address" value="{{$address->id}}">
     <input type="hidden" name="shipment" value="{{$shipment->id}}">
-  
+
     <div class="row justify-content-center mb-3">
-        <div class="col-md-10 text-right">
+      <div class="col-md-10 text-right">
         <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> PROCEED TO PAYMENT</button>
-        </div>
+      </div>
     </div>
   </form>
   <!-- End Button -->

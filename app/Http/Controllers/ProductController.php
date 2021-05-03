@@ -46,7 +46,13 @@ class ProductController extends Controller
 
         $productwishs = product_user::where('user_id', '=', Auth::user()->id)->get();
 
-        return view('products\pagewish', compact('productwishs'));
+        // return view('products\pagewish', compact('productwishs'));
+
+        if ($productwishs->count() == 0)
+            return view('products\pagewish', compact('productwishs'))
+                ->withErrors(['no_post_result' => 'You do not have any product in wish list yet.']);
+        else
+            return view('products\pagewish', compact('productwishs'));
     }
 
     //save wish list
@@ -238,18 +244,18 @@ class ProductController extends Controller
 
     //add product to cart via product detail
 
-    public function addtocartviadetail($id){
+    public function addtocartviadetail($id)
+    {
 
         //validation for not add same product
-        if(Cart::where('product_id',$id)->exists() & Cart::where('user_id',Auth::user()->id)->exists()){
+        if (Cart::where('product_id', $id)->exists() & Cart::where('user_id', Auth::user()->id)->exists()) {
             return back()->with('status', 'Item has already on cart list.');
+        } else {
 
-        }else{
-
-         Cart::create([
-            'product_id' => $id,
-            'user_id' => Auth::user()->id
-         ]);
+            Cart::create([
+                'product_id' => $id,
+                'user_id' => Auth::user()->id
+            ]);
             return back()->with('status', 'Item successfully added to cart list!');
         }
     }
@@ -258,6 +264,12 @@ class ProductController extends Controller
     {
         $cartlists = Cart::where('user_id', '=', Auth::user()->id)->get();
 
-        return view('/products/pagecart', compact('cartlists'));
+        // return view('/products/pagecart', compact('cartlists'));
+
+        if ($cartlists->count() == 0)
+            return view('/products/pagecart', compact('cartlists'))
+                ->withErrors(['no_post_result' => 'You do not have any product in cart yet.']);
+        else
+            return view('/products/pagecart', compact('cartlists'));
     }
 }
