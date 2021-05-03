@@ -21,15 +21,13 @@ class Product extends Model
         'productsize',
         'prodcutquantity',
         'productimage'
-
-
     ];
 
     // protected $guarded = ['id'];
 
     public function brand()
     {
-        return $this->belongsTo('App\Brand', 'brandid','id');
+        return $this->belongsTo('App\Brand', 'brandid', 'id');
     }
 
     public function category()

@@ -4,6 +4,9 @@
 
 @section('content')
 
+
+
+
 <div class="container pt-2">
   <div class="row justify-content-center mb-3">
     <div class="col-md-12 text-center">
@@ -13,6 +16,18 @@
             Payment Overview
           </strong>
         </div>
+
+        <!-- Flash Error Message -->
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+        <!-- End Flash Error Message -->
 
         <div class="row justify-content-center m-3">
           <div class="col-sm-12">

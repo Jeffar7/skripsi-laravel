@@ -10,6 +10,7 @@ use App\Payment;
 use App\order_product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class BuynowController extends Controller
 {
@@ -31,6 +32,8 @@ class BuynowController extends Controller
 
         return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment'));
     }
+
+
 
     public function payment(Request $request)
     {
@@ -60,9 +63,22 @@ class BuynowController extends Controller
 
     public function makepayment(Request $request)
     {
+
+        // dd($request);
+
         $payment = new Payment();
 
         if ($request->payment_type === 'credit') {
+
+            // $request->validate([
+            //     'payment_type' => ['required'],
+            //     'first_name' => ['required'],
+            //     'last_name' => ['required'],
+            //     'card_number' => ['required', 'numeric', 'size:16'],
+            //     'cvv' => ['required', 'numeric', 'size:3'],
+            //     'credit_type' => ['required'],
+            //     'valid_until' => ['required']
+            // ]);
 
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
@@ -74,6 +90,7 @@ class BuynowController extends Controller
             $payment->user_id = Auth::user()->id;
             $payment->save();
         } else {
+
             $payment->payment_type = 'debit';
             $payment->first_name = $request->first_name;
             $payment->last_name = $request->last_name;

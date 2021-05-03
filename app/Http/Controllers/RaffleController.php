@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\AddressForRaffle;
 use App\Brand;
 use App\Raffle;
 use App\RaffleCategory;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RaffleController extends Controller
 {
@@ -151,5 +155,56 @@ class RaffleController extends Controller
         Raffle::destroy($raffle->id);
 
         return redirect('manageraffle')->with('status', 'Product Raffle successfully deleted!');
+    }
+
+    // place raffle
+    public function submit(Request $request)
+    {
+
+        $request->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'phone' => ['required', 'numeric'],
+            'post_code' => ['required', 'numeric'],
+            'address' => ['required', 'max:255'],
+            'address2' => ['max:255'],
+            'city' => ['required'],
+            'country' => ['required'],
+        ]);
+
+        $addressForRaffle = new AddressForRaffle();
+        $addressForRaffle->first_name = $request->first_name;
+        $addressForRaffle->last_name = $request->last_name;
+        $addressForRaffle->email = $request->email;
+        $addressForRaffle->phone_number = $request->phone;
+        $addressForRaffle->date_of_birth = $request->dob;
+        $addressForRaffle->post_code = $request->post_code;
+        $addressForRaffle->number_street_address_1 = $request->address;
+        $addressForRaffle->number_street_address_2 = $request->address2;
+        $addressForRaffle->city = $request->city;
+        $addressForRaffle->country = $request->country;
+        $addressForRaffle->save();
+
+        // Input To Raffle_User
+        $user = User::find(Auth::user()->id);
+        $user->raffle()->attach($request->raffle_id, ['address_raffle_id' => $addressForRaffle->id]);
+        return  redirect('/raffle/history');
+    }
+
+    public function history()
+    {
+        //GET ALL RAFFLE FROM USER SUBMIT
+        $raffles = DB::table('raffle_user')
+            ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
+            ->where('user_id', '=', Auth::user()->id)
+            ->select('raffle_user.*', 'raffles.rafflename', 'raffles.raffleimage', 'raffles.raffleprice', 'raffles.raffleclosedate')
+            ->get();
+
+        return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
+    }
+
+    public function check()
+    {
+        return view('raffles.check');
     }
 }

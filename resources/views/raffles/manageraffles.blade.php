@@ -4,11 +4,14 @@
 
 @section('content')
 
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h1 class="title-home mt-3">Manage Raffle</h1>
             <div class="text-right"><a href="/raffles/create" class="btn btn-primary my-3">Add Raffle</a></div>
+            <div class="text-right"><a href="/raffles/check" class="btn btn-primary my-3">Check Raffle</a></div>
 
             @if (session('status'))
             <div class="alert alert-success">
@@ -49,9 +52,9 @@
                             <a href="raffles/{{$raffle->id}}/edit" class="badge btn-success"><i class="fas fa-edit" style="color:white"></i></a>
 
                             <!-- <form action="raffles/{{$raffle->id}}" method="POST" class="d-inline"> -->
-                                @method('delete')
-                                @csrf
-                                <button type="submit" class="badge btn-danger"><i class="fas fa-trash-alt" style="color:white"></i></button>
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="badge btn-danger"><i class="fas fa-trash-alt" style="color:white"></i></button>
                             <!-- </form> -->
                         </td>
                     </tr>
@@ -66,8 +69,8 @@
                             <h5 class="modal-title " id="exampleModalLabel">Add Address</h5>
                         </div> -->
                         <form action="raffles/{{$raffle->id}}" method="POST" class="d-inline">
-                        @method('delete')
-                        @csrf
+                            @method('delete')
+                            @csrf
                             <div class="modal-body">
                                 <p>Are you sure you want to delete?</p>
                             </div>
@@ -85,9 +88,11 @@
     </div>
 </div>
 
+
+
 <script>
-    $(document).ready(function () {
-    $('#dtBasicExample').DataTable();
+    $(document).ready(function() {
+        $('#dtBasicExample').DataTable();
     });
 </script>
 @endsection

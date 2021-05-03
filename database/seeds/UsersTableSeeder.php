@@ -3,6 +3,7 @@
 use App\DetailAddress;
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Match_;
 
@@ -53,6 +54,44 @@ class UsersTableSeeder extends Seeder
             ]
         );
         $customer->assignRole('customer');
+
+        $customer = User::create(
+            [
+                'first_name' => 'Customer',
+                'last_name' => 'Test',
+                'email' => 'customer1@test.com',
+                'username' => 'custumer test',
+                'gender' => 'Female',
+                'DOB' => '1989-06-21',
+                'password' => bcrypt("test123"),
+                'role' => 'customer',
+                'address' => 'Tunas Patriot Tarumanegara, Jalan Ahmad Yani',
+                'site' => 'www.AmyJones.com',
+                'about' => '',
+                'picture' => 'Amy_Jones.jpg',
+                'phone' => '085530125921'
+            ]
+        );
+        $customer->assignRole('customer');
+
+        $admin = User::create(
+            [
+                'first_name' => 'admin',
+                'last_name' => 'admin',
+                'email' => 'admin@test.com',
+                'username' => 'admin test',
+                'gender' => 'Female',
+                'DOB' => '1989-06-21',
+                'password' => bcrypt("test123"),
+                'role' => 'customer',
+                'address' => 'Tunas Patriot Tarumanegara, Jalan Ahmad Yani',
+                'site' => 'www.AmyJones.com',
+                'about' => '',
+                'picture' => 'Amy_Jones.jpg',
+                'phone' => '085530125921'
+            ]
+        );
+        $admin->assignRole('admin');
 
         $customer = User::create(
             [
