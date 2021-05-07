@@ -107,7 +107,7 @@ Route::delete('/wish-list/addtocart/{id}', 'ProductController@addtocart');
 //new cart
 Route::post('/addtocart/{id}', 'ProductController@addtocartt');
 //add to cart via detail product
-Route::get('/product-cart/{id}', 'ProductController@addtocartviadetail');
+Route::post('/cart-list/add', 'ProductController@addtocartviadetail');
 
 Route::get('/product-cart', 'ProductController@productcart');
 Route::get('/product-cart/delete/{id}', 'ProductController@destroylist');
@@ -116,7 +116,11 @@ Route::get('/product-cart/delete/{id}', 'ProductController@destroylist');
 Route::post('/checkout', 'OrderController@checkout');
 
 //buynow
-Route::get('/buy-now/{id}', 'BuynowController@buynow');
+// Route::get('/buy-now/{id}', 'BuynowController@buynow'); ga kepake
+
+//buy now get quantity
+Route::post('/buy-now/add', 'BuynowController@buyNowQuantity');
+
 Route::post('order-summary-buy-now', 'BuynowController@summary');
 Route::post('/payment/buy_now', 'BuynowController@payment');
 Route::post('/makepayment/buy_now', 'BuynowController@makepayment');

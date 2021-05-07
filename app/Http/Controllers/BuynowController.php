@@ -16,11 +16,23 @@ class BuynowController extends Controller
 {
     public function buynow($id)
     {
+        // function ini ga kepake
         $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
         $shipments = Shipment::all();
         $products = Product::where('id', '=', $id)->first();
 
-        return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products', 'products'));
+        return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products'));
+    }
+
+    public function buyNowQuantity(Request $request, Product $product)
+    {
+        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $detailaddresses = null;
+        $shipments = Shipment::all();
+        $products = Product::where('id', '=', $request->product_id)->first();
+        $quantityBuy = $request->input('quantity');
+
+        return view('/transactions/delivery_buy_now', compact('addresses', 'detailaddresses', 'shipments', 'products', 'quantityBuy'));
     }
 
     public function summary(Request $request)
@@ -29,21 +41,25 @@ class BuynowController extends Controller
         $product = Product::where('id', $request->product)->first();
         $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
         $shipment = Shipment::where('id', '=', $request->shipment)->first();
-
-        return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment'));
+        $quantityBuy = $request->input('quantity');
+        
+        return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment', 'quantityBuy'));
     }
 
 
 
     public function payment(Request $request)
     {
+
+        $product = Product::where('id', $request->product)->first();
+        $quantityBuy = $request->input('quantity');
         // Place Order Summary to Order Table
 
         $order = new Order();
         $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
         $order->status = 'pending';
         $order->user_id = Auth::user()->id;
-        $order->grand_total = "10000";
+        $order->grand_total = $product->productprice * $quantityBuy;
         $order->address_id = $request->address;
         // $order->payment_id = $request->payment;
         $order->shipment_id = $request->shipment;
@@ -54,11 +70,13 @@ class BuynowController extends Controller
         $order_product->product_id = $request->product;
         $order_product->order_id = $order->id;
         $order_product->is_review = 'no';
+        $order_product->quantity = $quantityBuy;
+        $order_product->subtotal = $product->productprice * $quantityBuy;
         $order_product->save();
 
 
         $payments = Payment::all();
-        return view('/transactions/payment_buy_now', compact('payments', 'order'));
+        return view('/transactions/payment_buy_now', compact('payments', 'order', 'quantityBuy'));
     }
 
     public function makepayment(Request $request)

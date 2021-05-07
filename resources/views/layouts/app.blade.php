@@ -37,6 +37,14 @@
 
 <body>
     <div id="app">
+    <?php
+        use App\Http\Controllers\ProductController;
+        use Illuminate\Support\Facades\Auth;
+        $totalItemCart = 0;
+        if(Auth::check() && Auth::user()->role === 'customer'){
+            $totalItemCart = ProductController::countItemCart();    
+        }
+    ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -113,15 +121,21 @@
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <!-- Authentication Links -->
 
-                        @if(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
+                        @if(Auth::check() && Auth::user()->role === 'customer')
+                        <li class="nav-item">
+                            <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"><span class="badge badge-danger">{{$totalItemCart}}</span></i></a>
+                        </li>
+                        @endif
+                        @guest
                         <li class="nav-item">
                             <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"></i></a>
                         </li>
-                        @endif
-                        @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('LOG IN') }}</a>
                         </li>

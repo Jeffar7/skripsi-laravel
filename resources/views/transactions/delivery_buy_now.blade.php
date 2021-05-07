@@ -97,6 +97,7 @@
         <!--End Shipping Option-->
 
         <input type="hidden" value="{{$products->id}}" name="product">
+        <input type="hidden" value="{{$quantityBuy}}" name="quantity">
 
         <div class="row justify-content-end mb-3">
             <div class="col-md-12 text-right">
@@ -111,9 +112,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title " id="exampleModalLabel">Add Address</h5>
-                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button> -->
                 </div>
                 <form action="/delivery/addaddress/buy_now" method="POST">
                     @csrf
@@ -249,8 +247,8 @@
             //layout for the detail
             $('#details_shipment').html(
                 "<h4 class='mb-1 mt-3 font-weight-bold'>" + shipMethod + "</h4>" +
-                "<p class='mb-1'>Delivery Cost: " + delivCost + "</p>" +
-                "<p class='mb-3'>Estimated Cost: " + estimatedCost + "</p>");
+                "<p class='mb-1'>Delivery Cost: Rp. " + delivCost.toLocaleString('en') + "</p>" +
+                "<p class='mb-3'>Estimated Delivery: " + estimatedCost + "</p>");
         });
     });
 </script>

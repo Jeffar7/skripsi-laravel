@@ -52,9 +52,9 @@
                             <a href="raffles/{{$raffle->id}}/edit" class="badge btn-success"><i class="fas fa-edit" style="color:white"></i></a>
 
                             <!-- <form action="raffles/{{$raffle->id}}" method="POST" class="d-inline"> -->
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="badge btn-danger"><i class="fas fa-trash-alt" style="color:white"></i></button>
+                            <!-- @method('delete')
+                            @csrf -->
+                            <button type="submit" class="badge btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt" style="color:white"></i></button>
                             <!-- </form> -->
                         </td>
                     </tr>
@@ -63,18 +63,16 @@
             </table>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <!-- <div class="modal-header">
-                            <h5 class="modal-title " id="exampleModalLabel">Add Address</h5>
-                        </div> -->
+                <div class="modal-dialog modal-dialog-centered modal-sm">
+                    <div class="modal-content shadow-sm">
                         <form action="raffles/{{$raffle->id}}" method="POST" class="d-inline">
                             @method('delete')
                             @csrf
                             <div class="modal-body">
-                                <p>Are you sure you want to delete?</p>
+                                <h3 class="text-center">Are you sure?</h3>
+                                <p class="text-center font-weight-normal mb-0">Do you really want to delete this item? This process cannot be undone.</p>
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer justify-content-around pt-0 border-top-0">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-danger" name="formaddress">Delete</button>
                             </div>

@@ -16,7 +16,11 @@ class StatusController extends Controller
     public function payment_history()
     {
         $all_order = Order::where('user_id', '=', Auth::user()->id)->get();
-        return view('transactions/payment_history', compact('all_order'));
+        // return view('transactions/payment_history', compact('all_order'));
+        if ($all_order->count() == 0)
+            return view('transactions/payment_history', compact('all_order'))->withErrors(['no_post_result' => 'No data history found.']);
+        else
+            return view('transactions/payment_history', compact('all_order'));
     }
 
     public function waiting_for_review()

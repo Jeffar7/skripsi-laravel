@@ -186,6 +186,30 @@ position:absolute; */
     background-size: cover;
 }
 
+.leftside-register, .rightside-register {
+    height:100vh;
+    width:100%;
+  }
+  
+  .leftside-register{
+    background-image: url("login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .rightside-register{
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+
 .inner-addon {
     position: relative;
 }
@@ -685,4 +709,11 @@ hr {
 .down {
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
+}
+
+.list .list-element:nth-child(1) {
+    display: block;
+}
+.list .list-element:nth-child(2) {
+    display: block;
 }
