@@ -10,7 +10,17 @@ class Raffle extends Model
     use SoftDeletes;
 
     protected $table = "raffles";
-    protected $fillable = ['rafflename', 'raffledescription', 'raffleprice', 'raffleimage', 'rafflequantity', 'rafflereleasedate', 'raffleclosedate', 'brand_id', 'category_id'];
+    protected $fillable = [
+        'rafflename',
+        'raffledescription',
+        'raffleprice',
+        'raffleimage',
+        'rafflequantity',
+        'rafflereleasedate',
+        'raffleclosedate',
+        'brand_id',
+        'category_id'
+    ];
     protected $guarded = ['id'];
 
     public function brand()
@@ -21,5 +31,10 @@ class Raffle extends Model
     public function categoryraffle()
     {
         return $this->belongsTo(RaffleCategory::class, 'category_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class)->withPivot('address_raffle_id');
     }
 }

@@ -11,6 +11,8 @@ use App\Product;
 use App\Shipment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class OrderController extends Controller
 {
@@ -20,7 +22,7 @@ class OrderController extends Controller
     }
 
 
-    public function checkout(Request $request)
+    public function checkout(Request $request,  Cart $cart)
     {
         $cartlists = Cart::where('user_id', '=', Auth::user()->id)->get();
 
@@ -48,9 +50,16 @@ class OrderController extends Controller
                 $order_product->order_id = $order->id;
                 $order_product->product_id = $cart->product_id;
                 $order_product->is_review = 'no';
+                $order_product->quantity = $request->quantity;
+                $order_product->subtotal = $cart->product->productprice * $request->quantity;
+                
                 $order_product->save();
-            }
 
+                Cart::where('id', $cart->id)
+                ->update([
+                    'quantity' => $request->quantity
+                ]);
+            }
             //get product that has been purchased
 
 
@@ -173,7 +182,7 @@ class OrderController extends Controller
         return redirect('/payment-history');
     }
 
-    public function summary(Request $request)
+    public function summary(Request $request, Order $order)
     {
 
         $productss = json_decode($request->products);
@@ -181,11 +190,20 @@ class OrderController extends Controller
             $product = Product::where('id', '=', $product->id)->first();
             $products[] = $product;
         }
+        
+        $orders = DB::table('carts')
+        ->join('products', 'carts.product_id', '=', 'products.id')
+        ->where('user_id', '=', Auth::user()->id)->get();
+
+        $totals = DB::table('carts')
+        ->join('products', 'carts.product_id', '=', 'products.id')
+        ->where('user_id', '=', Auth::user()->id)->sum(DB::raw('carts.quantity * products.productprice'));
+
 
         $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
         $shipment = Shipment::where('id', '=', $request->shipment)->first();
 
-        return view('/transactions/ordersummary', compact('products', 'address', 'shipment'));
+        return view('/transactions/ordersummary', compact('products', 'address', 'shipment', 'orders','totals'));
     }
 
 

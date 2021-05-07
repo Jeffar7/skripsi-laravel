@@ -10,16 +10,29 @@ use App\Payment;
 use App\order_product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class BuynowController extends Controller
 {
     public function buynow($id)
     {
+        // function ini ga kepake
         $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
         $shipments = Shipment::all();
         $products = Product::where('id', '=', $id)->first();
 
-        return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products', 'products'));
+        return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products'));
+    }
+
+    public function buyNowQuantity(Request $request, Product $product)
+    {
+        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $detailaddresses = null;
+        $shipments = Shipment::all();
+        $products = Product::where('id', '=', $request->product_id)->first();
+        $quantityBuy = $request->input('quantity');
+
+        return view('/transactions/delivery_buy_now', compact('addresses', 'detailaddresses', 'shipments', 'products', 'quantityBuy'));
     }
 
     public function summary(Request $request)
@@ -28,19 +41,25 @@ class BuynowController extends Controller
         $product = Product::where('id', $request->product)->first();
         $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
         $shipment = Shipment::where('id', '=', $request->shipment)->first();
-
-        return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment'));
+        $quantityBuy = $request->input('quantity');
+        
+        return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment', 'quantityBuy'));
     }
+
+
 
     public function payment(Request $request)
     {
+
+        $product = Product::where('id', $request->product)->first();
+        $quantityBuy = $request->input('quantity');
         // Place Order Summary to Order Table
 
         $order = new Order();
         $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
         $order->status = 'pending';
         $order->user_id = Auth::user()->id;
-        $order->grand_total = "10000";
+        $order->grand_total = $product->productprice * $quantityBuy;
         $order->address_id = $request->address;
         // $order->payment_id = $request->payment;
         $order->shipment_id = $request->shipment;
@@ -51,18 +70,33 @@ class BuynowController extends Controller
         $order_product->product_id = $request->product;
         $order_product->order_id = $order->id;
         $order_product->is_review = 'no';
+        $order_product->quantity = $quantityBuy;
+        $order_product->subtotal = $product->productprice * $quantityBuy;
         $order_product->save();
 
 
         $payments = Payment::all();
-        return view('/transactions/payment_buy_now', compact('payments', 'order'));
+        return view('/transactions/payment_buy_now', compact('payments', 'order', 'quantityBuy'));
     }
 
     public function makepayment(Request $request)
     {
+
+        // dd($request);
+
         $payment = new Payment();
 
         if ($request->payment_type === 'credit') {
+
+            // $request->validate([
+            //     'payment_type' => ['required'],
+            //     'first_name' => ['required'],
+            //     'last_name' => ['required'],
+            //     'card_number' => ['required', 'numeric', 'size:16'],
+            //     'cvv' => ['required', 'numeric', 'size:3'],
+            //     'credit_type' => ['required'],
+            //     'valid_until' => ['required']
+            // ]);
 
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
@@ -74,6 +108,7 @@ class BuynowController extends Controller
             $payment->user_id = Auth::user()->id;
             $payment->save();
         } else {
+
             $payment->payment_type = 'debit';
             $payment->first_name = $request->first_name;
             $payment->last_name = $request->last_name;

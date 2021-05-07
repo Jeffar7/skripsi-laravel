@@ -246,8 +246,8 @@
             //layout for the detail
             $('#details_shipment').html(
                 "<h4 class='mb-1 mt-3 font-weight-bold'>" + shipMethod + "</h4>" +
-                "<p class='mb-1'>Delivery Cost: " + delivCost + "</p>" +
-                "<p class='mb-3'>Estimated Cost: " + estimatedCost + "</p>");
+                "<p class='mb-1'>Delivery Cost: Rp. " + delivCost.toLocaleString('en') + "</p>" +
+                "<p class='mb-3'>Estimated Delivery: " + estimatedCost + "</p>");
         });
     });
 </script>

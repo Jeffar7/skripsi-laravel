@@ -34,15 +34,15 @@
                   </tr>
                 </thead>
                 <tbody class="bg-transparent">
-                  @foreach ($products as $product)
+                  @foreach ($orders as $product)
                   <tr>
-                    <th scope="row" class="text-center"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
-                    <td class="text-center">{{$product->brand['name']}}</td>
+                    <th scope="row" class="text-center"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
+                    <td class="text-center"></td>
                     <td class="text-center">{{$product->productname}}</td>
                     <td class="text-center">{{$product->productsize}}</td>
-                    <td class="text-center">{{$product->productprice}}</td>
-                    <td class="text-center">{{$product->productquantity}}</td>
-                    <td class="text-center">Rp. {{number_format($product->productprice*$product->productquantity)}}</td>
+                    <td class="text-center">Rp. {{ number_format($product->productprice)}}</td>
+                    <td class="text-center">{{$product->quantity}}</td>
+                    <td class="text-center">Rp. {{number_format($product->productprice*$product->quantity)}}</td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -84,7 +84,7 @@
           <div class="col-sm-10 bg-light card mb-3">
             <div class="text-left">
               <h5 class='mb-1 mt-3 font-weight-bold '>{{$shipment->shipment_method}}</h5>
-              <p class='mb-1'>Delivery Cost: {{$shipment->delivery_cost}}</p>
+              <p class='mb-1'>Delivery Cost: Rp. {{number_format($shipment->delivery_cost)}}</p>
               <p class='mb-3'>Estimated Delivery: {{$shipment->estimated_delivery}}</p>
             </div>
           </div>
@@ -107,13 +107,13 @@
                   <td class="text-left border-top font-weight-bold">VOUCHERS</td>
                   <td class="text-right border-top"></td>
                   <td class="text-right border">Total Product (tax incl.)</td>
-                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                  <td class="text-right border">Rp. {{ number_format($totals) }}</td>
                 </tr>
                 <tr>
                   <td class="text-left border-0">Ignore it if you dont have any voucher</td>
                   <td class="text-right border-0"></td>
                   <td class="text-right border">Delivery Cost</td>
-                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                  <td class="text-right border">Rp. {{number_format($shipment->delivery_cost)}}</td>
                 </tr>
                 <tr>
                   <td class="text-left border-0"><input type="text" class="form-control" name="vouchers"></td>

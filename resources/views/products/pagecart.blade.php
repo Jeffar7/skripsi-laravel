@@ -45,16 +45,19 @@
                                         <div class="input-group-prepend decrement-btn changeQuantity" style="cursor: pointer">
                                             <span class="input-group-text">-</span>
                                         </div>
-                                        <input type="text" class="qty-input form-control text-center" maxlength="2" value="1">
+                                        <input type="text" class="qty-input form-control text-center" maxlength="2" value="{{$cartlist->quantity}}" name="quantity">
                                         <div class="input-group-append increment-btn changeQuantity" style="cursor: pointer">
                                             <span class="input-group-text">+</span>
                                         </div>
                                     </div>
                                 </td>
-
                                 <td class="text-center">
-                                    <span class="subtotal" id="subtotal">Rp. {{ number_format($cartlist->product->productprice)}}</span>
+                                    <span class="subtotal">Rp. {{ number_format($cartlist->product->productprice*$cartlist->quantity)}}</span>
+                                    <!-- <input type="hidden" id="subtotal" name="subtotal" value=""> -->
                                 </td>
+                                <!-- <td class="text-center">
+                                    <span id="subtotal">Rp. {{ number_format($cartlist->product->productprice)}}</span>
+                                </td> -->
                                 <td class="text-center">
                                     <a class="d-inline btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</a>
                                 </td>
@@ -115,6 +118,9 @@
             // document.getElementById("subtotal").innerText = "Rp. " + subTotal.toLocaleString('en');
             // $(this).text("Rp. " + subTotal.toLocaleString('en'));
             $(this).find('.subtotal').text('Rp. ' + subTotal.toLocaleString('en'));
+
+            var sub_total = $('.subtotal').html();
+            $("#subtotal").val(sub_total);
         });
         // document.getElementById("grandtotal").innerText = "Rp. " + grandTotal.toLocaleString('en');
         // $('.grandtotal').text("Rp. " + grandTotal.toLocaleString('en'));
@@ -122,6 +128,7 @@
 
         var grand_total = $('.grandtotal').html();
         $("#grandtotal").val(grand_total);
+
         // (".grandtotal").empty();
         // $(".grandtotal").html(grand_total);
     }

@@ -10,6 +10,7 @@ use App\Category;
 use App\product_user;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -244,20 +245,27 @@ class ProductController extends Controller
 
     //add product to cart via product detail
 
-    public function addtocartviadetail($id)
+    public function addtocartviadetail(Request $request)
     {
-
         //validation for not add same product
-        if (Cart::where('product_id', $id)->exists() & Cart::where('user_id', Auth::user()->id)->exists()) {
+        if (Cart::where('product_id', '=', $request->product_id)->exists() & Cart::where('user_id', '=', $request->user_id)->exists()) {
             return back()->with('status', 'Item has already on cart list.');
         } else {
 
-            Cart::create([
-                'product_id' => $id,
-                'user_id' => Auth::user()->id
-            ]);
+            $productcartsave = new Cart();
+            $productcartsave->product_id = $request->product_id;
+            $productcartsave->user_id = $request->user_id;
+            $productcartsave->quantity = $request->quantity;
+            $productcartsave->save();
+
             return back()->with('status', 'Item successfully added to cart list!');
         }
+    }
+
+    //count item cart
+    static function countItemCart()
+    {
+        return Cart::where('user_id', '=', Auth::user()->id)->count();
     }
 
     public function productcart()

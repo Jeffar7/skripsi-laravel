@@ -4,11 +4,14 @@
 
 @section('content')
 
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h1 class="title-home mt-3">Manage Raffle</h1>
             <div class="text-right"><a href="/raffles/create" class="btn btn-primary my-3">Add Raffle</a></div>
+            <div class="text-right"><a href="/raffles/check" class="btn btn-primary my-3">Check Raffle</a></div>
 
             @if (session('status'))
             <div class="alert alert-success">
@@ -82,6 +85,8 @@
         </div>
     </div>
 </div>
+
+
 
 <script>
     $(document).ready(function() {

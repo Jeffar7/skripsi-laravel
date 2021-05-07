@@ -14,46 +14,43 @@
         <thead class="thead-dark">
           <tr>
             <th scope="col" class="text-center">Date</th>
-            <th scope="col" class="text-center">Name</th>
-            <th scope="col" class="text-center">Brand</th>
+            <th scope="col" class="text-center">Order-ID</th>
+            <!-- <th scope="col">Brand</th> -->
             <th scope="col" class="text-center">Payment Type</th>
             <th scope="col" class="text-center">Status</th>
+            <th scope="col" class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($all_order as $item)
-          @foreach ($item->product as $product)
+        @foreach ($all_order as $item)
           <tr>
-            <td class="text-center font-weight-normal">{{date('d M Y',strtotime($item->created_at))}}</td>
-            <td class="text-center font-weight-normal">{{$product->productname}}</td>
-            <td class="text-center font-weight-normal">{{$product->brand->name}}</td>
+            <td class="text-center font-weight-normal">{{date('d M Y H:i:s',strtotime($item->created_at))}}</td>
+            <td class="text-center font-weight-normal">{{$item->order_number}}</td>
             @if($item->payment_id === 0)
-            <td class="text-center font-weight-normal">Have not selected any payment.</td>
+            <td class="text-center font-weight-normal">Have not selected a payment.</td>
             @else
-            <td class="text-center text-capitalize font-weight-normal">{{$item->payment->payment_type}}</td>
+            <td class="text-center font-weight-normal text-capitalize">{{$item->payment->payment_type}}</td>
             @endif
-            @if($item->status === "pending")
-            <td class="text-center text-uppercase text-info">{{$item->status}}</td>
-            @elseif($item->status === "completed")
-            <td class="text-center text-uppercase text-success">{{$item->status}}</td>
+            <td class="text-center font-weight-normal text-capitalize">{{$item->status}}</td>
+            @if($item->status === 'pending')
+            <td class="text-center">
+              <form action="#" method="post" class="d-inline">
+                @method('post')
+                @csrf
+                <button type="submit" class="btn btn-warning">Continue Checkout</button>
+              </form>
+            </td>
             @else
-            <td class="text-center text-uppercase text-danger">{{$item->status}}</td>
+            <td class="text-center">
+              <a href="brands/{{$item->id}}/detail" class="btn btn-success"><i class="fas fa-edit" style="color:white"></i> Detail Product</a>
+            </td>
             @endif
           </tr>
           @endforeach
-          @endforeach
         </tbody>
       </table>
-      @else
-      @error('no_post_result')
-      <div class="text-center">
-        <img src="images/empty_item.png" alt="" height="200px" width="200px">
-        <p class="mb-0">Oops!</p>
-        <p>{{ $message }}</p>
-      </div>
-      @enderror
       @endif
-
+      
       <div class="mt-4"></div>
     </div>
   </div>
