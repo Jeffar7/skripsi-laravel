@@ -25,6 +25,8 @@
     
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png">
 </head>
 <body>
     <div class="row no-gutters">
@@ -35,7 +37,7 @@
             <div class="rightside-register">
                 <div style="text-align: center;">
                     <h6 style="font-weight: 200" class="mb-3">WELCOME TO</h6>
-                    <a href="{{ url('/') }}"><img src="{{ asset('images/tokolocal.png') }}" width="70" height="60" alt="" class="mb-3"></a>
+                    <a href="{{ url('/') }}"><img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="70" height="60" alt="" class="mb-3"></a>
                     <h6>Register to get in the moment updates on the things that interest you</h6>
                 </div>
                     

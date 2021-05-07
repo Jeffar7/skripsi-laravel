@@ -201,7 +201,11 @@ class RaffleController extends Controller
             ->select('raffle_user.*', 'raffles.rafflename', 'raffles.raffleimage', 'raffles.raffleprice', 'raffles.raffleclosedate')
             ->get();
 
-        return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
+        // return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
+        if ($raffles->count() == 0)
+            return view('raffles.raffle_history', compact('raffles'))->withErrors(['no_post_result' => 'No data history found.']);
+        else
+            return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
     }
 
     public function check($id)

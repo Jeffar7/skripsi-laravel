@@ -14,7 +14,9 @@ class order_product extends Model
     protected $fillable = [
         'product_id',
         'order_id',
-        'is_review'
+        'is_review',
+        'quantity',
+        'subtotal'
     ];
 
     protected $guarded = ['id'];
