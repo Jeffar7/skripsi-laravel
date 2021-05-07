@@ -134,8 +134,10 @@ Route::post('/order-summary', 'OrderController@summary');
 Route::post('/makepayment', 'OrderController@makepayment');
 
 
-//get history payment
+// HISTORY
 Route::get('/payment-history', 'StatusController@payment_history');
+Route::get('/payment-history/{id}/detail', 'StatusController@payment_history_detail');
+Route::get('/payment-history/{id}/continue-checkout', 'StatusController@continue_checkout'); // Continue Checkout
 
 //waiting for review
 Route::get('/waiting-for-review', 'StatusController@waiting_for_review');

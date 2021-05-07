@@ -205,6 +205,16 @@ class RaffleController extends Controller
 
     public function check()
     {
-        return view('raffles.check');
+        //GET ALL RAFFLE
+        $raffles = Raffle::find(3);
+
+
+        //GET ALL USER HAS JOINED THE RAFFLE
+        $users = DB::table('raffle_user')
+            ->join('users', 'raffle_user.user_id', '=', 'users.id')
+            ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
+            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'raffles.raffleimage')
+            ->get();
+        return view('raffles.check', compact('users', 'raffles'));
     }
 }

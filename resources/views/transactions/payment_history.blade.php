@@ -37,17 +37,11 @@
           <td>{{$item->status}}</td>
           @if($item->status === 'pending')
           <td>
-
-            <form action="#" method="post" class="d-inline">
-              @method('post')
-              @csrf
-              <button type="submit" class="btn btn-warning">Continue Checkout</button>
-            </form>
-
+            <a href="payment-history/{{$item->id}}/continue-checkout" class="btn btn-warning">Continue Checkout</a>
           </td>
           @else
           <td>
-            <a href="brands/{{$item->id}}/detail" class="btn btn-success"><i class="fas fa-edit" style="color:white"></i>Detail Product</a>
+            <a href="payment-history/{{$item->id}}/detail" class="btn btn-success"><i class="fas fa-edit" style="color:white"></i>Detail Product</a>
           </td>
           @endif
         </tr>

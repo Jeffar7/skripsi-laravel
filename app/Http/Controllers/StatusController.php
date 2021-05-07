@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Order;
 use App\Product;
 use App\order_product;
+use App\Payment;
 use App\Review;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -58,5 +59,21 @@ class StatusController extends Controller
         ]);
 
         return redirect('/waiting-for-review')->with('status', 'Succes give review');
+    }
+
+    public function payment_history_detail($id)
+    {
+        $order_product_detail = DB::table('order_product')
+            ->join('products', 'order_product.product_id', '=', 'products.id')
+            ->where('order_id', '=', $id)->get();
+        // dd($order_product_detail);
+        return view('/transactions/payment_history_detail', compact('order_product_detail'));
+    }
+
+    public function continue_checkout($id)
+    {
+        $order = Order::find($id);
+        $payments = Payment::all();
+        return view('/transactions/payment_buy_now', compact('payments', 'order'));
     }
 }

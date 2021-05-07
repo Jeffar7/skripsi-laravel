@@ -15,6 +15,7 @@ class raffle_user extends Model
         'raffle_id',
         'user_id',
         'address_raffle_id',
+        'status'
     ];
 
     public function addressForRaffle()
