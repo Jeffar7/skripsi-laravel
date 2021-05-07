@@ -35,6 +35,6 @@ class Raffle extends Model
 
     public function user()
     {
-        return $this->belongsToMany(User::class)->withPivot('address_raffle_id');
+        return $this->belongsToMany(User::class)->withPivot('address_raffle_id')->withTimestamps();;
     }
 }

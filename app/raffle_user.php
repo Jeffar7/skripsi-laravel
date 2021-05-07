@@ -20,6 +20,6 @@ class raffle_user extends Model
 
     public function addressForRaffle()
     {
-        return $this->belongsTo(AddressForRaffle::class, 'address_raffle_id', 'id');
+        return $this->belongsTo(AddressForRaffle::class, 'address_raffle_id', 'id')->withTimestamps();;
     }
 }

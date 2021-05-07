@@ -49,6 +49,8 @@
                                 @csrf
                                 <button type="submit" class="badge btn-danger"><i class="fas fa-trash-alt" style="color:white"></i></button>
                             </form>
+
+
                         </td>
                     </tr>
                     @endforeach
@@ -61,8 +63,8 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-    $('#dtBasicExample').DataTable();
+    $(document).ready(function() {
+        $('#dtBasicExample').DataTable();
     });
 </script>
 @endsection
