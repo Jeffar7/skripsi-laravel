@@ -17,7 +17,6 @@ class RaffleController extends Controller
 
     public function raffledetail(Raffle $raffle)
     {
-
         return view('\raffles\raffle_detail', compact('raffle'));
     }
 
@@ -65,6 +64,7 @@ class RaffleController extends Controller
         $raffle->raffleprice = $request->raffleprice;
         // $raffle->raffleimage = $request->raffleimage;
         $raffle->rafflequantity = $request->rafflequantity;
+        $raffle->rafflequota = $request->rafflequota;
         $raffle->rafflereleasedate = $request->rafflereleasedate;
         $raffle->raffleclosedate = $request->raffleclosedate;
         $raffle->brand_id = $request->brand_id;
@@ -85,16 +85,6 @@ class RaffleController extends Controller
         return redirect('manageraffle')->with('status', 'Raffle Item Successfully Added!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -136,6 +126,7 @@ class RaffleController extends Controller
             'raffleprice' => $request->raffleprice,
             'raffleimage' => $raffle->raffleimage,
             'rafflequantity' => $request->rafflequantity,
+            'rafflequota' => $request->rafflequota,
             'rafflereleasedate' => $request->rafflereleasedate,
             'raffleclosedate' => $request->raffleclosedate,
             'brand_id' => $request->brand_id,

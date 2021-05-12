@@ -9,7 +9,7 @@
       <div class="card shadow-lg">
         <div class="card-header text-left bg-dark text-white">
           <strong>
-            Payment Overview {{$quantityBuy}}
+            Payment Overview
           </strong>
         </div>
 

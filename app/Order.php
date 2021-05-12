@@ -14,7 +14,8 @@ class Order extends Model
         'user_id',
         'address_id',
         'payment_id',
-        'shipment_id'
+        'shipment_id',
+        'notes'
     ];
     protected $guarded = ['id'];
 
@@ -33,13 +34,13 @@ class Order extends Model
         return $this->belongsTo(Order::class, 'shipment_id', 'id');
     }
 
-    public function product(){
+    public function product()
+    {
         return $this->belongsToMany(Product::class)->withPivot('is_review')->withTimestamps();
     }
 
     public function payment()
     {
-        return $this->belongsTo(Payment::class,'payment_id','id');
+        return $this->belongsTo(Payment::class, 'payment_id', 'id');
     }
-
 }

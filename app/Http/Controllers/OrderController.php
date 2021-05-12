@@ -52,13 +52,13 @@ class OrderController extends Controller
                 $order_product->is_review = 'no';
                 $order_product->quantity = $request->quantity;
                 $order_product->subtotal = $cart->product->productprice * $request->quantity;
-                
+
                 $order_product->save();
 
                 Cart::where('id', $cart->id)
-                ->update([
-                    'quantity' => $request->quantity
-                ]);
+                    ->update([
+                        'quantity' => $request->quantity
+                    ]);
             }
             //get product that has been purchased
 
@@ -190,98 +190,19 @@ class OrderController extends Controller
             $product = Product::where('id', '=', $product->id)->first();
             $products[] = $product;
         }
-        
+
         $orders = DB::table('carts')
-        ->join('products', 'carts.product_id', '=', 'products.id')
-        ->where('user_id', '=', Auth::user()->id)->get();
+            ->join('products', 'carts.product_id', '=', 'products.id')
+            ->where('user_id', '=', Auth::user()->id)->get();
 
         $totals = DB::table('carts')
-        ->join('products', 'carts.product_id', '=', 'products.id')
-        ->where('user_id', '=', Auth::user()->id)->sum(DB::raw('carts.quantity * products.productprice'));
+            ->join('products', 'carts.product_id', '=', 'products.id')
+            ->where('user_id', '=', Auth::user()->id)->sum(DB::raw('carts.quantity * products.productprice'));
 
 
         $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
         $shipment = Shipment::where('id', '=', $request->shipment)->first();
 
-        return view('/transactions/ordersummary', compact('products', 'address', 'shipment', 'orders','totals'));
-    }
-
-
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('/transactions/ordersummary', compact('products', 'address', 'shipment', 'orders', 'totals'));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Product;
@@ -79,5 +80,22 @@ class StatusController extends Controller
         $order = Order::find($id);
         $payments = Payment::all();
         return view('/transactions/payment_buy_now', compact('payments', 'order'));
+    }
+
+    public function buyAgain(Product $product)
+    {
+        // dd($product->id);
+
+        if (Cart::where('product_id', '=', $product->id)->exists() & Cart::where('user_id', '=', Auth::user()->id)->exists()) {
+            return back()->with('status', 'Item has already on cart list.');
+        } else {
+            $productcartsave = new Cart();
+            $productcartsave->product_id = $product->id;
+            $productcartsave->user_id = Auth::user()->id;
+            $productcartsave->quantity = 1;
+            $productcartsave->save();
+
+            return back()->with('status', 'Item successfully added to cart list!');
+        }
     }
 }

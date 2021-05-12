@@ -34,11 +34,7 @@
             <td class="text-center font-weight-normal text-capitalize">{{$item->status}}</td>
             @if($item->status === 'pending')
             <td class="text-center">
-              <form action="payment-history/{{$item->id}}/continue-checkout" method="post" class="d-inline">
-                @method('post')
-                @csrf
-                <button type="submit" class="btn btn-warning">Continue Checkout</button>
-              </form>
+              <a href="payment-history/{{$item->id}}/continue-checkout" class="btn btn-warning">Continue Checkout</a>
             </td>
             @else
             <td class="text-center">

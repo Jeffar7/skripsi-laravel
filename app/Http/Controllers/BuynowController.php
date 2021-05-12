@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address_Delivery_Users;
+use App\FlashData;
 use App\Product;
 use App\Shipment;
 use App\Order;
@@ -10,6 +11,7 @@ use App\Payment;
 use App\order_product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class BuynowController extends Controller
@@ -17,6 +19,7 @@ class BuynowController extends Controller
     public function buynow($id)
     {
         // function ini ga kepake
+        dd($id);
         $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
         $shipments = Shipment::all();
         $products = Product::where('id', '=', $id)->first();
@@ -24,60 +27,6 @@ class BuynowController extends Controller
         return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products'));
     }
 
-    public function buyNowQuantity(Request $request, Product $product)
-    {
-        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
-        $detailaddresses = null;
-        $shipments = Shipment::all();
-        $products = Product::where('id', '=', $request->product_id)->first();
-        $quantityBuy = $request->input('quantity');
-
-        return view('/transactions/delivery_buy_now', compact('addresses', 'detailaddresses', 'shipments', 'products', 'quantityBuy'));
-    }
-
-    public function summary(Request $request)
-    {
-
-        $product = Product::where('id', $request->product)->first();
-        $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
-        $shipment = Shipment::where('id', '=', $request->shipment)->first();
-        $quantityBuy = $request->input('quantity');
-        
-        return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment', 'quantityBuy'));
-    }
-
-
-
-    public function payment(Request $request)
-    {
-
-        $product = Product::where('id', $request->product)->first();
-        $quantityBuy = $request->input('quantity');
-        // Place Order Summary to Order Table
-
-        $order = new Order();
-        $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
-        $order->status = 'pending';
-        $order->user_id = Auth::user()->id;
-        $order->grand_total = $product->productprice * $quantityBuy;
-        $order->address_id = $request->address;
-        // $order->payment_id = $request->payment;
-        $order->shipment_id = $request->shipment;
-        $order->save();
-
-        //store product to order_product
-        $order_product = new order_product();
-        $order_product->product_id = $request->product;
-        $order_product->order_id = $order->id;
-        $order_product->is_review = 'no';
-        $order_product->quantity = $quantityBuy;
-        $order_product->subtotal = $product->productprice * $quantityBuy;
-        $order_product->save();
-
-
-        $payments = Payment::all();
-        return view('/transactions/payment_buy_now', compact('payments', 'order', 'quantityBuy'));
-    }
 
     public function makepayment(Request $request)
     {
@@ -124,6 +73,10 @@ class BuynowController extends Controller
             'payment_id' => $payment->id
         ]);
 
+        FlashData::where('user_id', '=', Auth::user()->id)->update([
+            'payment_id' => $payment->id
+        ]);
+
         return redirect('/payment-history');
     }
 
@@ -149,5 +102,122 @@ class BuynowController extends Controller
         }
         return back();
         // return redirect()->action([OrderController::class, 'checkout']);
+    }
+
+
+
+
+
+
+
+
+
+    public function buyNowQuantity(Request $request, Product $product)
+    {
+
+        // $is_exist = FlashData::find($request->product_id);
+        $is_exist = FlashData::where('user_id', '=', Auth::user()->id)->first();
+
+        if ($is_exist) {
+            DB::table('flashdata')
+                ->where('user_id', '=', Auth::user()->id)
+                ->delete();
+        }
+        $flashData = new FlashData();
+        $flashData->product_id = $request->product_id;
+        $flashData->quantity = $request->quantity;
+        $flashData->user_id = Auth::user()->id;
+        $flashData->save();
+
+        return redirect('/transactions/delivery_buy_now');
+    }
+
+    public function assignAddressDelivery()
+    {
+        $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
+
+        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $detailaddresses = null;
+        $shipments = Shipment::all();
+        $products = Product::where('id', '=', $flashData->product_id)->first();
+        $quantity = $flashData->quantity;
+        $product_id = $flashData->product_id;
+        // compact('addresses', 'detailaddresses', 'shipments', 'products', 'quantityBuy')
+
+        return view('/transactions/delivery_buy_now', compact('addresses', 'detailaddresses', 'shipments', 'products', 'quantity', 'product_id'));
+    }
+
+    public function summary(Request $request)
+    {
+        $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
+        $flashData->update([
+            'address_id' => $request->address_detail,
+            'shipment_id' => $request->shipment
+        ]);
+        $flashData->save();
+
+        return redirect('/transactions/ordersummary_buy_now');
+    }
+
+    public function orderSummaryBuyNow()
+    {
+        $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
+
+        $product = Product::where('id', $flashData->product_id)->first();
+        $address = Address_Delivery_Users::where('id', '=', $flashData->address_id)->first();
+        $shipment = Shipment::where('id', '=', $flashData->shipment_id)->first();
+        $quantityBuy = $flashData->quantity;
+
+        return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment', 'quantityBuy'));
+    }
+
+    public function payment(Request $request)
+    {
+        $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
+
+        $product = Product::where('id', $flashData->product_id)->first();
+        $quantityBuy = $flashData->quantity;
+        // Place Order Summary to Order Table
+
+        $order = new Order();
+        $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
+        $order->status = 'pending';
+        $order->user_id = Auth::user()->id;
+        $order->grand_total = $product->productprice * $quantityBuy;
+        $order->address_id = $request->address;
+        // $order->payment_id = $request->payment;
+        $order->shipment_id = $request->shipment;
+        $order->notes = $request->notes;
+        $order->save();
+
+        $flashData->update([
+            'order_id' => $order->id
+        ]);
+
+        //store product to order_product
+        $order_product = new order_product();
+        $order_product->product_id = $request->product;
+        $order_product->order_id = $order->id;
+        $order_product->is_review = 'no';
+        $order_product->quantity = $quantityBuy;
+        $order_product->subtotal = $product->productprice * $quantityBuy;
+        $order_product->save();
+
+
+        $payments = Payment::all();
+
+        return redirect('/transactions/payment_buy_now');
+    }
+
+    public function paymentBuyNow()
+    {
+        $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
+        $order = Order::where('id', '=', $flashData->order_id)->first();
+
+        $payments = Payment::all();
+        $quantityBuy = $flashData->quantity;
+
+
+        return view('/transactions/payment_buy_now', compact('payments', 'order', 'quantityBuy'));
     }
 }

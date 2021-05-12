@@ -16,6 +16,7 @@ class Raffle extends Model
         'raffleprice',
         'raffleimage',
         'rafflequantity',
+        'rafflequota',
         'rafflereleasedate',
         'raffleclosedate',
         'brand_id',

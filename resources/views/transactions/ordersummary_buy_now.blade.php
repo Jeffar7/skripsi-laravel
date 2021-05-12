@@ -92,7 +92,7 @@
         <!-- Message for -->
         <div class="row justify-content-center mb-5">
           <div class="col-sm-11 text-center ">
-            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know"></textarea>
+            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know" form="form-id"></textarea>
           </div>
         </div>
 
@@ -114,8 +114,15 @@
                   <td class="text-right border">Rp. {{ number_format($shipment->delivery_cost)}}</td>
                 </tr>
                 <tr>
-                  <td class="text-left border-0"><input type="text" class="form-control" name="vouchers"></td>
-                  <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button></td>
+
+                  <form action="{{route('voucher.store')}}" method="POST">
+                    @csrf
+                    <td class="text-left border-0">
+                      <input type="text" class="form-control" name="voucher_code">
+                    </td>
+                    <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button></td>
+                  </form>
+
                   <td class="text-right border">Total Voucher</td>
                   <td class="text-right border">Rp. X,XXX,XXX</td>
                 </tr>
@@ -136,7 +143,7 @@
   <!-- End Address -->
 
   <!-- Button -->
-  <form action="/payment/buy_now" method="post">
+  <form action="/payment/buy_now" method="post" id="form-id">
     @csrf
     <!-- check di git -->
     <input type="hidden" name="product" value="{{$product->id}}">

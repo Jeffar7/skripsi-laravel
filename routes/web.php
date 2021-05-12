@@ -116,7 +116,7 @@ Route::get('/product-cart/delete/{id}', 'ProductController@destroylist');
 Route::post('/checkout', 'OrderController@checkout');
 
 //buynow
-// Route::get('/buy-now/{id}', 'BuynowController@buynow'); ga kepake
+Route::get('/buy-now/{id}', 'BuynowController@buynow');
 
 //buy now get quantity
 Route::post('/buy-now/add', 'BuynowController@buyNowQuantity');
@@ -126,8 +126,10 @@ Route::post('/payment/buy_now', 'BuynowController@payment');
 Route::post('/makepayment/buy_now', 'BuynowController@makepayment');
 Route::post('/delivery/addaddress/buy_now', 'BuynowController@addaddress');
 
-// // buynow redirect
-// Route::get('states/{product}/regions/{address}/{shipment}', ['as' => 'index', 'uses' => 'BuynowController@index']);
+// Flash data transaction (BuynowController)
+Route::get('/transactions/delivery_buy_now', 'BuynowController@assignAddressDelivery');
+Route::get('/transactions/ordersummary_buy_now', 'BuynowController@orderSummaryBuyNow');
+Route::get('/transactions/payment_buy_now', 'BuynowController@paymentBuyNow');
 
 //delivery
 Route::get('/checkout/delivery', 'OrderController@delivery');
@@ -142,13 +144,10 @@ Route::post('/makepayment', 'OrderController@makepayment');
 Route::get('/payment-history', 'StatusController@payment_history');
 Route::get('/payment-history/{id}/detail', 'StatusController@payment_history_detail');
 Route::get('/payment-history/{id}/continue-checkout', 'StatusController@continue_checkout'); // Continue Checkout
-
-//waiting for review
 Route::get('/waiting-for-review', 'StatusController@waiting_for_review');
-
-//make review
 Route::get('/products/review/{id}', 'StatusController@product_review_detail');
 Route::post('/submit/review', 'StatusController@product_submit_review');
+Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
 Route::get('/raffle', 'RaffleController@raffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
@@ -192,6 +191,9 @@ Route::get('/women-accessories', 'WomenController@accessories');
 Route::get('/women-new', 'WomenController@new');
 Route::get('/women-sale', 'WomenController@sale');
 Route::get('/women', 'WomenController@index');
+
+Route::post('/voucher', 'VouchersController@store')->name('voucher.store');
+Route::delete('/voucher', 'VouchersController@destroy')->name('voucher.destroy');
 
 
 //route for debug
