@@ -8,12 +8,34 @@ use App\Raffle;
 use App\RaffleCategory;
 use App\User;
 use App\raffle_user;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class RaffleController extends Controller
 {
+
+    public function __construct()
+    {
+        $dt = Carbon::now();
+
+
+        $not_started = DB::table('raffles')->where(function ($query) {
+            $query->whereDate('rafflereleasedate', '>', Carbon::now())
+                ->whereTime('rafflereleasedate', '>', Carbon::now());
+        })->update(['status' => 'not_started']);
+
+
+        $closed = DB::table('raffles')->where(function ($query) {
+            $query->whereDate('raffleclosedate', '<', Carbon::now())
+                ->whereTime('raffleclosedate', '>', Carbon::now());
+        })->update(['status' => 'closed']);
+
+        $running = DB::table('raffles')
+            ->whereRaw('"' . $dt . '" between `rafflereleasedate` and `raffleclosedate`')
+            ->update(['status' => 'running']);
+    }
 
     public function raffledetail(Raffle $raffle)
     {
@@ -77,7 +99,6 @@ class RaffleController extends Controller
             $file->storeAs('public/images/Raffles/', $filenamesave);
             $raffle->raffleimage = $filenamesave;
         } else {
-            return $request;
             $raffle->raffleimage = '';
         }
 
@@ -116,7 +137,6 @@ class RaffleController extends Controller
             $file->storeAs('public/images/Raffles/', $filenamesave);
             $raffle->raffleimage = $filenamesave;
         } else {
-            return $request;
             $raffle->raffleimage = '';
         }
 
@@ -208,7 +228,7 @@ class RaffleController extends Controller
         $users = DB::table('raffle_user')
             ->join('users', 'raffle_user.user_id', '=', 'users.id')
             ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
-            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.raffleclosedate')
+            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $raffle->id)
             ->get();
 
@@ -223,7 +243,7 @@ class RaffleController extends Controller
         $users = DB::table('raffle_user')
             ->join('users', 'raffle_user.user_id', '=', 'users.id')
             ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
-            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.raffleclosedate')
+            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $id)
             ->get();
 
@@ -231,11 +251,12 @@ class RaffleController extends Controller
         $random_winners = DB::table('raffle_user')
             ->join('users', 'raffle_user.user_id', '=', 'users.id')
             ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
-            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.raffleclosedate')
+            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $id)
             ->inRandomOrder()
             ->limit(2) //RANDOM FOR 2 USERS
             ->get();
+
 
 
         // USER WINNERS

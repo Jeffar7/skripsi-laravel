@@ -64,7 +64,11 @@
                     <div class="row">
                         <div class="col align-self-end text-right">
                             @if(Auth::check() && Auth::user()->role === 'customer')
+                            @if($raffle->status == 'running')
                             <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">Enter Now</a>
+                            @else
+                            <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary disabled">Enter Now</a>
+                            @endif
                             @else
                             <a href="/register" class="btn btn-primary">Enter Now</a>
                             @endif

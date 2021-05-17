@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Voucher;
 use Illuminate\Http\Request;
 
@@ -18,24 +19,30 @@ class VouchersController extends Controller
     public function store(Request $request)
     {
         $voucher = Voucher::where('code', $request->voucher_code)->first();
-
         if (!$voucher) {
-            // return redirect()->route('order.summary.buy.now')->withErrors('Invalid voucher code. Please try again.');
-            return redirect()->back()->withErrors('Invalid voucher code. Please try again.');
+            session()->forget('voucher');
+            return redirect()->route('order.summary')->with('status', 'Invalid voucher code. Please try again.');
         }
 
-        return 1;
+
+        session()->put('voucher', [
+            'code' => $voucher->code,
+            'discount' => $voucher->discount($request->grand_total)
+        ]);
+
+        return redirect()->route('order.summary')->with('success_status', 'Voucher has been applied!');
     }
 
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        session()->forget('voucher');
+
+        return redirect()->route('order.summary')->with('success_status', 'Voucher has been removed.');
     }
 }

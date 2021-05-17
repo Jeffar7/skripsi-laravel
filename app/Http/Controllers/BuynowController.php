@@ -37,15 +37,15 @@ class BuynowController extends Controller
 
         if ($request->payment_type === 'credit') {
 
-            // $request->validate([
-            //     'payment_type' => ['required'],
-            //     'first_name' => ['required'],
-            //     'last_name' => ['required'],
-            //     'card_number' => ['required', 'numeric', 'size:16'],
-            //     'cvv' => ['required', 'numeric', 'size:3'],
-            //     'credit_type' => ['required'],
-            //     'valid_until' => ['required']
-            // ]);
+            $request->validate([
+                'payment_type' => ['required'],
+                'first_name' => ['required'],
+                'last_name' => ['required'],
+                'card_number' => ['required', 'digits:16'],
+                'cvv' => ['required', 'digits:3'],
+                'credit_type' => ['required'],
+                'valid_until' => ['required']
+            ]);
 
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
@@ -104,14 +104,6 @@ class BuynowController extends Controller
         // return redirect()->action([OrderController::class, 'checkout']);
     }
 
-
-
-
-
-
-
-
-
     public function buyNowQuantity(Request $request, Product $product)
     {
 
@@ -168,7 +160,12 @@ class BuynowController extends Controller
         $shipment = Shipment::where('id', '=', $flashData->shipment_id)->first();
         $quantityBuy = $flashData->quantity;
 
-        return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment', 'quantityBuy'));
+        $discount = session()->get('voucher')['discount'] ?? 0;
+        $newTotal = (($product->productprice * $quantityBuy) + $shipment->delivery_cost) - $discount;
+
+        return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment', 'quantityBuy'))->with([
+            'newTotal' => $newTotal
+        ]);
     }
 
     public function payment(Request $request)
@@ -183,7 +180,7 @@ class BuynowController extends Controller
         $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
         $order->status = 'pending';
         $order->user_id = Auth::user()->id;
-        $order->grand_total = $product->productprice * $quantityBuy;
+        $order->grand_total = $request->total;
         $order->address_id = $request->address;
         // $order->payment_id = $request->payment;
         $order->shipment_id = $request->shipment;
@@ -193,6 +190,8 @@ class BuynowController extends Controller
         $flashData->update([
             'order_id' => $order->id
         ]);
+
+        session()->forget('voucher');
 
         //store product to order_product
         $order_product = new order_product();

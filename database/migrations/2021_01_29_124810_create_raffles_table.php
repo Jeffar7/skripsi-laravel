@@ -23,6 +23,7 @@ class CreateRafflesTable extends Migration
             $table->integer('rafflequota');
             $table->datetime('rafflereleasedate');
             $table->datetime('raffleclosedate');
+            $table->enum('status', ['not_started', 'running', 'closed'])->nullable();
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();

@@ -96,6 +96,18 @@
           </div>
         </div>
 
+        @if (session('status'))
+        <div class="alert alert-danger">
+          {{ session('status') }}
+        </div>
+        @endif
+
+        @if (session('success_status'))
+        <div class="alert alert-success">
+          {{ session('success_status') }}
+        </div>
+        @endif
+
         <!-- Table voucher -->
         <div class="row">
           <div class="col-sm-12">
@@ -109,7 +121,9 @@
                 </tr>
                 <tr>
                   <td class="text-left border-0">Ignore it if you dont have any voucher</td>
-                  <td class="text-right border-0"></td>
+                  <td class="text-right border-0">
+
+                  </td>
                   <td class="text-right border">Delivery Cost</td>
                   <td class="text-right border">Rp. {{ number_format($shipment->delivery_cost)}}</td>
                 </tr>
@@ -119,18 +133,28 @@
                     @csrf
                     <td class="text-left border-0">
                       <input type="text" class="form-control" name="voucher_code">
+                      <input type="hidden" class="form-control" name="grand_total" value="{{$product->productprice*$quantityBuy}}">
                     </td>
                     <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button></td>
                   </form>
 
-                  <td class="text-right border">Total Voucher</td>
-                  <td class="text-right border">Rp. X,XXX,XXX</td>
+
+                  <td class="text-right border">Voucher ({{session()->get('voucher')['code']}})</td>
+                  @if(session()->has('voucher'))
+                  <form action="{{ route('voucher.destroy') }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" style="font-size: 14px;">Remove</button>
+                  </form>
+                  @endif
+                  <td class="text-right border">- Rp. {{number_format(session()->get('voucher')['discount'])}}</td>
+
                 </tr>
                 <tr>
                   <td class="text-left border-0">Take Advantage of our exclusive offers</td>
                   <td class="text-right border-0"></td>
                   <td class="text-right border font-weight-bold">TOTAL</td>
-                  <td class="text-right border font-weight-bold">Rp. X,XXX,XXX</td>
+                  <td class="text-right border font-weight-bold">Rp. {{number_format($newTotal)}}</td>
                 </tr>
               </table>
             </div>
@@ -150,6 +174,8 @@
     <input type="hidden" name="address" value="{{$address->id}}">
     <input type="hidden" name="shipment" value="{{$shipment->id}}">
     <input type="hidden" value="{{$quantityBuy}}" name="quantity">
+    <input type="hidden" value="{{$newTotal}}" name="total">
+
 
     <div class="row justify-content-center mb-3">
       <div class="col-md-10 text-right">

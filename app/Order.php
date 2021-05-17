@@ -19,6 +19,11 @@ class Order extends Model
     ];
     protected $guarded = ['id'];
 
+    public function grandTotal($price, $qty)
+    {
+        return $price * $qty;
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

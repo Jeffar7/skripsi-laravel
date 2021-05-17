@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\FlashData;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Product;
@@ -79,7 +80,9 @@ class StatusController extends Controller
     {
         $order = Order::find($id);
         $payments = Payment::all();
-        return view('/transactions/payment_buy_now', compact('payments', 'order'));
+        $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
+        $quantityBuy = $flashData->quantity;
+        return view('/transactions/payment_buy_now', compact('payments', 'order', 'quantityBuy'));
     }
 
     public function buyAgain(Product $product)

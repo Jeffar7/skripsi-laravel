@@ -19,6 +19,7 @@ class Raffle extends Model
         'rafflequota',
         'rafflereleasedate',
         'raffleclosedate',
+        'status',
         'brand_id',
         'category_id'
     ];

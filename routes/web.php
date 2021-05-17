@@ -128,7 +128,7 @@ Route::post('/delivery/addaddress/buy_now', 'BuynowController@addaddress');
 
 // Flash data transaction (BuynowController)
 Route::get('/transactions/delivery_buy_now', 'BuynowController@assignAddressDelivery');
-Route::get('/transactions/ordersummary_buy_now', 'BuynowController@orderSummaryBuyNow');
+Route::get('/transactions/ordersummary_buy_now', 'BuynowController@orderSummaryBuyNow')->name('order.summary');
 Route::get('/transactions/payment_buy_now', 'BuynowController@paymentBuyNow');
 
 //delivery

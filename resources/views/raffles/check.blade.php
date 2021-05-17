@@ -24,7 +24,13 @@
     <div class="row mb-3">
 
         <div class="col">
-            <div class="text-right"><a href="/raffles/check/random/{{$raffle->id}}" type="button" class="btn btn-primary">Choose Random Winner</a></div>
+
+
+            @if($raffle->status == 'closed')
+            <div class="text-right"><a href="/raffles/check/random/{{$raffle->id}}" type="button" class="btn btn-primary" id="btn-submit">Choose Random Winner</a></div>
+            @else
+            <div class="text-right"><a href="/raffles/check/random/{{$raffle->id}}" type="button" class="btn btn-primary disabled" id="btn-submit">Choose Random Winner</a></div>
+            @endif
             <div class="col">
 
                 <h2 class="text-center">Joined Users</h2>
@@ -59,5 +65,14 @@
 
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#btn-submit").click(function() {
+            $(this).prop("disabled", true);
+            $(this).css("cursor", "not-allowed");
+        });
+    });
+</script>
 @endsection
