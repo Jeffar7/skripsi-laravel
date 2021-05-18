@@ -102,8 +102,8 @@
         </div>
         <!--End Shipping Option-->
 
-        <input type="hidden" value="{{$products->id}}" name="product">
-        <input type="hidden" value="{{$quantityBuy}}" name="quantity">
+        <input type="hidden" value="{{$product_id}}" name="product">
+        <input type="hidden" value="{{$quantity}}" name="quantity">
 
         <div class="row justify-content-end mb-3">
             <div class="col-md-12 text-right">

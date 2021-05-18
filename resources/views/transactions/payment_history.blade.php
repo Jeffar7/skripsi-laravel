@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-        @foreach ($all_order as $item)
+          @foreach ($all_order as $item)
           <tr>
             <td class="text-center font-weight-normal">{{date('d M Y H:i:s',strtotime($item->created_at))}}</td>
             <td class="text-center font-weight-normal">{{$item->order_number}}</td>
@@ -34,15 +34,11 @@
             <td class="text-center font-weight-normal text-capitalize">{{$item->status}}</td>
             @if($item->status === 'pending')
             <td class="text-center">
-              <form action="#" method="post" class="d-inline">
-                @method('post')
-                @csrf
-                <button type="submit" class="btn btn-warning">Continue Checkout</button>
-              </form>
+              <a href="payment-history/{{$item->id}}/continue-checkout" class="btn btn-warning">Continue Checkout</a>
             </td>
             @else
             <td class="text-center">
-              <a href="brands/{{$item->id}}/detail" class="btn btn-success"><i class="fas fa-edit" style="color:white"></i> Detail Product</a>
+              <a href="payment-history/{{$item->id}}/detail" class="btn btn-success"><i class="fas fa-edit" style="color:white"></i> Detail Product</a>
             </td>
             @endif
           </tr>
@@ -50,7 +46,7 @@
         </tbody>
       </table>
       @endif
-      
+
       <div class="mt-4"></div>
     </div>
   </div>

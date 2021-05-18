@@ -83,7 +83,7 @@ class UsersTableSeeder extends Seeder
                 'gender' => 'Female',
                 'DOB' => '1989-06-21',
                 'password' => bcrypt("test123"),
-                'role' => 'customer',
+                'role' => 'admin',
                 'address' => 'Tunas Patriot Tarumanegara, Jalan Ahmad Yani',
                 'site' => 'www.AmyJones.com',
                 'about' => '',

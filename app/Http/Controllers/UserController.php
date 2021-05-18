@@ -97,7 +97,6 @@ class UserController extends Controller
             $filenamesave = $filenameWithoutExt;
             $file->storeAs('public/images/Users/', $filenamesave);
             $user->picture = $filenamesave;
-            
         } else {
             return $request;
             $user->picture = '';
@@ -197,7 +196,6 @@ class UserController extends Controller
             $user->assignRole('admin');
         }
 
-
         return redirect('/userprofile')->with('status', 'User data successfully updated!');
     }
 
@@ -214,8 +212,6 @@ class UserController extends Controller
             return $request;
             $user->picture = '';
         }
-
-
 
 
         User::where('id', $user->id)

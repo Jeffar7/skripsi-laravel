@@ -7,6 +7,8 @@ use App\Brand;
 use App\Raffle;
 use App\RaffleCategory;
 use App\User;
+use App\raffle_user;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,9 +16,29 @@ use Illuminate\Support\Facades\DB;
 class RaffleController extends Controller
 {
 
+    public function __construct()
+    {
+        $dt = Carbon::now();
+
+
+        $not_started = DB::table('raffles')->where(function ($query) {
+            $query->whereDate('rafflereleasedate', '>', Carbon::now())
+                ->whereTime('rafflereleasedate', '>', Carbon::now());
+        })->update(['status' => 'not_started']);
+
+
+        $closed = DB::table('raffles')->where(function ($query) {
+            $query->whereDate('raffleclosedate', '<', Carbon::now())
+                ->whereTime('raffleclosedate', '>', Carbon::now());
+        })->update(['status' => 'closed']);
+
+        $running = DB::table('raffles')
+            ->whereRaw('"' . $dt . '" between `rafflereleasedate` and `raffleclosedate`')
+            ->update(['status' => 'running']);
+    }
+
     public function raffledetail(Raffle $raffle)
     {
-
         return view('\raffles\raffle_detail', compact('raffle'));
     }
 
@@ -77,6 +99,7 @@ class RaffleController extends Controller
         $raffle->raffleprice = $request->raffleprice;
         // $raffle->raffleimage = $request->raffleimage;
         $raffle->rafflequantity = $request->rafflequantity;
+        $raffle->rafflequota = $request->rafflequota;
         $raffle->rafflereleasedate = $request->rafflereleasedate;
         $raffle->raffleclosedate = $request->raffleclosedate;
         $raffle->brand_id = $request->brand_id;
@@ -89,7 +112,6 @@ class RaffleController extends Controller
             $file->storeAs('public/images/Raffles/', $filenamesave);
             $raffle->raffleimage = $filenamesave;
         } else {
-            return $request;
             $raffle->raffleimage = '';
         }
 
@@ -97,16 +119,6 @@ class RaffleController extends Controller
         return redirect('manageraffle')->with('status', 'Raffle Item Successfully Added!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -138,7 +150,6 @@ class RaffleController extends Controller
             $file->storeAs('public/images/Raffles/', $filenamesave);
             $raffle->raffleimage = $filenamesave;
         } else {
-            return $request;
             $raffle->raffleimage = '';
         }
 
@@ -148,6 +159,7 @@ class RaffleController extends Controller
             'raffleprice' => $request->raffleprice,
             'raffleimage' => $raffle->raffleimage,
             'rafflequantity' => $request->rafflequantity,
+            'rafflequota' => $request->rafflequota,
             'rafflereleasedate' => $request->rafflereleasedate,
             'raffleclosedate' => $request->raffleclosedate,
             'brand_id' => $request->brand_id,
@@ -220,8 +232,58 @@ class RaffleController extends Controller
             return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
     }
 
-    public function check()
+    public function check($id)
     {
-        return view('raffles.check');
+        //GET SELECTED RAFFLE
+        $raffle = Raffle::find($id);
+
+        //GET ALL USER HAS JOINED THE RAFFLE
+        $users = DB::table('raffle_user')
+            ->join('users', 'raffle_user.user_id', '=', 'users.id')
+            ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
+            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
+            ->where('raffle_id', '=', $raffle->id)
+            ->get();
+
+        // dd($users);
+
+        return view('raffles.check', compact('users', 'raffle'));
+    }
+
+    public function random($id)
+    {
+        //GET ALL USER HAS JOINED THE RAFFLE PRODUCT
+        $users = DB::table('raffle_user')
+            ->join('users', 'raffle_user.user_id', '=', 'users.id')
+            ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
+            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
+            ->where('raffle_id', '=', $id)
+            ->get();
+
+        //MAKE RANDOM WINNERS
+        $random_winners = DB::table('raffle_user')
+            ->join('users', 'raffle_user.user_id', '=', 'users.id')
+            ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
+            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
+            ->where('raffle_id', '=', $id)
+            ->inRandomOrder()
+            ->limit(2) //RANDOM FOR 2 USERS
+            ->get();
+
+
+
+        // USER WINNERS
+        $winners = $random_winners->pluck('user_id');
+
+        // UPDATE USER STATUS TO WIN
+        $win = raffle_user::where('raffle_id', '=', $id)->whereIn('user_id', $winners)->update([
+            'status' => 'win'
+        ]);
+        // UPDATE USER STATUS TO LOSE
+        $lose = raffle_user::where('raffle_id', '=', $id)->whereNotIn('user_id', $winners)->update([
+            'status' => 'lose'
+        ]);
+
+        return back();
     }
 }

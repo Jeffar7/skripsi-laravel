@@ -16,8 +16,10 @@ class Raffle extends Model
         'raffleprice',
         'raffleimage',
         'rafflequantity',
+        'rafflequota',
         'rafflereleasedate',
         'raffleclosedate',
+        'status',
         'brand_id',
         'category_id'
     ];
@@ -35,6 +37,6 @@ class Raffle extends Model
 
     public function user()
     {
-        return $this->belongsToMany(User::class)->withPivot('address_raffle_id');
+        return $this->belongsToMany(User::class)->withPivot('address_raffle_id')->withTimestamps();;
     }
 }

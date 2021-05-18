@@ -17,6 +17,10 @@ class ManController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function men()
     {
@@ -59,7 +63,7 @@ class ManController extends Controller
     {
         $product_tops = Product::where('id', '=', $product->id)->first();
         $reviews = Review::all();
-        
+
 
         return view('/menpage/tops_detail', compact('product_tops', 'reviews'));
     }
