@@ -26,6 +26,19 @@ class RaffleController extends Controller
         return view('\raffles\raffle', compact('raffles'));
     }
 
+    public function allraffle()
+    {
+        $raffles = Raffle::paginate(3);
+        return view('\raffles\raffle_item_list', compact('raffles'));
+    }
+
+    public function raffledescription(Raffle $raffle)
+    {
+
+        return view('\raffles\raffle_item_desc', compact('raffle'));
+    }
+
+
     /**
      * Display a listing of the resource.
      *

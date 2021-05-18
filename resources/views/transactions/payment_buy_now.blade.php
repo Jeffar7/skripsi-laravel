@@ -6,10 +6,15 @@
 <div class="container pt-2">
   <div class="row justify-content-center mb-3">
     <div class="col-md-12 text-center">
+      <div class="breadcrumb-a flat my-4">
+          <a class="col-sm-4">DELIVERY</a>
+          <a class="col-sm-4">SUMMARY</a>
+          <a class="active col-sm-4">PAYMENT</a>
+      </div>
       <div class="card shadow-lg">
         <div class="card-header text-left bg-dark text-white">
           <strong>
-            Payment Overview {{$quantityBuy}}
+            Payment Overview
           </strong>
         </div>
 
@@ -161,7 +166,6 @@
 
               <input type="hidden" name="payment_type" value="debit">
               <input type="hidden" name="order" value="{{$order->id}}">
-              <input type="hidden" value="{{$quantityBuy}}" name="quantity">
 
               <div class="row justify-content-center mb-1">
                 <div class="col-md-12 text-right">

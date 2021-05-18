@@ -8,6 +8,11 @@
   <!-- Address -->
   <div class="row justify-content-center mb-3">
     <div class="col-md-10 text-center">
+      <div class="breadcrumb-a flat my-4">
+        <a class="col-sm-4">DELIVERY</a>
+        <a class="active col-sm-4">SUMMARY</a>
+        <a class="col-sm-4">PAYMENT</a>
+      </div>
       <div class="card shadow-lg">
         <!-- Title -->
         <div class="card-header text-left bg-dark text-white">
