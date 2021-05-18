@@ -15,8 +15,10 @@ class CreateVouchersTable extends Migration
     {
         Schema::create('vouchers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('voucher_code');
-            $table->integer('discount_percentage');
+            $table->string('code')->unique();
+            $table->string('type');
+            $table->integer('value')->nullable();
+            $table->integer('percent_off')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

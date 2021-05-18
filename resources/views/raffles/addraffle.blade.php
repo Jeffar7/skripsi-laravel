@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <h1 class="title-home mt-3">Add Raffle</h1>
             <div class="card shadow-lg">
                 <div class="card-header text-left bg-dark">
@@ -54,12 +54,17 @@
 
                         <div class="form-group ">
                             <label for="raffleprice">Price</label>
-                            <input type="text" class="form-control" id="raffleprice" placeholder="" name="raffleprice">
+                            <input type="number" class="form-control" id="raffleprice" placeholder="" name="raffleprice">
                         </div>
 
                         <div class="form-group ">
                             <label for="rafflequantity">Quantity</label>
-                            <input type="text" class="form-control" id="rafflequantity" placeholder="" name="rafflequantity">
+                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequantity">
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="rafflequantity">Quota</label>
+                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequota">
                         </div>
 
                         <div class="form-group">

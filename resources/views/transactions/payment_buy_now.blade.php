@@ -9,7 +9,7 @@
       <div class="card shadow-lg">
         <div class="card-header text-left bg-dark text-white">
           <strong>
-            Payment Overview {{$quantityBuy}}
+            Payment Overview
           </strong>
         </div>
 
@@ -29,7 +29,7 @@
           <div class="col-sm-12">
             <select class="form-control div-toggle-payment" data-target=".payment-info">
               <option value="">Select Payment Type</option>
-              <option value="credit" data-show=".credit">Credit</option>
+              <option value="credit" data-show=".credit" selected>Credit</option>
               <option value="debit" data-show=".debit">Debit</option>
             </select>
           </div>

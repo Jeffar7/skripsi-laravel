@@ -11,7 +11,6 @@
         <div class="col-md-12">
             <h1 class="title-home mt-3">Manage Raffle</h1>
             <div class="text-right"><a href="/raffles/create" class="btn btn-primary my-3">Add Raffle</a></div>
-            <div class="text-right"><a href="/raffles/check" class="btn btn-primary my-3">Check Raffle</a></div>
 
             @if (session('status'))
             <div class="alert alert-success">
@@ -32,6 +31,7 @@
                         <th scope="col">Description</th>
                         <th scope="col">Released Date</th>
                         <th scope="col">Close Date</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Actions </th>
                     </tr>
                 </thead>
@@ -48,6 +48,7 @@
                         <td>{{$raffle->raffledescription}}</td>
                         <td>{{$raffle->rafflereleasedate}}</td>
                         <td>{{$raffle->raffleclosedate}}</td>
+                        <td>{{$raffle->status}}</td>
                         <td>
                             <a href="raffles/{{$raffle->id}}/edit" class="badge btn-success"><i class="fas fa-edit" style="color:white"></i></a>
 
@@ -56,6 +57,9 @@
                             @csrf -->
                             <button type="submit" class="badge btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt" style="color:white"></i></button>
                             <!-- </form> -->
+
+                            <a href="/raffles/check/{{$raffle->id}}" class="badge btn-primary d-inline">Check Raffled</a>
+
                         </td>
                     </tr>
                     @endforeach

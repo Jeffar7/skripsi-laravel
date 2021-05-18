@@ -15,6 +15,22 @@ class Voucher extends Model
         'discount_percentage',
     ];
 
+    public static function findByCode($code)
+    {
+        return self::where('code', $code)->first();
+    }
+
+    public function discount($total)
+    {
+        if ($this->type == 'fixed') {
+            return $this->value;
+        } elseif ($this->type == 'percent') {
+            return ($this->percent_off / 100) * $total;
+        } else {
+            return 0;
+        }
+    }
+
     public function user()
     {
         return $this->belongsToMany(User::class);

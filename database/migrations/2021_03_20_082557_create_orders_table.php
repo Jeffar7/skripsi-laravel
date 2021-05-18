@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('address_id')->nullable()->default(0);
             $table->unsignedBigInteger('payment_id')->nullable()->default(0);
             $table->unsignedBigInteger('shipment_id')->nullable()->default(0);
+            $table->string('notes')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
