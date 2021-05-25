@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Cart')
+@section('title','TokoLokal | Waiting For Review')
 
 @section('content')
 

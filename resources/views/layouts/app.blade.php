@@ -126,7 +126,7 @@
                             <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"><span class="badge badge-danger">{{$totalItemCart}}</span></i></a>
+                            <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"><span class="badge badge-pill badge-danger">{{$totalItemCart}}</span></i></a>
                         </li>
                         @endif
                         @guest
@@ -147,9 +147,11 @@
                         @else
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#"><i class="fas fa-envelope"></i></a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
+                            <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/raffle/history">My Raffle <span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>

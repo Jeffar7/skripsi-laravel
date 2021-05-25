@@ -7,7 +7,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item"><a href="/raffle" class="text-dark">Raffle</a></li>
+            <li class="breadcrumb-item"><a href="/allraffle" class="text-dark">Raffle</a></li>
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$raffle->rafflename}}</li>
         </ol>
     </nav>
@@ -29,18 +29,27 @@
         </div>
     </div>
 
+    <hr>
+
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <p class="font-weight-normal mb-0">{{$raffle->raffledescription}}</p>
+        </div>
+    </div>
+
+    <hr>
+
     <div class="row justify-content-center">
         <div class="col-12 text-center">
             <p class="h3 font-weight-bold"> {{$raffle->rafflename}}</p>
         </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-3">
         <div class="col-12 text-center">
             <p class="h6 font-weight-bold">Draw closes on {{$raffle->raffleclosedate}}</p>
         </div>
     </div>
-    <hr>
 
     <!-- Displaying The Validation Errors -->
 
@@ -60,7 +69,6 @@
 
     <form action="/raffle/submit" method="post">
         @csrf
-
         <div class="form-row justify-content-around">
             <div class="col-md-4">
                 <div class="row mb-3">
@@ -80,6 +88,10 @@
                     </div>
                 </fieldset>
 
+                <div class="row mb-3">
+                    <label for="lastname">Province*</label>
+                    <input type="text" id="province" class="form-control" value="{{Auth::user()->detailaddress->province}}" name="province">
+                </div>
 
                 <div class="row mb-3">
                     <label for="number">Mobile Number*</label>
@@ -113,7 +125,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="city">Town City</label>
+                    <label for="city">Town City*</label>
                     <input type="text" id="city" class="form-control" value="{{Auth::user()->detailaddress->city}}" name="city">
                 </div>
 
@@ -371,11 +383,11 @@
                 </div>
 
                 <div class="row mb-1 text-center">
-                    <p>By submitting the form you agree to the Terms & Conditions below.</p>
+                    <p class="font-weight-normal">By submitting the form you agree to the Terms & Conditions below.</p>
                 </div>
 
                 <div class="row mb-1 text-center">
-                    <p>Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment will be taken and the product will be sent via your choosen delivery method after draw has closed. If unsucessful your held payment will be released after the close of the draw, depending on your bank this may take 3-5 days. You’ll receive a confirmation email when entering and once the draw closes if sucessful or unsuccesful. Full T&C’s are on our site.</p>
+                    <p class="font-weight-normal">Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment will be taken and the product will be sent via your choosen delivery method after draw has closed. If unsucessful your held payment will be released after the close of the draw, depending on your bank this may take 3-5 days. You’ll receive a confirmation email when entering and once the draw closes if sucessful or unsuccesful. Full T&C’s are on our site.</p>
                 </div>
 
                 <div class="row justify-content-around">
@@ -393,7 +405,7 @@
         <!-- End Hidden Input -->
 
         <div class="form-row justify-content-around mt-3">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <button type="input" class="btn btn-dark btn-block">Confirm Here</button>
             </div>
         </div>

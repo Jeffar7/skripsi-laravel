@@ -18,7 +18,7 @@
 
 <div class="container mb-5">
     <div class="row">
-    <div class="col-md-2 ml-3 mr-5 border border-dark">
+        <div class="col-md-2 ml-3 mr-5 border border-dark">
             <p class="mb-1 pt-3 font-weight-bold">Men's Top ({{$topscount}})</p>
             <p class="mb-0 font-weight-bold">Price</p>
             <hr>

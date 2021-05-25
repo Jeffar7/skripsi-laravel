@@ -19,12 +19,12 @@
             <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">Raffle Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Raffle Close Date</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Message</th>
+                        <th scope="col" class="text-center">Image</th>
+                        <th scope="col" class="text-center">Raffle Product</th>
+                        <th scope="col" class="text-center">Price</th>
+                        <th scope="col" class="text-center">Raffle Close Date</th>
+                        <th scope="col" class="text-center">Status</th>
+                        <th scope="col" class="text-center">Message</th>
                     </tr>
                 </thead>
 
@@ -33,17 +33,17 @@
                     <tr>
                         <td class="text-center font-weight-normal"><img src="{{asset('../storage/images/Raffles/' . $raffle->raffleimage)}}" width="100px;" height="80px;" alt="Image"></td>
                         <td class="text-center font-weight-normal">{{$raffle->rafflename}}</td>
-                        <td class="text-center font-weight-normal">Rp. {{$raffle->raffleprice}}</td>
+                        <td class="text-center font-weight-normal">Rp. {{number_format($raffle->raffleprice)}}</td>
                         <td class="text-center font-weight-normal">{{$raffle->raffleclosedate}}</td>
                         <td class="text-center font-weight-normal">{{$raffle->status}}</td>
                         @if($raffle->status == 'pending')
-                        <td class="text-center font-weight-normal">Waiting until raffle closedate</td>
+                        <td class="text-center font-weight-normal">Waiting until Raffle Close</td>
                         @elseif($raffle->status == 'closed')
-                        <td class="text-center font-weight-normal">wait for the system to determine the winner</td>
+                        <td class="text-center font-weight-normal">Wait for the system to determine the winner</td>
                         @elseif($raffle->status == 'lose')
-                        <td class="text-center font-weight-normal">sorry you are not lucky, please choose another raffle product.</td>
+                        <td class="text-center font-weight-normal">Sorry you are not lucky, please choose another raffle product.</td>
                         @else
-                        <td class="text-center font-weight-normal">congratulations you can buy this product. click the following <a href="#!">link</a> to continue the transaction</td>
+                        <td class="text-center font-weight-normal">Congratulations you can buy this product. Click the following <a href="#!">link</a> to continue the transaction</td>
                         @endif
                     </tr>
                     @endforeach
