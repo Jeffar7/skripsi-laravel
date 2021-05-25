@@ -82,7 +82,15 @@ class StatusController extends Controller
         $payments = Payment::all();
         $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
         $quantityBuy = $flashData->quantity;
-        return view('/transactions/payment_buy_now', compact('payments', 'order', 'quantityBuy'));
+
+        if($order->address_id == 0 && $order->is_buy_now == 1)
+            return view('/transactions/continue/buy-now', compact(''));
+        else if($order->address_id == 0 && $order->is_buy_now == 0)
+            return view('/transactions/continue/checkout', compact());
+        else if($order->address_id == 1 && $order->is_buy_now == 1)
+            return view('/transactions/continue/buy-now/payment', compact());
+        else if($order->address_id == 1 && $order->is_buy_now == 0)
+            return view('/transactions/continue/checkout', compact());
     }
 
     public function buyAgain(Product $product)

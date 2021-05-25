@@ -17,10 +17,10 @@ class ManController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function men()
     {
@@ -30,7 +30,7 @@ class ManController extends Controller
 
     public function bestseller()
     {
-        $products = Product::all();
+    $products = Product::all();
         return view('/home', compact('products'));
     }
 

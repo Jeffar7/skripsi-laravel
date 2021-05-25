@@ -29,28 +29,37 @@
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
     <!-- fav icon -->
     <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png">
+
+    <!-- style for stripe -->
+    @yield('extra-css')
 </head>
 
 <body>
     <div id="app">
-    <?php
+        <?php
+
         use App\Http\Controllers\ProductController;
         use Illuminate\Support\Facades\Auth;
+
         $totalItemCart = 0;
-        if(Auth::check() && Auth::user()->role === 'customer'){
-            $totalItemCart = ProductController::countItemCart();    
+        if (Auth::check() && Auth::user()->role === 'customer') {
+            $totalItemCart = ProductController::countItemCart();
         }
-    ?>
+        ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
+                    <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40"
+                        alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -77,7 +86,8 @@
                     @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="/men" role="button" aria-haspopup="true" aria-expanded="false">MEN</a>
+                            <a class="nav-link " href="/men" role="button" aria-haspopup="true"
+                                aria-expanded="false">MEN</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="/men-tops">TOP</a>
                                 <a class="dropdown-item" href="/men-bottoms">BOTTOM</a>
@@ -89,7 +99,8 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="/women" role="button" aria-haspopup="true" aria-expanded="false">WOMEN</a>
+                            <a class="nav-link " href="/women" role="button" aria-haspopup="true"
+                                aria-expanded="false">WOMEN</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="/women-tops">TOP</a>
                                 <a class="dropdown-item" href="/women-bottoms">BOTTOM</a>
@@ -114,7 +125,8 @@
                     <!-- Middle Side of Navbar -->
                     <form class="form-inline my-2 my-lg-0 rounded left-addon-search inner-addon">
                         <i class="fas fa-search"></i>
-                        <input type="search" class="search-field rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <input type="search" class="search-field rounded" placeholder="Search" aria-label="Search"
+                            aria-describedby="search-addon" />
                     </form>
 
                     <!-- Right Side Of Navbar -->
@@ -126,7 +138,8 @@
                             <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"><span class="badge badge-danger">{{$totalItemCart}}</span></i></a>
+                            <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"><span
+                                        class="badge badge-danger">{{$totalItemCart}}</span></i></a>
                         </li>
                         @endif
                         @guest
@@ -149,15 +162,20 @@
                             <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
-                                <a class="dropdown-item" href="/raffle/history">My Raffle <span class="badge badge-primary badge-pill"></span></a>
-                                <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
-                                <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/userprofile">History <span
+                                        class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/raffle/history">My Raffle <span
+                                        class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span
+                                        class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/payment-history">Payment History <span
+                                        class="badge badge-primary badge-pill"></span></a>
                             </div>
 
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fas fa-user-circle"></i>
                             </a>
 
@@ -189,9 +207,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
+                        <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50"
+                            height="40" alt="">
                         <br>
-                        <p>TokoLokal is a concept store based in Jakarta. Started in 2021, TokoLokal become a point for fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local products to compete with international products.</p>
+                        <p>TokoLokal is a concept store based in Jakarta. Started in 2021, TokoLokal become a point for
+                            fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local
+                            products to compete with international products.</p>
                         <p>© 2021 TokoLokal. All Rights Reserved.</p>
                     </div>
                     <div class="col-2">
@@ -211,12 +232,15 @@
                     <div class="col-4">
                         <p>VISIT</p>
                         <p>PT. CIPTA RETAIL PRAKARSA
-                            Wisma Anugraha Lantai GF, Jl. Taman Kemang No. 32B Kel. Pela Mampang, Kec. Mampang Jakarta Selatan 12730</p>
+                            Wisma Anugraha Lantai GF, Jl. Taman Kemang No. 32B Kel. Pela Mampang, Kec. Mampang Jakarta
+                            Selatan 12730</p>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
+
+
 </body>
 
 </html>

@@ -254,7 +254,7 @@ class RaffleController extends Controller
             ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $id)
             ->inRandomOrder()
-            ->limit(2) //RANDOM FOR 2 USERS
+            ->limit(10) //RANDOM FOR 2 USERS
             ->get();
 
 

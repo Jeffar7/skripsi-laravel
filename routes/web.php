@@ -15,7 +15,9 @@ use App\Review;
 use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Http\Request;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Cartalyst\Stripe\Exception\CardErrorException;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -114,6 +116,8 @@ Route::get('/product-cart/delete/{id}', 'ProductController@destroylist');
 
 //checkout
 Route::post('/checkout', 'OrderController@checkout');
+Route::get('/transactions/delivery', 'OrderController@viewCheckOut');
+Route::get('/transactions/ordersummary', 'OrderController@viewSummary')->name('order.summary.checkout');
 
 //buynow
 Route::get('/buy-now/{id}', 'BuynowController@buynow');
@@ -124,6 +128,7 @@ Route::post('/buy-now/add', 'BuynowController@buyNowQuantity');
 Route::post('order-summary-buy-now', 'BuynowController@summary');
 Route::post('/payment/buy_now', 'BuynowController@payment');
 Route::post('/makepayment/buy_now', 'BuynowController@makepayment');
+
 Route::post('/delivery/addaddress/buy_now', 'BuynowController@addaddress');
 
 // Flash data transaction (BuynowController)
@@ -192,8 +197,14 @@ Route::get('/women-new', 'WomenController@new');
 Route::get('/women-sale', 'WomenController@sale');
 Route::get('/women', 'WomenController@index');
 
-Route::post('/voucher', 'VouchersController@store')->name('voucher.store');
-Route::delete('/voucher', 'VouchersController@destroy')->name('voucher.destroy');
+Route::post('/voucher/store', 'VouchersController@store')->name('voucher.store');
+Route::post('/voucher', 'VouchersController@storeCheckout')->name('voucher.store.checkout');
+Route::delete('/voucher/destroy', 'VouchersController@destroy')->name('voucher.destroy');
+Route::delete('/voucher', 'VouchersController@destroyCheckout')->name('voucher.destroy.checkout');
+
+
+
+
 
 
 //route for debug
@@ -209,6 +220,17 @@ Route::get('/read_product', function () {
 });
 
 Route::get('/check', function () {
+
+    $products = Product::find(1)->category->sizeDetails;
+    foreach ($products as $product) {
+
+        echo $product->size . "<br>";
+    }
+
+
+    // $product = Product::find(1);
+
+    // dd($product->brand());
 
     //check order dengan id 1
     // $order = Order::find(1);

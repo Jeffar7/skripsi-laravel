@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +68,7 @@ class ProductController extends Controller
 
             $productwishsave = new product_user();
             $productwishsave->product_id = $request->product_id;
-            $productwishsave->user_id = $request->user_id;
+            $productwishsave->user_id = Auth::user()->id;
             $productwishsave->save();
 
             return back()->with('status', 'item successfully added to wish wish!');

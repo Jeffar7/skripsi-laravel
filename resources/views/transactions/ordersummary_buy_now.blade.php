@@ -35,7 +35,8 @@
                 </thead>
                 <tbody class="bg-transparent">
                   <tr>
-                    <th scope="row"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
+                    <th scope="row"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;"
+                        height="100px;" alt="Image"></th>
                     <td>{{$product->brand->name}}</td>
                     <td class="text-center">{{$product->productname}}</td>
                     <td class="text-center">{{$product->productsize}}</td>
@@ -92,7 +93,8 @@
         <!-- Message for -->
         <div class="row justify-content-center mb-5">
           <div class="col-sm-11 text-center ">
-            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know" form="form-id"></textarea>
+            <textarea name="notes" id="notes" cols="96" rows="5"
+              placeholder="Special shipping request or anything you need to know" form="form-id"></textarea>
           </div>
         </div>
 
@@ -129,19 +131,21 @@
                 </tr>
                 <tr>
 
-                  <form action="{{route('voucher.store')}}" method="POST">
+                  <form action="/voucher/store" method="POST">
                     @csrf
                     <td class="text-left border-0">
                       <input type="text" class="form-control" name="voucher_code">
-                      <input type="hidden" class="form-control" name="grand_total" value="{{$product->productprice*$quantityBuy}}">
+                      <input type="hidden" class="form-control" name="grand_total"
+                        value="{{$product->productprice*$quantityBuy}}">
                     </td>
-                    <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button></td>
+                    <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button>
+                    </td>
                   </form>
 
 
-                  <td class="text-right border">Voucher ({{session()->get('voucher')['code']}})</td>
+                  <td class="text-right border">Voucher ({{session()->get('voucher')['category']}})</td>
                   @if(session()->has('voucher'))
-                  <form action="{{ route('voucher.destroy') }}" method="POST" style="display: inline;">
+                  <form action="/voucher/destroy" method="POST" style="display: inline;">
                     @csrf
                     @method('delete')
                     <button type="submit" style="font-size: 14px;">Remove</button>
@@ -179,7 +183,8 @@
 
     <div class="row justify-content-center mb-3">
       <div class="col-md-10 text-right">
-        <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> PROCEED TO PAYMENT</button>
+        <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> PROCEED
+          TO PAYMENT</button>
       </div>
     </div>
   </form>

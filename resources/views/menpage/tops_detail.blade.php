@@ -38,22 +38,21 @@
 
                 <!-- button size and quantity -->
                 <form action="/wish-list/save" method="POST">
-                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                     <input type="hidden" name="product_id" value="{{$product_tops->id}}">
                     @csrf
                     <div class="row mb-3">
                         <div class="col-auto">
-                            <div class="btn-group">
-                                <button class="btn btn-light border-dark text-dark dropdown-toggle" style="width:185px; background-color:white;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" required="">
-                                    Select Size
-                                </button>
-                                <div class="dropdown-menu">
-                                    <li>
-                                        <a href="">{{$product_tops->productsize}}</a>
-                                    </li>
-                                </div>
+                            <div class="col-auto">
+                                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size">
+                                    <option selected>Select Size</option>
+                                    @foreach($product_tops->category->sizeDetails as $size)
+                                    <option value="{{$size->size}}">{{$size->size}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+
                         <div class="col">
                             <div class="input-group quantity">
                                 <div class="input-group-prepend decrement-btn changeQuantity" style="cursor: pointer">
@@ -92,12 +91,14 @@
                             </div>
                         </div>
                         <div class="col">
-                            <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
+                            <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to
+                                Cart</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
+                            <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy
+                                Now</button>
                         </div>
                     </div>
                     @endguest
@@ -124,8 +125,10 @@
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">Detail</div>
-        <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">Size Detail</div>
+        <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">Detail
+        </div>
+        <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">Size Detail
+        </div>
         <div class="tab-pane fade mt-3" id="review" role="tabpanel" aria-labelledby="review-tab">
             <!--            
             @guest
@@ -159,23 +162,33 @@
                         <div class="media-body">
                             <h4 class="mt-0 text-left">{{$review->user->username}}</h4>
                             @if($review->rating_score == 5)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> {{ $review->rating_score }}</p>
+                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                {{ $review->rating_score }}
+                            </p>
                             @elseif($review->rating_score == 4.5)
                             <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
                             @elseif($review->rating_score == 4)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
+                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                {{ $review->rating_score }}
+                            </p>
                             @elseif($review->rating_score == 3.5)
                             <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
                             @elseif($review->rating_score == 3)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
+                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                {{ $review->rating_score }}
+                            </p>
                             @elseif($review->rating_score == 2.5)
                             <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
                             @elseif($review->rating_score == 2)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
+                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                {{ $review->rating_score }}
+                            </p>
                             @elseif($review->rating_score == 1.5)
                             <p class="card-text"><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
                             @elseif($review->rating_score == 1)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
+                            <p class="card-text"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                {{ $review->rating_score }}
+                            </p>
                             @endif
                             <p>{{$review->review_description}}.</p>
                         </div>
@@ -192,7 +205,11 @@
             <div>
                 <ul class="ml-4">
                     <li>
-                        Refund request must be made within 14 days of delivery date. After 14 days from delivery date you must contact TokoLokal Customer Service to determine the best course of action. TokoLokal will not issue refunds for products purchades through other entities, such as distributors or retail partners. Defective units arecovered under TokoLokal oneyear limted warranty policy will be replaced at TokoLokal cost.
+                        Refund request must be made within 14 days of delivery date. After 14 days from delivery date
+                        you must contact TokoLokal Customer Service to determine the best course of action. TokoLokal
+                        will not issue refunds for products purchades through other entities, such as distributors or
+                        retail partners. Defective units arecovered under TokoLokal oneyear limted warranty policy will
+                        be replaced at TokoLokal cost.
                     </li>
                 </ul>
             </div>
