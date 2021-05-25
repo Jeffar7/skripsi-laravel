@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'TokoLokal | Delivery')
+@section('title', 'TokoLokal | Payment History')
 
 @section('content')
 
@@ -45,6 +45,14 @@
           @endforeach
         </tbody>
       </table>
+      @else
+      @error('no_post_result')
+      <div class="text-center">
+          <img src="images/empty_item.png" alt="" height="200px" width="200px">
+          <p class="mb-0">Oops!</p>
+          <p>{{ $message }}</p>
+      </div>
+      @enderror
       @endif
 
       <div class="mt-4"></div>

@@ -155,7 +155,9 @@ Route::post('/submit/review', 'StatusController@product_submit_review');
 Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
 Route::get('/raffle', 'RaffleController@raffle');
+Route::get('/allraffle', 'RaffleController@allraffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
+Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
 Route::get('/manageraffle', 'RaffleController@index');
 Route::get('/raffles/create', 'RaffleController@create');
 Route::get('/raffles/check/{id}', 'RaffleController@check');

@@ -84,6 +84,8 @@
                         </div>
                     </div>
                     @else
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                    <input type="hidden" name="product_id" value="{{$product_tops->id}}">
                     <div class="row mb-3">
                         <div class="col-2">
                             <div class="text-center">
@@ -125,9 +127,18 @@
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">Detail
+        <<<<<<< HEAD <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">Detail
+    </div>
+    <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">Size Detail
+        =======
+        <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">
+            <p class="about-title">SKU : {{$product_tops->sku}} </p>
+            <p class="about-title">Category : {{$product_tops->category->name}}</p>
         </div>
-        <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">Size Detail
+        <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">
+            <p class="about-title">Size : {{$product_tops->productquantity}}</p>
+            <p class="about-title">Quantity : {{$product_tops->productsize}}</p>
+            >>>>>>> d78480657958400919145a249a6dcc6ed27f3349
         </div>
         <div class="tab-pane fade mt-3" id="review" role="tabpanel" aria-labelledby="review-tab">
             <!--            

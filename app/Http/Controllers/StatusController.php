@@ -38,7 +38,12 @@ class StatusController extends Controller
             ->where('user_id', '=', Auth::user()->id)
             ->get();
 
-        return view('/transactions/waiting_for_review', compact('all_order'));
+        // return view('/transactions/waiting_for_review', compact('all_order'));
+
+        if ($all_order->count() == 0)
+            return view('transactions/waiting_for_review', compact('all_order'))->withErrors(['no_post_result' => 'No data review found.']);
+        else
+            return view('transactions/waiting_for_review', compact('all_order'));
     }
 
     public function product_review_detail($id)
