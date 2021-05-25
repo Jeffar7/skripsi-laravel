@@ -26,8 +26,14 @@
         <div class="col-md-4 text-center">
             <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border rounded-lg shadow-lg" alt="..." width="100%">
             <div class="mt-5">
-                @if(Auth::check() && Auth::user()->role === 'customer')
-                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">Enter Now</a>
+                @if(Auth::check() && Auth::user()->role === 'customer' || Auth::user()->role === 'admin')
+                    @if($raffle->status === 'running')
+                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
+                    @elseif($raffle->status === 'closed')
+                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
+                    @else
+                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
+                    @endif
                 @else
                 <a href="/register" class="btn btn-primary">Enter Now</a>
                 @endif
@@ -65,11 +71,11 @@
                                 </tr>
                                 <tr>
                                     <th scope="row" style="font-weight: bold;">Category</th>
-                                    <td><i class="far fa-check-square"></i></td>
+                                    <td>{{$raffle->categoryraffle->categoryname}}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row" style="font-weight: bold;">Capacity</th>
-                                    <td><i class="far fa-check-square"></i></td>
+                                    <td>{{$raffle->rafflequota}}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row" style="font-weight: bold;">Start Date</th>
@@ -86,7 +92,7 @@
                         <p class="text-center" style="font-weight:normal">{{$raffle->raffledescription}}</p>
                     </div>
                     <div class="tab-pane fade mt-3" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
-                        <p class="text-center" style="font-weight:normal">Please read our Terms & Condition before joining the raffles for the convenience</p>
+                        <p class="text-center" style="font-weight:normal">Please read our <a href="/termsandcondition" class="text-dark font-weight-bold">Terms & Condition</a> before joining the raffles for the convenience</p>
                     </div>
                 </div>
             </div>

@@ -458,6 +458,11 @@ hr {
     background-image: url("ahhagang.png");
 }
 
+#overlay {
+    background-color: rgba(245, 245, 245, 1);
+    opacity: .4;
+}
+
 .overlay {
     position: absolute;
     height: 100%;

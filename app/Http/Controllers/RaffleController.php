@@ -20,7 +20,6 @@ class RaffleController extends Controller
     {
         $dt = Carbon::now();
 
-
         $not_started = DB::table('raffles')->where(function ($query) {
             $query->whereDate('rafflereleasedate', '>', Carbon::now())
                 ->whereTime('rafflereleasedate', '>', Carbon::now());
@@ -227,7 +226,7 @@ class RaffleController extends Controller
 
         // return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
         if ($raffles->count() == 0)
-            return view('raffles.raffle_history', compact('raffles'))->withErrors(['no_post_result' => 'No data history found.']);
+            return view('raffles.raffle_history', compact('raffles'))->withErrors(['no_post_result' => 'No data raffle found.']);
         else
             return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
     }
