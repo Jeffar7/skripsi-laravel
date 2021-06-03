@@ -26,7 +26,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products\manageproduct', compact('products'));
+        return view('products/manageproduct', compact('products'));
     }
 
     /**
@@ -39,7 +39,7 @@ class ProductController extends Controller
         $products = Product::all();
         $categories = Category::all();
         $brands = Brand::all();
-        return view('products\addproduct', compact(['products', 'categories', 'brands']));
+        return view('products/addproduct', compact(['products', 'categories', 'brands']));
     }
 
     public function productwish()
@@ -50,10 +50,10 @@ class ProductController extends Controller
         // return view('products\pagewish', compact('productwishs'));
 
         if ($productwishs->count() == 0)
-            return view('products\pagewish', compact('productwishs'))
+            return view('products/pagewish', compact('productwishs'))
                 ->withErrors(['no_post_result' => 'You do not have any product in wish list yet.']);
         else
-            return view('products\pagewish', compact('productwishs'));
+            return view('products/pagewish', compact('productwishs'));
     }
 
     //save wish list

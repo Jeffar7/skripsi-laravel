@@ -30,6 +30,6 @@ class HomeController extends Controller
 
         // dd($waitingpayment);
 
-        return view('\home');
+        return view('/home');
     }
 }

@@ -24,7 +24,7 @@ class ContactInformationController extends Controller
      */
     public function create()
     {
-        return view('pages\contactus'); 
+        return view('pages/contactus');
     }
 
     /**

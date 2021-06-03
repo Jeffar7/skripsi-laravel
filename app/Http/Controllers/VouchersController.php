@@ -25,7 +25,7 @@ class VouchersController extends Controller
         }
 
 
-        
+
         session()->put('voucher', [
             'code' => $voucher->code,
             'category' => $voucher->category,

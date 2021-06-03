@@ -36,9 +36,7 @@
                 <tbody class="bg-transparent">
                   @foreach ($orders as $product)
                   <tr>
-                    <th scope="row" class="text-center"><img
-                        src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;"
-                        height="100px;" alt="Image"></th>
+                    <th scope="row" class="text-center"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
                     <td class="text-center"></td>
                     <td class="text-center">{{$product->productname}}</td>
                     <td class="text-center">{{$product->productsize}}</td>
@@ -96,8 +94,7 @@
         <!-- Message for -->
         <div class="row justify-content-center mb-5">
           <div class="col-sm-11 text-center ">
-            <textarea name="notes" id="notes" cols="96" rows="5"
-              placeholder="Special shipping request or anything you need to know" form="form-id"></textarea>
+            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know" form="form-id"></textarea>
           </div>
         </div>
 
@@ -140,8 +137,7 @@
                     <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button>
                     </td>
                   </form>
-                  <td class="text-right border">Voucher ({{session()->get('voucher')['category
-                  ']}})</td>
+                  <td class="text-right border">Voucher {{(session()->get('voucher')['category'])}}</td>
                   @if (session()->has('voucher'))
 
                   <form action="{{ route('voucher.destroy.checkout') }}" method="POST" style="display: inline;">

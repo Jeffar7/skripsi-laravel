@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Validator;
 use Stripe;
 use Session;
 
+
 class BuynowController extends Controller
 {
     public function buynow($id)
@@ -35,12 +36,12 @@ class BuynowController extends Controller
     public function makepayment(Request $request)
     {
 
-    //    dd($request->all());
+        //    dd($request->all());
 
-    $user = User::find(Auth::user()->id);
-    $flashData = FlashData::where('user_id','=',Auth::user()->id)->first();
-    $amount_order = Order::where('id','=',$flashData->order_id)->first();
-
+        $user = User::find(Auth::user()->id);
+        $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
+        $amount_order = Order::where('id', '=', $flashData->order_id)->first();
+        // dd($flashData);
         $payment = new Payment();
 
         if ($request->payment_type === 'credit') {
@@ -55,22 +56,21 @@ class BuynowController extends Controller
                 'valid_until' => ['required']
             ]);
 
-                    // validation STRIPE
+            // validation STRIPE
             try {
                 $charge =  Stripe::charges()->create([
-                'currency' => 'IDR',
-                'source' => $request->stripeToken,
-                'description' => 'Payment Credit',
-                'amount' => $amount_order->grand_total,
-                'receipt_email' => $user->email,
-                'metadata' => [
-                    'first_name' => $request->first_name,
-                    'last_name' => $request->last_name
-            ],
-            ]);
-
+                    'currency' => 'IDR',
+                    'source' => $request->stripeToken,
+                    'description' => 'Payment Credit',
+                    'amount' => $amount_order->grand_total,
+                    'receipt_email' => $user->email,
+                    'metadata' => [
+                        'first_name' => $request->first_name,
+                        'last_name' => $request->last_name
+                    ],
+                ]);
             } catch (CardErrorException $e) {
-                return back()-withErrors('Error! ' . $e->getMessage());
+                return back()->withErrors('Error! ' . $e->getMessage());
             }
 
             $payment->payment_type = 'credit';
@@ -94,7 +94,7 @@ class BuynowController extends Controller
             $payment->save();
         }
 
-        Order::where('id', '=', $request->order)->update([
+        Order::where('id', '=', $flashData->order_id)->update([
             'status' => 'completed',
             'payment_id' => $payment->id
         ]);
@@ -102,6 +102,9 @@ class BuynowController extends Controller
         FlashData::where('user_id', '=', Auth::user()->id)->update([
             'payment_id' => $payment->id
         ]);
+
+        //forget session continue after completed payment
+        session()->forget('continueCheckOut');
 
         return redirect('/payment-history');
     }
@@ -196,12 +199,14 @@ class BuynowController extends Controller
 
     public function payment(Request $request)
     {
-        
+
         $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
         $product = Product::where('id', $flashData->product_id)->first();
         $quantityBuy = $flashData->quantity;
-        
+
         // Place Order Summary to Order Table
+
+        if (!session()->has('continueCheckOut')) {
 
             $order = new Order();
             $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
@@ -214,23 +219,24 @@ class BuynowController extends Controller
             $order->notes = $request->notes;
             $order->is_buy_now = 1;
             $order->save();
+            $flashData->update([
+                'order_id' => $order->id
+            ]);
 
+            session()->forget('voucher');
 
-        $flashData->update([
-            'order_id' => $order->id
-        ]);
-
-        session()->forget('voucher');
-
-        //store product to order_product
-        $order_product = new order_product();
-        $order_product->product_id = $request->product;
-        $order_product->order_id = $order->id;
-        $order_product->is_review = 'no';
-        $order_product->quantity = $quantityBuy;
-        $order_product->subtotal = $product->productprice * $quantityBuy;
-        $order_product->save();
-
+            //store product to order_product
+            $order_product = new order_product();
+            $order_product->product_id = $request->product;
+            $order_product->order_id = $order->id;
+            $order_product->is_review = 'no';
+            $order_product->quantity = $quantityBuy;
+            $order_product->subtotal = $product->productprice * $quantityBuy;
+            $order_product->save();
+        } else
+            $flashData->update([
+                'order_id' => session()->get('continueCheckOut')['order_id']
+            ]);
 
         $payments = Payment::all();
 

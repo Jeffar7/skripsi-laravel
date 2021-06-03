@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Address_Delivery_Users;
 use App\Cart;
 use App\FlashData;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use App\Product;
 use App\order_product;
 use App\Payment;
 use App\Review;
+use App\Shipment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -85,17 +87,34 @@ class StatusController extends Controller
     {
         $order = Order::find($id);
         $payments = Payment::all();
-        $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
-        $quantityBuy = $flashData->quantity;
+        $shipments = Shipment::all();
+        $product_id = $order->product->first()->id; //product
+        $quantity = $order->product()->first()->pivot->quantity; //quantity
+        $addresses = null;
+        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $is_exist = FlashData::where('user_id', '=', Auth::user()->id)->first();
 
-        if($order->address_id == 0 && $order->is_buy_now == 1)
-            return view('/transactions/continue/buy-now', compact(''));
-        else if($order->address_id == 0 && $order->is_buy_now == 0)
-            return view('/transactions/continue/checkout', compact());
-        else if($order->address_id == 1 && $order->is_buy_now == 1)
-            return view('/transactions/continue/buy-now/payment', compact());
-        else if($order->address_id == 1 && $order->is_buy_now == 0)
-            return view('/transactions/continue/checkout', compact());
+        session()->put('continueCheckOut', [
+            'order_id' => $order->id
+        ]);
+
+        if ($is_exist) {
+            DB::table('flashdata')
+                ->where('user_id', '=', Auth::user()->id)
+                ->delete();
+        }
+        $flashData = new FlashData();
+        $flashData->product_id = $product_id;
+        $flashData->quantity = $quantity;
+        $flashData->user_id = Auth::user()->id;
+        $flashData->save();
+
+        // dd($product_id);
+
+        if ($order->is_buy_now == 1)
+            return view('/transactions/delivery_buy_now', compact('product_id', 'quantity', 'payments', 'shipments', 'addresses'));
+        else
+            return view('/transactions/continue/checkout', compact(''));
     }
 
     public function buyAgain(Product $product)

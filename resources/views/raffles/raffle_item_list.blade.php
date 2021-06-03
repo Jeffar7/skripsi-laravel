@@ -57,7 +57,7 @@
                             <a href="/raffle/description/{{$raffle->id}}" class="text-decoration-none" style="color:black;">
                                 <p class="text-right mb-0">
                                     <!-- <u> -->
-                                        <small class="font-weight-bolder">Started From:</small>
+                                    <small class="font-weight-bolder">Started From:</small>
                                     <!-- </u> -->
                                 </p>
                                 <h5 class="text-right">
@@ -76,31 +76,31 @@
                             </a>
                             <div class="text-right">
                                 @if(Auth::check() && Auth::user()->role === 'customer' || Auth::user()->role === 'admin')
-                                    @if($raffle->status === 'running')
-                                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
-                                    @elseif($raffle->status === 'closed')
-                                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
-                                    @else
-                                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
-                                    @endif
+                                @if($raffle->status === 'running')
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
+                                @elseif($raffle->status === 'closed')
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
+                                @else
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
+                                @endif
                                 @else
                                 <a href="/register" class="btn btn-primary">Enter Now</a>
                                 @endif
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                <p class="mb-0">
-                                    @if($raffle->status === 'running')
-                                    <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> ~/{{$raffle->rafflequota}}</small>
-                                    @else
-                                    <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> N/A</small>
-                                    @endif
-                                </p>
+                                    <p class="mb-0">
+                                        @if($raffle->status === 'running')
+                                        <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> {{$raffle->rafflejoined}}/{{$raffle->rafflequota}}</small>
+                                        @else
+                                        <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> N/A</small>
+                                        @endif
+                                    </p>
                                 </div>
                                 <div class="col">
-                                <p class="mb-0">
-                                    <small class="font-weight-bolder">Category: {{$raffle->categoryraffle->categoryname}}</small>
-                                </p>
+                                    <p class="mb-0">
+                                        <small class="font-weight-bolder">Category: {{$raffle->categoryraffle->categoryname}}</small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                             <a href="/raffle/description/{{$raffle->id}}" class="text-decoration-none" style="color:black;">
                                 <p class="text-right mb-0">
                                     <!-- <u> -->
-                                        <small class="font-weight-bolder">Started From:</small>
+                                    <small class="font-weight-bolder">Started From:</small>
                                     <!-- </u> -->
                                 </p>
                                 <h5 class="text-right">
@@ -139,27 +139,27 @@
                             </a>
                             <div class="text-right">
                                 @if(Auth::check() && Auth::user()->role === 'customer' || Auth::user()->role === 'admin')
-                                    @if($raffle->status === 'running')
-                                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
-                                    @elseif($raffle->status === 'closed')
-                                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
-                                    @else
-                                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
-                                    @endif
+                                @if($raffle->status === 'running')
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
+                                @elseif($raffle->status === 'closed')
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
+                                @else
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
+                                @endif
                                 @else
                                 <a href="/register" class="btn btn-primary">Enter Now</a>
                                 @endif
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                <p class="mb-0">
-                                    <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> ~/{{$raffle->rafflequota}}</small>
-                                </p>
+                                    <p class="mb-0">
+                                        <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> {{$raffle->rafflejoined}}/{{$raffle->rafflequota}}</small>
+                                    </p>
                                 </div>
                                 <div class="col">
-                                <p class="mb-0">
-                                    <small class="font-weight-bolder">Category: {{$raffle->categoryraffle->categoryname}}</small>
-                                </p>
+                                    <p class="mb-0">
+                                        <small class="font-weight-bolder">Category: {{$raffle->categoryraffle->categoryname}}</small>
+                                    </p>
                                 </div>
                             </div>
                         </div>

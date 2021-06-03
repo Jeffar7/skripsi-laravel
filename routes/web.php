@@ -77,7 +77,8 @@ Route::get('/usercontrol', 'UserController@usercontrol')->middleware('role:admin
 Route::get('/homeman', 'PageController@homeman')->name('homeman');
 Route::patch('/users/adm/{user}', 'UserController@updateadm')->middleware('role:admin');
 Route::patch('/users/cstm/{user}', 'UserController@update')->middleware('role:admin|customer');
-Route::delete('users/{user}', 'UserController@destroy')->middleware('role:admin');
+Route::delete('/users/{user}', 'UserController@destroy')->middleware('role:admin');
+Route::delete('/delete-my-account/{user}', 'UserController@deleteMyAccount');
 
 Route::get('/itemlist', 'PageController@itemlist');
 Route::get('/itemdetail', 'PageController@itemdetail');

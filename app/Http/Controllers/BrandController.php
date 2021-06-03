@@ -16,7 +16,7 @@ class BrandController extends Controller
     {
         $brands = Brand::all();
 
-        return view('brands\managebrand',compact('brands'));
+        return view('brands.managebrand', compact('brands'));
     }
 
     public function allbrand()
@@ -28,21 +28,20 @@ class BrandController extends Controller
         $categories = Brand::orderBy('name', 'asc')->get();
 
         $groups = $categories->reduce(function ($carry, $category) {
-    
+
             // get first letter
             $first_letter = $category['name'][0];
-    
-            if ( !isset($carry[$first_letter]) ) {
+
+            if (!isset($carry[$first_letter])) {
                 $carry[$first_letter] = [];
             }
-    
+
             $carry[$first_letter][] = $category;
-    
+
             return $carry;
-    
         }, []);
-    
-        return view('brands\allbrand',compact('brands'))->with('groups', $groups);
+
+        return view('brands.allbrand', compact('brands'))->with('groups', $groups);
     }
 
 
@@ -53,7 +52,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('brands\addbrand');
+        return view('brands.addbrand');
     }
 
     /**
@@ -79,19 +78,19 @@ class BrandController extends Controller
         $brand->website = $request->website;
         $brand->about = $request->about;
 
-        if($request->hasFile('picture')){
+        if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $filenameWithoutExt = $file->getClientOriginalName();
             $filenamesave = $filenameWithoutExt;
             $file->storeAs('public/images/Brands/', $filenamesave);
             $brand->picture = $filenamesave;
-        }else{
+        } else {
             return $request;
             $brand->picture = '';
         }
 
         $brand->save();
-        return redirect('/managebrand')->with('status','Brand Successfully Added!');
+        return redirect('/managebrand')->with('status', 'Brand Successfully Added!');
     }
 
     /**
@@ -102,7 +101,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        return view('brands.detailbrand',compact('brand'));
+        return view('brands.detailbrand', compact('brand'));
     }
 
     /**
@@ -113,7 +112,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        return view('brands.editbrand',compact('brand'));
+        return view('brands.editbrand', compact('brand'));
     }
 
     /**
@@ -125,13 +124,13 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        if($request->hasFile('picture')){
+        if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $filenameWithoutExt = $file->getClientOriginalName();
             $filenamesave = $filenameWithoutExt;
             $file->storeAs('public/images/Brands/', $filenamesave);
             $brand->picture = $filenamesave;
-        }else{
+        } else {
             return $request;
             $brand->picture = '';
         }
@@ -145,16 +144,16 @@ class BrandController extends Controller
         // ]);
 
         Brand::where('id', $brand->id)
-        ->update([
-            'name' => $request->name,
-            'picture' => $request->picture,
-            'owner' => $request->owner,
-            'website' => $request->website,
-            'about' => $request->about,
+            ->update([
+                'name' => $request->name,
+                'picture' => $request->picture,
+                'owner' => $request->owner,
+                'website' => $request->website,
+                'about' => $request->about,
 
-        ]);
+            ]);
 
-        return redirect('/managebrand')->with('status','brand successfully updated!');
+        return redirect('/managebrand')->with('status', 'brand successfully updated!');
     }
 
     /**
@@ -167,6 +166,6 @@ class BrandController extends Controller
     {
         Brand::destroy($brand->id);
 
-        return redirect('managebrand')->with('status','Brand successfully deleted!');
+        return redirect('managebrand')->with('status', 'Brand successfully deleted!');
     }
 }

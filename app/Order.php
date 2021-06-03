@@ -41,7 +41,7 @@ class Order extends Model
 
     public function product()
     {
-        return $this->belongsToMany(Product::class)->withPivot('is_review')->withTimestamps();
+        return $this->belongsToMany(Product::class)->withPivot('is_review', 'quantity')->withTimestamps();
     }
 
     public function payment()
