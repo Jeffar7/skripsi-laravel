@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -211,6 +213,14 @@ Route::delete('/voucher', 'VouchersController@destroyCheckout')->name('voucher.d
 
 
 //route for debug
+
+Route::get('/send-email', function () {
+    $details = [
+        'title' => 'Test Mail',
+        'body' => 'Hi There!'
+    ];
+    Mail::to('jeffarmanurung66@gmail.com')->send(new \App\Mail\MyMail($details));
+});
 
 Route::get('/read_product', function () {
     $order = Order::find(1);

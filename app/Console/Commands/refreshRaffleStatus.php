@@ -4,9 +4,11 @@ namespace App\Console\Commands;
 
 use App\Cart;
 use App\Raffle;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class refreshRaffleStatus extends Command
 {
@@ -22,7 +24,7 @@ class refreshRaffleStatus extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'For refresh raffle status';
 
     /**
      * Create a new command instance.
@@ -58,5 +60,12 @@ class refreshRaffleStatus extends Command
             ->whereDate('raffleclosedate', '<', Carbon::now())
             // ->whereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
             ->update(['status' => 'closed']);
+
+        Mail::raw("This is automatically generated minute update", function ($message) {
+            $message->from('Jeffarmanurung66@gmail.com');
+            $message->to('Jeffarmanurung66@gmail.com')->subject('Minute Update');
+        });
+
+        $this->info('Minute Update has been send successfully');
     }
 }
