@@ -25,12 +25,32 @@ class VouchersController extends Controller
         }
 
 
+
         session()->put('voucher', [
             'code' => $voucher->code,
+            'category' => $voucher->category,
             'discount' => $voucher->discount($request->grand_total)
         ]);
 
         return redirect()->route('order.summary')->with('success_status', 'Voucher has been applied!');
+    }
+
+    public function storeCheckout(Request $request)
+    {
+        $voucher = Voucher::where('code', $request->voucher_code)->first();
+        if (!$voucher) {
+            session()->forget('voucher');
+            return redirect()->route('order.summary.checkout')->with('status', 'Invalid voucher code. Please try again.');
+        }
+
+
+        session()->put('voucher', [
+            'code' => $voucher->code,
+            'category' => $voucher->category,
+            'discount' => $voucher->discount($request->grand_total)
+        ]);
+
+        return redirect()->route('order.summary.checkout')->with('success_status', 'Voucher has been applied!');
     }
 
 
@@ -44,5 +64,12 @@ class VouchersController extends Controller
         session()->forget('voucher');
 
         return redirect()->route('order.summary')->with('success_status', 'Voucher has been removed.');
+    }
+
+    public function destroyCheckout()
+    {
+        session()->forget('voucher');
+
+        return redirect()->route('order.summary.checkout')->with('success_status', 'Voucher has been removed.');
     }
 }

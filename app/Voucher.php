@@ -11,8 +11,11 @@ class Voucher extends Model
 
     protected $table = "vouchers";
     protected $fillable = [
-        'voucher_code',
-        'discount_percentage',
+        'code',
+        'type',
+        'value',
+        'percent_off',
+        'category'
     ];
 
     public static function findByCode($code)

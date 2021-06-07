@@ -18,7 +18,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.p
      *
      * @return \Illuminate\Http\Response
      */
@@ -26,20 +26,20 @@ class UserController extends Controller
     {
         $user = DB::table('users')->get();
 
-        return view('users\userprofile');
+        return view('users/userprofile');
     }
 
     public function usersettings()
     {
         $user = User::where('id', '=', Auth::user()->id)->first();
-        return view('users\usersetting', compact('user'));
+        return view('users/usersetting', compact('user'));
     }
 
     public function usercontrol()
     {
         $users = User::all();
 
-        return view('users\usercontrol', ['users' => $users]);
+        return view('users/usercontrol', ['users' => $users]);
     }
 
     /**
@@ -49,7 +49,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users\usercreate');
+        return view('users/usercreate');
     }
 
     /**
@@ -252,5 +252,13 @@ class UserController extends Controller
         User::destroy($user->id);
 
         return redirect('usercontrol')->with('status', 'User successfully deleted!');
+    }
+
+    public function deleteMyAccount(User $user)
+    {
+        Auth::logout();
+        User::destroy($user->id);
+
+        return redirect('/');
     }
 }

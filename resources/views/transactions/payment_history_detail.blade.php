@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h1 class="title-home mt-3">Payment History Detail</h1>
-            
+
             <table class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
                     <tr>
@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($order_product_detail as $product)
+                    @foreach($order_product_detail as $product)
                     <tr>
                         <th scope="row" class="text-center font-weight-normal"><a href="/men-tops/detail/{{$product->product_id}}" class="text-dark">{{$product->productname}}</a></th>
                         <td class="text-center font-weight-normal"> <img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;" height="80px;" alt="Image"></td>
@@ -48,7 +48,7 @@
                             </form> -->
                         </td>
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
             <div class="mt-4"></div>

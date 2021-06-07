@@ -33,18 +33,23 @@
 
     <!-- fav icon -->
     <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png">
+
+    <!-- style for stripe -->
+    @yield('extra-css')
 </head>
 
 <body>
     <div id="app">
-    <?php
+        <?php
+
         use App\Http\Controllers\ProductController;
         use Illuminate\Support\Facades\Auth;
+
         $totalItemCart = 0;
-        if(Auth::check() && Auth::user()->role === 'customer'){
-            $totalItemCart = ProductController::countItemCart();    
+        if (Auth::check() && Auth::user()->role === 'customer') {
+            $totalItemCart = ProductController::countItemCart();
         }
-    ?>
+        ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -193,7 +198,9 @@
                     <div class="col-4">
                         <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
                         <br>
-                        <p>TokoLokal is a concept store based in Jakarta. Started in 2021, TokoLokal become a point for fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local products to compete with international products.</p>
+                        <p>TokoLokal is a concept store based in Jakarta. Started in 2021, TokoLokal become a point for
+                            fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local
+                            products to compete with international products.</p>
                         <p>© 2021 TokoLokal. All Rights Reserved.</p>
                     </div>
                     <div class="col-2">
@@ -213,12 +220,15 @@
                     <div class="col-4">
                         <p>VISIT</p>
                         <p>PT. CIPTA RETAIL PRAKARSA
-                            Wisma Anugraha Lantai GF, Jl. Taman Kemang No. 32B Kel. Pela Mampang, Kec. Mampang Jakarta Selatan 12730</p>
+                            Wisma Anugraha Lantai GF, Jl. Taman Kemang No. 32B Kel. Pela Mampang, Kec. Mampang Jakarta
+                            Selatan 12730</p>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
+
+
 </body>
 
 </html>

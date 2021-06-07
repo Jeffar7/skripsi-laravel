@@ -94,9 +94,21 @@
         <!-- Message for -->
         <div class="row justify-content-center mb-5">
           <div class="col-sm-11 text-center ">
-            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know"></textarea>
+            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know" form="form-id"></textarea>
           </div>
         </div>
+
+        @if (session('status'))
+        <div class="alert alert-danger">
+          {{ session('status') }}
+        </div>
+        @endif
+
+        @if (session('success_status'))
+        <div class="alert alert-success">
+          {{ session('success_status') }}
+        </div>
+        @endif
 
         <!-- Table voucher -->
         <div class="row">
@@ -116,16 +128,31 @@
                   <td class="text-right border">Rp. {{number_format($shipment->delivery_cost)}}</td>
                 </tr>
                 <tr>
-                  <td class="text-left border-0"><input type="text" class="form-control" name="vouchers"></td>
-                  <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button></td>
-                  <td class="text-right border">Total Voucher</td>
-                  <td class="text-right border">Rp. X,XXX,XXX</td>
+                  <form action="{{route('voucher.store.checkout')}}" method="POST">
+                    @csrf
+                    <td class="text-left border-0">
+                      <input type="text" class="form-control" name="voucher_code">
+                      <input type="hidden" class="form-control" name="grand_total" value="{{$totals}}">
+                    </td>
+                    <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button>
+                    </td>
+                  </form>
+                  <td class="text-right border">Voucher {{(session()->get('voucher')['category'])}}</td>
+                  @if (session()->has('voucher'))
+
+                  <form action="{{ route('voucher.destroy.checkout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" style="font-size: 14px;"> Remove </button>
+                  </form>
+                  @endif
+                  <td class="text-right border">Rp. {{number_format(session()->get('voucher')['discount'])}}</td>
                 </tr>
                 <tr>
                   <td class="text-left border-0">Take Advantage of our exclusive offers</td>
                   <td class="text-right border-0"></td>
                   <td class="text-right border font-weight-bold">TOTAL</td>
-                  <td class="text-right border font-weight-bold">Rp. X,XXX,XXX</td>
+                  <td class="text-right border font-weight-bold">Rp. {{number_format($newTotal)}}</td>
                 </tr>
               </table>
             </div>
@@ -138,7 +165,7 @@
   <!-- End Address -->
 
   <!-- Button -->
-  <form action="/payment" method="post">
+  <form action="/payment" method="post" id="form-id">
     @csrf
 
     <input type="hidden" name="products" value="{{ json_encode($products,TRUE)}}">
@@ -147,7 +174,8 @@
 
     <div class="row justify-content-center mb-3">
       <div class="col-md-10 text-right">
-        <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> PROCEED TO PAYMENT</button>
+        <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> PROCEED
+          TO PAYMENT</button>
       </div>
     </div>
   </form>

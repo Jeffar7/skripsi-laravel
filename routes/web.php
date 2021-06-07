@@ -15,6 +15,10 @@ use App\Review;
 use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Cartalyst\Stripe\Exception\CardErrorException;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +79,8 @@ Route::get('/usercontrol', 'UserController@usercontrol')->middleware('role:admin
 Route::get('/homeman', 'PageController@homeman')->name('homeman');
 Route::patch('/users/adm/{user}', 'UserController@updateadm')->middleware('role:admin');
 Route::patch('/users/cstm/{user}', 'UserController@update')->middleware('role:admin|customer');
-Route::delete('users/{user}', 'UserController@destroy')->middleware('role:admin');
+Route::delete('/users/{user}', 'UserController@destroy')->middleware('role:admin');
+Route::delete('/delete-my-account/{user}', 'UserController@deleteMyAccount');
 
 Route::get('/itemlist', 'PageController@itemlist');
 Route::get('/itemdetail', 'PageController@itemdetail');
@@ -114,6 +119,8 @@ Route::get('/product-cart/delete/{id}', 'ProductController@destroylist');
 
 //checkout
 Route::post('/checkout', 'OrderController@checkout');
+Route::get('/transactions/delivery', 'OrderController@viewCheckOut');
+Route::get('/transactions/ordersummary', 'OrderController@viewSummary')->name('order.summary.checkout');
 
 //buynow
 Route::get('/buy-now/{id}', 'BuynowController@buynow');
@@ -124,6 +131,7 @@ Route::post('/buy-now/add', 'BuynowController@buyNowQuantity');
 Route::post('order-summary-buy-now', 'BuynowController@summary');
 Route::post('/payment/buy_now', 'BuynowController@payment');
 Route::post('/makepayment/buy_now', 'BuynowController@makepayment');
+
 Route::post('/delivery/addaddress/buy_now', 'BuynowController@addaddress');
 
 // Flash data transaction (BuynowController)
@@ -194,11 +202,25 @@ Route::get('/women-new', 'WomenController@new');
 Route::get('/women-sale', 'WomenController@sale');
 Route::get('/women', 'WomenController@index');
 
-Route::post('/voucher', 'VouchersController@store')->name('voucher.store');
-Route::delete('/voucher', 'VouchersController@destroy')->name('voucher.destroy');
+Route::post('/voucher/store', 'VouchersController@store')->name('voucher.store');
+Route::post('/voucher', 'VouchersController@storeCheckout')->name('voucher.store.checkout');
+Route::delete('/voucher/destroy', 'VouchersController@destroy')->name('voucher.destroy');
+Route::delete('/voucher', 'VouchersController@destroyCheckout')->name('voucher.destroy.checkout');
+
+
+
+
 
 
 //route for debug
+
+Route::get('/send-email', function () {
+    $details = [
+        'title' => 'Test Mail',
+        'body' => 'Hi There!'
+    ];
+    Mail::to('jeffarmanurung66@gmail.com')->send(new \App\Mail\MyMail($details));
+});
 
 Route::get('/read_product', function () {
     $order = Order::find(1);
@@ -211,6 +233,17 @@ Route::get('/read_product', function () {
 });
 
 Route::get('/check', function () {
+
+    $products = Product::find(1)->category->sizeDetails;
+    foreach ($products as $product) {
+
+        echo $product->size . "<br>";
+    }
+
+
+    // $product = Product::find(1);
+
+    // dd($product->brand());
 
     //check order dengan id 1
     // $order = Order::find(1);

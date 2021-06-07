@@ -17,6 +17,7 @@ class Raffle extends Model
         'raffleimage',
         'rafflequantity',
         'rafflequota',
+        'rafflejoined',
         'rafflereleasedate',
         'raffleclosedate',
         'status',

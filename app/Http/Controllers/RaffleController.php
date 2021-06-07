@@ -18,45 +18,28 @@ class RaffleController extends Controller
 
     public function __construct()
     {
-        $dt = Carbon::now();
-
-        $not_started = DB::table('raffles')->where(function ($query) {
-            $query->whereDate('rafflereleasedate', '>', Carbon::now())
-                ->whereTime('rafflereleasedate', '>', Carbon::now());
-        })->update(['status' => 'not_started']);
-
-
-        $closed = DB::table('raffles')->where(function ($query) {
-            $query->whereDate('raffleclosedate', '<', Carbon::now())
-                ->whereTime('raffleclosedate', '>', Carbon::now());
-        })->update(['status' => 'closed']);
-
-        $running = DB::table('raffles')
-            ->whereRaw('"' . $dt . '" between `rafflereleasedate` and `raffleclosedate`')
-            ->update(['status' => 'running']);
     }
 
     public function raffledetail(Raffle $raffle)
     {
-        return view('\raffles\raffle_detail', compact('raffle'));
+        return view('/raffles/raffle_detail', compact('raffle'));
     }
 
     public function raffle()
     {
         $raffles = Raffle::paginate(3);
-        return view('\raffles\raffle', compact('raffles'));
+        return view('/raffles/raffle', compact('raffles'));
     }
 
     public function allraffle()
     {
         $raffles = Raffle::paginate(3);
-        return view('\raffles\raffle_item_list', compact('raffles'));
+        return view('/raffles/raffle_item_list', compact('raffles'));
     }
 
     public function raffledescription(Raffle $raffle)
     {
-
-        return view('\raffles\raffle_item_desc', compact('raffle'));
+        return view('/raffles/raffle_item_desc', compact('raffle'));
     }
 
 
@@ -68,7 +51,7 @@ class RaffleController extends Controller
     public function index()
     {
         $raffles = Raffle::all();
-        return view('\raffles\manageraffles', compact('raffles'));
+        return view('/raffles/manageraffles', compact('raffles'));
     }
 
     /**
@@ -81,7 +64,7 @@ class RaffleController extends Controller
         $brands = Brand::all();
         $categoryraffles = RaffleCategory::all();
 
-        return view('\raffles\addraffle', compact('brands', 'categoryraffles'));
+        return view('/raffles/addraffle', compact('brands', 'categoryraffles'));
     }
 
     /**
@@ -212,6 +195,12 @@ class RaffleController extends Controller
         // Input To Raffle_User
         $user = User::find(Auth::user()->id);
         $user->raffle()->attach($request->raffle_id, ['address_raffle_id' => $addressForRaffle->id]);
+
+        //update quota raffle
+        Raffle::where('id', '=', $request->raffle_id)->update([
+            'rafflejoined' => DB::raw('rafflejoined + 1')
+        ]);
+
         return  redirect('/raffle/history');
     }
 
@@ -266,7 +255,7 @@ class RaffleController extends Controller
             ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $id)
             ->inRandomOrder()
-            ->limit(2) //RANDOM FOR 2 USERS
+            ->limit(10) //RANDOM FOR 2 USERS
             ->get();
 
 
