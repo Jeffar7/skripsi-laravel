@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    {{-- Iseng Code --}}
+    {{-- Iseng Code d --}}
     {{-- @if(auth()->user()->is_admin)
     @forelse($notifications as $notification)
     <div class="alert alert-sucess" role="alert">
@@ -61,6 +61,8 @@
         There are no new notifications
     @endforelse
     @endif --}}
+
+    {{-- <p>{{count(auth()->user()->notifications)}}</p> --}}
 
     <div class="container mb-5">
         <p class="title-home">BEST SELLER</p>

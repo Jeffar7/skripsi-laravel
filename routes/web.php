@@ -63,6 +63,17 @@ Route::get('/termsandcondition', function () {
     return view('pages/terms');
 });
 
+//notiification 
+Route::get('/test', function(){
+    $notifications = auth()->user()->unreadNotifications;
+    foreach($notifications as $notification){
+         dd($notification->data['user']['name']); //buat yang duplicate array
+    }
+});
+
+Route::get('/markAsRead', function(){
+    auth()->user()->unreadNotifications->markAsRead();
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/pagehome', 'PageController@home')->middleware('auth');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address_Delivery_Users;
+// use App\Notifications\UserNotification;
 use App\Product;
 use App\Shipment;
 use App\Order;
@@ -88,6 +89,8 @@ class BuynowController extends Controller
             'status' => 'completed',
             'payment_id' => $payment->id
         ]);
+
+        // auth()->user()->notify(new UserNotification());
 
         return redirect('/payment-history');
     }

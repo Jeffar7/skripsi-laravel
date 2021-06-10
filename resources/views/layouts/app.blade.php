@@ -27,6 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
@@ -34,6 +35,8 @@
     <!-- fav icon -->
     <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png"> 
 </head>
+
+
 
 <body>
     <div id="app">
@@ -131,14 +134,37 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
+                        <li class="nav-item dropdown" id="markasread" onclick="markNotificationAsRead()">
+                            <a class="nav-link" href="#"><i class="far fa-bell"></i><span class="badge" style="
+                                color: white;
+                                background: red;
+                                border: 2px solid red;
+                                border-radius: 25px;
+                                padding: 1% 0;
+                            ">{{count(auth()->user()->unreadNotifications)}}</span></a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    @forelse(auth()->user()->unreadNotifications as $notification)
+                                        @include('layouts.notification.'.Str::snake(class_basename($notification->type)))
+
+                                        {{-- <a href="#">{{Str::snake(class_basename($notification->type))}}</a> --}}
+
+                                        {{-- @include('layouts.notification.UserNotification') --}}
+                                        {{-- .($notification->type) --}}
+                                        {{-- <a href="#">{{$notification->type}}</a> --}}
+                                        {{-- <a href="#">{{snake_case(class_basename($notification->type))}}</a> --}}
+                                        @empty
+                                        <a href="#">No unread Notifications</a>
+                                    @endforelse
+                                </li>
+                            </ul>
+
+                            {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>
-                            </div>
+                            </div> --}}
 
                         </li>
                         <li class="nav-item dropdown">
@@ -148,6 +174,7 @@
 
                             <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/userprofile">My Profile</a>
+                                <a class="dropdown-item" href="/userprofile">Transaction</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

@@ -80,8 +80,13 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    // public function users(){
+    //     return $this->hasOne(User::class);
+    // }
+
+    //openyg bawah ini, is_admin()
     // public function roles(){
-    //     return $this->belongsToMany(User::class, 'users');
+    //     return $this->hasOne(Role::class);
     // }
 
     // public function getIsAdminAttribute(){

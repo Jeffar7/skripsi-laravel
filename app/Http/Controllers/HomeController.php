@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Notifications\UserNotification;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,11 +25,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(User $user)
     {
         $notifications = auth()->user()->unreadNotifications;
 
+        // auth()->user()->notify(new UserNotification());
+
+        // $user->notify(new UserNotification($user));
+
         return view('home', compact('notifications'));
+        
         // dd($waitingpayment);
 
         // return view('\home');

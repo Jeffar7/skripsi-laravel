@@ -11,6 +11,8 @@ class UserNotification extends Notification
 {
     use Queueable;
 
+    protected $user;
+
     /**
      * Create a new notification instance.
      *
@@ -57,8 +59,8 @@ class UserNotification extends Notification
         return [
             // 'first_name' => $this->user->first_name,
             // 'last_name' => $this->user->last_name,
-            'username' => $this->user->username,
-            'email' => $this->user->email,
+            // 'username' => $this->user->username,
+            // 'email' => $this->user->email,
             // 'gender' => $this->user->gender,
             // 'DOB' => $this->user->DOB,
             // 'role' => $this->user->role,
@@ -67,6 +69,16 @@ class UserNotification extends Notification
             // 'site' => $this->user->site,
             // 'about' => $this->user->about,
             // 'phone' => $this->user->phone,
+        ];
+    }
+    
+    public function toDatabase($notifiable){
+        // dd($notifiable);
+        return [
+            'username' => $this->user->username,
+            'email' => $this->user->email,
+
+            'user' => auth()->user()
         ];
     }
 }
