@@ -114,7 +114,7 @@ class StatusController extends Controller
         if ($order->is_buy_now == 1)
             return view('/transactions/delivery_buy_now', compact('product_id', 'quantity', 'payments', 'shipments', 'addresses'));
         else
-            return view('/transactions/continue/checkout', compact(''));
+            return view('/transactions/continue/checkout');
     }
 
     public function buyAgain(Product $product)

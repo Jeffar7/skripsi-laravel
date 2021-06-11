@@ -35,7 +35,6 @@ class BuynowController extends Controller
 
     public function makepayment(Request $request)
     {
-
         //    dd($request->all());
 
         $user = User::find(Auth::user()->id);

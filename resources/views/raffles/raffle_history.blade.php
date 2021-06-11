@@ -36,14 +36,20 @@
                         <td class="text-center font-weight-normal">Rp. {{number_format($raffle->raffleprice)}}</td>
                         <td class="text-center font-weight-normal">{{$raffle->raffleclosedate}}</td>
                         <td class="text-center font-weight-normal">{{$raffle->status}}</td>
-                        @if($raffle->status == 'pending')
+                        @if($raffle->status == 'running')
                         <td class="text-center font-weight-normal">Waiting until Raffle Close</td>
-                        @elseif($raffle->status == 'closed')
-                        <td class="text-center font-weight-normal">Wait for the system to determine the winner</td>
-                        @elseif($raffle->status == 'lose')
+                        @else
+                        @if($raffle->is_win == 'win')
+                        <td class="text-center font-weight-normal">Congratulations you win! Continue
+
+                            <a href="/raffles/checkout/{{$raffle->id}}" type="button" class="btn btn-outline-success">Checkout</a>
+
+                        </td>
+                        @elseif($raffle->is_win == 'lose')
                         <td class="text-center font-weight-normal">Sorry you are not lucky, please choose another raffle product.</td>
                         @else
-                        <td class="text-center font-weight-normal">Congratulations you can buy this product. Click the following <a href="#!">link</a> to continue the transaction</td>
+                        <td class="text-center font-weight-normal">Wait for the system to determine the winner</td>
+                        @endif
                         @endif
                     </tr>
                     @endforeach

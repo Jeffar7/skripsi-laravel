@@ -169,6 +169,9 @@ Route::post('/manageraffle', 'RaffleController@store');
 Route::get('/raffles/{raffle}/edit', 'RaffleController@edit');
 Route::patch('/raffles/{raffle}', 'RaffleController@update');
 Route::delete('/raffles/{raffle}', 'RaffleController@destroy');
+Route::get('/raffles/checkout/{id}', 'RaffleController@raffleCheckout');
+Route::post('/raffles/summary', 'RaffleController@raffleSummary');
+Route::get('/raffles/summary', 'RaffleController@raffleSummaryView');
 
 //place raffle
 Route::post('/raffle/submit', 'RaffleController@submit');

@@ -8,6 +8,7 @@ use App\Raffle;
 use App\RaffleCategory;
 use App\User;
 use App\raffle_user;
+use App\Shipment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -210,8 +211,9 @@ class RaffleController extends Controller
         $raffles = DB::table('raffle_user')
             ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
             ->where('user_id', '=', Auth::user()->id)
-            ->select('raffle_user.*', 'raffles.rafflename', 'raffles.raffleimage', 'raffles.raffleprice', 'raffles.raffleclosedate')
+            ->select('raffle_user.*', 'raffle_user.status as is_win', 'raffles.rafflename', 'raffles.raffleimage', 'raffles.raffleprice', 'raffles.raffleclosedate', 'raffles.status as status')
             ->get();
+
 
         // return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
         if ($raffles->count() == 0)
@@ -229,7 +231,7 @@ class RaffleController extends Controller
         $users = DB::table('raffle_user')
             ->join('users', 'raffle_user.user_id', '=', 'users.id')
             ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
-            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
+            ->select('raffle_user.*', 'raffle_user.status as is_win', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $raffle->id)
             ->get();
 
@@ -255,7 +257,7 @@ class RaffleController extends Controller
             ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $id)
             ->inRandomOrder()
-            ->limit(10) //RANDOM FOR 2 USERS
+            ->limit(3) //RANDOM FOR 2 USERS
             ->get();
 
 
@@ -273,5 +275,41 @@ class RaffleController extends Controller
         ]);
 
         return back();
+    }
+
+    public function raffleCheckout($id)
+    {
+        $shipments = Shipment::all();
+        $address = raffle_user::find($id)->addressForRaffle;
+        $raffle_user = raffle_user::find($id);
+        return view('/raffles/raffle_checkout', compact('shipments', 'address', 'raffle_user'));
+    }
+
+    public function raffleSummary(Request $request)
+    {
+
+        $raffle = Raffle::find($request->raffle_id);
+        $shipment = Shipment::find($request->shipment_id);
+        $address = AddressForRaffle::find($request->address_id);
+
+
+        session()->put('raffleData', [
+            'raffle' => $raffle,
+            'shipment' => $shipment,
+            'address' => $address
+        ]);
+
+        return redirect('/raffles/summary');
+    }
+
+    public function raffleSummaryView()
+    {
+        return view('/raffles/raffle_summary')->with(
+            [
+                'raffle' => session()->get('raffleData')['raffle'],
+                'shipment' => session()->get('raffleData')['shipment'],
+                'address' => session()->get('raffleData')['address']
+            ]
+        );
     }
 }
