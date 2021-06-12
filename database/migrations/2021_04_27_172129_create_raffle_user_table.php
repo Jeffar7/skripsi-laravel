@@ -19,6 +19,7 @@ class CreateRaffleUserTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('address_raffle_id');
             $table->enum('status', ['pending', 'closed', 'win', 'lose'])->default('pending')->nullable();
+            $table->unsignedBigInteger('payment_id')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

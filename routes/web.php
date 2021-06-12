@@ -172,6 +172,9 @@ Route::delete('/raffles/{raffle}', 'RaffleController@destroy');
 Route::get('/raffles/checkout/{id}', 'RaffleController@raffleCheckout');
 Route::post('/raffles/summary', 'RaffleController@raffleSummary');
 Route::get('/raffles/summary', 'RaffleController@raffleSummaryView');
+Route::get('/raffles/payment', 'RaffleController@rafflePayment');
+Route::post('/raffles/makepayment', 'RaffleController@raffleMakePayment');
+Route::get('/raffles/payment_history', 'RaffleController@rafflePaymentHistory');
 
 //place raffle
 Route::post('/raffle/submit', 'RaffleController@submit');
@@ -237,11 +240,13 @@ Route::get('/read_product', function () {
 
 Route::get('/check', function () {
 
-    $products = Product::find(1)->category->sizeDetails;
-    foreach ($products as $product) {
+    dd(session()->all());
 
-        echo $product->size . "<br>";
-    }
+    // $products = Product::find(1)->category->sizeDetails;
+    // foreach ($products as $product) {
+
+    //     echo $product->size . "<br>";
+    // }
 
 
     // $product = Product::find(1);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AddressForRaffle;
 use App\Brand;
+use App\Payment;
 use App\Raffle;
 use App\RaffleCategory;
 use App\User;
@@ -282,6 +283,11 @@ class RaffleController extends Controller
         $shipments = Shipment::all();
         $address = raffle_user::find($id)->addressForRaffle;
         $raffle_user = raffle_user::find($id);
+
+        session()->put('raffle_user', [
+            'raffle_user' => $raffle_user
+        ]);
+
         return view('/raffles/raffle_checkout', compact('shipments', 'address', 'raffle_user'));
     }
 
@@ -311,5 +317,55 @@ class RaffleController extends Controller
                 'address' => session()->get('raffleData')['address']
             ]
         );
+    }
+
+    public function rafflePayment()
+    {
+        return view('/raffles/raffle_payment');
+    }
+
+    public function raffleMakePayment(Request $request)
+    {
+        $payment = new Payment();
+        if ($request->payment_type === 'credit') {
+
+            $request->validate([
+                'payment_type' => ['required'],
+                'first_name' => ['required'],
+                'last_name' => ['required'],
+                'card_number' => ['required', 'digits:16'],
+                'cvv' => ['required', 'digits:3'],
+                'credit_type' => ['required'],
+                'valid_until' => ['required']
+            ]);
+
+            $payment->payment_type = 'credit';
+            $payment->first_name = $request->first_name;
+            $payment->last_name = $request->last_name;
+            $payment->card_number = $request->card_number;
+            $payment->cvv = $request->cvv;
+            $payment->credit_type = $request->credit_type;
+            $payment->valid_until = $request->valid_until;
+            $payment->user_id = Auth::user()->id;
+            $payment->save();
+        } else {
+            $payment->payment_type = 'debit';
+            $payment->first_name = $request->first_name;
+            $payment->last_name = $request->last_name;
+            $payment->bank_name = $request->bank_name;
+            $payment->bank_type = $request->bank_type;
+            $payment->account_number = $request->account_number;
+            $payment->user_id = Auth::user()->id;
+            $payment->save();
+        }
+
+        $raffle_user = session()->get('raffle_user')['raffle_user'];
+
+        raffle_user::where('id', $raffle_user->id)
+            ->update(['payment_id' => $payment->id]);
+
+        session()->forget(['raffle_user', 'raffleData']);
+
+        return redirect('/raffle/history');
     }
 }

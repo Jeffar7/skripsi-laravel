@@ -40,11 +40,15 @@
                         <td class="text-center font-weight-normal">Waiting until Raffle Close</td>
                         @else
                         @if($raffle->is_win == 'win')
-                        <td class="text-center font-weight-normal">Congratulations you win! Continue
-
-                            <a href="/raffles/checkout/{{$raffle->id}}" type="button" class="btn btn-outline-success">Checkout</a>
-
+                        @if($raffle->payment_id != 0)
+                        <td class="text-center font-weight-normal">
+                            Raffle Has Been Paid
                         </td>
+                        @else
+                        <td class="text-center font-weight-normal">Congratulations you win! Continue
+                            <a href="/raffles/checkout/{{$raffle->id}}" type="button" class="btn btn-outline-danger">Checkout</a>
+                        </td>
+                        @endif
                         @elseif($raffle->is_win == 'lose')
                         <td class="text-center font-weight-normal">Sorry you are not lucky, please choose another raffle product.</td>
                         @else
