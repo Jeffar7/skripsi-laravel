@@ -240,7 +240,14 @@ Route::get('/read_product', function () {
 
 Route::get('/check', function () {
 
-    dd(session()->all());
+    $stripe = new \Stripe\StripeClient(
+        'sk_test_51Isn0aBee1Lnamoc8KJgliAPILEguv2sGs4Nm44t49rXBLlVIeXa82j8duyNhmBUhNTdi4Zr99FEjjxQ44psWuUx00OpjKFRXn'
+    );
+
+
+    return  $stripe->charges->all(['limit' => 3]);
+
+    // dd(session()->all());
 
     // $products = Product::find(1)->category->sizeDetails;
     // foreach ($products as $product) {

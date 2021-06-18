@@ -44,23 +44,12 @@ class RaffleController extends Controller
         return view('/raffles/raffle_item_desc', compact('raffle'));
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $raffles = Raffle::all();
         return view('/raffles/manageraffles', compact('raffles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $brands = Brand::all();
@@ -69,12 +58,6 @@ class RaffleController extends Controller
         return view('/raffles/addraffle', compact('brands', 'categoryraffles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $raffle = new Raffle();
@@ -103,13 +86,6 @@ class RaffleController extends Controller
         return redirect('manageraffle')->with('status', 'Raffle Item Successfully Added!');
     }
 
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Raffle $raffle)
     {
         $brands = Brand::all();
@@ -117,13 +93,6 @@ class RaffleController extends Controller
         return view('/raffles/editraffle', compact('brands', 'categoryraffles', 'raffle'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Raffle $raffle)
     {
 
@@ -153,12 +122,6 @@ class RaffleController extends Controller
         return redirect('manageraffle')->with('status', 'Product Raffle successfully updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Raffle $raffle)
     {
         Raffle::destroy($raffle->id);

@@ -25,7 +25,7 @@ class BuynowController extends Controller
     {
         // function ini ga kepake
         dd($id);
-        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $addresses = Address_Delivery_Users::where('user_id', 'php =', Auth::user()->id)->get();
         $shipments = Shipment::all();
         $products = Product::where('id', '=', $id)->first();
 

@@ -130,7 +130,12 @@
                         <input type="hidden" name="payment_type" value="credit">
 
                         <div class="row justify-content-center mb-1">
-                            <div class="col-md-12 text-right">
+
+                            <div class="col-md-6 text-left">
+                                <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+                            </div>
+
+                            <div class="col-md-6 text-right">
                                 <button type="submit" class="btn btn-dark">SUBMIT</button>
                             </div>
                         </div>
@@ -184,7 +189,13 @@
                         <input type="hidden" name="payment_type" value="debit">
 
                         <div class="row justify-content-center mb-1">
-                            <div class="col-md-12 text-right">
+
+
+                            <div class="col-md-6 text-left">
+                                <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+                            </div>
+
+                            <div class="col-md-6 text-right">
                                 <button type="submit" class="btn btn-dark">SUBMIT</button>
                             </div>
                         </div>

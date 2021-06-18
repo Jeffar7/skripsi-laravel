@@ -135,7 +135,7 @@
 
     <div class="row justify-content-center mb-3">
         <div class="col-md-5 text-left">
-            <a href="/raffles/checkout/" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+            <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
         </div>
         <div class="col-md-5 text-right">
             <a href="/raffles/payment" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> PROCEED

@@ -198,9 +198,7 @@
                     <option value="BRI">BRI</option>
                   </select>
                 </div>
-              </div>
 
-              <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="account_number">Account Number</label>
                   <input type="account_number" class="form-control" id="account_number" name="account_number" required>
