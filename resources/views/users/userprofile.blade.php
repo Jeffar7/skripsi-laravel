@@ -26,7 +26,7 @@
             <div class="tab-pane fade show active mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="{{asset('../storage/images/Users/'.Auth::user()->picture)}}" class="rounded img-thumbnail rounded-circle" alt="..." width="200" height="150" style="margin-left: 80px;">
+                        <img src="{{asset('../storage/images/Users/'.Auth::user()->picture)}}" class="rounded img-thumbnail " alt="..." width="200" height="150" style="margin-left: 80px;">
                         <div style="padding-top: 20px;text-decoration: underline;text-align: center;"><a href="/usersettings">Edit My Profile</a></div>
                     </div>
                     <div class="col-md-8">
@@ -83,22 +83,48 @@
                 </table>
             </div>
             <div class="tab-pane fade mt-3" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
-                <h4>Change Password</h4>
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <input type="password" class="log-field mb-3" id="password" name="password" placeholder="New Password">
-                        <input type="password" class="log-field mb-3" id="password" name="password" placeholder="Confirm Password">
-                        <button type="submit" class="btn-regist">
-                            Change Password
-                        </button>
-                    </div>
-                    <div class="col-md-6" style="text-align:center; font-weight:bold;">
-                        <p>Password Must Contain:</p>
-                        <p>At least 1 upper case letter (A-Z)</p>
-                        <p>At least 1 number (0-9)</p>
-                        <p>At least 8 characters</p>
-                    </div>
+
+                @if(session('errorCurrentPassword'))
+                <div class="alert alert-danger">
+                    {{ session('errorCurrentPassword') }}
                 </div>
+                @endif
+
+                @if(session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+                @endif
+
+                @error('new_password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+
+
+                <form action="/users/changepassword" method="POST">
+                    @csrf
+                    <h4>Change Password</h4>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+
+                            <input type="password" class="log-field mb-3" name="current_password" placeholder="Current Password">
+                            <input type="password" class="log-field mb-3" name="new_password" placeholder="New Password">
+                            <input type="password" class="log-field mb-3" id="password_confirm" name="password_confirmation" placeholder="Confirm New Password">
+
+                            <button type="submit" class="btn-regist">
+                                Change Password
+                            </button>
+                        </div>
+                        <div class="col-md-6" style="text-align:center; font-weight:bold;">
+                            <p>Password Must Contain:</p>
+                            <p>At least 1 upper case letter (A-Z)</p>
+                            <p>At least 1 number (0-9)</p>
+                            <p>At least 8 characters</p>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

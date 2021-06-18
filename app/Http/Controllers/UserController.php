@@ -152,6 +152,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'gender' => 'required',
+            'DOB' => 'required',
+            'address' => 'required|string',
+            'about' => 'string|max:255',
+            'picture' => 'required'
+        ]);
+
 
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
@@ -169,7 +179,7 @@ class UserController extends Controller
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 // 'email' => $request->email,
-                'username' => strstr($request->email, '@', true),
+                // 'username' => strstr($request->email, '@', true),
                 'gender' => $request->gender,
                 'DOB' => $request->DOB,
                 'password' => Hash::make($request->password),
@@ -252,6 +262,28 @@ class UserController extends Controller
         User::destroy($user->id);
 
         return redirect('usercontrol')->with('status', 'User successfully deleted!');
+    }
+
+    public function changePassword(Request $request)
+    {
+
+
+        if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
+            return back()->with('errorCurrentPassword', 'Your current password does not match with what you provided');
+        }
+        if (strcmp($request->current_password, $request->new_password) == 0) {
+            return back()->with('errorCurrentPassword', 'Your current password cannot be same with the new password');
+        }
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' =>  ['required', 'string', 'min:8', 'required_with:password_confirmation', 'same:password_confirmation']
+        ]);
+
+        User::where('id', '=', Auth::user()->id)->update([
+            'password' => bcrypt($request->new_password)
+        ]);
+
+        return back()->with('message', 'Password changed successfully');
     }
 
     public function deleteMyAccount(User $user)

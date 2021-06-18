@@ -24,13 +24,20 @@
         <div class="tab-content pt-4">
             <div class="tab-pane fade show active" id="1a" role="tabpanel">
                 <h4>Edit Profile</h4>
+
+                @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                @endif
+
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <form method="POST" action="/users/cstm/{{$user->id}}" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
                             <div class="text-center">
-                                <img src="{{asset('uploads/users/' . $user->picture)}}" class="rounded-circle img-thumbnail shadow-lg mb-3" width="250" alt="profileimage">
+                                <img src="{{asset('../storage/images/Users/' . $user->picture)}}" class=" img-thumbnail  mb-3" width="250" alt="profileimage">
                                 <div class="form-group">
                                     <div class="custom-file">
                                         <label for="picture">Picture</label>
@@ -86,12 +93,19 @@
                                     </div>
                                 </div>
 
+
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="form-group">
                                         <label for="phone">Phone</label>
                                         <input type="text" class="form-control" id="phone" placeholder="Enter phone number" value="{{$user->phone}}" name="phone">
                                     </div>
                                 </div>
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
 
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="form-group">
@@ -412,7 +426,7 @@
                                 <p class="text-center font-weight-normal mb-0">Do you really want to delete your <span class="font-weight-bold">account.</span> This process cannot be undone.</p>
                             </div>
                             <div class="modal-footer justify-content-around pt-0 border-top-0">
-                                <button type="button" cla'ss="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-danger" name="formaddress">Delete</button>
                             </div>
                         </form>
@@ -453,8 +467,9 @@
                 <h4>Change Password</h4>
                 <div class="row mt-4">
                     <div class="col-md-6">
+                        <input type="password" class="log-field mb-3" id="password" name="password" placeholder="Current Password">
                         <input type="password" class="log-field mb-3" id="password" name="password" placeholder="New Password">
-                        <input type="password" class="log-field mb-3" id="password" name="password" placeholder="Confirm Password">
+                        <input type="password" class="log-field mb-3" id="password" name="password" placeholder="Confirm New Password">
                         <button type="submit" class="btn-regist">
                             Change Password
                         </button>

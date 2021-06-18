@@ -296,19 +296,19 @@ class RaffleController extends Controller
                 'payment_type' => ['required'],
                 'first_name' => ['required'],
                 'last_name' => ['required'],
-                'card_number' => ['required', 'digits:16'],
-                'cvv' => ['required', 'digits:3'],
-                'credit_type' => ['required'],
-                'valid_until' => ['required']
+                // 'card_number' => ['required', 'digits:16'],
+                // 'cvv' => ['required', 'digits:3'],
+                // 'credit_type' => ['required'],
+                // 'valid_until' => ['required']
             ]);
 
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
             $payment->last_name = $request->last_name;
-            $payment->card_number = $request->card_number;
-            $payment->cvv = $request->cvv;
-            $payment->credit_type = $request->credit_type;
-            $payment->valid_until = $request->valid_until;
+            // $payment->card_number = $request->card_number;
+            // $payment->cvv = $request->cvv;
+            // $payment->credit_type = $request->credit_type;
+            // $payment->valid_until = $request->valid_until;
             $payment->user_id = Auth::user()->id;
             $payment->save();
         } else {

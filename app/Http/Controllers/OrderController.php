@@ -72,13 +72,13 @@ class OrderController extends Controller
 
             $detailaddresses = null;
 
-           //make session
-           session()->put('checkout',[
+            //make session
+            session()->put('checkout', [
                 'order_id' => $order->id,
                 'product' => $products
-           ]);
+            ]);
 
-        //    dd(session()->get('checkout'));
+            //    dd(session()->get('checkout'));
 
             return redirect('/transactions/delivery');
         } else {
@@ -165,7 +165,7 @@ class OrderController extends Controller
     public function payment(Request $request)
     {
 
-        $order = Order::where('id','=', session()->get('checkout')['order_id'])->where('user_id', '=', Auth::user()->id)->first();
+        $order = Order::where('id', '=', session()->get('checkout')['order_id'])->where('user_id', '=', Auth::user()->id)->first();
 
         Order::where('id', '=', $order->id)->update([
             'address_id' => $request->address,
@@ -186,10 +186,10 @@ class OrderController extends Controller
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
             $payment->last_name = $request->last_name;
-            $payment->card_number = $request->card_number;
-            $payment->cvv = $request->cvv;
-            $payment->credit_type = $request->credit_type;
-            $payment->valid_until = $request->valid_until;
+            // $payment->card_number = $request->card_number;
+            // $payment->cvv = $request->cvv;
+            // $payment->credit_type = $request->credit_type;
+            // $payment->valid_until = $request->valid_until;
             $payment->user_id = Auth::user()->id;
             $payment->save();
         } else {
@@ -238,7 +238,7 @@ class OrderController extends Controller
         $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
         $shipment = Shipment::where('id', '=', $request->shipment)->first();
 
-        session()->put('detailcheckout',[
+        session()->put('detailcheckout', [
             'address_id' => $request->address_detail,
             'shipment_id' => $request->shipment,
             'orders' => $orders,
