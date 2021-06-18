@@ -255,6 +255,8 @@ Route::get('/read_product', function () {
 
 Route::get('/check', function () {
 
+    dd(Order::find(1)->raffle()->id);
+
     $stripe = new \Stripe\StripeClient(
         'sk_test_51Isn0aBee1Lnamoc8KJgliAPILEguv2sGs4Nm44t49rXBLlVIeXa82j8duyNhmBUhNTdi4Zr99FEjjxQ44psWuUx00OpjKFRXn'
     );

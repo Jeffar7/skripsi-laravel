@@ -26,7 +26,8 @@ class Payment extends Model
 
     protected $guarded = ['id'];
 
-    public function order(){
+    public function order()
+    {
         return $this->hasOne(Order::class);
     }
 }

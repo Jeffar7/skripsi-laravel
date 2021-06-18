@@ -182,7 +182,7 @@ class UserController extends Controller
                 // 'username' => strstr($request->email, '@', true),
                 'gender' => $request->gender,
                 'DOB' => $request->DOB,
-                'password' => Hash::make($request->password),
+                // 'password' => Hash::make($request->password),
                 'role' => $request->role,
                 'address' => $request->address,
                 'site' => $request->site,
@@ -266,7 +266,6 @@ class UserController extends Controller
 
     public function changePassword(Request $request)
     {
-
 
         if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
             return back()->with('errorCurrentPassword', 'Your current password does not match with what you provided');

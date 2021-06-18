@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\AddressForRaffle;
 use App\Brand;
+use App\Order;
+use App\order_product;
 use App\Payment;
 use App\Raffle;
 use App\RaffleCategory;
@@ -327,8 +329,30 @@ class RaffleController extends Controller
         raffle_user::where('id', $raffle_user->id)
             ->update(['payment_id' => $payment->id]);
 
+
+        // make Order Raffle
+        $order = new Order();
+        $order->order_number = 'RAF-' . strtoupper(mt_rand(1000000000, 9999999999));
+        $order->status = 'completed';
+        $order->grand_total = session()->get('raffleData')['raffle']['raffleprice'];
+        $order->user_id = Auth::user()->id;
+        $order->payment_id = $payment->id;
+        $order->shipment_id = session()->get('raffleData')['shipment']['id'];
+        $order->address_id = session()->get('raffleData')['address']['id'];
+        $order->is_buy_now = 2;
+        $order->notes = null;
+        $order->save();
+
+        $order_product = new order_product();
+        $order_product->product_id = session()->get('raffleData')['raffle']['id'];
+        $order_product->order_id = $order->id;
+        $order_product->is_review = 1;
+        $order_product->quantity = 1;
+        $order_product->subtotal = session()->get('raffleData')['raffle']['raffleprice'];
+        $order_product->save();
+
         session()->forget(['raffle_user', 'raffleData']);
 
-        return redirect('/raffle/history');
+        return redirect('/payment-history');
     }
 }
