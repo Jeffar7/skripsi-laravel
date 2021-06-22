@@ -24,6 +24,7 @@
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
@@ -117,9 +118,10 @@
                     </ul>
                     @endif
                     <!-- Middle Side of Navbar -->
-                    <form class="form-inline my-2 my-lg-0 rounded left-addon-search inner-addon">
+                    <form class="form-inline my-2 my-lg-0 rounded left-addon-search inner-addon" action="{{ route('search') }}" method="GET">
                         <i class="fas fa-search"></i>
-                        <input type="search" class="search-field rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <input type="text" name="allsearch" value="{{ request()->allsearch }}" class="search-field rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <!-- <input type="hidden" name="sort" value="product_relevance" /> -->
                     </form>
 
                     <!-- Right Side Of Navbar -->

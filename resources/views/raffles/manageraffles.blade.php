@@ -44,46 +44,44 @@
                         <td>{{$raffle->brand->name}}</td>
                         <td>{{$raffle->categoryraffle->categoryname}}</td>
                         <td>{{$raffle->rafflequantity}}</td>
-                        <td>{{$raffle->raffleprice}}</td>
+                        <td>Rp. {{number_format($raffle->raffleprice)}}</td>
                         <td>{{$raffle->raffledescription}}</td>
                         <td>{{$raffle->rafflereleasedate}}</td>
                         <td>{{$raffle->raffleclosedate}}</td>
                         <td>{{$raffle->status}}</td>
-                        <td>
+                        <td class="text-center">
                             <a href="raffles/{{$raffle->id}}/edit" class="badge btn-success"><i class="fas fa-edit" style="color:white"></i></a>
-
-                            <!-- <form action="raffles/{{$raffle->id}}" method="POST" class="d-inline"> -->
-                            <!-- @method('delete')
-                            @csrf -->
-                            <button type="submit" class="badge btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt" style="color:white"></i></button>
-                            <!-- </form> -->
-
+                            <a href="raffles/{{$raffle->id}}/delete" class="delete-modal badge btn-danger" data-value="{{ $raffle->id }}" data-toggle="modal" data-target="#exampleModal{{ $raffle->id }}"><i class="fas fa-trash-alt" style="color:white"></i></a>
                             <a href="/raffles/check/{{$raffle->id}}" class="badge btn-primary d-inline">Check Raffled</a>
-
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            @foreach ($raffles as $raffle)
+            <div class="modal fade" id="exampleModal{{ $raffle->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content shadow-sm">
-                        <form action="raffles/{{$raffle->id}}" method="POST" class="d-inline">
+                        <form action="/raffles/{{ $raffle->id }}" method="POST" class="d-inline">
                             @method('delete')
                             @csrf
                             <div class="modal-body">
                                 <h3 class="text-center">Are you sure?</h3>
-                                <p class="text-center font-weight-normal mb-0">Do you really want to delete this item? This process cannot be undone.</p>
+                                <p class="text-center font-weight-normal mb-0">Do you really want to delete 
+                                <br>
+                                <span class="font-weight-bold">{{$raffle->rafflename}}</span> item?</p> 
+                                <p class="text-center font-weight-normal mb-0">This process cannot be undone.</p>
                             </div>
                             <div class="modal-footer justify-content-around pt-0 border-top-0">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" name="formaddress">Delete</button>
+                                <button type="submit" class="btn btn-danger" name="delete_raffle">Delete</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            @endforeach
 
             <div class="mt-4"></div>
         </div>
@@ -95,6 +93,11 @@
 <script>
     $(document).ready(function() {
         $('#dtBasicExample').DataTable();
+
+        $(document).on("click", ".delete-modal", function (e) {
+            var delete_id = $(this).attr('data-value');
+            $('button[name="delete_raffle"]').val(delete_id);
+        });
     });
 </script>
 @endsection

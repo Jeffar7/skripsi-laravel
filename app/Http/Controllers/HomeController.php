@@ -6,6 +6,7 @@ use App\Cart;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -32,4 +33,5 @@ class HomeController extends Controller
 
         return view('/home');
     }
+
 }
