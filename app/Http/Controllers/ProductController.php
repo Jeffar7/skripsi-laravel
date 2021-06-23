@@ -7,10 +7,13 @@ use App\Cart;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Gender;
 use App\product_user;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\AllowedFilter;
 
 class ProductController extends Controller
 {
@@ -23,6 +26,150 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function search(Request $request)
+	{
+		// fetch search input
+		$search = $request->allsearch;
+
+        // $product = DB::table('brands')
+        // ->join('products', 'brands.id', '=', 'products.brandid')
+        // ->where('productname','like','%'.$search.'%')
+        // ->OrWhere('name','like','%'.$search.'%');
+
+        $product = DB::table('brands')
+        ->join('products', 'brands.id', '=', 'products.brandid');
+
+        // sorting product
+        if ($request->sort == "product_price_low_high") {
+            $product->orderBy('productprice', 'asc');
+        } elseif ($request->sort == "product_price_high_low") {
+            $product->orderBy('productprice', 'desc');
+        } elseif ($request->sort == "product_latest") {
+            $product->orderBy('products.id', 'desc');
+        } elseif ($request->sort == "product_relevance") {
+            $product;
+        }
+
+        $categories = DB::table('brands')
+        ->join('products', 'brands.id', '=', 'products.brandid')
+        ->join('categorys', 'products.categoryid', '=', 'categorys.id')
+        ->select('categorys.name', 'categorys.id')
+        ->where('productname','like','%'.$search.'%')
+        ->orWhere('brands.name','like','%'.$search.'%')
+        ->groupBy('categorys.name', 'categorys.id')
+        ->orderBy('categorys.id')
+        ->get();
+
+        $checked=[];
+
+        if ($request->category) {
+            $checked=$request->category;
+
+            // $cat_filter = Category::whereIn('name', $checked);
+            // $cat_id = [];
+            // foreach ($cat_filter as $cf_list) {
+            //     array_push($cat_id, $cf_list->id);
+            // }
+
+            $product->whereIn('categoryid', $checked);
+        }
+
+        $gender = DB::table('brands')
+        ->join('products', 'brands.id', '=', 'products.brandid')
+        ->join('genders', 'products.gender_id', '=', 'genders.id')
+        ->select('genders.productgender', 'genders.id')
+        ->where('productname','like','%'.$search.'%')
+        ->orWhere('brands.name','like','%'.$search.'%')
+        ->groupBy('genders.productgender', 'genders.id')
+        ->orderBy('genders.id')
+        ->get();
+
+        // if (Gender::where('id', '=', $request->gender)->exists()) {
+        //     $product->where('gender_id', '=', $request->gender);
+        // }
+        $checkedGender=[];
+
+        if ($request->gender) {
+            $checkedGender=$request->gender;
+            $product->whereIn('gender_id', $checkedGender);
+        }
+
+        $brands = DB::table('brands')
+        ->join('products', 'brands.id', '=', 'products.brandid')
+        ->select('brands.name', 'brands.id')
+        ->where('productname','like','%'.$search.'%')
+        ->orWhere('brands.name','like','%'.$search.'%')
+        ->groupBy('brands.name', 'brands.id')
+        ->orderBy('brands.id')
+        ->get();
+
+        // if (Brand::where('id', '=', $request->brand)->exists()) {
+        //     $product->where('brandid', '=', $request->brand);
+        // }
+        
+        $checkedBrand = [];
+
+        if ($request->brand) {
+            $checkedBrand=$request->brand;
+            $product->whereIn('brandid', $checkedBrand);
+        }
+
+        $product = $product->where(function ($product) use ($search) {
+            if(!empty($search)){
+                $product->where('productname','like','%'.$search.'%')
+                        ->orWhere('brands.name','like','%'.$search.'%');
+            }
+        });
+
+        $minprice = $product->min('productprice');
+        $maxprice = $product->max('productprice');
+
+        if (Product::whereBetween('productprice', [$request->minprice, $request->maxprice])->exists()) {
+            $product->whereBetween('productprice', [$request->minprice, $request->maxprice]);
+        }
+
+        // $sizes = DB::table('brands')
+        // ->join('products', 'brands.id', '=', 'products.brandid')
+        // ->select('productsize')
+        // ->where('productname','like','%'.$search.'%')
+        // ->orWhere('brands.name','like','%'.$search.'%')
+        // ->groupBy('productsize')
+        // ->get();
+
+        // if (Product::where('productsize', '=', $request->size)->exists()) {
+        //     $product->where('productsize', '=', $request->size);
+        // }
+
+        // select size product
+        if ($request->size == "XS") {
+            $product->where('productsize', '=', $request->size);
+        } elseif ($request->size == "S") {
+            $product->where('productsize', '=', $request->size);
+        } elseif ($request->size == "M") {
+            $product->where('productsize', '=', $request->size);
+        } elseif ($request->size == "L") {
+            $product->where('productsize', '=', $request->size);
+        } elseif ($request->size == "XL") {
+            $product->where('productsize', '=', $request->size);
+        } elseif ($request->size == "XXL") {
+            $product->where('productsize', '=', $request->size);
+        } elseif ($request->size == "others") { 
+            $product->where('products.categoryid', '=', '4');
+        }
+
+        $product = $product->get();
+
+        $productcount = count($product);
+ 
+    	// return to view
+        if ($product->count() == 0)
+            return view('/search',compact('product','search','productcount', 'categories', 'gender','brands', 'minprice', 'maxprice' ,'checked', 'checkedGender', 'checkedBrand'))
+                ->withErrors(['no_post_result' => 'No data was found.']);
+        else
+            return view('/search',compact('product','search', 'productcount', 'categories', 'gender','brands', 'minprice', 'maxprice','checked', 'checkedGender', 'checkedBrand'));
+ 
+	}
+
     public function index()
     {
         $products = Product::all();
@@ -195,7 +342,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        unlink(public_path('uploads/products') . '/' . $product->productimage);
+        // unlink(public_path('uploads/products') . '/' . $product->productimage);
         Product::destroy($product->id);
 
         return redirect('manageproduct')->with('status', 'Product successfully deleted!');

@@ -24,6 +24,7 @@
         </div>
     </div>
 </div>
+
 <div class="container mt-4">
     <div class="row justify-content-around">
         <div class="col-md-10">
@@ -31,144 +32,28 @@
                 <div class="col">
                     <p class="title-home text-left" style="font-weight:bold;">ITEMS TO BE RAFFLE</p>
                 </div>
-                <div class="col">
-                    <div class="row justify-content-end px-3">
-                        <a href="#" class="title-home text-right text-decoration-none pr-5" style="text-transform:none; font-weight:bold; color:black; font-size:15px;">Hide Filters</a>
-                        <a href="#" class="title-home text-right text-decoration-none" style="text-transform:none; font-weight:bold; color:black; font-size:15px;">Sort By</a>
-                    </div>
-                </div>
+
+                <div class="col-sm-0 px-0">
+					<p class="" style="font-weight:bold; margin-top: 1rem; margin-bottom: 1rem;">Sort By</p>
+				</div>
+
+				<div class="col-sm-2 text-left">
+					<form name="sortProducts" id="sortProducts" style="margin-top: 1rem; margin-bottom: 1rem;">
+						<select id="sortRaffle" name="sortRaffle">
+                            <option value="">Select Option</option>
+							<option value="open_raffle" @if (request()->sort == "open_raffle") selected @endif>Status: Open</option>
+							<option value="closed_raffle" @if (request()->sort == "closed_raffle") selected @endif>Status: Closed</option>
+							<option value="upcoming_raffle" @if (request()->sort == "upcoming_raffle") selected @endif>Status: Upcoming</option>
+							<option value="latest_raffle" @if (request()->sort == "latest_raffle") selected @endif>Latest Raffle</option>
+						</select>
+					</form>
+				</div>
             </div>
         </div>
     </div>
 
-    <div class="row justify-content-around">
-        @foreach($raffles as $raffle)
-        <div class="col-md-10 mb-3">
-            @if($raffle->status === 'running' || $raffle->status === 'not_started')
-            <div class="card rounded-lg shadow-lg">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <a href="/raffle/description/{{$raffle->id}}">
-                            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="card-img-top p-3" alt="Image">
-                        </a>
-                    </div>
-                    <div class="col-md-8" style="background: #E5E5E5;">
-                        <div class="card-body border">
-                            <a href="/raffle/description/{{$raffle->id}}" class="text-decoration-none" style="color:black;">
-                                <p class="text-right mb-0">
-                                    <!-- <u> -->
-                                    <small class="font-weight-bolder">Started From:</small>
-                                    <!-- </u> -->
-                                </p>
-                                <h5 class="text-right">
-                                    <u>
-                                        <!-- <small></small> -->
-                                        {{date('d M Y',strtotime($raffle->rafflereleasedate))}}
-                                    </u>
-                                </h5>
-                                <p class="about-title mb-0">Item</p>
-                                <p class="mb-0">{{$raffle->brand->name}}
-                                </p>
-                                <p class="font-weight-bolder mb-0">{{$raffle->rafflename}}
-                                </p>
-                                <p class="about-title mb-0">Price</p>
-                                <p style="font-weight:bold;">Rp. {{number_format($raffle->raffleprice)}}</p>
-                            </a>
-                            <div class="text-right">
-                                @if(Auth::check() && Auth::user()->role === 'customer' || Auth::user()->role === 'admin')
-                                @if($raffle->status === 'running')
-                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
-                                @elseif($raffle->status === 'closed')
-                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
-                                @else
-                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
-                                @endif
-                                @else
-                                <a href="/register" class="btn btn-primary">Enter Now</a>
-                                @endif
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p class="mb-0">
-                                        @if($raffle->status === 'running')
-                                        <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> {{$raffle->rafflejoined}}/{{$raffle->rafflequota}}</small>
-                                        @else
-                                        <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> N/A</small>
-                                        @endif
-                                    </p>
-                                </div>
-                                <div class="col">
-                                    <p class="mb-0">
-                                        <small class="font-weight-bolder">Category: {{$raffle->categoryraffle->categoryname}}</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @elseif($raffle->status === 'closed')
-            <div class="card rounded-lg shadow-lg" id="overlay">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <a href="/raffle/description/{{$raffle->id}}">
-                            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="card-img-top p-3" alt="Image">
-                        </a>
-                    </div>
-                    <div class="col-md-8" style="background: #E5E5E5;">
-                        <div class="card-body border">
-                            <a href="/raffle/description/{{$raffle->id}}" class="text-decoration-none" style="color:black;">
-                                <p class="text-right mb-0">
-                                    <!-- <u> -->
-                                    <small class="font-weight-bolder">Started From:</small>
-                                    <!-- </u> -->
-                                </p>
-                                <h5 class="text-right">
-                                    <u>
-                                        <!-- <small></small> -->
-                                        {{date('d M Y',strtotime($raffle->rafflereleasedate))}}
-                                    </u>
-                                </h5>
-                                <p class="about-title mb-0">Item</p>
-                                <p class="mb-0">{{$raffle->brand->name}}
-                                </p>
-                                <p class="font-weight-bolder mb-0">{{$raffle->rafflename}}
-                                </p>
-                                <p class="about-title mb-0">Price</p>
-                                <p style="font-weight:bold;">Rp. {{number_format($raffle->raffleprice)}}</p>
-                            </a>
-                            <div class="text-right">
-                                @if(Auth::check() && Auth::user()->role === 'customer' || Auth::user()->role === 'admin')
-                                @if($raffle->status === 'running')
-                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
-                                @elseif($raffle->status === 'closed')
-                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
-                                @else
-                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
-                                @endif
-                                @else
-                                <a href="/register" class="btn btn-primary">Enter Now</a>
-                                @endif
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <p class="mb-0">
-                                        <small class="font-weight-bolder"><i class="fas fa-user-alt"></i> {{$raffle->rafflejoined}}/{{$raffle->rafflequota}}</small>
-                                    </p>
-                                </div>
-                                <div class="col">
-                                    <p class="mb-0">
-                                        <small class="font-weight-bolder">Category: {{$raffle->categoryraffle->categoryname}}</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-        </div>
-        @endforeach
+    <div class="filter_raffles row justify-content-around" id="filter_raffles">
+        @include('raffles.filter_raffle')
     </div>
 
     <div class="row justify-content-around mt-5">
@@ -176,3 +61,33 @@
     </div>
 </div>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+		//sort in ajax
+		$("#sortRaffle").on('change', function(e){
+            e.preventDefault();
+
+			var sort = $(this).val();
+			var url = $(location).attr('href');
+			
+			$.ajax({
+				url: url,
+				method: 'POST',
+				data: {sort:sort, url:url},
+				success: function(response){
+                    $('.filter_raffles').html(data);
+                    console.log(response);
+
+				}
+			})
+		});
+	});
+</script>

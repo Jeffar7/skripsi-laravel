@@ -69,6 +69,7 @@ Route::get('/termsandcondition', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/search','ProductController@search')->name('search');
 Route::get('/pagehome', 'PageController@home')->middleware('auth');
 Route::get('/userprofile', 'UserController@index'); //testuser
 Route::get('/usersettings', 'UserController@usersettings');
@@ -159,6 +160,7 @@ Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
 Route::get('/raffle', 'RaffleController@raffle');
 Route::get('/allraffle', 'RaffleController@allraffle');
+Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
 Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
 Route::get('/manageraffle', 'RaffleController@index');
@@ -191,7 +193,8 @@ Route::get('/men-accessories', 'ManController@accessories');
 Route::get('/men-new', 'ManController@new');
 Route::get('/men-sale', 'ManController@sale');
 Route::get('/men', 'ManController@men');
-Route::get('/men', 'ManController@index');
+// Route::post('/men', 'ManController@filterMan')->name('men');
+Route::post('/men', 'ManController@filterMen')->name('men');
 
 Route::get('/women', 'WomenController@women');
 Route::get('/women-tops', 'WomenController@tops');
