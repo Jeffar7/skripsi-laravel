@@ -196,6 +196,10 @@ Route::get('/women-new', 'WomenController@new');
 Route::get('/women-sale', 'WomenController@sale');
 Route::get('/women', 'WomenController@index');
 
+Route::get('/search', 'ProductController@search')->name('search');
+Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
+Route::post('/men', 'ManController@filterMen')->name('men');
+
 Route::get('/', function () {
 
     return view('home');
