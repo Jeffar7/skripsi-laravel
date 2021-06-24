@@ -55,12 +55,17 @@
 
                         <div class="form-group ">
                             <label for="raffleprice">Price</label>
-                            <input type="text" class="form-control" id="raffleprice" placeholder="" name="raffleprice" value="{{$raffle->raffleprice}}">
+                            <input type="number" class="form-control" id="raffleprice" placeholder="" name="raffleprice" value="{{$raffle->raffleprice}}">
                         </div>
 
                         <div class="form-group ">
                             <label for="rafflequantity">Quantity</label>
-                            <input type="text" class="form-control" id="rafflequantity" placeholder="" name="rafflequantity" value="{{$raffle->rafflequantity}}">
+                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequantity" value="{{$raffle->rafflequantity}}">
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="rafflequota">Quota</label>
+                            <input type="number" class="form-control" id="rafflequota" placeholder="" name="rafflequota" value="{{$raffle->rafflequota}}">
                         </div>
 
                         <div class="form-group">

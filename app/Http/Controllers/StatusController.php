@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Address_Delivery_Users;
+use App\Cart;
+use App\FlashData;
 use Illuminate\Http\Request;
 use App\Order;
 use App\Product;
 use App\order_product;
+use App\Payment;
 use App\Review;
+use App\Shipment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +21,11 @@ class StatusController extends Controller
     public function payment_history()
     {
         $all_order = Order::where('user_id', '=', Auth::user()->id)->get();
-        return view('transactions/payment_history', compact('all_order'));
+        // return view('transactions/payment_history', compact('all_order'));
+        if ($all_order->count() == 0)
+            return view('transactions/payment_history', compact('all_order'))->withErrors(['no_post_result' => 'No data history found.']);
+        else
+            return view('transactions/payment_history', compact('all_order'));
     }
 
     public function waiting_for_review()
@@ -31,7 +40,12 @@ class StatusController extends Controller
             ->where('user_id', '=', Auth::user()->id)
             ->get();
 
-        return view('/transactions/waiting_for_review', compact('all_order'));
+        // return view('/transactions/waiting_for_review', compact('all_order'));
+
+        if ($all_order->count() == 0)
+            return view('transactions/waiting_for_review', compact('all_order'))->withErrors(['no_post_result' => 'No data review found.']);
+        else
+            return view('transactions/waiting_for_review', compact('all_order'));
     }
 
     public function product_review_detail($id)
@@ -58,5 +72,65 @@ class StatusController extends Controller
         ]);
 
         return redirect('/waiting-for-review')->with('status', 'Succes give review');
+    }
+
+    public function payment_history_detail($id)
+    {
+        $order_product_detail = DB::table('order_product')
+            ->join('products', 'order_product.product_id', '=', 'products.id')
+            ->where('order_id', '=', $id)->get();
+        // dd($order_product_detail);
+        return view('/transactions/payment_history_detail', compact('order_product_detail'));
+    }
+
+    public function continue_checkout($id)
+    {
+        $order = Order::find($id);
+        $payments = Payment::all();
+        $shipments = Shipment::all();
+        $product_id = $order->product->first()->id; //product
+        $quantity = $order->product()->first()->pivot->quantity; //quantity
+        $addresses = null;
+        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $is_exist = FlashData::where('user_id', '=', Auth::user()->id)->first();
+
+        session()->put('continueCheckOut', [
+            'order_id' => $order->id
+        ]);
+
+        if ($is_exist) {
+            DB::table('flashdata')
+                ->where('user_id', '=', Auth::user()->id)
+                ->delete();
+        }
+        $flashData = new FlashData();
+        $flashData->product_id = $product_id;
+        $flashData->quantity = $quantity;
+        $flashData->user_id = Auth::user()->id;
+        $flashData->save();
+
+        // dd($product_id);
+
+        if ($order->is_buy_now == 1)
+            return view('/transactions/delivery_buy_now', compact('product_id', 'quantity', 'payments', 'shipments', 'addresses'));
+        else
+            return view('/transactions/continue/checkout', compact(''));
+    }
+
+    public function buyAgain(Product $product)
+    {
+        // dd($product->id);
+
+        if (Cart::where('product_id', '=', $product->id)->exists() & Cart::where('user_id', '=', Auth::user()->id)->exists()) {
+            return back()->with('status', 'Item has already on cart list.');
+        } else {
+            $productcartsave = new Cart();
+            $productcartsave->product_id = $product->id;
+            $productcartsave->user_id = Auth::user()->id;
+            $productcartsave->quantity = 1;
+            $productcartsave->save();
+
+            return back()->with('status', 'Item successfully added to cart list!');
+        }
     }
 }

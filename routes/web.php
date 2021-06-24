@@ -15,6 +15,10 @@ use App\Review;
 use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
+use Cartalyst\Stripe\Exception\CardErrorException;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +53,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/contact', function () {
-    return view('pages/contactus'); 
+    return view('pages/contactus');
 });
 
 Route::get('/contact', 'ContactInformationController@create');
@@ -57,7 +61,7 @@ Route::post('/contact', 'ContactInformationController@store');
 
 Route::get('/faq', 'FAQController@index');
 
-Route::get('faq/detailfaqinfo/{faq}','DetailFAQInformationController@show');
+Route::get('faq/detailfaqinfo/{faq}', 'DetailFAQInformationController@show');
 
 Route::get('/termsandcondition', function () {
     return view('pages/terms');
@@ -86,7 +90,8 @@ Route::get('/usercontrol', 'UserController@usercontrol')->middleware('role:admin
 Route::get('/homeman', 'PageController@homeman')->name('homeman');
 Route::patch('/users/adm/{user}', 'UserController@updateadm')->middleware('role:admin');
 Route::patch('/users/cstm/{user}', 'UserController@update')->middleware('role:admin|customer');
-Route::delete('users/{user}', 'UserController@destroy')->middleware('role:admin');
+Route::delete('/users/{user}', 'UserController@destroy')->middleware('role:admin');
+Route::delete('/delete-my-account/{user}', 'UserController@deleteMyAccount');
 
 Route::get('/itemlist', 'PageController@itemlist');
 Route::get('/itemdetail', 'PageController@itemdetail');
@@ -118,20 +123,32 @@ Route::delete('/wish-list/addtocart/{id}', 'ProductController@addtocart');
 //new cart
 Route::post('/addtocart/{id}', 'ProductController@addtocartt');
 //add to cart via detail product
-Route::get('/product-cart/{id}', 'ProductController@addtocartviadetail');
+Route::post('/cart-list/add', 'ProductController@addtocartviadetail');
 
 Route::get('/product-cart', 'ProductController@productcart');
 Route::get('/product-cart/delete/{id}', 'ProductController@destroylist');
 
 //checkout
 Route::post('/checkout', 'OrderController@checkout');
+Route::get('/transactions/delivery', 'OrderController@viewCheckOut');
+Route::get('/transactions/ordersummary', 'OrderController@viewSummary')->name('order.summary.checkout');
 
 //buynow
 Route::get('/buy-now/{id}', 'BuynowController@buynow');
+
+//buy now get quantity
+Route::post('/buy-now/add', 'BuynowController@buyNowQuantity');
+
 Route::post('order-summary-buy-now', 'BuynowController@summary');
 Route::post('/payment/buy_now', 'BuynowController@payment');
 Route::post('/makepayment/buy_now', 'BuynowController@makepayment');
+
 Route::post('/delivery/addaddress/buy_now', 'BuynowController@addaddress');
+
+// Flash data transaction (BuynowController)
+Route::get('/transactions/delivery_buy_now', 'BuynowController@assignAddressDelivery');
+Route::get('/transactions/ordersummary_buy_now', 'BuynowController@orderSummaryBuyNow')->name('order.summary');
+Route::get('/transactions/payment_buy_now', 'BuynowController@paymentBuyNow');
 
 //delivery
 Route::get('/checkout/delivery', 'OrderController@delivery');
@@ -141,25 +158,37 @@ Route::post('/payment', 'OrderController@payment');
 Route::post('/order-summary', 'OrderController@summary');
 Route::post('/makepayment', 'OrderController@makepayment');
 
+//Notification
+Route::get('/notification', 'NotificationController@show');
 
-//get history payment
+// Route::get('faq/detailfaqinfo/{faq}', 'DetailFAQInformationController@show');
+
+
+// HISTORY
 Route::get('/payment-history', 'StatusController@payment_history');
-
-//waiting for review
-Route::get('/waiting-for-review','StatusController@waiting_for_review');
-
-//make review
-Route::get('/products/review/{id}','StatusController@product_review_detail');
-Route::post('/submit/review','StatusController@product_submit_review');
+Route::get('/payment-history/{id}/detail', 'StatusController@payment_history_detail');
+Route::get('/payment-history/{id}/continue-checkout', 'StatusController@continue_checkout'); // Continue Checkout
+Route::get('/waiting-for-review', 'StatusController@waiting_for_review');
+Route::get('/products/review/{id}', 'StatusController@product_review_detail');
+Route::post('/submit/review', 'StatusController@product_submit_review');
+Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
 Route::get('/raffle', 'RaffleController@raffle');
+Route::get('/allraffle', 'RaffleController@allraffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
+Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
 Route::get('/manageraffle', 'RaffleController@index');
 Route::get('/raffles/create', 'RaffleController@create');
+Route::get('/raffles/check/{id}', 'RaffleController@check');
+Route::get('/raffles/check/random/{id}', 'RaffleController@random');
 Route::post('/manageraffle', 'RaffleController@store');
 Route::get('/raffles/{raffle}/edit', 'RaffleController@edit');
 Route::patch('/raffles/{raffle}', 'RaffleController@update');
 Route::delete('/raffles/{raffle}', 'RaffleController@destroy');
+
+//place raffle
+Route::post('/raffle/submit', 'RaffleController@submit');
+Route::get('/raffle/history', 'RaffleController@history');
 
 Route::get('/event', 'EventController@event');
 Route::get('/events/detail/{event}', 'EventController@eventdetail');
@@ -189,60 +218,88 @@ Route::get('/women-new', 'WomenController@new');
 Route::get('/women-sale', 'WomenController@sale');
 Route::get('/women', 'WomenController@index');
 
+Route::post('/voucher/store', 'VouchersController@store')->name('voucher.store');
+Route::post('/voucher', 'VouchersController@storeCheckout')->name('voucher.store.checkout');
+Route::delete('/voucher/destroy', 'VouchersController@destroy')->name('voucher.destroy');
+Route::delete('/voucher', 'VouchersController@destroyCheckout')->name('voucher.destroy.checkout');
+
+
+
+
+
 
 //route for debug
 
-Route::get('/read_product',function(){
+Route::get('/send-email', function () {
+    $details = [
+        'title' => 'Test Mail',
+        'body' => 'Hi There!'
+    ];
+    Mail::to('jeffarmanurung66@gmail.com')->send(new \App\Mail\MyMail($details));
+});
+
+Route::get('/read_product', function () {
     $order = Order::find(1);
 
     $products = $order->product;
 
-    foreach($products as $product){
+    foreach ($products as $product) {
         echo $product->productname . '<br>';
     }
 });
 
 Route::get('/check', function () {
 
-//check order dengan id 1
-    $order = Order::find(1);
-//menambahkan value ke order_product dengan value order_id 1 dan product_id 4
-    $order->product()->attach(4);
-    return $order;
+    $products = Product::find(1)->category->sizeDetails;
+    foreach ($products as $product) {
 
-    
+        echo $product->size . "<br>";
+    }
+
+
+    // $product = Product::find(1);
+
+    // dd($product->brand());
+
+    //check order dengan id 1
+    // $order = Order::find(1);
+    // //menambahkan value ke order_product dengan value order_id 1 dan product_id 4
+    // $order->product()->attach(4);
+    // return $order;
+
+
     // return Order::with('user')->get();
 
     // mencari product dengan product gender 'MEN' category 'SHOES' dan produk dengan category 'SHOES'
     // $genders = Gender::find(1)->category()->where('name', 'SHOES')->first();
     // dd($genders->product);
-    
+
     //mencari product dengan gender 'MEN' dan Category ALL
     // $genders = Gender::find(1)->category()->get();
     // dd();
-    
+
     // foreach ($categories as $category) {
-        //     foreach ($category->product as $product) {
-            //         dd($product->productname);
-            //     }
-            // }
-            
-            // $user = User::onlyTrashed()->get();
-            // dd($user);
-            
-            // $reviews = Review::all();
-            // $product_tops = Product::where('id', '=', 1)->first();
-            
-            // foreach ($reviews as $review) {
-                //     if ($review->product_id == $product_tops->id) {
-                    //     }
-                    // }
-                    
-                    // $cartlist = product_user::onlyTrashed()->get();
-                    
-                    // dd($cartlist);
-                    
-                    //     $Order = Order::find(1);
-                    // dd($Order->address_delivery_users);
-                    
+    //     foreach ($category->product as $product) {
+    //         dd($product->productname);
+    //     }
+    // }
+
+    // $user = User::onlyTrashed()->get();
+    // dd($user);
+
+    // $reviews = Review::all();
+    // $product_tops = Product::where('id', '=', 1)->first();
+
+    // foreach ($reviews as $review) {
+    //     if ($review->product_id == $product_tops->id) {
+    //     }
+    // }
+
+    // $cartlist = product_user::onlyTrashed()->get();
+
+    // dd($cartlist);
+
+    //     $Order = Order::find(1);
+    // dd($Order->address_delivery_users);
+
 });

@@ -11,8 +11,7 @@
 <div id="exTab1" class="container pb-5">
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active bg-transparent" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home"
-            aria-selected="true">Profile</a>
+            <a class="nav-link active bg-transparent" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home" aria-selected="true">Profile</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#2a" role="tab" aria-controls="profile" aria-selected="false">Notification</a>
@@ -20,7 +19,7 @@
         <li class="nav-item" role="presentation">
             <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#3a" role="tab" aria-controls="profile" aria-selected="false">Privacy</a>
         </li>
-    </ul>	
+    </ul>
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
         <div class="tab-content pt-4">
             <div class="tab-pane fade show active" id="1a" role="tabpanel">
@@ -386,18 +385,41 @@
 
                             <input type="hidden" name="role" value="{{$user->role}}">
 
-                            <div class="row gutters mt-4 mb-4">
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="row justify-content-between mt-4 mb-4">
+                                <div class="col-md-6 ">
                                     <div class="text-center">
                                         <a href="/userprofile"><button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button></a>
                                         <button type="submit" id="submit" name="submit" class="btn btn-primary">Save</button>
                                     </div>
+                                </div>
+                                <div class="col-md-4 offset-md-2">
+                                    <button type="button" id="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger">Delete Account</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm">
+                    <div class="modal-content shadow-sm">
+                        <form action="/delete-my-account/{{$user->id}}" method="post" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <div class="modal-body">
+                                <h3 class="text-center">Are you sure?</h3>
+                                <p class="text-center font-weight-normal mb-0">Do you really want to delete your <span class="font-weight-bold">account.</span> This process cannot be undone.</p>
+                            </div>
+                            <div class="modal-footer justify-content-around pt-0 border-top-0">
+                                <button type="button" cla'ss="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger" name="formaddress">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <div class="tab-pane fade" id="2a" role="tabpanel">
                 <h4>Notification</h4>
                 <p>Set the notifications you want to receive here</p>

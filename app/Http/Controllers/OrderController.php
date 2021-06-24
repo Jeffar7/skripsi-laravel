@@ -11,16 +11,18 @@ use App\Product;
 use App\Shipment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class OrderController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
 
-    public function checkout(Request $request)
+    public function checkout(Request $request,  Cart $cart)
     {
         $cartlists = Cart::where('user_id', '=', Auth::user()->id)->get();
 
@@ -31,7 +33,6 @@ class OrderController extends Controller
             $products[] = $product;
         }
 
-
         $carts = Cart::where('user_id', '=', Auth::user()->id)->get();
 
         if ($carts->count() > 0) {
@@ -40,7 +41,8 @@ class OrderController extends Controller
             $order->order_number = 'ORD-' . strtoupper(mt_rand(1000000000, 9999999999));
             $order->status = 'pending';
             $order->user_id = Auth::user()->id;
-            $order->grand_total = $request->subtotal;
+            $order->grand_total = $request->grandtotal;
+            $order->is_buy_now = 0;
             $order->save();
 
             foreach ($carts as $cart) {
@@ -48,15 +50,19 @@ class OrderController extends Controller
                 $order_product->order_id = $order->id;
                 $order_product->product_id = $cart->product_id;
                 $order_product->is_review = 'no';
+                $order_product->quantity = $request->quantity;
+                $order_product->subtotal = $cart->product->productprice * $request->quantity;
+
                 $order_product->save();
+
+                Cart::where('id', $cart->id)
+                    ->update([
+                        'quantity' => $request->quantity
+                    ]);
             }
-
-            //get product that has been purchased
-
 
             //after click checkout, cart list product delete
             // $carts = Cart::where('user_id', '=', Auth::user()->id)->forceDelete();
-
 
             //get all shipment
             $shipments = Shipment::all();
@@ -66,10 +72,43 @@ class OrderController extends Controller
 
             $detailaddresses = null;
 
-            return view('/transactions/delivery', compact('order', 'addresses', 'detailaddresses', 'shipments', 'products'));
+           //make session
+           session()->put('checkout',[
+                'order_id' => $order->id,
+                'product' => $products
+           ]);
+
+        //    dd(session()->get('checkout'));
+
+            return redirect('/transactions/delivery');
         } else {
             return back()->with('status', 'There is no product on your cart, pick some!');
         }
+    }
+
+    public function viewCheckOut()
+    {
+
+        $shipments = Shipment::all();
+        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $detailaddresses = null;
+        $order = Order::find(session()->get('checkout')['order_id']);
+        $products = session()->get('checkout')['product'];
+
+        return view('/transactions/delivery', compact('order', 'products', 'addresses', 'shipments', 'detailaddresses'));
+    }
+
+    public function transactionDelivery()
+    {
+        //get all shipment
+        $shipments = Shipment::all();
+
+        //get all user address
+        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+
+        $detailaddresses = null;
+
+        return view('/transactions/delivery', compact('order', 'addresses', 'detailaddresses', 'shipments', 'products'));
     }
 
     public function addaddress(Request $request)
@@ -126,11 +165,12 @@ class OrderController extends Controller
     public function payment(Request $request)
     {
 
-        $order = Order::where('status', '=', 'pending')->where('user_id', '=', Auth::user()->id)->first();
+        $order = Order::where('id','=', session()->get('checkout')['order_id'])->where('user_id', '=', Auth::user()->id)->first();
 
         Order::where('id', '=', $order->id)->update([
             'address_id' => $request->address,
-            'shipment_id' => $request->shipment
+            'shipment_id' => $request->shipment,
+            'notes' => $request->notes
         ]);
 
         $payments = Payment::all();
@@ -163,6 +203,8 @@ class OrderController extends Controller
             $payment->save();
         }
 
+        // dd(session()->get('detailcheckout')['orders']);
+
         Order::where('id', '=', $request->order)->update([
             'status' => 'completed',
             'payment_id' => $payment->id
@@ -170,10 +212,12 @@ class OrderController extends Controller
 
         $carts = Cart::where('user_id', '=', Auth::user()->id)->forceDelete();
 
+        session()->forget('voucher');
+
         return redirect('/payment-history');
     }
 
-    public function summary(Request $request)
+    public function summary(Request $request, Order $order)
     {
 
         $productss = json_decode($request->products);
@@ -182,88 +226,45 @@ class OrderController extends Controller
             $products[] = $product;
         }
 
+        $orders = DB::table('carts')
+            ->join('products', 'carts.product_id', '=', 'products.id')
+            ->where('user_id', '=', Auth::user()->id)->get();
+
+        $totals = DB::table('carts')
+            ->join('products', 'carts.product_id', '=', 'products.id')
+            ->where('user_id', '=', Auth::user()->id)->sum(DB::raw('carts.quantity * products.productprice'));
+
+
         $address = Address_Delivery_Users::where('id', '=', $request->address_detail)->first();
         $shipment = Shipment::where('id', '=', $request->shipment)->first();
 
-        return view('/transactions/ordersummary', compact('products', 'address', 'shipment'));
+        session()->put('detailcheckout',[
+            'address_id' => $request->address_detail,
+            'shipment_id' => $request->shipment,
+            'orders' => $orders,
+            'totals' => $totals,
+            'products' => $productss
+        ]);
+
+        return redirect('/transactions/ordersummary');
     }
 
-
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function viewSummary()
     {
-        //
-    }
+        // dd(session()->get('detailcheckout')['totals']);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $products = session()->get('checkout')['product'];
+        $address = Address_Delivery_Users::where('id', '=', session()->get('detailcheckout')['address_id'])->first();
+        $shipment = Shipment::where('id', '=', session()->get('detailcheckout')['address_id'])->first();
+        $orders = session()->get('detailcheckout')['orders'];
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $discount = session()->get('voucher')['discount'] ?? 0;
+        $totals = session()->get('detailcheckout')['totals'];
+        $newTotal = ($totals + $shipment->delivery_cost) - $discount;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('/transactions/ordersummary', compact('products', 'address', 'shipment', 'orders', 'totals'))->with([
+            'newTotal' => $newTotal
+        ]);
     }
 }

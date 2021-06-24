@@ -84,7 +84,6 @@ class User extends Authenticatable
     //     return $this->hasOne(User::class);
     // }
 
-    //openyg bawah ini, is_admin()
     // public function roles(){
     //     return $this->hasOne(Role::class);
     // }
@@ -92,4 +91,14 @@ class User extends Authenticatable
     // public function getIsAdminAttribute(){
     //     return $this->roles()->where('id', 1)->exists();
     // }
+
+    public function voucher()
+    {
+        return $this->belongsToMany(Voucher::class);
+    }
+
+    public function raffle()
+    {
+        return $this->belongsToMany(Raffle::class)->withPivot('address_raffle_id')->withTimestamps();;
+    }
 }

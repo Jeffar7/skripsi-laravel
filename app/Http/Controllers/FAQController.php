@@ -15,7 +15,7 @@ class FAQController extends Controller
     public function index()
     {
         $faqs = FAQ::all();
-        return view('pages\faq', compact('faqs'));
+        return view('pages/faq', compact('faqs'));
     }
 
     /**
@@ -25,8 +25,7 @@ class FAQController extends Controller
      */
     public function create()
     {
-        return view('pages\faq');
-
+        return view('pages/faq');
     }
 
     /**
@@ -54,7 +53,7 @@ class FAQController extends Controller
         //     $filenamesave = $filenameWithoutExt;
         //     $file->storeAs('public/images/FAQs/', $filenamesave);
         //     $faq->image = $filenamesave;
-            
+
         // } else {
         //     return $request;
         //     $faq->image = '';

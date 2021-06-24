@@ -18,4 +18,9 @@ class Category extends Model
     {
         return $this->hasMany(Product::class, 'categoryid', 'id');
     }
+
+    public function sizeDetails()
+    {
+        return $this->hasMany(size_details::class);
+    }
 }

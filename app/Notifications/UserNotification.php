@@ -31,6 +31,7 @@ class UserNotification extends Notification
      */
     public function via($notifiable)
     {
+        // return ['mail', 'database'];
         return ['database'];
     }
 
@@ -78,7 +79,7 @@ class UserNotification extends Notification
             'username' => $this->user->username,
             'email' => $this->user->email,
 
-            'user' => auth()->user()
+            // 'user' => auth()->user()
         ];
     }
 }

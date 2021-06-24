@@ -33,13 +33,26 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
     <!-- fav icon -->
-    <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png"> 
+    <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png">
+
+    <!-- style for stripe -->
+    @yield('extra-css')
 </head>
 
 
 
 <body>
     <div id="app">
+        <?php
+
+        use App\Http\Controllers\ProductController;
+        use Illuminate\Support\Facades\Auth;
+
+        $totalItemCart = 0;
+        if (Auth::check() && Auth::user()->role === 'customer') {
+            $totalItemCart = ProductController::countItemCart();
+        }
+        ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -94,7 +107,7 @@
                                 <a class="dropdown-item" href="/women-sale">SALE</a>
                             </div>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/allbrand">BRANDS</a>
                         </li>
@@ -116,15 +129,21 @@
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <!-- Authentication Links -->
 
-                        @if(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
+                        @if(Auth::check() && Auth::user()->role === 'customer')
+                        <li class="nav-item">
+                            <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"><span class="badge badge-pill badge-danger">{{$totalItemCart}}</span></i></a>
+                        </li>
+                        @endif
+                        @guest
                         <li class="nav-item">
                             <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"></i></a>
                         </li>
-                        @endif
-                        @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('LOG IN') }}</a>
                         </li>
@@ -135,14 +154,14 @@
                         @endif
                         @else
                         <li class="nav-item dropdown" id="markasread" onclick="markNotificationAsRead()">
-                            <a class="nav-link" href="#"><i class="far fa-bell"></i><span class="badge" style="
+                            <a class="nav-link" href="/notification"><i class="far fa-bell"></i><span class="badge" style="
                                 color: white;
                                 background: red;
                                 border: 2px solid red;
                                 border-radius: 25px;
                                 padding: 1% 0;
                             ">{{count(auth()->user()->unreadNotifications)}}</span></a>
-
+                            
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     @forelse(auth()->user()->unreadNotifications as $notification)
@@ -157,11 +176,22 @@
                                         @empty
                                         <a href="#">No unread Notifications</a>
                                     @endforelse
+                                    <div class="boxes" style="background: #c4c0c0">
+                                        <a class="" href="/notification">See More</a>
+                                    </div>
                                 </li>
                             </ul>
 
                             {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/userprofile">History <span class="badge badge-primary badge-pill"></span></a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#"><i class="far fa-bell"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#"><i class="fas fa-envelope"></i></a>
+
+                            <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/raffle/history">My Raffle <span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span class="badge badge-primary badge-pill"></span></a>
                                 <a class="dropdown-item" href="/payment-history">Payment History <span class="badge badge-primary badge-pill"></span></a>
                             </div> --}}
@@ -189,10 +219,10 @@
                     </ul>
                 </div>
             </div>
-    </nav>
+        </nav>
 
-        
-        
+
+
         <main class="pt-0">
             @yield('content')
         </main>
@@ -203,7 +233,9 @@
                     <div class="col-4">
                         <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40" alt="">
                         <br>
-                        <p>TokoLokal is a concept store based in Jakarta. Started in 2021, TokoLokal become a point for fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local products to compete with international products.</p>
+                        <p>TokoLokal is a concept store based in Jakarta. Started in 2021, TokoLokal become a point for
+                            fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local
+                            products to compete with international products.</p>
                         <p>© 2021 TokoLokal. All Rights Reserved.</p>
                     </div>
                     <div class="col-2">
@@ -223,12 +255,15 @@
                     <div class="col-4">
                         <p>VISIT</p>
                         <p>PT. CIPTA RETAIL PRAKARSA
-                            Wisma Anugraha Lantai GF, Jl. Taman Kemang No. 32B Kel. Pela Mampang, Kec. Mampang Jakarta Selatan 12730</p>
+                            Wisma Anugraha Lantai GF, Jl. Taman Kemang No. 32B Kel. Pela Mampang, Kec. Mampang Jakarta
+                            Selatan 12730</p>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
+
+
 </body>
 
 </html>

@@ -7,7 +7,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item"><a href="/raffle" class="text-dark">Raffle</a></li>
+            <li class="breadcrumb-item"><a href="/allraffle" class="text-dark">Raffle</a></li>
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$raffle->rafflename}}</li>
         </ol>
     </nav>
@@ -15,9 +15,9 @@
 
 <div class="container">
     <div class="row justify-content-center mb-5">
-            <div class="col-12 text-center">
-                <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 400px; max-width: 100%;">
-            </div>
+        <div class="col-12 text-center">
+            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 400px; max-width: 100%;">
+        </div>
     </div>
 
     <div class="row justify-content-center mb-3">
@@ -29,20 +29,46 @@
         </div>
     </div>
 
+    <hr>
+
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <p class="font-weight-normal mb-0">{{$raffle->raffledescription}}</p>
+        </div>
+    </div>
+
+    <hr>
+
     <div class="row justify-content-center">
         <div class="col-12 text-center">
             <p class="h3 font-weight-bold"> {{$raffle->rafflename}}</p>
         </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-3">
         <div class="col-12 text-center">
             <p class="h6 font-weight-bold">Draw closes on {{$raffle->raffleclosedate}}</p>
         </div>
     </div>
-    <hr>
 
-    <form action="">
+    <!-- Displaying The Validation Errors -->
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    <!-- End Displaying The Validation Errors -->
+
+    <!-- Form -->
+
+    <form action="/raffle/submit" method="post">
+        @csrf
         <div class="form-row justify-content-around">
             <div class="col-md-4">
                 <div class="row mb-3">
@@ -55,30 +81,36 @@
                     <input type="text" id="lastname" class="form-control" value="{{Auth::user()->last_name}}" name="last_name">
                 </div>
 
+                <fieldset disabled>
+                    <div class="row mb-3">
+                        <label for="email">Email*</label>
+                        <input type="text" id="email" class="form-control" value="{{Auth::user()->email}}" name="email">
+                    </div>
+                </fieldset>
+
                 <div class="row mb-3">
-                    <label for="email">Email*</label>
-                    <input type="text" id="email" class="form-control" value="{{Auth::user()->email}}" name="email">
+                    <label for="lastname">Province*</label>
+                    <input type="text" id="province" class="form-control" value="{{Auth::user()->detailaddress->province}}" name="province">
                 </div>
 
                 <div class="row mb-3">
                     <label for="number">Mobile Number*</label>
-                    <input type="text" id="number" class="form-control" value="{{Auth::user()->phone}}" name="phone">
+                    <input type="number" id="number" class="form-control" value="{{Auth::user()->phone}}" name="phone">
                 </div>
 
-                <div class="row mb-3">
-                    <label for="dob">Date of Birth*</label>
-                    <input type="date" id="dob" class="form-control" value="{{Auth::user()->DOB}}" name="dob">
-                </div>
+                <fieldset disabled>
+                    <div class="row mb-3">
+                        <label for="dob">Date of Birth*</label>
+                        <input type="date" id="dob" class="form-control" value="{{Auth::user()->DOB}}" name="dob">
+                    </div>
+                </fieldset>
+
 
                 <div class="row mb-3">
                     <label for="postcode">Post Code*</label>
-                    <input type="text" id="postcode" class="form-control" value="{{Auth::user()->detailaddress->zip_code}}" name="phone">
+                    <input type="number" id="postcode" class="form-control" value="{{Auth::user()->detailaddress->zip_code}}" name="post_code">
                 </div>
 
-                <div class="row mb-3">
-                    <label for="category">Category*</label>
-                    <input type="text" id="category" class="form-control" name="category">
-                </div>
 
             </div>
             <div class="col-md-4">
@@ -93,7 +125,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="city">Town City</label>
+                    <label for="city">Town City*</label>
                     <input type="text" id="city" class="form-control" value="{{Auth::user()->detailaddress->city}}" name="city">
                 </div>
 
@@ -351,11 +383,11 @@
                 </div>
 
                 <div class="row mb-1 text-center">
-                    <p>By submitting the form you agree to the Terms & Conditions below.</p>
+                    <p class="font-weight-normal">By submitting the form you agree to the Terms & Conditions below.</p>
                 </div>
 
                 <div class="row mb-1 text-center">
-                    <p>Once you have completed the payment,  you have commited to purchasing the product should you win. If you win, payment will be taken and the product will be sent via your choosen delivery method after draw has closed. If unsucessful your held payment will be released after the close of the draw, depending on your bank this may take 3-5 days. You’ll receive a confirmation email when entering and once the draw closes if sucessful or unsuccesful. Full T&C’s are on our site.</p>
+                    <p class="font-weight-normal">Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment will be taken and the product will be sent via your choosen delivery method after draw has closed. If unsucessful your held payment will be released after the close of the draw, depending on your bank this may take 3-5 days. You’ll receive a confirmation email when entering and once the draw closes if sucessful or unsuccesful. Full T&C’s are on our site.</p>
                 </div>
 
                 <div class="row justify-content-around">
@@ -365,12 +397,21 @@
                 </div>
             </div>
         </div>
+
+        <!-- Hidden Input -->
+        <input type="hidden" id="email" class="form-control" value="{{Auth::user()->email}}" name="email">
+        <input type="hidden" id="dob" class="form-control" value="{{Auth::user()->DOB}}" name="dob">
+        <input type="hidden" name="raffle_id" value="{{$raffle->id}}">
+        <!-- End Hidden Input -->
+
         <div class="form-row justify-content-around mt-3">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <button type="input" class="btn btn-dark btn-block">Confirm Here</button>
             </div>
         </div>
     </form>
+
+    <!-- End Form -->
 
     <div class="mb-5"></div>
 </div>
