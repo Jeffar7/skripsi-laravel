@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 class SizeDetailsSeeder extends Seeder
 {
-    /**
+    /** 
      * Run the database seeds.
      *
      * @return void
@@ -40,7 +40,7 @@ class SizeDetailsSeeder extends Seeder
             ],
             [
                 'category' => 'TOP',
-                'size' => 'XLL',
+                'size' => 'XXL',
                 'category_id' => 1
             ],
             [
@@ -70,7 +70,7 @@ class SizeDetailsSeeder extends Seeder
             ],
             [
                 'category' => 'BOTTOM',
-                'size' => 'XLL',
+                'size' => 'XXL',
                 'category_id' => 2
             ],
             [

@@ -38,7 +38,7 @@
             </div>
             <hr>
             <p class="mb-0 font-weight-bold">Size</p>
-            <div class="row">
+            <div class="row" id="size">
                     <div class="col-md-12">
                     @foreach ($products as $product)
                         <label class="m-checkbox mr-3">
@@ -100,21 +100,26 @@
     }
 
     function filterResults () {
-        let brandIds = getIds("brand");
+        let brandIds = getIds("brand").val();
 
         let sizeIds = getIds("size");
 
-        let href = 'men?';
-
-        if(brandIds.length) {
-            href += 'filter[brand]=' + brandIds;
+        if(brandIds.val() === '1') {
+            // href += 'filter[brand]=' + brandIds;
+            $("#size").hide();
         }
 
-        if(sizeIds.length) {
-            href += '&filter[size]=' + sizeIds;
-        }
+        // let href = 'men?';
 
-        document.location.href=href;
+        // if(brandIds.length) {
+        //     href += 'filter[brand]=' + brandIds;
+        // }
+
+        // if(sizeIds.length) {
+        //     href += '&filter[size]=' + sizeIds;
+        // }
+
+        // document.location.href=href;
     }
 
     document.getElementById("filter").addEventListener("click", filterResults);

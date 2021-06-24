@@ -41,6 +41,42 @@ class RaffleController extends Controller
         return view('/raffles/raffle_item_list', compact('raffles'));
     }
 
+    public function sortRaffle(Request $request)
+    {
+        if($request->ajax()){
+            
+            $raffles = new Raffle();
+            
+            // sorting product
+            if ($request->sortRaffle == "open_raffle") {
+                $raffles->orderBy('status','desc');
+            } elseif ($request->sortRaffle == "closed_raffle") {
+                $raffles->orderBy('status','asc');
+            } elseif ($request->sortRaffle == "upcoming_raffle") {
+                $raffles->orderBy('rafflereleasedate','desc');
+            } elseif ($request->sortRaffle == "latest_raffle") {
+                $raffles->orderBy('id','desc');
+            } else {
+                $raffles;
+            }          
+            
+            $raffles = $raffles->paginate(3);
+
+            // dd($raffles);
+            // echo "<pre>"; print_r($raffles); 
+
+            if ($raffles->count() == 0)
+                return view('/raffles/filter_raffle', compact('raffles'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('/raffles/filter_raffle', compact('raffles'));
+
+        }else {
+            $raffles = Raffle::paginate(3);
+            return view('/raffles/raffle_item_list', compact('raffles'));
+        }
+    }
+
     public function raffledescription(Raffle $raffle)
     {
         return view('/raffles/raffle_item_desc', compact('raffle'));

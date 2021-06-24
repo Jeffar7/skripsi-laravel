@@ -37,35 +37,36 @@
                         <td>{{$user->created_at}}</td>
                         <td>
                             <a href="users/{{$user->id}}/edit" class="badge btn-success"><i class="fas fa-edit" style="color:white"></i></a>
-                            <!-- <form action="/users/{{$user->id}}" method="POST" class="d-inline">
-                                @method('delete')
-                                @csrf -->
-                            <button type="submit" class="badge btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt" style="color:white"></i></button>
-                            <!-- </form> -->
+                            <a href="users/{{$user->id}}/delete" class="delete-modal badge btn-danger" data-value="{{ $user->id }}" data-toggle="modal" data-target="#exampleModal{{ $user->id }}"><i class="fas fa-trash-alt" style="color:white"></i></a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            @foreach ($users as $user)
+            <div class="modal fade" id="exampleModal{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                     <div class="modal-content shadow-sm">
-                        <form action="/users/{{$user->id}}" method="POST" class="d-inline">
+                        <form action="/users/{{ $user->id }}" method="POST" class="d-inline">
                             @method('delete')
                             @csrf
                             <div class="modal-body">
                                 <h3 class="text-center">Are you sure?</h3>
-                                <p class="text-center font-weight-normal mb-0">Do you really want to delete this item? This process cannot be undone.</p>
+                                <p class="text-center font-weight-normal mb-0">Do you really want to delete 
+                                <br>
+                                <span class="font-weight-bold">{{$user->first_name}} {{$user->last_name}}</span> item?</p> 
+                                <p class="text-center font-weight-normal mb-0">This process cannot be undone.</p>
                             </div>
                             <div class="modal-footer justify-content-around pt-0 border-top-0">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" name="formaddress">Delete</button>
+                                <button type="submit" class="btn btn-danger" name="delete_user">Delete</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            @endforeach
 
 
             <div class="mt-4"></div>
@@ -76,6 +77,11 @@
 <script>
     $(document).ready(function() {
         $('#dtBasicExample').DataTable();
+
+        $(document).on("click", ".delete-modal", function (e) {
+            var delete_id = $(this).attr('data-value');
+            $('button[name="delete_user"]').val(delete_id);
+        });
     });
 </script>
 

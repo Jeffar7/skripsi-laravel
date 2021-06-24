@@ -163,6 +163,7 @@ Route::group(['middleware' =>  'role:customer'], function () {
 
 // Check again this route
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/pagehome', 'PageController@home')->middleware('auth');
 Route::get('/homeman', 'PageController@homeman')->name('homeman');;
 Route::get('/itemlist', 'PageController@itemlist');
@@ -183,7 +184,8 @@ Route::get('/men-accessories', 'ManController@accessories');
 Route::get('/men-new', 'ManController@new');
 Route::get('/men-sale', 'ManController@sale');
 Route::get('/men', 'ManController@men');
-Route::get('/men', 'ManController@index');
+// Route::post('/men', 'ManController@filterMan')->name('men');
+Route::post('/men', 'ManController@filterMen')->name('men');
 
 Route::get('/women', 'WomenController@women');
 Route::get('/women-tops', 'WomenController@tops');

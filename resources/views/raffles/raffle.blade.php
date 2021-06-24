@@ -87,7 +87,9 @@
                         </div>
                         <div class="row">
                             <div class="col align-self-end text-right">
-                                @if(Auth::check() && Auth::user()->role === 'customer' || Auth::user()->role === 'admin')
+                                @guest
+                                <a href="/register" class="btn btn-primary">Enter Now</a>
+                                @else
                                     @if($raffle->status === 'running')
                                     <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
                                     @elseif($raffle->status === 'closed')
@@ -95,9 +97,7 @@
                                     @else
                                     <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
                                     @endif
-                                @else
-                                <a href="/register" class="btn btn-primary">Enter Now</a>
-                                @endif
+                                @endguest
                             </div>
                         </div>
                     </div>
