@@ -135,7 +135,7 @@ class ProductsTableSeeder extends Seeder
                 'productprice' => 980000,
                 'productsize' => '-',
                 'productquantity' => 15,
-                'productimage' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/Men/Bottom/AGLXY POPPLIN SHORTS 012 - 450k/ALL_GONE_BOOK_2020.jpg',
+                'productimage' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/ALL_GONE_BOOK_2020.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],

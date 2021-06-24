@@ -64,4 +64,14 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class)->withPivot('is_review');
     }
+
+    public static function productFilter()
+    {
+        $productFilter["categories"] = Category::all();
+        $productFilter["genders"] = Gender::all();
+        $productFilter["brands"] = Brand::all();
+        $productFilter["sizes"] = Product::all();
+        
+        return $productFilter;
+    }
 }

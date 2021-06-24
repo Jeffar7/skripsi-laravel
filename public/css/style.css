@@ -192,7 +192,7 @@ position:absolute; */
   }
   
   .leftside-register{
-    background-image: url("login.jpg");
+    background-image: url("signup.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
