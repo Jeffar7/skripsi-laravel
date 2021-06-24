@@ -188,7 +188,12 @@ class BuynowController extends Controller
         $shipment = Shipment::where('id', '=', $flashData->shipment_id)->first();
         $quantityBuy = $flashData->quantity;
 
-        $discount = session()->get('voucher')['discount'] ?? 0;
+
+        if (isset(session()->get('voucher')['discount']))
+            $discount = session()->get('voucher')['discount'];
+        else
+            $discount = 0;
+
         $newTotal = (($product->productprice * $quantityBuy) + $shipment->delivery_cost) - $discount;
 
         return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment', 'quantityBuy'))->with([

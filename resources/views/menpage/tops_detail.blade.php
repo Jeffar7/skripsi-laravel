@@ -28,7 +28,7 @@
         <div class="col-5 border border-dark p-0">
             <img src="{{asset('../storage/images/Products/' . $product_tops->productimage)}}" width="100%;" height="300px;" alt="Image">
         </div>
-        <div class="col border border-dark" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: white">
+        <div class="col border border-dark" style=" box-shadow: 1px 2px #888888; background-color: white">
             <div class="card-body">
                 <!-- product about -->
                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
@@ -129,7 +129,7 @@
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">Detail
         </div>
-        <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">Size Detail
+        <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">
 
             <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">
                 <p class="about-title">SKU : {{$product_tops->sku}} </p>
@@ -227,6 +227,46 @@
             </div>
         </div>
     </div>
+
+    <!-- Others Product -->
+    <div class="container mb-5">
+        <p class="title-home">Other Choice</p>
+        <div class="row justify-content-around">
+            <div id="myCarousel" class="carousel slide  w-100" data-interval="false">
+                <div class="carousel-inner w-100 px-3">
+
+                    @foreach($others as $key => $product)
+                    <div class="carousel-item col col-md-3 {{$key == 0 ? 'active' : '' }}">
+                        <!-- Gambar 1 -->
+                        <!-- <div class="col col-sm-3 mb-3"> -->
+                        <div class="card">
+                            <a href="/men-tops/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="239.5px;" height="272px;" alt="Image" class="card-img-top border border-dark"></a>
+                        </div>
+                        <div class="card px-2 border border-dark">
+                            <a href="/men-tops/detail/{{$product->id}}" style="color:black;">
+                                <p class="mt-3 mb-0 text-truncate" style="font-weight:bold;">{{$product->productname}}</p>
+                            </a>
+                            <a class="about-title mb-0" style="text-decoration:normal;" href="/brands/{{$product->brand->id}}">{{$product->brand->name}}</a>
+                            <p style="font-weight:bold;">Rp. {{number_format($product->productprice)}}</p>
+                        </div>
+                        <!-- </div> -->
+                        <!-- Akhir Gambar 1 -->
+                    </div>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev w-auto" href="#myCarousel" role="button" data-slide="prev">
+                    <span><i class="fa fa-angle-left" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next w-auto" href="#myCarousel" role="button" data-slide="next">
+                    <span><i class="fa fa-angle-right" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End Other Product -->
+
 
     <script>
         $(document).ready(function() {

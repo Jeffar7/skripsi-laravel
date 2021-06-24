@@ -7,7 +7,7 @@
 <div class="container pt-2">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1 class="title-home mt-3">Raffle History</h1>
+            <h1 class="title-home mt-3">Raffle Entries Item</h1>
 
             @if (session('status'))
             <div class="alert alert-success">
