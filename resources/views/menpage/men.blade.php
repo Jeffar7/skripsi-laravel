@@ -10,8 +10,10 @@
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Men</li>
         </ol>
     </nav>
-    <div class="text-center">
-        <img src="../storage/images/MenPage/men.jpg" alt="" height="472px;" width="1110px;">
+    <div class="big-image-men">
+        <div class="overlay">
+            <h3>MEN</h3>
+        </div>
     </div>
 </div>
 

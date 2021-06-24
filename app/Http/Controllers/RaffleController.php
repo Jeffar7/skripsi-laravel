@@ -31,7 +31,7 @@ class RaffleController extends Controller
         return view('/raffles/raffle', compact('raffles'));
     }
 
-    public function allraffle()
+    public function allraffle(Request $request)
     {
         $raffles = Raffle::paginate(3);
         return view('/raffles/raffle_item_list', compact('raffles'));
@@ -40,26 +40,17 @@ class RaffleController extends Controller
     public function sortRaffle(Request $request)
     {
         if($request->ajax()){
-            
-            $raffles = new Raffle();
-            
-            // sorting product
-            if ($request->sortRaffle == "open_raffle") {
-                $raffles->orderBy('status','desc');
-            } elseif ($request->sortRaffle == "closed_raffle") {
-                $raffles->orderBy('status','asc');
-            } elseif ($request->sortRaffle == "upcoming_raffle") {
-                $raffles->orderBy('rafflereleasedate','desc');
-            } elseif ($request->sortRaffle == "latest_raffle") {
-                $raffles->orderBy('id','desc');
-            } else {
-                $raffles;
-            }          
+            if ($request->sort == "open_raffle") {
+                $raffles = Raffle::orderBy('status','desc');
+            } elseif ($request->sort == "closed_raffle") {
+                $raffles = Raffle::orderBy('status','asc');
+            } elseif ($request->sort == "upcoming_raffle") {
+                $raffles = Raffle::orderBy('rafflereleasedate','desc');
+            } elseif ($request->sort == "latest_raffle") {
+                $raffles = Raffle::orderBy('id','desc');
+            }     
             
             $raffles = $raffles->paginate(3);
-
-            // dd($raffles);
-            // echo "<pre>"; print_r($raffles); 
 
             if ($raffles->count() == 0)
                 return view('/raffles/filter_raffle', compact('raffles'))
@@ -71,6 +62,26 @@ class RaffleController extends Controller
             $raffles = Raffle::paginate(3);
             return view('/raffles/raffle_item_list', compact('raffles'));
         }
+    }
+
+    public function searchRaffle(Request $request){
+        if($request->has('search')){
+            $search = $request->search;
+            if(!empty($search)){
+                $raffles = Raffle::where('rafflename', 'like', '%' .$search. '%')->paginate(3);
+            }else{
+                $raffles = Raffle::paginate(3);
+            }
+        }else{
+            $raffles = Raffle::paginate(3);
+        }
+
+        if ($raffles->count() == 0)
+            return view('/raffles/filter_raffle', compact('raffles'))
+                ->withErrors(['no_post_result' => 'No data found with current filters.']);
+        else
+            return view('/raffles/filter_raffle', compact('raffles'));
+
     }
 
     public function raffledescription(Raffle $raffle)

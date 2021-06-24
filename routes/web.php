@@ -159,8 +159,9 @@ Route::post('/submit/review', 'StatusController@product_submit_review');
 Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
 Route::get('/raffle', 'RaffleController@raffle');
-Route::get('/allraffle', 'RaffleController@allraffle');
+Route::get('/allraffle', 'RaffleController@allraffle')->name('allraffle');
 Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
+Route::post('/allraffle', 'RaffleController@searchRaffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
 Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
 Route::get('/manageraffle', 'RaffleController@index');
@@ -193,17 +194,23 @@ Route::get('/men-accessories', 'ManController@accessories');
 Route::get('/men-new', 'ManController@new');
 Route::get('/men-sale', 'ManController@sale');
 Route::get('/men', 'ManController@men');
-// Route::post('/men', 'ManController@filterMan')->name('men');
 Route::post('/men', 'ManController@filterMen')->name('men');
+Route::post('/men-tops', 'ManController@filterMenTops')->name('men-tops');
+Route::post('/men-bottoms', 'ManController@filterMenBottoms')->name('men-bottoms');
+Route::post('/men-accessories', 'ManController@filterMenAccessories')->name('men-accessories');
 
 Route::get('/women', 'WomenController@women');
+Route::post('/women', 'WomenController@filterWomen')->name('women');
 Route::get('/women-tops', 'WomenController@tops');
+Route::post('/women-tops', 'WomenController@filterWomenTops')->name('women-tops');
 Route::get('/women-bottoms', 'WomenController@bottoms');
+Route::post('/women-bottoms', 'WomenController@filterWomenBottoms')->name('women-bottoms');
 Route::get('/women-shoes', 'WomenController@shoes');
+Route::post('/women-shoes', 'WomenController@filterWomenShoes')->name('women-shoes');
 Route::get('/women-accessories', 'WomenController@accessories');
+Route::post('/women-accessories', 'WomenController@filterWomenAccessories')->name('women-accessories');
 Route::get('/women-new', 'WomenController@new');
 Route::get('/women-sale', 'WomenController@sale');
-Route::get('/women', 'WomenController@index');
 
 Route::post('/voucher/store', 'VouchersController@store')->name('voucher.store');
 Route::post('/voucher', 'VouchersController@storeCheckout')->name('voucher.store.checkout');

@@ -458,6 +458,24 @@ hr {
     background-image: url("ahhagang.png");
 }
 
+.big-image-men {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url("men.jpg");
+}
+
+.big-image-women {
+    height: 400px;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url("women.jpg");
+}
+
 #overlay {
     background-color: rgba(245, 245, 245, 1);
     opacity: .4;
