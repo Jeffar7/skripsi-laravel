@@ -7,7 +7,7 @@
 <div class="container pt-2">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1 class="title-home mt-3">Raffle History</h1>
+            <h1 class="title-home mt-3">Raffle Entries Item</h1>
 
             @if (session('status'))
             <div class="alert alert-success">
@@ -36,14 +36,24 @@
                         <td class="text-center font-weight-normal">Rp. {{number_format($raffle->raffleprice)}}</td>
                         <td class="text-center font-weight-normal">{{$raffle->raffleclosedate}}</td>
                         <td class="text-center font-weight-normal">{{$raffle->status}}</td>
-                        @if($raffle->status == 'pending')
+                        @if($raffle->status == 'running')
                         <td class="text-center font-weight-normal">Waiting until Raffle Close</td>
-                        @elseif($raffle->status == 'closed')
-                        <td class="text-center font-weight-normal">Wait for the system to determine the winner</td>
-                        @elseif($raffle->status == 'lose')
+                        @else
+                        @if($raffle->is_win == 'win')
+                        @if($raffle->payment_id != 0)
+                        <td class="text-center font-weight-normal">
+                            Raffle Has Been Paid
+                        </td>
+                        @else
+                        <td class="text-center font-weight-normal">Congratulations you win! Continue
+                            <a href="/raffles/checkout/{{$raffle->id}}" type="button" class="btn btn-outline-danger">Checkout</a>
+                        </td>
+                        @endif
+                        @elseif($raffle->is_win == 'lose')
                         <td class="text-center font-weight-normal">Sorry you are not lucky, please choose another raffle product.</td>
                         @else
-                        <td class="text-center font-weight-normal">Congratulations you can buy this product. Click the following <a href="#!">link</a> to continue the transaction</td>
+                        <td class="text-center font-weight-normal">Wait for the system to determine the winner</td>
+                        @endif
                         @endif
                     </tr>
                     @endforeach

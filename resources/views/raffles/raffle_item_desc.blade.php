@@ -26,7 +26,9 @@
         <div class="col-md-4 text-center">
             <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border rounded-lg shadow-lg" alt="..." width="100%">
             <div class="mt-5">
-                @if(Auth::check() && Auth::user()->role === 'customer' || Auth::user()->role === 'admin')
+                @guest
+                <a href="/register" class="btn btn-primary">Enter Now</a>
+                @else
                     @if($raffle->status === 'running')
                     <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
                     @elseif($raffle->status === 'closed')
@@ -34,9 +36,7 @@
                     @else
                     <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
                     @endif
-                @else
-                <a href="/register" class="btn btn-primary">Enter Now</a>
-                @endif
+                @endguest
             </div>
         </div>
         <div class="col">
