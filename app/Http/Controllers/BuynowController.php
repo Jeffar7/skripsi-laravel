@@ -26,7 +26,7 @@ class BuynowController extends Controller
     {
         // function ini ga kepake
         dd($id);
-        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $addresses = Address_Delivery_Users::where('user_id', 'php =', Auth::user()->id)->get();
         $shipments = Shipment::all();
         $products = Product::where('id', '=', $id)->first();
 
@@ -36,7 +36,6 @@ class BuynowController extends Controller
 
     public function makepayment(Request $request)
     {
-
         //    dd($request->all());
 
         $user = User::find(Auth::user()->id);
@@ -51,10 +50,10 @@ class BuynowController extends Controller
                 'payment_type' => ['required'],
                 'first_name' => ['required'],
                 'last_name' => ['required'],
-                'card_number' => ['required', 'digits:16'],
-                'cvv' => ['required', 'digits:3'],
-                'credit_type' => ['required'],
-                'valid_until' => ['required']
+                // 'card_number' => ['required', 'digits:16'],
+                // 'cvv' => ['required', 'digits:3'],
+                // 'credit_type' => ['required'],
+                // 'valid_until' => ['required']
             ]);
 
             // validation STRIPE
@@ -77,10 +76,10 @@ class BuynowController extends Controller
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
             $payment->last_name = $request->last_name;
-            $payment->card_number = $request->card_number;
-            $payment->cvv = $request->cvv;
-            $payment->credit_type = $request->credit_type;
-            $payment->valid_until = $request->valid_until;
+            // $payment->card_number = $request->card_number;
+            // $payment->cvv = $request->cvv;
+            // $payment->credit_type = $request->credit_type;
+            // $payment->valid_until = $request->valid_until;
             $payment->user_id = Auth::user()->id;
             $payment->save();
         } else {
@@ -190,7 +189,12 @@ class BuynowController extends Controller
         $shipment = Shipment::where('id', '=', $flashData->shipment_id)->first();
         $quantityBuy = $flashData->quantity;
 
-        $discount = session()->get('voucher')['discount'] ?? 0;
+
+        if (isset(session()->get('voucher')['discount']))
+            $discount = session()->get('voucher')['discount'];
+        else
+            $discount = 0;
+
         $newTotal = (($product->productprice * $quantityBuy) + $shipment->delivery_cost) - $discount;
 
         return view('/transactions/ordersummary_buy_now', compact('product', 'address', 'shipment', 'quantityBuy'))->with([

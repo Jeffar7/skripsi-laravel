@@ -15,7 +15,7 @@
                     <a class="col-sm-4">SUMMARY</a>
                     <a class="col-sm-4">PAYMENT</a>
                 </div>
-            
+
                 <div class="card shadow-lg">
                     <div class="card-header text-left bg-dark text-white">
                         <strong>
@@ -112,7 +112,7 @@
         </div>
     </form>
 
-    {{-- Address Form --}}
+    <!-- {{-- Address Form --}} -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -204,7 +204,7 @@
             </div>
         </div>
     </div>
-    {{-- End Address Form --}}
+    <!-- {{-- End Address Form --}} -->
 
 </div>
 

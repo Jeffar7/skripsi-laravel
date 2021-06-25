@@ -40,8 +40,7 @@
                 </thead>
                 <tbody class="bg-transparent">
                   <tr>
-                    <th scope="row"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;"
-                        height="100px;" alt="Image"></th>
+                    <th scope="row"><img src="{{asset('uploads/products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></th>
                     <td>{{$product->brand->name}}</td>
                     <td class="text-center">{{$product->productname}}</td>
                     <td class="text-center">{{$product->productsize}}</td>
@@ -98,8 +97,7 @@
         <!-- Message for -->
         <div class="row justify-content-center mb-5">
           <div class="col-sm-11 text-center ">
-            <textarea name="notes" id="notes" cols="96" rows="5"
-              placeholder="Special shipping request or anything you need to know" form="form-id"></textarea>
+            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know" form="form-id"></textarea>
           </div>
         </div>
 
@@ -140,8 +138,7 @@
                     @csrf
                     <td class="text-left border-0">
                       <input type="text" class="form-control" name="voucher_code">
-                      <input type="hidden" class="form-control" name="grand_total"
-                        value="{{$product->productprice*$quantityBuy}}">
+                      <input type="hidden" class="form-control" name="grand_total" value="{{$product->productprice*$quantityBuy}}">
                     </td>
                     <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button>
                     </td>

@@ -26,6 +26,6 @@ class AddressForRaffle extends Model
 
     public function raffleUser()
     {
-        return $this->hasMany(raffle_user::class, 'address_raffle_id', 'id');
+        return $this->belongsToMany(Raffle::class, 'address_raffle_id', 'id')->withPivot('status');
     }
 }

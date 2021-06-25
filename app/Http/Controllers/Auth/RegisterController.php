@@ -6,7 +6,9 @@ use App\DetailAddress;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Notifications\UserNotification;
@@ -31,7 +33,16 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/";
+    protected $redirectTo = "/login";
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return redirect($this->redirectPath())->with('message', 'Your message');
+    }
 
     /**
      * Create a new controller instance.

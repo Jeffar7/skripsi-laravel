@@ -100,7 +100,7 @@
                 </div>
               </div>
 
-              <div class="form-row">
+              <!-- <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="card_number">Card Number</label>
                   <input type="number" class="form-control" id="card_number" name="card_number" required>
@@ -151,7 +151,7 @@
                 <div class="col-md-12 mb-3">
                   Valid Until <input type="month" class="form-control" id="valid_until" name="valid_until" required>
                 </div>
-              </div>
+              </div> -->
 
               <div class="form-group">
                 <label for="card-element">Credit Card</label>
@@ -198,14 +198,13 @@
                     <option value="BRI">BRI</option>
                   </select>
                 </div>
-              </div>
 
-              <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="account_number">Account Number</label>
                   <input type="account_number" class="form-control" id="account_number" name="account_number" required>
                 </div>
               </div>
+
 
               <div class="form-row">
                 <div class="col-md-6 mb-3">

@@ -28,7 +28,7 @@
         <div class="col-5 border border-dark p-0">
             <img src="{{asset('../storage/images/Products/' . $product_tops->productimage)}}" width="100%;" height="300px;" alt="Image">
         </div>
-        <div class="col border border-dark" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: white">
+        <div class="col border border-dark" style=" box-shadow: 1px 2px #888888; background-color: white">
             <div class="card-body">
                 <!-- product about -->
                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
@@ -161,97 +161,137 @@
             </div>
             @endguest -->
 
-            @foreach($reviews as $review)
-            @if($review->product_id == $product_tops->id)
-            <div class="card mb-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
-                <div class="media ml-3 mt-3">
-                    <div class="col-md-2">
-                        <img src="{{asset('../storage/images/Users/' . $review->user->picture)}}" width="100px;" height="100px;" alt="Image" class="mr-3">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="media-body">
-                            <h4 class="mt-0 text-left">{{$review->user->username}}</h4>
-                            @if($review->rating_score == 5)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                {{ $review->rating_score }}
-                            </p>
-                            @elseif($review->rating_score == 4.5)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
-                            @elseif($review->rating_score == 4)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                {{ $review->rating_score }}
-                            </p>
-                            @elseif($review->rating_score == 3.5)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
-                            @elseif($review->rating_score == 3)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                {{ $review->rating_score }}
-                            </p>
-                            @elseif($review->rating_score == 2.5)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
-                            @elseif($review->rating_score == 2)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                {{ $review->rating_score }}
-                            </p>
-                            @elseif($review->rating_score == 1.5)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
-                            @elseif($review->rating_score == 1)
-                            <p class="card-text"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                                {{ $review->rating_score }}
-                            </p>
-                            @endif
-                            <p>{{$review->review_description}}.</p>
+                @foreach($reviews as $review)
+                @if($review->product_id == $product_tops->id)
+                <div class="card mb-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
+                    <div class="media ml-3 mt-3">
+                        <div class="col-md-2">
+                            <img src="{{asset('../storage/images/Users/' . $review->user->picture)}}" width="100px;" height="100px;" alt="Image" class="mr-3">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="media-body">
+                                <h4 class="mt-0 text-left">{{$review->user->username}}</h4>
+                                @if($review->rating_score == 5)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    {{ $review->rating_score }}
+                                </p>
+                                @elseif($review->rating_score == 4.5)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
+                                @elseif($review->rating_score == 4)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                    {{ $review->rating_score }}
+                                </p>
+                                @elseif($review->rating_score == 3.5)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
+                                @elseif($review->rating_score == 3)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                    {{ $review->rating_score }}
+                                </p>
+                                @elseif($review->rating_score == 2.5)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
+                                @elseif($review->rating_score == 2)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                    {{ $review->rating_score }}
+                                </p>
+                                @elseif($review->rating_score == 1.5)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}</p>
+                                @elseif($review->rating_score == 1)
+                                <p class="card-text"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                    {{ $review->rating_score }}
+                                </p>
+                                @endif
+                                <p>{{$review->review_description}}.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="mt-0 font-italic" style="font-size:12px; color: #888888;">{{$review->created_at}}</p>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <p class="mt-0 font-italic" style="font-size:12px; color: #888888;">{{$review->created_at}}</p>
-                    </div>
                 </div>
+                @endif
+                @endforeach
             </div>
-            @endif
-            @endforeach
-        </div>
-        <div class="tab-pane fade mt-3" id="policy" role="tabpanel" aria-labelledby="policy-tab">
-            <div>
-                <ul class="ml-4">
-                    <li>
-                        Refund request must be made within 14 days of delivery date. After 14 days from delivery date
-                        you must contact TokoLokal Customer Service to determine the best course of action. TokoLokal
-                        will not issue refunds for products purchades through other entities, such as distributors or
-                        retail partners. Defective units arecovered under TokoLokal oneyear limted warranty policy will
-                        be replaced at TokoLokal cost.
-                    </li>
-                </ul>
+            <div class="tab-pane fade mt-3" id="policy" role="tabpanel" aria-labelledby="policy-tab">
+                <div>
+                    <ul class="ml-4">
+                        <li>
+                            Refund request must be made within 14 days of delivery date. After 14 days from delivery date
+                            you must contact TokoLokal Customer Service to determine the best course of action. TokoLokal
+                            will not issue refunds for products purchades through other entities, such as distributors or
+                            retail partners. Defective units arecovered under TokoLokal oneyear limted warranty policy will
+                            be replaced at TokoLokal cost.
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    $(document).ready(function() {
-        $('.increment-btn').click(function(e) {
-            e.preventDefault();
-            var incre_value = $(this).parents('.quantity').find('.qty-input').val();
-            var value = parseInt(incre_value, 10);
-            value = isNaN(value) ? 0 : value;
-            if (value < 100) {
-                value++;
-                $(this).parents('.quantity').find('.qty-input').val(value);
-            }
+    <!-- Others Product -->
+    <div class="container mb-5">
+        <p class="title-home">Other Choice</p>
+        <div class="row justify-content-around">
+            <div id="myCarousel" class="carousel slide  w-100" data-interval="false">
+                <div class="carousel-inner w-100 px-3">
+
+                    @foreach($others as $key => $product)
+                    <div class="carousel-item col col-md-3 {{$key == 0 ? 'active' : '' }}">
+                        <!-- Gambar 1 -->
+                        <!-- <div class="col col-sm-3 mb-3"> -->
+                        <div class="card">
+                            <a href="/men-tops/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="239.5px;" height="272px;" alt="Image" class="card-img-top border border-dark"></a>
+                        </div>
+                        <div class="card px-2 border border-dark">
+                            <a href="/men-tops/detail/{{$product->id}}" style="color:black;">
+                                <p class="mt-3 mb-0 text-truncate" style="font-weight:bold;">{{$product->productname}}</p>
+                            </a>
+                            <a class="about-title mb-0" style="text-decoration:normal;" href="/brands/{{$product->brand->id}}">{{$product->brand->name}}</a>
+                            <p style="font-weight:bold;">Rp. {{number_format($product->productprice)}}</p>
+                        </div>
+                        <!-- </div> -->
+                        <!-- Akhir Gambar 1 -->
+                    </div>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev w-auto" href="#myCarousel" role="button" data-slide="prev">
+                    <span><i class="fa fa-angle-left" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next w-auto" href="#myCarousel" role="button" data-slide="next">
+                    <span><i class="fa fa-angle-right" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- End Other Product -->
+
+
+    <script>
+        $(document).ready(function() {
+            $('.increment-btn').click(function(e) {
+                e.preventDefault();
+                var incre_value = $(this).parents('.quantity').find('.qty-input').val();
+                var value = parseInt(incre_value, 10);
+                value = isNaN(value) ? 0 : value;
+                if (value < 100) {
+                    value++;
+                    $(this).parents('.quantity').find('.qty-input').val(value);
+                }
+            });
+
+            $('.decrement-btn').click(function(e) {
+                e.preventDefault();
+                var decre_value = $(this).parents('.quantity').find('.qty-input').val();
+                var value = parseInt(decre_value, 10);
+                value = isNaN(value) ? 0 : value;
+                if (value > 1) {
+                    value--;
+                    $(this).parents('.quantity').find('.qty-input').val(value);
+                }
+            });
         });
-
-        $('.decrement-btn').click(function(e) {
-            e.preventDefault();
-            var decre_value = $(this).parents('.quantity').find('.qty-input').val();
-            var value = parseInt(decre_value, 10);
-            value = isNaN(value) ? 0 : value;
-            if (value > 1) {
-                value--;
-                $(this).parents('.quantity').find('.qty-input').val(value);
-            }
-        });
-    });
-</script>
+    </script>
 
 
-@endsection
+    @endsection

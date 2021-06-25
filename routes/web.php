@@ -31,41 +31,134 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::get('/', function () {
+Route::group(['middleware' =>  'auth'], function () {
 
-    return view('home');
+    // USER
+    Route::patch('/users/cstm/{user}', 'UserController@update');
+    Route::delete('/delete-my-account/{user}', 'UserController@deleteMyAccount');
+
+    // PRODUCTWISH
+    Route::get('/product-wish', 'ProductController@productwish');
+    Route::post('/wish-list/save', 'ProductController@productwishsave');
+    Route::delete('/wish-list/delete/{id}', 'ProductController@destroywish');
+
+    //CART
+    Route::delete('/wish-list/addtocart/{id}', 'ProductController@addtocart');
+    Route::post('/addtocart/{id}', 'ProductController@addtocartt');
+    Route::post('/cart-list/add', 'ProductController@addtocartviadetail');
+    Route::get('/product-cart', 'ProductController@productcart');
+    Route::get('/product-cart/delete/{id}', 'ProductController@destroylist');
+
+    //CHECKOUT
+    Route::post('/checkout', 'OrderController@checkout');
+    Route::get('/transactions/delivery', 'OrderController@viewCheckOut');
+    Route::get('/transactions/ordersummary', 'OrderController@viewSummary')->name('order.summary.checkout');
+    //delivery
+    Route::get('/checkout/delivery', 'OrderController@delivery');
+    Route::get('/delivery/address/{id}', 'OrderController@chooseaddress');
+    Route::post('/delivery/addaddress', 'OrderController@addaddress');
+    Route::post('/payment', 'OrderController@payment');
+    Route::post('/order-summary', 'OrderController@summary');
+    Route::post('/makepayment', 'OrderController@makepayment');
+
+    // BUYNOW
+    Route::get('/buy-now/{id}', 'BuynowController@buynow');
+    Route::post('/buy-now/add', 'BuynowController@buyNowQuantity');
+    Route::post('order-summary-buy-now', 'BuynowController@summary');
+    Route::post('/payment/buy_now', 'BuynowController@payment');
+    Route::post('/makepayment/buy_now', 'BuynowController@makepayment');
+    Route::post('/delivery/addaddress/buy_now', 'BuynowController@addaddress');
+    // Flash data transaction (BuynowController)
+    Route::get('/transactions/delivery_buy_now', 'BuynowController@assignAddressDelivery');
+    Route::get('/transactions/ordersummary_buy_now', 'BuynowController@orderSummaryBuyNow')->name('order.summary');
+    Route::get('/transactions/payment_buy_now', 'BuynowController@paymentBuyNow');
+
+    // VOUCHER
+    Route::post('/voucher/store', 'VouchersController@store')->name('voucher.store');
+    Route::post('/voucher', 'VouchersController@storeCheckout')->name('voucher.store.checkout');
+    Route::delete('/voucher/destroy', 'VouchersController@destroy')->name('voucher.destroy');
+    Route::delete('/voucher', 'VouchersController@destroyCheckout')->name('voucher.destroy.checkout');
+
+    // HISTORY
+    Route::get('/payment-history', 'StatusController@payment_history');
+    Route::get('/payment-history/{id}/detail', 'StatusController@payment_history_detail');
+    Route::get('/payment-history/{id}/continue-checkout', 'StatusController@continue_checkout'); // Continue Checkout
+    Route::get('/waiting-for-review', 'StatusController@waiting_for_review');
+    Route::get('/products/review/{id}', 'StatusController@product_review_detail');
+    Route::post('/submit/review', 'StatusController@product_submit_review');
+    Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
+
+    // RAFFLE
+    Route::get('/raffle', 'RaffleController@raffle');
+    Route::get('/allraffle', 'RaffleController@allraffle');
+    Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
+    Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
+    Route::get('/raffles/checkout/{id}', 'RaffleController@raffleCheckout');
+    Route::post('/raffles/summary', 'RaffleController@raffleSummary');
+    Route::get('/raffles/summary', 'RaffleController@raffleSummaryView');
+    Route::get('/raffles/payment', 'RaffleController@rafflePayment');
+    Route::post('/raffles/makepayment', 'RaffleController@raffleMakePayment');
+    Route::get('/raffles/payment_history', 'RaffleController@rafflePaymentHistory');
+    Route::post('/raffle/submit', 'RaffleController@submit');
+    Route::get('/raffle/history', 'RaffleController@history');
 });
 
-Auth::routes();
+Route::group(['middleware' =>  'role:admin'], function () {
 
-Route::get('/load', function () {
-    return view('loading');
+    // USER
+    Route::get('/users/create', 'UserController@create');
+    Route::post('/users/create', 'UserController@store');
+    Route::get('/users/{user}/edit', 'UserController@edit');
+    Route::get('/usercontrol', 'UserController@usercontrol');
+    Route::patch('/users/adm/{user}', 'UserController@updateadm');
+    Route::delete('/users/{user}', 'UserController@destroy');
+
+
+    // BRAND
+    Route::get('/managebrand', 'BrandController@index');
+    Route::get('/brands/create', 'BrandController@create');
+    Route::post('/managebrand', 'BrandController@store');
+    Route::delete('/brands/{brand}', 'BrandController@destroy');
+    Route::get('/brands/{brand}/edit', 'BrandController@edit');
+    Route::patch('/brands/{brand}', 'BrandController@update');
+
+    // PRODUCT
+    Route::get('/manageproduct', 'ProductController@index');
+    Route::get('/products/create', 'ProductController@create');
+    Route::post('/manageproduct', 'ProductController@store');
+    Route::get('/products/{product}/edit', 'ProductController@edit');
+    Route::patch('/products/{product}', 'ProductController@update');
+    Route::delete('/products/{product}', 'ProductController@destroy');
+
+    // RAFFLE
+    Route::get('/manageraffle', 'RaffleController@index');
+    Route::post('/manageraffle', 'RaffleController@store');
+    Route::get('/raffles/create', 'RaffleController@create');
+    Route::get('/raffles/check/{id}', 'RaffleController@check');
+    Route::get('/raffles/check/random/{id}', 'RaffleController@random');
+    Route::patch('/raffles/{raffle}', 'RaffleController@update');
+    Route::delete('/raffles/{raffle}', 'RaffleController@destroy');
+    Route::get('/raffles/{raffle}/edit', 'RaffleController@edit');
+
+    // EVENT
+    Route::get('/manageevent', 'EventController@index');
+    Route::get('/events/create', 'EventController@create');
+    Route::post('/manageevent', 'EventController@store');
+    Route::get('/events/{event}/edit', 'EventController@edit');
+    Route::patch('/events/{event}', 'EventController@update');
+    Route::delete('/events/{event}', 'EventController@destroy');
 });
 
-Route::get('/', 'ManController@bestseller');
+Route::group(['middleware' =>  'role:customer'], function () {
 
-Route::get('/about', function () {
-    return view('pages/aboutus');
+    // USER
+    Route::get('/userprofile', 'UserController@index');
+    Route::get('/usersettings', 'UserController@usersettings');
+    Route::post('/users/changepassword', 'UserController@changePassword');
 });
 
-Route::get('/contact', function () {
-    return view('pages/contactus');
-});
 
-Route::get('/contact', 'ContactInformationController@create');
-Route::post('/contact', 'ContactInformationController@store');
-
-Route::get('/faq', 'FAQController@index');
-
-Route::get('faq/detailfaqinfo/{faq}', 'DetailFAQInformationController@show');
-
-Route::get('/termsandcondition', function () {
-    return view('pages/terms');
-});
 
 //notiification 
 Route::get('/test', function(){
@@ -79,31 +172,17 @@ Route::get('/markAsRead', function(){
     auth()->user()->unreadNotifications->markAsRead();
 });
 
+// Check again this route
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/search','ProductController@search')->name('search');
+Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/pagehome', 'PageController@home')->middleware('auth');
-Route::get('/userprofile', 'UserController@index'); //testuser
-Route::get('/usersettings', 'UserController@usersettings');
-Route::get('/users/create', 'UserController@create')->middleware('role:admin');
-Route::post('/users/create', 'UserController@store')->middleware('role:admin');
-Route::get('/users/{user}/edit', 'UserController@edit')->middleware('role:admin');
-Route::get('/usercontrol', 'UserController@usercontrol')->middleware('role:admin');
-Route::get('/homeman', 'PageController@homeman')->name('homeman');
-Route::patch('/users/adm/{user}', 'UserController@updateadm')->middleware('role:admin');
-Route::patch('/users/cstm/{user}', 'UserController@update')->middleware('role:admin|customer');
-Route::delete('/users/{user}', 'UserController@destroy')->middleware('role:admin');
-Route::delete('/delete-my-account/{user}', 'UserController@deleteMyAccount');
-
+Route::get('/homeman', 'PageController@homeman')->name('homeman');;
 Route::get('/itemlist', 'PageController@itemlist');
 Route::get('/itemdetail', 'PageController@itemdetail');
 Route::get('/itemdetail', 'PageController@itemdetail');
 
-Route::get('/managebrand', 'BrandController@index')->middleware('role:admin', 'auth');
-Route::get('/brands/create', 'BrandController@create')->middleware('role:admin');
-Route::post('/managebrand', 'BrandController@store')->middleware('role:admin');
-// Route::get('/brands/{brand}', 'BrandController@show')->middleware('role:admin|customer');
+//GUEST
 Route::get('/brands/{brand}', 'BrandController@show');
-// Route::get('/allbrand', 'BrandController@allbrand')->name('brand')->middleware('role:admin|customer');
 Route::get('/allbrand', 'BrandController@allbrand')->name('brand');
 Route::delete('/brands/{brand}', 'BrandController@destroy')->middleware('role:admin');
 Route::get('/brands/{brand}/edit', 'BrandController@edit')->middleware('role:admin');
@@ -194,12 +273,6 @@ Route::get('/raffle/history', 'RaffleController@history');
 
 Route::get('/event', 'EventController@event');
 Route::get('/events/detail/{event}', 'EventController@eventdetail');
-Route::get('/manageevent', 'EventController@index');
-Route::get('/events/create', 'EventController@create');
-Route::post('/manageevent', 'EventController@store');
-Route::get('/events/{event}/edit', 'EventController@edit');
-Route::patch('/events/{event}', 'EventController@update');
-Route::delete('/events/{event}', 'EventController@destroy');
 
 Route::get('/men-tops', 'ManController@tops');
 Route::get('/men-tops/detail/{product}', 'ManController@topsdetail');
@@ -221,10 +294,43 @@ Route::get('/women-accessories', 'WomenController@accessories');
 // Route::get('/women-sale', 'WomenController@sale');
 Route::get('/women', 'WomenController@index');
 
-Route::post('/voucher/store', 'VouchersController@store')->name('voucher.store');
-Route::post('/voucher', 'VouchersController@storeCheckout')->name('voucher.store.checkout');
-Route::delete('/voucher/destroy', 'VouchersController@destroy')->name('voucher.destroy');
-Route::delete('/voucher', 'VouchersController@destroyCheckout')->name('voucher.destroy.checkout');
+Route::get('/search', 'ProductController@search')->name('search');
+Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
+Route::post('/men', 'ManController@filterMen')->name('men');
+
+Route::get('/', function () {
+
+    return view('home');
+});
+
+Auth::routes();
+
+Route::get('/load', function () {
+    return view('loading');
+});
+
+Route::get('/', 'ManController@bestseller');
+
+Route::get('/about', function () {
+    return view('pages/aboutus');
+});
+
+Route::get('/contact', function () {
+    return view('pages/contactus');
+});
+
+// CONTACT
+Route::get('/contact', 'ContactInformationController@create');
+Route::post('/contact', 'ContactInformationController@store');
+
+// FAQ
+Route::get('/faq', 'FAQController@index');
+Route::get('faq/detailfaqinfo/{faq}', 'DetailFAQInformationController@show');
+Route::get('/termsandcondition', function () {
+    return view('pages/terms');
+});
+
+
 
 
 
@@ -253,56 +359,12 @@ Route::get('/read_product', function () {
 
 Route::get('/check', function () {
 
-    $products = Product::find(1)->category->sizeDetails;
-    foreach ($products as $product) {
+    dd(Order::find(1)->raffle()->id);
 
-        echo $product->size . "<br>";
-    }
-
-
-    // $product = Product::find(1);
-
-    // dd($product->brand());
-
-    //check order dengan id 1
-    // $order = Order::find(1);
-    // //menambahkan value ke order_product dengan value order_id 1 dan product_id 4
-    // $order->product()->attach(4);
-    // return $order;
+    $stripe = new \Stripe\StripeClient(
+        'sk_test_51Isn0aBee1Lnamoc8KJgliAPILEguv2sGs4Nm44t49rXBLlVIeXa82j8duyNhmBUhNTdi4Zr99FEjjxQ44psWuUx00OpjKFRXn'
+    );
 
 
-    // return Order::with('user')->get();
-
-    // mencari product dengan product gender 'MEN' category 'SHOES' dan produk dengan category 'SHOES'
-    // $genders = Gender::find(1)->category()->where('name', 'SHOES')->first();
-    // dd($genders->product);
-
-    //mencari product dengan gender 'MEN' dan Category ALL
-    // $genders = Gender::find(1)->category()->get();
-    // dd();
-
-    // foreach ($categories as $category) {
-    //     foreach ($category->product as $product) {
-    //         dd($product->productname);
-    //     }
-    // }
-
-    // $user = User::onlyTrashed()->get();
-    // dd($user);
-
-    // $reviews = Review::all();
-    // $product_tops = Product::where('id', '=', 1)->first();
-
-    // foreach ($reviews as $review) {
-    //     if ($review->product_id == $product_tops->id) {
-    //     }
-    // }
-
-    // $cartlist = product_user::onlyTrashed()->get();
-
-    // dd($cartlist);
-
-    //     $Order = Order::find(1);
-    // dd($Order->address_delivery_users);
-
+    return  $stripe->charges->all(['limit' => 3]);
 });

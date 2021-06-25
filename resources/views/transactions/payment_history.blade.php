@@ -37,9 +37,15 @@
               <a href="payment-history/{{$item->id}}/continue-checkout" class="btn btn-warning">Continue Checkout</a>
             </td>
             @else
+            @if(strstr($item->order_number,'-', true) == 'ORD')
             <td class="text-center">
               <a href="payment-history/{{$item->id}}/detail" class="btn btn-success"><i class="fas fa-edit" style="color:white"></i> Detail Product</a>
             </td>
+            @else
+            <td class="text-center">
+              <a href="/raffle/description/{{$item->id}}" class="btn btn-success"><i class="fas fa-edit" style="color:white"></i> Detail Raffle</a>
+            </td>
+            @endif
             @endif
           </tr>
           @endforeach
@@ -48,9 +54,9 @@
       @else
       @error('no_post_result')
       <div class="text-center">
-          <img src="images/empty_item.png" alt="" height="200px" width="200px">
-          <p class="mb-0">Oops!</p>
-          <p>{{ $message }}</p>
+        <img src="images/empty_item.png" alt="" height="200px" width="200px">
+        <p class="mb-0">Oops!</p>
+        <p>{{ $message }}</p>
       </div>
       @enderror
       @endif
