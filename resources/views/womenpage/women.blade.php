@@ -11,7 +11,7 @@
         </ol>
     </nav>
     <div class="text-center">
-        <img src="image/men.jpg" alt="" height="472px;" width="1110px;">
+        <img src="../storage/images/Women Page/women.jpg" alt="" height="472px;" width="1110px;">
     </div>
 </div>
 

@@ -12,7 +12,8 @@
         </ol>
     </nav>
     <div class="text-center">
-        <img src="image/men.jpg" alt="" height="472px;" width="1110px;">
+        <img src="{{asset('../storage/images/Men Page/men.jpg')}}" alt="" height="472px;" width="1110px;">
+        {{-- <img src="{{asset('../storage/images/Products/' . $cartlist->product->productimage)}}" width="150px;" height="150px;" alt="Image"> --}}
     </div>
 </div>
 

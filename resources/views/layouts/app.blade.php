@@ -92,8 +92,8 @@
                                 <a class="dropdown-item" href="/men-bottoms">BOTTOM</a>
                                 <a class="dropdown-item" href="/men-shoes">SHOES</a>
                                 <a class="dropdown-item" href="/men-accessories">ACCESSORIES</a>
-                                <a class="dropdown-item" href="/men-new">NEW</a>
-                                <a class="dropdown-item" href="/men-sale">SALE</a>
+                                {{-- <a class="dropdown-item" href="/men-new">NEW</a>
+                                <a class="dropdown-item" href="/men-sale">SALE</a> --}}
                             </div>
                         </li>
 
@@ -104,8 +104,8 @@
                                 <a class="dropdown-item" href="/women-bottoms">BOTTOM</a>
                                 <a class="dropdown-item" href="/women-shoes">SHOES</a>
                                 <a class="dropdown-item" href="/women-accessories">ACCESSORIES</a>
-                                <a class="dropdown-item" href="/women-new">NEW</a>
-                                <a class="dropdown-item" href="/women-sale">SALE</a>
+                                {{-- <a class="dropdown-item" href="/women-new">NEW</a>
+                                <a class="dropdown-item" href="/women-sale">SALE</a> --}}
                             </div>
                         </li>
 

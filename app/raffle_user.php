@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class raffle_user extends Model
 {
-    use SoftDeletes;
+    use Notifiable, SoftDeletes;
 
     public $table = "raffle_user";
     protected $guarded = ['id'];

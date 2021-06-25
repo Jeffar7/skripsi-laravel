@@ -140,13 +140,13 @@ class WomenController extends Controller
             return view('womenpage/women', compact('products', 'brands', 'categories', 'productscount'));
     }
 
-    public function new()
-    {
-        return view('/womenpage/new');
-    }
+    // public function new()
+    // {
+    //     return view('/womenpage/new');
+    // }
 
-    public function sale()
-    {
-        return view('/womenpage/sale');
-    }
+    // public function sale()
+    // {
+    //     return view('/womenpage/sale');
+    // }
 }

@@ -3,10 +3,78 @@
 @section('title','TokoLokal')
 
 @section('content')
-<!-- <div id="preloader"></div> -->
-<div id="homeslider" class="shadow-sm border-top border-light"></div>
+
+
+  {{-- <div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+  
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../storage/images/Home Page/HomeSlider4.png" alt="Los Angeles">
+      </div>
+      <div class="carousel-item">
+        <img src="../storage/images/Home Page/HomeSlider4.png" alt="Chicago">
+      </div>
+      <div class="carousel-item">
+        <img src="../storage/images/Home Page/HomeSlider4.png" alt="New York">
+      </div>
+    </div>
+  
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  
+  </div> --}}
+
+
 <div class="container">
-    <p class="title-home">Gender</p>
+    <!-- <div id="preloader"></div> -->
+
+{{-- <div id="homeslider" class="shadow-sm border-top border-light"></div> --}}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{{asset('../storage/images/Home Page/HomeSlider1.png')}}" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{asset('../storage/images/Home Page/HomeSlider2.png')}}" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{asset('../storage/images/Home Page/HomeSlider3.png')}}" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{asset('../storage/images/Home Page/HomeSlider4.png')}}" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+    <p class="title-home font-weight-bold">Gender</p>
     <div class="row justify-content-sm-between mb-5">
         <div class="col-md-6">
             <div class="card mb-3 rounded-0 border-dark" style="max-width: 540px;">
@@ -65,7 +133,7 @@
     {{-- <p>{{count(auth()->user()->notifications)}}</p> --}}
 
     <div class="container mb-5">
-        <p class="title-home">BEST SELLER</p>
+        <p class="title-home font-weight-bold">BEST SELLER</p>
         <div class="row justify-content-around">
             <div id="myCarousel" class="carousel slide  w-100" data-interval="false">
                 <div class="carousel-inner w-100 px-3">
@@ -102,7 +170,7 @@
     </div>
 
     <div class="container mb-5">
-        <p class="title-home">CATEGORY</p>
+        <p class="title-home font-weight-bold">CATEGORY</p>
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col-md-3 offset-md-3 mb-1 mr-1 p-0">
                 <div class="card rounded-0 border-0 con-photo">
@@ -143,7 +211,7 @@
     </div>
 
     <div class="container pb-5">
-        <p class="title-home">FEATURE BRANDS</p>
+        <p class="title-home font-weight-bold">FEATURE BRANDS</p>
         <div class="row justify-content-center my-1">
             <h6>EXPLORE MORE BRAND THAT WE LOVE</h6>
         </div>

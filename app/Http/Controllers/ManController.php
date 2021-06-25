@@ -148,15 +148,15 @@ class ManController extends Controller
             return view('menpage/accessories', compact('accessories', 'accessoriescount', 'brands', 'products'));
     }
 
-    public function new()
-    {
-        return view('/menpage/new');
-    }
+    // public function new()
+    // {
+    //     return view('/menpage/new');
+    // }
 
-    public function sale()
-    {
-        return view('/menpage/sale');
-    }
+    // public function sale()
+    // {
+    //     return view('/menpage/sale');
+    // }
 
     public function filterMen(Request $request)
     {
