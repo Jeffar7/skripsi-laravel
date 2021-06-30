@@ -16,6 +16,7 @@ class Event extends Model
         'name',
         'theme',
         'picture',
+        'detail_picture',
         'held_on',
         'website',
         'capacity',
