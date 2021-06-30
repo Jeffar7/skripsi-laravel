@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1496830/public_html/skripsi
+    - /bin/cp -R public $DEPLOYPATH
