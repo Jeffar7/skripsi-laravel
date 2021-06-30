@@ -90,7 +90,7 @@
                 <div class="card rounded-0 border-0 con-photo">
                     <img src="{{ asset('../storage/images/Category/top.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
                     <div class="middle-cat">
-                        <div class="text-cat">TOP</div>
+                        <div class="text-cat"><a href="/top" style="text-decoration:none; color:black">TOP</a></div>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                 <div class="card rounded-0 border-0 con-photo">
                     <img src="{{ asset('../storage/images/Category/bottom.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
                     <div class="middle-cat">
-                        <div class="text-cat">BOTTOM</div>
+                        <div class="text-cat"><a href="/bottom" style="text-decoration:none; color:black">BOTTOM</a></div>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                 <div class="card rounded-0 border-0 con-photo">
                     <img src="{{ asset('../storage/images/Category/shoes.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
                     <div class="middle-cat">
-                        <div class="text-cat">SHOES</div>
+                        <div class="text-cat"><a href="/shoes" style="text-decoration:none; color:black">SHOES</a></div>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                 <div class="card rounded-0 border-0 con-photo">
                     <img src="{{ asset('../storage/images/Category/accessories.png') }}" class="card-img rounded-0 image-cat" alt="..." width="320px" height="240px">
                     <div class="middle-cat">
-                        <div class="text-cat">ACCESSORIES</div>
+                        <div class="text-cat"><a href="/accessories" style="text-decoration:none; color:black">ACCESSORIES</a></div>
                     </div>
                 </div>
             </div>
