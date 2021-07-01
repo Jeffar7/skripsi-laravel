@@ -120,34 +120,6 @@
 							</label>
 						</div>
 					</div>
-					<!-- <div id="size_number">
-						<p class="mb-1 font-weight-bold">Size</p>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="38" @if (request()->size == "38") checked @endif> 38
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="39" @if (request()->size == "39") checked @endif> 39
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="40" @if (request()->size == "40") checked @endif> 40
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="41" @if (request()->size == "41") checked @endif> 41
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="42" @if (request()->size == "42") checked @endif> 42
-							</label>
-						</div>
-					</div> -->
 
 					<div class="row">
 					</div>

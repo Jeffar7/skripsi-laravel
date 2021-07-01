@@ -79,8 +79,8 @@
 
 					<hr class="my-2">
 
-					<p class="mb-1 font-weight-bold">Size</p>
 					<div id="size_alphabet">
+						<p class="mb-1 font-weight-bold">Size</p>
 						<div class="mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XS" @if (request()->size == "XS") checked @endif> XS
@@ -111,20 +111,7 @@
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XXL" @if (request()->size == "XXL") checked @endif> XXL
 							</label>
 						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="mb-0" name="size" type="checkbox" value="others" @if (request()->size == "others") checked @endif> Others
-							</label>
-						</div> 
 					</div>
-					<!-- <div id="size_number">
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								Test yak
-							</label>
-						</div>
-					</div> -->
-
 					
 					<div class="row">
 					</div>
@@ -191,7 +178,6 @@
 			var category = getIds("category[]");
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
-			// var size_alphabet = $(".size_alphabet input:checked").text();
 			var sort = $("#sort option:selected").text();
 			var url = $(location).attr('href');
 
@@ -252,53 +238,6 @@
 
 		$("#amount_min").val($("#slider-range").slider("values", 0));
 		$("#amount_max").val($("#slider-range").slider("values", 1));
-
-		// filter_products(minPrice, maxPrice);
-
-		// function filter_products(minPrice, maxPrice){
-		// 	var category = getIds("category[]");
-		// 	var brand = getIds("brand[]");
-		// 	var size_alphabet = getIds("size_alphabet[]");
-		// 	var sort = $("#sort").val();
-		// 	var url = $(location).attr('href');
-		
-		// 	$.ajax({
-		// 		url: url,
-		// 		method: 'POST',
-		// 		data: {category:category, brand:brand, size_alphabet:size_alphabet, minPrice:minPrice, maxPrice:maxPrice, sort:sort, url:url},
-		// 		success: function(data){
-		// 			// $('.filter_products').html(data);
-		// 			alert([category, sort, brand, size_alphabet, minPrice, maxPrice, url]);
-		// 			// console.log([category, sort, brand, size_alphabet, min, max, url]);
-		// 		}
-		// 	})
-		// }
-
-		// $("#amount_min").change(function() {
-		// 	$("#slider-range").slider("values", 0, $("#amount_min").val());
-		// });
-		// $("#amount_max").change(function() {
-		// 	$("#slider-range").slider("values", 1, $("#amount_max").val());
-		// })
-
-		// function loadProduct(range_min, range_max){
-		// 	var category = getIds("category[]");
-		// 	var brand = getIds("brand[]");
-		// 	var size_alphabet = getIds("size_alphabet[]");
-		// 	var sort = $(this).val();
-		// 	var url = $(location).attr('href');
-		
-		// 	$.ajax({
-		// 		url: url,
-		// 		method: 'POST',
-		// 		data: {category:category, brand:brand, size_alphabet:size_alphabet, range_min:range_min, range_max:range_max, sort:sort, url:url},
-		// 		success: function(data){
-		// 			// $('.filter_products').html(data);
-		// 			alert([category, sort, brand, size_alphabet, range_min, range_max, url]);
-		// 		}
-		// 	})
-		// }
-		// loadProduct(minPrice, maxPrice);
 		
 		$('#btnUncheckAll').click(function () {
 			$('input[type=checkbox]').each(
@@ -310,39 +249,8 @@
 		});
 
 		$("#btnUncheckAll").on('click', function(){
-			window.location='{{ route("men") }}';
+			window.location='{{ route("men-tops") }}';
 		});
-
-		// $("#size_alphabet").hide();
-		// $("#size_number").hide();
-		// // function filterResults () {
-		// // var foo = localStorage.getItem('value');
-		// $(".category").on('click', function() {
-		// // $("form").submit(function(e) {
-		// 	// this.form.submit(); 
-		// 	// ini gmn yak dia mau ganti tp kalo udh di form submit hilang
-
-		// 	let catIds = getIds("category[]");
-
-		// 	$.each(catIds, function(index, value){
-		// 		if (value == '1' || value == '2') {
-		// 			$("#size_alphabet").show();
-		// 			// this.form.submit();
-		// 			// console.log('yes');
-		// 		} else if (value == '3' || value == '4') {
-		// 			// $(".sizefilter").hide();
-		// 			$("#size_number").show();
-		// 			// console.log('no');
-		// 		} else {
-		// 			// $(".sizefilter").hide();
-		// 			// $("#size_alphabet").hide();
-		// 			// $("#size_number").hide();
-		// 			console.log('no');
-		// 		}
-				
-        //         // console.log('The value at arr[' + index + '] is: ' + value);
-		// 	});
-		// });
 	});
 </script>
 

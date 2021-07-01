@@ -90,10 +90,6 @@ Route::group(['middleware' =>  'auth'], function () {
     Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
     // RAFFLE
-    Route::get('/raffle', 'RaffleController@raffle');
-    Route::get('/allraffle', 'RaffleController@allraffle');
-    Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
-    Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
     Route::get('/raffles/checkout/{id}', 'RaffleController@raffleCheckout');
     Route::post('/raffles/summary', 'RaffleController@raffleSummary');
     Route::get('/raffles/summary', 'RaffleController@raffleSummaryView');
@@ -171,6 +167,11 @@ Route::get('/itemdetail', 'PageController@itemdetail');
 Route::get('/itemdetail', 'PageController@itemdetail');
 
 //GUEST
+Route::get('/raffle', 'RaffleController@raffle');
+Route::get('/allraffle', 'RaffleController@allraffle');
+Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
+Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
+
 Route::get('/brands/{brand}', 'BrandController@show');
 Route::get('/allbrand', 'BrandController@allbrand')->name('brand');
 Route::get('/event', 'EventController@event');
@@ -205,6 +206,14 @@ Route::get('/women-sale', 'WomenController@sale');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
 Route::post('/men', 'ManController@filterMen')->name('men');
+Route::get('/top', 'ProductController@tops');
+Route::get('/shoes', 'ProductController@shoes');
+Route::get('/bottom', 'ProductController@bottoms');
+Route::get('/accessories', 'ProductController@accessories');
+Route::post('/top', 'ProductController@filterTops')->name('top');
+Route::post('/shoes', 'ProductController@filterShoes')->name('shoe');
+Route::post('/bottom', 'ProductController@filterBottoms')->name('bottom');
+Route::post('/accessories', 'ProductController@filterAccessories')->name('accessory');
 
 Route::get('/', function () {
 
@@ -213,8 +222,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/load', function () {
-    return view('loading');
+Route::get('/testing', function () {
+    return view('check');
 });
 
 Route::get('/', 'ManController@bestseller');

@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use App\Review;
 use App\Brand;
+use App\ImageDetail;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -59,11 +60,13 @@ class ManController extends Controller
         $product_tops = Product::where('id', '=', $product->id)->first();
         $reviews = Review::all();
 
+        $image_detail = ImageDetail::where('id', '=', $product->id)->first();
+
         $others = Product::where('categoryid', '=', $product_tops->category->id)
             ->where('gender_id', '=', $product_tops->gender->id)->get();
 
 
-        return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others'));
+        return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others', 'image_detail'));
     }
 
     public function bottoms()
@@ -90,10 +93,10 @@ class ManController extends Controller
         $maxprice = $products->max('productprice');
 
         if ($products->count() == 0)
-            return view('menpage/bottoms', compact('products', 'brands', 'minprice', 'maxprice'))
+            return view('menpage/shoes', compact('products', 'brands', 'minprice', 'maxprice'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('menpage/bottoms', compact('products', 'brands', 'minprice', 'maxprice'));
+            return view('menpage/shoes', compact('products', 'brands', 'minprice', 'maxprice'));
     }
 
     public function accessories()
@@ -147,21 +150,18 @@ class ManController extends Controller
             if(isset($request->brand) && !empty($request->brand)){
                 $products->whereIn('brandid', $request->brand);
             }
+    
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }
 
-            // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $size_number = $request->size_number;
+            if(isset($size_number) && !empty($size_number)){
+                $products->whereIn('productsize', $size_number);
+            }   
+
+            // dd($size_number);
 
             // filter price
             $min = $request->min_price_min;
@@ -170,6 +170,8 @@ class ManController extends Controller
                 $products = $products->whereBetween('products.productprice', [$min, $max]);
                 // $products->where('products.productprice', '>=', $min)->where('products.productprice', '<=', $max);
             }
+
+            // dd([$min, $max]);
             
             $products = $products->get();
 
@@ -232,19 +234,10 @@ class ManController extends Controller
             }
 
             // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }
 
             // filter price
             $min = $request->min_price_min;
@@ -315,19 +308,10 @@ class ManController extends Controller
             }
 
             // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }  
 
             // filter price
             $min = $request->min_price_min;
@@ -398,19 +382,10 @@ class ManController extends Controller
             }
 
             // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $size_number = $request->size_number;
+            if(isset($size_number) && !empty($size_number)){
+                $products->whereIn('productsize', $size_number);
+            }
 
             // filter price
             $min = $request->min_price_min;
@@ -479,21 +454,6 @@ class ManController extends Controller
             if(isset($request->brand) && !empty($request->brand)){
                 $products->whereIn('brandid', $request->brand);
             }
-
-            // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
 
             // filter price
             $min = $request->min_price_min;

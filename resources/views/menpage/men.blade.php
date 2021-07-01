@@ -87,8 +87,8 @@
 
 					<hr class="my-2">
 
-					<p class="mb-1 font-weight-bold">Size</p>
 					<div id="size_alphabet">
+						<p class="mb-1 font-weight-bold">Size</p>
 						<div class="mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XS" @if (request()->size == "XS") checked @endif> XS
@@ -119,19 +119,35 @@
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XXL" @if (request()->size == "XXL") checked @endif> XXL
 							</label>
 						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="mb-0" name="size" type="checkbox" value="others" @if (request()->size == "others") checked @endif> Others
-							</label>
-						</div> 
 					</div>
-					<!-- <div id="size_number">
+					<div id="size_number">
+						<p class="mb-1 font-weight-bold">Size</p>
 						<div class="mb-0 ml-2">
 							<label class="mb-0">
-								Test yak
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="38" @if (request()->size == "38") checked @endif> 38
 							</label>
 						</div>
-					</div> -->
+						<div class="mb-0 ml-2">
+							<label class="mb-0">
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="39" @if (request()->size == "39") checked @endif> 39
+							</label>
+						</div>
+						<div class="mb-0 ml-2">
+							<label class="mb-0">
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="40" @if (request()->size == "40") checked @endif> 40
+							</label>
+						</div>
+						<div class="mb-0 ml-2">
+							<label class="mb-0">
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="41" @if (request()->size == "41") checked @endif> 41
+							</label>
+						</div>
+						<div class="mb-0 ml-2">
+							<label class="mb-0">
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="42" @if (request()->size == "42") checked @endif> 42
+							</label>
+						</div>
+					</div>
 
 					
 					<div class="row">
@@ -180,13 +196,14 @@
 			var category = getIds("category[]");
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
+			var size_number = getIds("size_number[]");
 			var sort = $(this).val();
 			var url = $(location).attr('href');
 			
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_alphabet:size_alphabet, sort:sort, url:url},
+				data: {category:category, brand:brand, size_alphabet:size_alphabet, size_number:size_number, sort:sort, url:url},
 				success: function(data){
 					$('.filter_products').html(data);
 					// alert([category, sort, brand, size_alphabet, url]);
@@ -195,25 +212,25 @@
 		});
 
 		//filter category
-		$(".category, .brand, .size_alphabet").on('click', function(){
+		$(".category, .brand, .size_alphabet, .size_number").on('click', function(){
 			var category = getIds("category[]");
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
-			// var size_alphabet = $(".size_alphabet input:checked").text();
+			var size_number = getIds("size_number[]");
 			var sort = $("#sort option:selected").text();
 			var url = $(location).attr('href');
 
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_alphabet:size_alphabet, sort:sort, url:url},
+				data: {category:category, brand:brand, size_alphabet:size_alphabet, size_number:size_number, sort:sort, url:url},
 				success: function(data){
 					// console.log(data);
 					// alert([category, sort, brand, size_alphabet, url]);
 					$('.filter_products').html(data);
 					var itemCount = $('.filter_products').html(data).find(".pro").length;
     				$('.countMen').html(itemCount);
-					console.log("category success")
+					console.log(category)
 				}
 			})
 		});
@@ -321,36 +338,26 @@
 			window.location='{{ route("men") }}';
 		});
 
-		// $("#size_alphabet").hide();
-		// $("#size_number").hide();
-		// // function filterResults () {
-		// // var foo = localStorage.getItem('value');
-		// $(".category").on('click', function() {
-		// // $("form").submit(function(e) {
-		// 	// this.form.submit(); 
-		// 	// ini gmn yak dia mau ganti tp kalo udh di form submit hilang
+		$("#size_alphabet").hide();
+		$("#size_number").hide();
 
-		// 	let catIds = getIds("category[]");
+		$(".category").on('click', function() {
+			let catIds = getIds("category[]");
 
-		// 	$.each(catIds, function(index, value){
-		// 		if (value == '1' || value == '2') {
-		// 			$("#size_alphabet").show();
-		// 			// this.form.submit();
-		// 			// console.log('yes');
-		// 		} else if (value == '3' || value == '4') {
-		// 			// $(".sizefilter").hide();
-		// 			$("#size_number").show();
-		// 			// console.log('no');
-		// 		} else {
-		// 			// $(".sizefilter").hide();
-		// 			// $("#size_alphabet").hide();
-		// 			// $("#size_number").hide();
-		// 			console.log('no');
-		// 		}
-				
-        //         // console.log('The value at arr[' + index + '] is: ' + value);
-		// 	});
-		// });
+			$.each(catIds, function(index, value){
+				if (value == '1' || value == '2') {
+					$("#size_alphabet").show();
+				} else if (value == '3') {
+					$("#size_number").show();
+				// } else if (value == '1' || value == '2' || value == '3') {
+				// 	$("#size_alphabet").show();
+				// 	$("#size_number").show();
+				} else if (empty(value)) {
+					$("#size_alphabet").hide();
+					$("#size_number").hide();
+				}
+			});
+		});
 	});
 </script>
 

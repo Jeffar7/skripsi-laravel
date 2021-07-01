@@ -121,19 +121,16 @@ class WomenController extends Controller
             }
 
             // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }
+
+            $size_number = $request->size_number;
+            if(isset($size_number) && !empty($size_number)){
+                $products->whereIn('productsize', $size_number);
+            }   
+  
 
             // filter price
             $min = $request->min_price_min;
@@ -204,19 +201,10 @@ class WomenController extends Controller
             }
 
             // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }  
 
             // filter price
             $min = $request->min_price_min;
@@ -287,19 +275,10 @@ class WomenController extends Controller
             }
 
             // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }
 
             // filter price
             $min = $request->min_price_min;
@@ -370,19 +349,11 @@ class WomenController extends Controller
             }
 
             // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $size_number = $request->size_number;
+            if(isset($size_number) && !empty($size_number)){
+                $products->whereIn('productsize', $size_number);
+            }   
+     
 
             // filter price
             $min = $request->min_price_min;
@@ -451,21 +422,6 @@ class WomenController extends Controller
             if(isset($request->brand) && !empty($request->brand)){
                 $products->whereIn('brandid', $request->brand);
             }
-
-            // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
 
             // filter price
             $min = $request->min_price_min;

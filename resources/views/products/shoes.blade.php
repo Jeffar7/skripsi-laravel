@@ -87,39 +87,6 @@
 
 					<hr class="my-2">
 
-					<!-- <div id="size_alphabet">
-						<p class="mb-1 font-weight-bold">Size</p>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XS" @if (request()->size == "XS") checked @endif> XS
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="S" @if (request()->size == "S") checked @endif> S
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="M" @if (request()->size == "M") checked @endif> M
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="L" @if (request()->size == "L") checked @endif> L
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XL" @if (request()->size == "XL") checked @endif> XL
-							</label>
-						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XXL" @if (request()->size == "XXL") checked @endif> XXL
-							</label>
-						</div>
-					</div> -->
 					<div id="size_number">
 						<p class="mb-1 font-weight-bold">Size</p>
 						<div class="mb-0 ml-2">
@@ -194,14 +161,14 @@
 		$("#sort").on('change', function(){
 			var category = getIds("gender[]");
 			var brand = getIds("brand[]");
-			var size_alphabet = getIds("size_number[]");
+			var size_number = getIds("size_number[]");
 			var sort = $(this).val();
 			var url = $(location).attr('href');
 			
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_alphabet:size_alphabet, sort:sort, url:url},
+				data: {category:category, brand:brand, size_number:size_number, sort:sort, url:url},
 				success: function(data){
 					$('.filter_products').html(data);
 					// alert([category, sort, brand, size_alphabet, url]);
@@ -213,14 +180,14 @@
 		$(".gender, .brand, .size_number").on('click', function(){
 			var category = getIds("gender[]");
 			var brand = getIds("brand[]");
-			var size_alphabet = getIds("size_number[]");
+			var size_number = getIds("size_number[]");
 			var sort = $("#sort option:selected").text();
 			var url = $(location).attr('href');
 
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_alphabet:size_alphabet, sort:sort, url:url},
+				data: {category:category, brand:brand, size_number:size_number, sort:sort, url:url},
 				success: function(data){
 					// console.log(data);
 					// alert([category, sort, brand, size_alphabet, url]);
