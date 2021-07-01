@@ -65,10 +65,10 @@
 					<p class="mb-0 font-weight-bold">Price</p>
 					<div class="row">
 						<div class="col-md-6">
-							<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min_price_min" value="">
+							<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min">
 						</div>
 						<div class="col-md-6">
-							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max_price_max" value="">
+							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max">
 						</div>
 					</div>
   					<div id="slider-range" class="mx-2"></div>
@@ -197,16 +197,17 @@
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
 			var size_number = getIds("size_number[]");
+			var min = $("#amount_min").val();
+    		var max = $("#amount_max").val();
 			var sort = $(this).val();
 			var url = $(location).attr('href');
 			
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_alphabet:size_alphabet, size_number:size_number, sort:sort, url:url},
+				data: {category:category, brand:brand, size_alphabet:size_alphabet, size_number:size_number, min:min, max:max, sort:sort, url:url},
 				success: function(data){
 					$('.filter_products').html(data);
-					// alert([category, sort, brand, size_alphabet, url]);
 				}
 			})
 		});
@@ -217,20 +218,20 @@
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
 			var size_number = getIds("size_number[]");
+			var min = $("#amount_min").val();
+    		var max = $("#amount_max").val();
 			var sort = $("#sort option:selected").text();
 			var url = $(location).attr('href');
 
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_alphabet:size_alphabet, size_number:size_number, sort:sort, url:url},
+				data: {category:category, brand:brand, size_alphabet:size_alphabet, size_number:size_number, min:min, max:max, sort:sort, url:url},
 				success: function(data){
-					// console.log(data);
-					// alert([category, sort, brand, size_alphabet, url]);
 					$('.filter_products').html(data);
 					var itemCount = $('.filter_products').html(data).find(".pro").length;
     				$('.countMen').html(itemCount);
-					console.log("category success")
+					console.log(category)
 				}
 			})
 		});
@@ -251,18 +252,19 @@
 				$("#amount_max").val(ui.values[1]);
 			}, 
 			change: function(event, ui) {
-				var min = $("#amount_min").val();
-    			var max = $("#amount_max").val();
 				var category = getIds("category[]");
 				var brand = getIds("brand[]");
 				var size_alphabet = getIds("size_alphabet[]");
-				var sort = $("#sort").val();
+				var size_number = getIds("size_number[]");
+				var min = $("#amount_min").val();
+    			var max = $("#amount_max").val();
+				var sort = $("#sort option:selected").text();
 				var url = $(location).attr('href');
 			
 				$.ajax({
 					url: url,
 					method: 'POST',
-					data: {min:min, max:max, url:url},
+					data: {category:cataegory, brand:brand, size_alphabet:size_alphabet, size_number:size_number, min:min, max:max, sort:sort, url:url},
 					success: function(data){
 						$('.filter_products').html(data);
 						console.log(min,max)
@@ -277,53 +279,6 @@
 
 		$("#amount_min").val($("#slider-range").slider("values", 0));
 		$("#amount_max").val($("#slider-range").slider("values", 1));
-
-		// filter_products(minPrice, maxPrice);
-
-		// function filter_products(minPrice, maxPrice){
-		// 	var category = getIds("category[]");
-		// 	var brand = getIds("brand[]");
-		// 	var size_alphabet = getIds("size_alphabet[]");
-		// 	var sort = $("#sort").val();
-		// 	var url = $(location).attr('href');
-		
-		// 	$.ajax({
-		// 		url: url,
-		// 		method: 'POST',
-		// 		data: {category:category, brand:brand, size_alphabet:size_alphabet, minPrice:minPrice, maxPrice:maxPrice, sort:sort, url:url},
-		// 		success: function(data){
-		// 			// $('.filter_products').html(data);
-		// 			alert([category, sort, brand, size_alphabet, minPrice, maxPrice, url]);
-		// 			// console.log([category, sort, brand, size_alphabet, min, max, url]);
-		// 		}
-		// 	})
-		// }
-
-		// $("#amount_min").change(function() {
-		// 	$("#slider-range").slider("values", 0, $("#amount_min").val());
-		// });
-		// $("#amount_max").change(function() {
-		// 	$("#slider-range").slider("values", 1, $("#amount_max").val());
-		// })
-
-		// function loadProduct(range_min, range_max){
-		// 	var category = getIds("category[]");
-		// 	var brand = getIds("brand[]");
-		// 	var size_alphabet = getIds("size_alphabet[]");
-		// 	var sort = $(this).val();
-		// 	var url = $(location).attr('href');
-		
-		// 	$.ajax({
-		// 		url: url,
-		// 		method: 'POST',
-		// 		data: {category:category, brand:brand, size_alphabet:size_alphabet, range_min:range_min, range_max:range_max, sort:sort, url:url},
-		// 		success: function(data){
-		// 			// $('.filter_products').html(data);
-		// 			alert([category, sort, brand, size_alphabet, range_min, range_max, url]);
-		// 		}
-		// 	})
-		// }
-		// loadProduct(minPrice, maxPrice);
 		
 		$('#btnUncheckAll').click(function () {
 			$('input[type=checkbox]').each(

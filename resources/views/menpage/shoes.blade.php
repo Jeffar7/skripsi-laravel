@@ -54,10 +54,10 @@
 					<p class="mb-0 font-weight-bold">Price</p>
 					<div class="row">
 						<div class="col-md-6">
-							<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min_price_min" value="">
+							<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min">
 						</div>
 						<div class="col-md-6">
-							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max_price_max" value="">
+							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max">
 						</div>
 					</div>
   					<div id="slider-range" class="mx-2"></div>
@@ -154,11 +154,13 @@
 			var size_number = getIds("size_number[]");
 			var sort = $(this).val();
 			var url = $(location).attr('href');
+			var min = $("#amount_min").val();
+    		var max = $("#amount_max").val();
 			
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_number:size_number, sort:sort, url:url},
+				data: {category:category, brand:brand, size_number:size_number, sort:sort, min:min, max:max, url:url},
 				success: function(data){
 					$('.filter_products').html(data);
 					// alert([category, sort, brand, size_alphabet, url]);
@@ -173,11 +175,13 @@
 			var size_number = getIds("size_number[]");
 			var sort = $("#sort option:selected").text();
 			var url = $(location).attr('href');
+			var min = $("#amount_min").val();
+    		var max = $("#amount_max").val();
 
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_number:size_number, sort:sort, url:url},
+				data: {category:category, brand:brand, size_number:size_number, sort:sort, min:min, max:max, url:url},
 				success: function(data){
 					$('.filter_products').html(data);
 					var itemCount = $('.filter_products').html(data).find(".pro").length;
@@ -214,7 +218,7 @@
 				$.ajax({
 					url: url,
 					method: 'POST',
-					data: {min:min, max:max, url:url},
+					data: {category:category, brand:brand, size_number:size_number, sort:sort, min:min, max:max, url:url},
 					success: function(data){
 						$('.filter_products').html(data);
 						console.log(min,max)

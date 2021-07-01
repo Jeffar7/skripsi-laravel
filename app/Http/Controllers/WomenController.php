@@ -133,12 +133,12 @@ class WomenController extends Controller
   
 
             // filter price
-            $min = $request->min_price_min;
-            $max = $request->max_price_max;
-            if (Product::whereBetween('products.productprice', [$min, $max])->exists()) {
-                $products = $products->whereBetween('products.productprice', [$min, $max]);
-                // $products->where('products.productprice', '>=', $min)->where('products.productprice', '<=', $max);
-            }
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
             
             $products = $products->get();
 
@@ -207,12 +207,12 @@ class WomenController extends Controller
             }  
 
             // filter price
-            $min = $request->min_price_min;
-            $max = $request->max_price_max;
-            if (Product::whereBetween('products.productprice', [$min, $max])->exists()) {
-                $products = $products->whereBetween('products.productprice', [$min, $max]);
-                // $products->where('products.productprice', '>=', $min)->where('products.productprice', '<=', $max);
-            }
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
             
             $products = $products->get();
 
@@ -281,12 +281,12 @@ class WomenController extends Controller
             }
 
             // filter price
-            $min = $request->min_price_min;
-            $max = $request->max_price_max;
-            if (Product::whereBetween('products.productprice', [$min, $max])->exists()) {
-                $products = $products->whereBetween('products.productprice', [$min, $max]);
-                // $products->where('products.productprice', '>=', $min)->where('products.productprice', '<=', $max);
-            }
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
             
             $products = $products->get();
 
@@ -356,12 +356,12 @@ class WomenController extends Controller
      
 
             // filter price
-            $min = $request->min_price_min;
-            $max = $request->max_price_max;
-            if (Product::whereBetween('products.productprice', [$min, $max])->exists()) {
-                $products = $products->whereBetween('products.productprice', [$min, $max]);
-                // $products->where('products.productprice', '>=', $min)->where('products.productprice', '<=', $max);
-            }
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
             
             $products = $products->get();
 
@@ -424,12 +424,12 @@ class WomenController extends Controller
             }
 
             // filter price
-            $min = $request->min_price_min;
-            $max = $request->max_price_max;
-            if (Product::whereBetween('products.productprice', [$min, $max])->exists()) {
-                $products = $products->whereBetween('products.productprice', [$min, $max]);
-                // $products->where('products.productprice', '>=', $min)->where('products.productprice', '<=', $max);
-            }
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
             
             $products = $products->get();
 
