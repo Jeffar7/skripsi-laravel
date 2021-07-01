@@ -16,7 +16,6 @@
             @endif
             <form action="/checkout" id="form_checkout" method="POST">
                 @csrf
-
                 @if ($cartlists->count() > 0)
                 <div class="card ">
                     <table class="table" id="cart_checkout">
@@ -53,33 +52,14 @@
                                 </td>
                                 <td class="text-center">
                                     <span class="subtotal">Rp. {{ number_format($cartlist->product->productprice*$cartlist->quantity)}}</span>
-                                    <!-- <input type="hidden" id="subtotal" name="subtotal" value=""> -->
                                 </td>
-                                <!-- <td class="text-center">
-                                    <span id="subtotal">Rp. {{ number_format($cartlist->product->productprice)}}</span>
-                                </td> -->
                                 <td class="text-center">
-                                    <a class="d-inline btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</a>
+                                    <a href="/product-cart/delete/{{$cartlist->id}}" class="delete-modal badge btn-danger" data-value="{{$cartlist->id}}" data-toggle="modal" data-target="#exampleModal{{$cartlist->id}}"><i class="fas fa-trash-alt" style="color:white"></i></a>
                                 </td>
                             </tr>
                         </tbody>
                         @endforeach
                     </table>
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-sm">
-                            <div class="modal-content shadow-sm">
-                                <div class="modal-body">
-                                    <h3 class="text-center">Are you sure?</h3>
-                                    <p class="text-center font-weight-normal mb-0">Do you really want to delete this item? This process cannot be undone.</p>
-                                </div>
-                                <div class="modal-footer justify-content-around pt-0 border-top-0">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a href="/product-cart/delete/{{$cartlist->id}}" class="btn btn-danger" name="formaddress">Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 @else
                 @error('no_post_result')
@@ -104,6 +84,30 @@
                 </div>
         </div>
         </form>
+
+        @foreach($cartlists as $cartlist)
+        <div class="modal fade" id="exampleModal{{$cartlist->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content shadow-sm">
+                    <form action="/product-cart/delete/{{$cartlist->id}}" method="POST" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <div class="modal-body">
+                            <h3 class="text-center">Are you sure?</h3>
+                            <p class="text-center font-weight-normal mb-0">Do you really want to delete 
+                            <br>
+                            <span class="font-weight-bold">{{$cartlist->product->productname}}</span> item?</p> 
+                            <p class="text-center font-weight-normal mb-0">This process cannot be undone.</p>
+                        </div>
+                        <div class="modal-footer justify-content-around pt-0 border-top-0">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger" name="delete_user">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
 </div>
 
