@@ -60,9 +60,21 @@
           </strong>
         </div>
 
+        <!-- Flash Error Message -->
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+        <!-- End Flash Error Message -->
+
         <div class="row justify-content-center m-3">
           <div class="col-sm-12">
-            <select class="form-control div-toggle-payment" data-target=".payment-info">
+            <select class="form-control div-toggle-payment" data-target=".payment-info" id="select_payment">
               <option value="">Select Payment Type</option>
               <option value="credit" data-show=".credit">Credit</option>
               <option value="debit" data-show=".debit">Debit</option>
@@ -72,7 +84,7 @@
 
         <div class="payment-info">
           <div class="credit hide">
-            <form class="m-3 card p-4" action="/makepayment" method="POST">
+            <form class="m-3 card p-4" action="/makepayment" method="POST" id="payment-form">
               @csrf
               <div class="form-row">
                 <div class="col-md-6 mb-3">
@@ -153,19 +165,18 @@
               <input type="hidden" name="payment_type" value="credit">
               <input type="hidden" name="order" value="{{$order->id}}">
 
-              <div class="row justify-content-center mb-1">
+              <!-- <div class="row justify-content-center mb-1">
                 <div class="col-md-12 text-right">
                   <button type="submit" class="btn btn-dark">SUBMIT</button>
                 </div>
-              </div>
+              </div> -->
             </form>
           </div>
 
-
           <div class="debit hide">
-            <form class="m-3 card p-4" action="/makepayment" method="POST">
+            <form class="m-3 card p-4" action="/makepayment" method="POST" id="debit_payment">
               @csrf
-              <div class="form-row">
+              <div class=" form-row">
                 <div class="col-md-6 mb-3">
                   <label for="first_name">First name</label>
                   <input type="text" class="form-control" id="first_name" name="first_name" required>
@@ -187,12 +198,9 @@
                     <option value="BRI">BRI</option>
                   </select>
                 </div>
-              </div>
-
-              <div class="form-row">
                 <div class="col-md-6 mb-3">
                   <label for="account_number">Account Number</label>
-                  <input type="account_number" class="form-control" id="account_number" name="account_number" required>
+                  <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="11 digits number : ex:12345678910" required>
                 </div>
               </div>
 
@@ -209,21 +217,25 @@
 
               <input type="hidden" name="payment_type" value="debit">
               <input type="hidden" name="order" value="{{$order->id}}">
-
-              <div class="row justify-content-center mb-1">
-                <div class="col-md-12 text-right">
-                  <button type="submit" class="btn btn-dark">SUBMIT</button>
-                </div>
-              </div>
-
             </form>
           </div>
 
         </div>
       </div>
+      <div class="row justify-content-center mt-3">
+
+        <div class="col-md-6 text-left">
+          <a href="/transactions/ordersummary" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+        </div>
+
+        <div class="col-md-6 text-right">
+          <button type="button" class="btn btn-dark" id="submitBtn">SUBMIT</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <script>
   $(document).on('change', '.div-toggle-payment', function() {
     var target = $(this).data('target');
@@ -233,6 +245,26 @@
   });
   $(document).ready(function() {
     $('.div-toggle-payment').trigger('change');
+
+    // $("#submitBtn").click(function() {
+    //   $("#myForm").submit(); // Submit the form
+    // });
+
+    // function submit() {
+    //   console.log('berhasil');
+
+    $('#select_payment').on('change', function() {
+      var option_value = $(this).val();
+      if (option_value == 'credit') {
+        $("#submitBtn").click(function() {
+          $("#payment-form").submit(); // Submit the form
+        });
+      } else if (option_value == 'debit') {
+        $("#submitBtn").click(function() {
+          $("#debit_payment").submit(); // Submit the form
+        });
+      }
+    });
   });
 </script>
 

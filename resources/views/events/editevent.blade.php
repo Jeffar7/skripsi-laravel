@@ -13,6 +13,17 @@
                     <h5 class="text-white">EVENT</h5>
                 </div>
                 <div class="card-body">
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <form method="POST" action="/events/{{$event->id}}" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
@@ -20,6 +31,11 @@
                         <div class="form-group ">
                             <label for="rafflename">Event Name</label>
                             <input type="text" class="form-control" id="rafflename" name="name" value="{{$event->name}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="theme">Theme</label>
+                            <input type="text" class="form-control" id="theme" name="theme" value="{{$event->theme}}">
                         </div>
 
                         <div class="form-group ">
@@ -43,7 +59,7 @@
 
                         <div class="form-group ">
                             <label for="capacity">Capacity</label>
-                            <input type="text" class="form-control" id="capacity" placeholder="" name="capacity" value="{{$event->capacity}}">
+                            <input type="number" class="form-control" id="capacity" placeholder="" name="capacity" value="{{$event->capacity}}">
                         </div>
 
                         <div class="form-group ">

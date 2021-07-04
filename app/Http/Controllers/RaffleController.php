@@ -43,23 +43,23 @@ class RaffleController extends Controller
 
     public function sortRaffle(Request $request)
     {
-        if($request->ajax()){
-            
+        if ($request->ajax()) {
+
             $raffles = new Raffle();
-            
+
             // sorting product
             if ($request->sortRaffle == "open_raffle") {
-                $raffles->orderBy('status','desc');
+                $raffles->orderBy('status', 'desc');
             } elseif ($request->sortRaffle == "closed_raffle") {
-                $raffles->orderBy('status','asc');
+                $raffles->orderBy('status', 'asc');
             } elseif ($request->sortRaffle == "upcoming_raffle") {
-                $raffles->orderBy('rafflereleasedate','desc');
+                $raffles->orderBy('rafflereleasedate', 'desc');
             } elseif ($request->sortRaffle == "latest_raffle") {
-                $raffles->orderBy('id','desc');
+                $raffles->orderBy('id', 'desc');
             } else {
                 $raffles;
-            }          
-            
+            }
+
             $raffles = $raffles->paginate(3);
 
             // dd($raffles);
@@ -70,8 +70,7 @@ class RaffleController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('/raffles/filter_raffle', compact('raffles'));
-
-        }else {
+        } else {
             $raffles = Raffle::paginate(3);
             return view('/raffles/raffle_item_list', compact('raffles'));
         }
@@ -98,6 +97,19 @@ class RaffleController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'rafflename' => 'required',
+            'raffleimage' => 'required|image',
+            'brand_id' => 'required',
+            'category_id' => 'required',
+            'raffleprice' => 'required|numeric',
+            'rafflequantity' => 'required|numeric',
+            'rafflequota' => 'required|numeric',
+            'raffleclosedate' => 'required',
+            'rafflereleasedate' => 'required',
+            'raffledescription' => 'required'
+        ]);
+
         $raffle = new Raffle();
         $raffle->rafflename = $request->rafflename;
         $raffle->raffledescription = $request->raffledescription;
@@ -133,6 +145,18 @@ class RaffleController extends Controller
 
     public function update(Request $request, Raffle $raffle)
     {
+        $request->validate([
+            'rafflename' => 'required',
+            'raffleimage' => 'required|image',
+            'brand_id' => 'required',
+            'category_id' => 'required',
+            'raffleprice' => 'required|numeric',
+            'rafflequantity' => 'required|numeric',
+            'rafflequota' => 'required|numeric',
+            'raffleclosedate' => 'required',
+            'rafflereleasedate' => 'required',
+            'raffledescription' => 'required'
+        ]);
 
         if ($request->hasFile('raffleimage')) {
             $file = $request->file('raffleimage');
@@ -281,9 +305,26 @@ class RaffleController extends Controller
 
     public function raffleCheckout($id)
     {
+        session()->put('raffleId', [
+            'id' => $id
+        ]);
+
         $shipments = Shipment::all();
         $address = raffle_user::find($id)->addressForRaffle;
         $raffle_user = raffle_user::find($id);
+
+        session()->put('raffle_user', [
+            'raffle_user' => $raffle_user
+        ]);
+
+        return view('/raffles/raffle_checkout', compact('shipments', 'address', 'raffle_user'));
+    }
+
+    public function raffleCheckoutView()
+    {
+        $shipments = Shipment::all();
+        $address = raffle_user::find(session()->get('raffleId')['id'])->addressForRaffle;
+        $raffle_user = raffle_user::find(session()->get('raffleId')['id']);
 
         session()->put('raffle_user', [
             'raffle_user' => $raffle_user
@@ -327,7 +368,6 @@ class RaffleController extends Controller
 
     public function raffleMakePayment(Request $request)
     {
-        $payment = new Payment();
         if ($request->payment_type === 'credit') {
 
             $request->validate([
@@ -340,6 +380,8 @@ class RaffleController extends Controller
                 // 'valid_until' => ['required']
             ]);
 
+            $payment = new Payment();
+
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
             $payment->last_name = $request->last_name;
@@ -350,6 +392,18 @@ class RaffleController extends Controller
             $payment->user_id = Auth::user()->id;
             $payment->save();
         } else {
+
+
+            $request->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'bank_name' => 'required',
+                'bank_type' => 'required',
+                'account_number' => 'required|digits:11',
+            ]);
+
+            $payment = new Payment();
+
             $payment->payment_type = 'debit';
             $payment->first_name = $request->first_name;
             $payment->last_name = $request->last_name;

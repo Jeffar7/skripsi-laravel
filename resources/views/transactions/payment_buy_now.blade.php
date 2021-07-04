@@ -77,9 +77,9 @@
 
         <div class="row justify-content-center m-3">
           <div class="col-sm-12">
-            <select class="form-control div-toggle-payment" data-target=".payment-info">
+            <select class="form-control div-toggle-payment" data-target=".payment-info" id="select_payment">
               <option value="">Select Payment Type</option>
-              <option value="credit" data-show=".credit" selected>Credit</option>
+              <option value="credit" data-show=".credit">Credit</option>
               <option value="debit" data-show=".debit">Debit</option>
             </select>
           </div>
@@ -165,16 +165,17 @@
 
               <input type="hidden" name="payment_type" value="credit">
 
-              <div class="row justify-content-center mb-1">
+              <!-- <div class="row justify-content-center mb-1">
                 <div class="col-md-12 text-right">
                   <button type="submit" class="btn btn-dark">SUBMIT</button>
                 </div>
-              </div>
+              </div> -->
+
             </form>
           </div>
 
           <div class="debit hide">
-            <form class="m-3 card p-4" action="/makepayment/buy_now" method="POST">
+            <form class="m-3 card p-4" action="/makepayment/buy_now" method="POST" id="debit_payment">
               @csrf
               <div class="form-row">
                 <div class="col-md-6 mb-3">
@@ -201,7 +202,7 @@
 
                 <div class="col-md-6 mb-3">
                   <label for="account_number">Account Number</label>
-                  <input type="account_number" class="form-control" id="account_number" name="account_number" required>
+                  <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="11 digits number : ex:12345678910" required>
                 </div>
               </div>
 
@@ -218,17 +219,22 @@
               </div>
 
               <input type="hidden" name="payment_type" value="debit">
-
-              <div class="row justify-content-center mb-1">
-                <div class="col-md-12 text-right">
-                  <button type="submit" class="btn btn-dark">SUBMIT</button>
-                </div>
-              </div>
-
             </form>
           </div>
         </div>
       </div>
+
+      <div class="row justify-content-center mt-3">
+
+        <div class="col-md-6 text-left">
+          <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+        </div>
+
+        <div class="col-md-6 text-right">
+          <button type="buttpn" class="btn btn-dark" id="submitBtn">SUBMIT</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -242,6 +248,22 @@
   });
   $(document).ready(function() {
     $('.div-toggle-payment').trigger('change');
+
+    $('#select_payment').on('change', function() {
+      var option_value = $(this).val();
+      if (option_value == 'credit') {
+        console.log('credit');
+        $("#submitBtn").click(function() {
+          $("#payment-form").submit(); // Submit the form
+        });
+      } else if (option_value == 'debit') {
+        console.log('debit');
+        $("#submitBtn").click(function() {
+          $("#debit_payment").submit(); // Submit the form
+        });
+      }
+    });
+
   });
 </script>
 

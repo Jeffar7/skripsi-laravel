@@ -27,9 +27,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request)
-	{
-		// fetch search input
-		$search = $request->allsearch;
+    {
+        // fetch search input
+        $search = $request->allsearch;
 
         // $product = DB::table('brands')
         // ->join('products', 'brands.id', '=', 'products.brandid')
@@ -37,7 +37,7 @@ class ProductController extends Controller
         // ->OrWhere('name','like','%'.$search.'%');
 
         $product = DB::table('brands')
-        ->join('products', 'brands.id', '=', 'products.brandid');
+            ->join('products', 'brands.id', '=', 'products.brandid');
 
         // sorting product
         if ($request->sort == "product_price_low_high") {
@@ -51,19 +51,19 @@ class ProductController extends Controller
         }
 
         $categories = DB::table('brands')
-        ->join('products', 'brands.id', '=', 'products.brandid')
-        ->join('categorys', 'products.categoryid', '=', 'categorys.id')
-        ->select('categorys.name', 'categorys.id')
-        ->where('productname','like','%'.$search.'%')
-        ->orWhere('brands.name','like','%'.$search.'%')
-        ->groupBy('categorys.name', 'categorys.id')
-        ->orderBy('categorys.id')
-        ->get();
+            ->join('products', 'brands.id', '=', 'products.brandid')
+            ->join('categorys', 'products.categoryid', '=', 'categorys.id')
+            ->select('categorys.name', 'categorys.id')
+            ->where('productname', 'like', '%' . $search . '%')
+            ->orWhere('brands.name', 'like', '%' . $search . '%')
+            ->groupBy('categorys.name', 'categorys.id')
+            ->orderBy('categorys.id')
+            ->get();
 
-        $checked=[];
+        $checked = [];
 
         if ($request->category) {
-            $checked=$request->category;
+            $checked = $request->category;
 
             // $cat_filter = Category::whereIn('name', $checked);
             // $cat_id = [];
@@ -75,49 +75,49 @@ class ProductController extends Controller
         }
 
         $gender = DB::table('brands')
-        ->join('products', 'brands.id', '=', 'products.brandid')
-        ->join('genders', 'products.gender_id', '=', 'genders.id')
-        ->select('genders.productgender', 'genders.id')
-        ->where('productname','like','%'.$search.'%')
-        ->orWhere('brands.name','like','%'.$search.'%')
-        ->groupBy('genders.productgender', 'genders.id')
-        ->orderBy('genders.id')
-        ->get();
+            ->join('products', 'brands.id', '=', 'products.brandid')
+            ->join('genders', 'products.gender_id', '=', 'genders.id')
+            ->select('genders.productgender', 'genders.id')
+            ->where('productname', 'like', '%' . $search . '%')
+            ->orWhere('brands.name', 'like', '%' . $search . '%')
+            ->groupBy('genders.productgender', 'genders.id')
+            ->orderBy('genders.id')
+            ->get();
 
         // if (Gender::where('id', '=', $request->gender)->exists()) {
         //     $product->where('gender_id', '=', $request->gender);
         // }
-        $checkedGender=[];
+        $checkedGender = [];
 
         if ($request->gender) {
-            $checkedGender=$request->gender;
+            $checkedGender = $request->gender;
             $product->whereIn('gender_id', $checkedGender);
         }
 
         $brands = DB::table('brands')
-        ->join('products', 'brands.id', '=', 'products.brandid')
-        ->select('brands.name', 'brands.id')
-        ->where('productname','like','%'.$search.'%')
-        ->orWhere('brands.name','like','%'.$search.'%')
-        ->groupBy('brands.name', 'brands.id')
-        ->orderBy('brands.id')
-        ->get();
+            ->join('products', 'brands.id', '=', 'products.brandid')
+            ->select('brands.name', 'brands.id')
+            ->where('productname', 'like', '%' . $search . '%')
+            ->orWhere('brands.name', 'like', '%' . $search . '%')
+            ->groupBy('brands.name', 'brands.id')
+            ->orderBy('brands.id')
+            ->get();
 
         // if (Brand::where('id', '=', $request->brand)->exists()) {
         //     $product->where('brandid', '=', $request->brand);
         // }
-        
+
         $checkedBrand = [];
 
         if ($request->brand) {
-            $checkedBrand=$request->brand;
+            $checkedBrand = $request->brand;
             $product->whereIn('brandid', $checkedBrand);
         }
 
         $product = $product->where(function ($product) use ($search) {
-            if(!empty($search)){
-                $product->where('productname','like','%'.$search.'%')
-                        ->orWhere('brands.name','like','%'.$search.'%');
+            if (!empty($search)) {
+                $product->where('productname', 'like', '%' . $search . '%')
+                    ->orWhere('brands.name', 'like', '%' . $search . '%');
             }
         });
 
@@ -153,22 +153,21 @@ class ProductController extends Controller
             $product->where('productsize', '=', $request->size);
         } elseif ($request->size == "XXL") {
             $product->where('productsize', '=', $request->size);
-        } elseif ($request->size == "others") { 
+        } elseif ($request->size == "others") {
             $product->where('products.categoryid', '=', '4');
         }
 
         $product = $product->get();
 
         $productcount = count($product);
- 
-    	// return to view
+
+        // return to view
         if ($product->count() == 0)
-            return view('/search',compact('product','search','productcount', 'categories', 'gender','brands', 'minprice', 'maxprice' ,'checked', 'checkedGender', 'checkedBrand'))
+            return view('/search', compact('product', 'search', 'productcount', 'categories', 'gender', 'brands', 'minprice', 'maxprice', 'checked', 'checkedGender', 'checkedBrand'))
                 ->withErrors(['no_post_result' => 'No data was found.']);
         else
-            return view('/search',compact('product','search', 'productcount', 'categories', 'gender','brands', 'minprice', 'maxprice','checked', 'checkedGender', 'checkedBrand'));
- 
-	}
+            return view('/search', compact('product', 'search', 'productcount', 'categories', 'gender', 'brands', 'minprice', 'maxprice', 'checked', 'checkedGender', 'checkedBrand'));
+    }
 
     public function index()
     {
@@ -230,6 +229,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'productname' => 'required',
+            'productimage' => 'required|image',
+            'categoryid' => 'required',
+            'gender_id' => 'required',
+            'brandid' => 'required',
+            'sku' => 'required',
+            'productprice' => 'required|numeric',
+            'productquantity' => 'required|numeric',
+            'productsize' => 'required',
+            'productdescription' => 'required'
+        ]);
+
         if ($request->gender_id == "Male") {
             $request->gender_id = 1;
         } else {
@@ -283,6 +296,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
 
+
         $brands = Brand::all();
         $categories = Category::all();
         return view('products.editproduct', compact(['product', 'brands', 'categories']));
@@ -299,6 +313,19 @@ class ProductController extends Controller
     {
 
         //update gender_id product belom
+
+        $request->validate([
+            'productname' => 'required',
+            'productimage' => 'required|image',
+            'categoryid' => 'required',
+            'gender_id' => 'required',
+            'brandid' => 'required',
+            'sku' => 'required',
+            'productprice' => 'required|numeric',
+            'productquantity' => 'required|numeric',
+            'productsize' => 'required',
+            'productdescription' => 'required'
+        ]);
 
         if ($request->gender_id == "Male") {
             $request->gender_id = 1;

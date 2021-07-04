@@ -25,10 +25,10 @@ class CreateReviewsTable extends Migration
         });
 
         Schema::table('reviews', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('products')->onUpdate('CASCADE')->onDelete('cascade');
         });
         Schema::table('reviews', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('cascade');
         });
     }
 

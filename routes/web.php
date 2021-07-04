@@ -37,6 +37,7 @@ Route::group(['middleware' =>  'auth'], function () {
     // USER
     Route::patch('/users/cstm/{user}', 'UserController@update');
     Route::delete('/delete-my-account/{user}', 'UserController@deleteMyAccount');
+    Route::get('/userprofile', 'UserController@index');
 
     // PRODUCTWISH
     Route::get('/product-wish', 'ProductController@productwish');
@@ -54,6 +55,7 @@ Route::group(['middleware' =>  'auth'], function () {
     Route::post('/checkout', 'OrderController@checkout');
     Route::get('/transactions/delivery', 'OrderController@viewCheckOut');
     Route::get('/transactions/ordersummary', 'OrderController@viewSummary')->name('order.summary.checkout');
+    Route::get('/payment', 'OrderController@paymentView');
     //delivery
     Route::get('/checkout/delivery', 'OrderController@delivery');
     Route::get('/delivery/address/{id}', 'OrderController@chooseaddress');
@@ -95,6 +97,7 @@ Route::group(['middleware' =>  'auth'], function () {
     Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
     Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
     Route::get('/raffles/checkout/{id}', 'RaffleController@raffleCheckout');
+    Route::get('/raffles/checkout', 'RaffleController@raffleCheckoutView');
     Route::post('/raffles/summary', 'RaffleController@raffleSummary');
     Route::get('/raffles/summary', 'RaffleController@raffleSummaryView');
     Route::get('/raffles/payment', 'RaffleController@rafflePayment');
@@ -153,7 +156,6 @@ Route::group(['middleware' =>  'role:admin'], function () {
 Route::group(['middleware' =>  'role:customer'], function () {
 
     // USER
-    Route::get('/userprofile', 'UserController@index');
     Route::get('/usersettings', 'UserController@usersettings');
     Route::post('/users/changepassword', 'UserController@changePassword');
 });
@@ -199,6 +201,13 @@ Route::get('/women', 'WomenController@index');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
 Route::post('/men', 'ManController@filterMen')->name('men');
+
+
+Route::post('payments/notification', 'PaymentController@notification');
+Route::get('payments/completed', 'PaymentController@completed');
+Route::get('payments/failed', 'PaymentController@failed');
+Route::get('payments/unfinish', 'PaymentController@unfinished');
+
 
 Route::get('/', function () {
 

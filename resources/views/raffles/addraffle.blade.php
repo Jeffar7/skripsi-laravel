@@ -13,6 +13,17 @@
                     <h5 class="text-white">RAFFLE</h5>
                 </div>
                 <div class="card-body">
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <form method="POST" action="/manageraffle" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group ">
@@ -78,7 +89,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="raffledescription">Description</label>
+                            <label for="raffledescription">Raffle Description</label>
                             <textarea class="form-control" id="raffledescription" rows="3" placeholder="add product information here..." name="raffledescription"></textarea>
                         </div>
 
