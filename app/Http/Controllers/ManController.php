@@ -36,8 +36,8 @@ class ManController extends Controller
 
     public function bestseller()
     {
-        $products = Product::all();
-        return view('/home', compact('products'));
+        $others = Product::all();
+        return view('/bestseller', compact('others'));
     }
 
     public function tops()

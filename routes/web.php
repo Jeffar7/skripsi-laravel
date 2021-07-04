@@ -158,7 +158,7 @@ Route::group(['middleware' =>  'role:customer'], function () {
 
 
 // Check again this route
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/pagehome', 'PageController@home')->middleware('auth');
 Route::get('/homeman', 'PageController@homeman')->name('homeman');;
@@ -178,7 +178,7 @@ Route::get('/event', 'EventController@event');
 Route::get('/events/detail/{event}', 'EventController@eventdetail');
 
 Route::get('/men-tops', 'ManController@tops');
-Route::get('/men-tops/detail/{product}', 'ManController@topsdetail');
+Route::get('/product/detail/{product}', 'ManController@topsdetail');
 Route::get('/men-bottoms', 'ManController@bottoms');
 Route::get('/men-shoes', 'ManController@shoes');
 Route::get('/men-accessories', 'ManController@accessories');
@@ -215,10 +215,10 @@ Route::post('/shoes', 'ProductController@filterShoes')->name('shoe');
 Route::post('/bottom', 'ProductController@filterBottoms')->name('bottom');
 Route::post('/accessories', 'ProductController@filterAccessories')->name('accessory');
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-    return view('home');
-});
+//     return view('home');
+// });
 
 Auth::routes();
 
@@ -226,7 +226,7 @@ Route::get('/testing', function () {
     return view('check');
 });
 
-Route::get('/', 'ManController@bestseller');
+Route::get('/bestseller', 'ManController@bestseller');
 
 Route::get('/about', function () {
     return view('pages/aboutus');
