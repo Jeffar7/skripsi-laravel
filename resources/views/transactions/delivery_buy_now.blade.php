@@ -105,7 +105,7 @@
         <input type="hidden" value="{{$product_id}}" name="product">
         <input type="hidden" value="{{$quantity}}" name="quantity">
 
-        <div class="row justify-content-end mb-3">
+        <div class="row justify-content-center mb-3">
             <div class="col-md-12 text-right">
                 <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> NEXT</button>
             </div>

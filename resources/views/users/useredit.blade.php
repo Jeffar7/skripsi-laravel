@@ -12,6 +12,17 @@
                     <h5 class="text-white">USER</h5>
                 </div>
                 <div class="card-body">
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <form method="POST" action="/users/adm/{{$user->id}}" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
@@ -77,7 +88,7 @@
 
                         <div class="form-group">
                             <label for="phonenumber">Phone Number</label>
-                            <input type="text" class="form-control" id="phonenumber" name="phone" placeholder="ex : 081212345678" value="{{$user->phonenumber}}">
+                            <input type="text" class="form-control" id="phonenumber" name="phone" value="{{$user->phone}}">
                         </div>
 
                         <div class="form-group">

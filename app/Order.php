@@ -19,6 +19,9 @@ class Order extends Model
     ];
     protected $guarded = ['id'];
 
+    public const PAID = 'completed';
+    public const UNPAID = 'unpaid';
+
     public function grandTotal($price, $qty)
     {
         return $price * $qty;
@@ -47,5 +50,10 @@ class Order extends Model
     public function payment()
     {
         return $this->belongsTo(Payment::class, 'payment_id', 'id');
+    }
+
+    public function isPaid()
+    {
+        return $this->status == self::PAID;
     }
 }

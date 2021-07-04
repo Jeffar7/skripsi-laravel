@@ -174,14 +174,22 @@ class OrderController extends Controller
         ]);
 
         $payments = Payment::all();
+        return redirect('/payment');
+    }
+
+    public function paymentView()
+    {
+        $payments = Payment::all();
+        $order = Order::where('id', '=', session()->get('checkout')['order_id'])->where('user_id', '=', Auth::user()->id)->first();
         return view('/transactions/payment', compact('payments', 'order'));
     }
 
     public function makepayment(Request $request)
     {
-        $payment = new Payment();
 
         if ($request->payment_type === 'credit') {
+
+            $payment = new Payment();
 
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
@@ -193,6 +201,17 @@ class OrderController extends Controller
             $payment->user_id = Auth::user()->id;
             $payment->save();
         } else {
+
+            $request->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'bank_name' => 'required',
+                'bank_type' => 'required',
+                'account_number' => 'required|digits:11',
+            ]);
+
+            $payment = new Payment();
+
             $payment->payment_type = 'debit';
             $payment->first_name = $request->first_name;
             $payment->last_name = $request->last_name;

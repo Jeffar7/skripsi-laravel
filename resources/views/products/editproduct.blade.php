@@ -13,6 +13,17 @@
                     <h5 class="text-white">PRODUCT</h5>
                 </div>
                 <div class="card-body">
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <form method="POST" action="/products/{{$product->id}}" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
@@ -68,12 +79,17 @@
                         </div>
 
                         <div class="form-group ">
-                            <label for="productquantity">Size</label>
-                            <input type="text" class="form-control" id="productquantity" placeholder="" name="productsize" value="{{$product->productsize}}">
+                            <label for="productprice">Size</label>
+                            <input type="text" class="form-control" id="productprice" placeholder="" name="productsize" value="{{$product->productsize}}">
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="sku">SKU</label>
+                            <input type="text" class="form-control" id="sku" placeholder="" name="sku" value="{{$product->sku}}">
                         </div>
 
                         <div class="form-group">
-                            <label for="productdescription">About</label>
+                            <label for="productdescription">Product Description</label>
                             <textarea class="form-control" id="productdescription" rows="3" placeholder="add product information here..." name="productdescription" value="{{$product->productdescription}}"></textarea>
                         </div>
 

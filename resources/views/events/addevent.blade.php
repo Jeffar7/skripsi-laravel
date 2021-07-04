@@ -13,6 +13,17 @@
                     <h5 class="text-white">EVENT</h5>
                 </div>
                 <div class="card-body">
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <form method="POST" action="/manageevent" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group ">
@@ -46,7 +57,7 @@
 
                         <div class="form-group ">
                             <label for="capacity">Capacity</label>
-                            <input type="text" class="form-control" id="capacity" placeholder="" name="capacity">
+                            <input type="number" class="form-control" id="capacity" placeholder="" name="capacity">
                         </div>
 
                         <div class="form-group ">

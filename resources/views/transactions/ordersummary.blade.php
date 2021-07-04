@@ -173,7 +173,11 @@
     <input type="hidden" name="shipment" value="{{$shipment->id}}">
 
     <div class="row justify-content-center mb-3">
-      <div class="col-md-10 text-right">
+      <div class="col-md-5 text-left">
+        <a href="/transactions/delivery" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+      </div>
+
+      <div class="col-md-5 text-right">
         <button type="submit" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-right"></i> PROCEED
           TO PAYMENT</button>
       </div>

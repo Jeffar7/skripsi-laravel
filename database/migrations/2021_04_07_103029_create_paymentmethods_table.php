@@ -26,6 +26,8 @@ class CreatePaymentmethodsTable extends Migration
             $table->enum('credit_type', ['VISA', 'MasterCard', 'AmericanExpress', 'Discover'])->nullable();
             $table->string('valid_until')->nullable();
             $table->string('user_id');
+            $table->string('payment_token')->nullable();
+            $table->string('payment_url')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

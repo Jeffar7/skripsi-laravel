@@ -212,6 +212,21 @@ class UserController extends Controller
 
     public function updateadm(Request $request, User $user)
     {
+
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email:rfc,dns',
+            'password' =>  ['required', 'string', 'min:8', 'required_with:password_confirmation', 'same:password_confirmation'],
+            'DOB' => 'required',
+            'gender' => 'required',
+            'picture' => 'required|image',
+            'role' => 'required',
+            'address' => 'required|string',
+            'phone' => 'required',
+            'about' => 'string|max:255'
+        ]);
+
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $filenameWithoutExt = $file->getClientOriginalName();
@@ -288,7 +303,7 @@ class UserController extends Controller
     public function deleteMyAccount(User $user)
     {
         Auth::logout();
-        User::destroy($user->id);
+        User::where('id', $user->id)->forceDelete();
 
         return redirect('/');
     }
