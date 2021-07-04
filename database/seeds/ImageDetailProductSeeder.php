@@ -2050,9 +2050,9 @@ class ImageDetailProductSeeder extends Seeder
             ],
             [
                 'image_detail_1' => 'NBDN/Men/Tops/KANALOA Belly Flap Slubby Colarless Shirt Long Sleeve Olive/Utama_kanaola-5.jpg',
-                'image_detail_2' => 'NBDN/Men/Tops/KANALOA Belly Flap Slubby Colarless Shirt Long Sleeve Olive/Utama_kanaola-7.jpg',
-                'image_detail_3' => 'NBDN/Men/Tops/KANALOA Belly Flap Slubby Colarless Shirt Long Sleeve Olive/Utama_kanaola-4.jpg',
-                'image_detail_4' => 'NBDN/Men/Tops/KANALOA Belly Flap Slubby Colarless Shirt Long Sleeve Olive/Utama_kanaola-6.jpg',
+                'image_detail_2' => 'NBDN/Men/Tops/KANALOA Belly Flap Slubby Colarless Shirt Long Sleeve Olive/kanaola-7.jpg',
+                'image_detail_3' => 'NBDN/Men/Tops/KANALOA Belly Flap Slubby Colarless Shirt Long Sleeve Olive/kanaola-4.jpg',
+                'image_detail_4' => 'NBDN/Men/Tops/KANALOA Belly Flap Slubby Colarless Shirt Long Sleeve Olive/kanaola-6.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
@@ -3375,8 +3375,8 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Voyej/Men/Accessories/Karimata V - 825K/view_KARIMATAV_NA_01.jpg',
-                'image_detail_2' => 'Voyej/Men/Accessories/Karimata V - 825K/view_KARIMATAV_NA_02.jpg',
+                'image_detail_1' => 'Voyej/Men/Accessories/Karimata V - 825K/view_KARIMATAV_NA_01.png',
+                'image_detail_2' => 'Voyej/Men/Accessories/Karimata V - 825K/view_KARIMATAV_NA_02.png',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
