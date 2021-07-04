@@ -303,7 +303,7 @@ class UserController extends Controller
     public function deleteMyAccount(User $user)
     {
         Auth::logout();
-        User::destroy($user->id);
+        User::where('id', $user->id)->forceDelete();
 
         return redirect('/');
     }
