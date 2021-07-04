@@ -22,14 +22,49 @@
         @endif
     </div>
     <div class="row">
-        <div class="col col-lg-2 border border-dark">
-            <p>photo slider box</p>
-        </div>
-        <div class="col-5 border border-dark p-0">
-            <img src="{{asset('../storage/images/Products/' . $product_tops->productimage)}}" width="100%;" height="300px;" alt="Image">
-        </div>
-        <div class="col border border-dark" style=" box-shadow: 1px 2px #888888; background-color: white">
-            <div class="card-body">
+        <div id='carousel-custom' class='col carousel slide m-0' data-interval='false'>
+            <div class="row">
+                <div class="col-3">
+                    <ol class='carousel-indicators justify-content-center flex-column'>
+                            <li data-target='#carousel-custom' data-slide-to='0' class="active"><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark photo-thumb"/></li>
+                        @if(!empty($image_detail->image_detail_2))
+                            <li data-target='#carousel-custom' data-slide-to='1'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-thumb"/></li>
+                        @endif
+                        @if(!empty($image_detail->image_detail_3))
+                            <li data-target='#carousel-custom' data-slide-to='2'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-thumb"/></li>
+                        @endif
+                        @if(!empty($image_detail->image_detail_4))
+                            <li data-target='#carousel-custom' data-slide-to='3'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-thumb"/></li>
+                        @endif
+                    </ol>
+                </div>
+                <div class="col">
+                    <div class='carousel-inner text-center'>
+                        <div class='carousel-item active'>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark photo-detail"/>
+                        </div>
+                        @if(!empty($image_detail->image_detail_2))
+                        <div class='carousel-item'>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-detail"/>
+                        </div>
+                        @endif
+                        @if(!empty($image_detail->image_detail_3))
+                        <div class='carousel-item'>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-detail"/>
+                        </div>
+                        @endif
+                        @if(!empty($image_detail->image_detail_4))
+                        <div class='carousel-item'>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-detail"/>
+                        </div>
+                        @endif  
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        <div class="col-6">
+            <div class="card p-4 border border-dark">
                 <!-- product about -->
                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
                 <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
@@ -134,11 +169,14 @@
             <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">
                 <p class="about-title">SKU : {{$product_tops->sku}} </p>
                 <p class="about-title">Category : {{$product_tops->category->name}}</p>
+                <p class="about-title">Care Instruction : {{$product_tops->productcare}} </p>
+                <p class="about-title">Material : {{$product_tops->productmaterial}}</p>
             </div>
             <div class="tab-pane fade mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">
                 <p class="about-title">Size : {{$product_tops->productquantity}}</p>
-                <p class="about-title">Quantity : {{$product_tops->productsize}}</p>
-                >>>>>>> d78480657958400919145a249a6dcc6ed27f3349
+                <p class="about-title">Color : {{$product_tops->productcolor}}</p>
+                <p class="about-title">Quantity : {{$product_tops->productquantity}}</p>
+                <p class="about-title">Weight : {{$product_tops->productweight}}</p>
             </div>
             <div class="tab-pane fade mt-3" id="review" role="tabpanel" aria-labelledby="review-tab">
                 <!--            
@@ -231,68 +269,36 @@
     <!-- Others Product -->
     <div class="container mb-5">
         <p class="title-home">Other Choice</p>
-        <div class="row justify-content-around">
-            <div id="myCarousel" class="carousel slide  w-100" data-interval="false">
-                <div class="carousel-inner w-100 px-3">
-
-                    @foreach($others as $key => $product)
-                    <div class="carousel-item col col-md-3 {{$key == 0 ? 'active' : '' }}">
-                        <!-- Gambar 1 -->
-                        <!-- <div class="col col-sm-3 mb-3"> -->
-                        <div class="card">
-                            <a href="/men-tops/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="239.5px;" height="272px;" alt="Image" class="card-img-top border border-dark"></a>
-                        </div>
-                        <div class="card px-2 border border-dark">
-                            <a href="/men-tops/detail/{{$product->id}}" style="color:black;">
-                                <p class="mt-3 mb-0 text-truncate" style="font-weight:bold;">{{$product->productname}}</p>
-                            </a>
-                            <a class="about-title mb-0" style="text-decoration:normal;" href="/brands/{{$product->brand->id}}">{{$product->brand->name}}</a>
-                            <p style="font-weight:bold;">Rp. {{number_format($product->productprice)}}</p>
-                        </div>
-                        <!-- </div> -->
-                        <!-- Akhir Gambar 1 -->
-                    </div>
-                    @endforeach
-                </div>
-                <a class="carousel-control-prev w-auto" href="#myCarousel" role="button" data-slide="prev">
-                    <span><i class="fa fa-angle-left" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next w-auto" href="#myCarousel" role="button" data-slide="next">
-                    <span><i class="fa fa-angle-right" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
+        @include('bestseller')
     </div>
+</div>
     <!-- End Other Product -->
 
-
-    <script>
-        $(document).ready(function() {
-            $('.increment-btn').click(function(e) {
-                e.preventDefault();
-                var incre_value = $(this).parents('.quantity').find('.qty-input').val();
-                var value = parseInt(incre_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value < 100) {
-                    value++;
-                    $(this).parents('.quantity').find('.qty-input').val(value);
-                }
-            });
-
-            $('.decrement-btn').click(function(e) {
-                e.preventDefault();
-                var decre_value = $(this).parents('.quantity').find('.qty-input').val();
-                var value = parseInt(decre_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value > 1) {
-                    value--;
-                    $(this).parents('.quantity').find('.qty-input').val(value);
-                }
-            });
+<script>
+    $(document).ready(function() {
+        $('.increment-btn').click(function(e) {
+            e.preventDefault();
+            var incre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(incre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value < 100) {
+                value++;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
         });
-    </script>
+
+        $('.decrement-btn').click(function(e) {
+            e.preventDefault();
+            var decre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(decre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value > 1) {
+                value--;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
+        });
+    });
+</script>
 
 
-    @endsection
+@endsection
