@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('name');
             $table->string('theme');
             $table->string('picture');
+            $table->string('detail_picture');
             $table->string('held_on');
             $table->string('website');
             $table->string('capacity');

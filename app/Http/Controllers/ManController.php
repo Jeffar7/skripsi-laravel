@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use App\Review;
 use App\Brand;
+use App\ImageDetail;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
@@ -35,33 +36,23 @@ class ManController extends Controller
 
     public function bestseller()
     {
-        $products = Product::all();
-        return view('/home', compact('products'));
+        $others = Product::all();
+        return view('/bestseller', compact('others'));
     }
 
     public function tops()
     {
         //filter product categories top for men
-        $tops = Product::where('gender_id', '=', 1)->where('categoryid', '1')->get();
-
-        // count total product for men tops
-        $topscount = Product::where('gender_id', '=', 1)->where('categoryid', '1')->count();
-
-        //filter product by brand for men tops
+        $products = Product::where('gender_id', '=', 1)->where('categoryid', '1')->get();
         $brands = Brand::all();
-        $products = QueryBuilder::for(Product::class)
-            ->allowedFilters([
-                AllowedFilter::exact('brand', 'brandid'),
-                AllowedFilter::exact('categoryid')->default('1'),
-                AllowedFilter::exact('gender_id')->default('1')
-            ])
-            ->get();
+        $minprice = $products->min('productprice');
+        $maxprice = $products->max('productprice');
 
         if ($products->count() == 0)
-            return view('menpage/tops', compact('tops', 'topscount', 'brands', 'products'))
+            return view('menpage/tops', compact('products', 'brands', 'minprice', 'maxprice'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('menpage/tops', compact('tops', 'topscount', 'brands', 'products'));
+            return view('menpage/tops', compact('products', 'brands', 'minprice', 'maxprice'));
     }
 
     public function topsdetail(Product $product)
@@ -69,86 +60,58 @@ class ManController extends Controller
         $product_tops = Product::where('id', '=', $product->id)->first();
         $reviews = Review::all();
 
+        $image_detail = ImageDetail::where('id', '=', $product->id)->first();
+
         $others = Product::where('categoryid', '=', $product_tops->category->id)
             ->where('gender_id', '=', $product_tops->gender->id)->get();
 
 
-        return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others'));
+        return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others', 'image_detail'));
     }
 
     public function bottoms()
     {
         //filter product categories bottoms for men
-        $bottoms = Product::where('gender_id', '=', 1)->where('categoryid', '2')->get();
-
-        // count total product for men bottoms
-        $bottomscount = Product::where('gender_id', '=', 1)->where('categoryid', '2')->count();
-
-        //filter product by brand for men bottoms
+        $products = Product::where('gender_id', '=', 1)->where('categoryid', '2')->get();
         $brands = Brand::all();
-        $products = QueryBuilder::for(Product::class)
-            ->allowedFilters([
-                AllowedFilter::exact('brand', 'brandid'),
-                AllowedFilter::exact('categoryid')->default('2'),
-                AllowedFilter::exact('gender_id')->default('1')
-            ])
-            ->get();
+        $minprice = $products->min('productprice');
+        $maxprice = $products->max('productprice');
 
         if ($products->count() == 0)
-            return view('menpage/bottoms', compact('bottoms', 'bottomscount', 'brands', 'products'))
+            return view('menpage/bottoms', compact('products', 'brands', 'minprice', 'maxprice'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('menpage/bottoms', compact('bottoms', 'bottomscount', 'brands', 'products'));
+            return view('menpage/bottoms', compact('products', 'brands', 'minprice', 'maxprice'));
     }
 
     public function shoes()
     {
         //filter product categories shoes for men
-        $shoes = Product::where('gender_id', '=', 1)->where('categoryid', '3')->get();
-
-        // count total product for men shoes
-        $shoescount = Product::where('gender_id', '=', 1)->where('categoryid', '3')->count();
-
-        //filter product by brand for men shoes
+        $products = Product::where('gender_id', '=', 1)->where('categoryid', '3')->get();
         $brands = Brand::all();
-        $products = QueryBuilder::for(Product::class)
-            ->allowedFilters([
-                AllowedFilter::exact('brand', 'brandid'),
-                AllowedFilter::exact('categoryid')->default('3'),
-                AllowedFilter::exact('gender_id')->default('1')
-            ])
-            ->get();
+        $minprice = $products->min('productprice');
+        $maxprice = $products->max('productprice');
 
         if ($products->count() == 0)
-            return view('menpage/shoes', compact('shoes', 'shoescount', 'brands', 'products'))
+            return view('menpage/shoes', compact('products', 'brands', 'minprice', 'maxprice'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('menpage/shoes', compact('shoes', 'shoescount', 'brands', 'products'));
+            return view('menpage/shoes', compact('products', 'brands', 'minprice', 'maxprice'));
     }
 
     public function accessories()
     {
         //filter product categories shoes for men
-        $accessories = Product::where('gender_id', '=', 1)->where('categoryid', '4')->get();
-
-        // count total product for men shoes
-        $accessoriescount = Product::where('gender_id', '=', 1)->where('categoryid', '4')->count();
-
-        //filter product by brand for men shoes
+        $products = Product::where('gender_id', '=', 1)->where('categoryid', '4')->get();
         $brands = Brand::all();
-        $products = QueryBuilder::for(Product::class)
-            ->allowedFilters([
-                AllowedFilter::exact('brand', 'brandid'),
-                AllowedFilter::exact('categoryid')->default('4'),
-                AllowedFilter::exact('gender_id')->default('1')
-            ])
-            ->get();
+        $minprice = $products->min('productprice');
+        $maxprice = $products->max('productprice');
 
         if ($products->count() == 0)
-            return view('menpage/accessories', compact('accessories', 'accessoriescount', 'brands', 'products'))
+            return view('menpage/accessories', compact('products', 'brands', 'minprice', 'maxprice'))
                 ->withErrors(['no_post_result' => 'No data found with current filters.']);
         else
-            return view('menpage/accessories', compact('accessories', 'accessoriescount', 'brands', 'products'));
+            return view('menpage/accessories', compact('products', 'brands', 'minprice', 'maxprice'));
     }
 
     public function new()
@@ -168,7 +131,6 @@ class ManController extends Controller
             $products = $products->where('gender_id', '=', 1);
             
             // sorting product
-            // if(isset($request->sort) && !empty($request->sort)){}
             if ($request->sort == "product_price_low_high") {
                 $products->orderBy('productprice','asc');
             } elseif ($request->sort == "product_price_high_low") {
@@ -188,33 +150,27 @@ class ManController extends Controller
             if(isset($request->brand) && !empty($request->brand)){
                 $products->whereIn('brandid', $request->brand);
             }
+    
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }
 
-            // filter size
-            if ($request->size_alphabet == "XS") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "S") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "M") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "L") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            } elseif ($request->size_alphabet == "XXL") {
-                $products->whereIn('productsize', $request->size_alphabet);
-            }     
+            $size_number = $request->size_number;
+            if(isset($size_number) && !empty($size_number)){
+                $products->whereIn('productsize', $size_number);
+            }   
 
             // filter price
-            $min = $request->min_price_min;
-            $max = $request->max_price_max;
-            if (Product::whereBetween('products.productprice', [$min, $max])->exists()) {
-                $products = $products->whereBetween('products.productprice', [$min, $max]);
-                // $products->where('products.productprice', '>=', $min)->where('products.productprice', '<=', $max);
-            }
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
+
             
             $products = $products->get();
-
-            // dd($products);
 
             if ($products->count() == 0)
                 return view('menpage/filter_men_product', compact('products'))
@@ -240,6 +196,294 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/men', compact('products', 'brands', 'categories', 'productscount', 'genders'));
+
+        }
+    }
+
+    public function filterMenTops(Request $request)
+    {
+        if($request->ajax()){
+            $products = new Product();
+            $products = $products->where('gender_id', '=', 1)->where('categoryid', '1');
+            
+            // sorting product
+            // if(isset($request->sort) && !empty($request->sort)){}
+            if ($request->sort == "product_price_low_high") {
+                $products->orderBy('productprice','asc');
+            } elseif ($request->sort == "product_price_high_low") {
+                $products->orderBy('productprice','desc');
+            } elseif ($request->sort == "product_latest") {
+                $products->orderBy('products.id','desc');
+            } elseif ($request->sort == "product_relevance") {
+                $products;
+            }          
+
+            // filter category
+            if(isset($request->category) && !empty($request->category)){
+                $products->whereIn('categoryid', $request->category);
+            }
+
+            // filter product
+            if(isset($request->brand) && !empty($request->brand)){
+                $products->whereIn('brandid', $request->brand);
+            }
+
+            // filter size
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }
+
+            // filter price
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
+            
+            $products = $products->get();
+
+            // dd($products);
+
+            if ($products->count() == 0)
+                return view('menpage/filter_men_product', compact('products'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('menpage/filter_men_product', compact('products'));
+
+        }else {
+            $products = new Product();
+            $products = $products->where('gender_id', '=', 1)->where('categoryid', '1');
+            $productscount = Product::where('gender_id', '=', 1)->where('categoryid', '1')->count();
+
+            // retrieve and display data categories, genders, brands
+            $productFilters = Product::productFilter();
+            $categories = $productFilters["categories"];
+            $genders = $productFilters["genders"];
+            $brands = $productFilters["brands"];
+
+            $products = $products->get();
+
+            if ($products->count() == 0)
+                return view('menpage/tops', compact('products', 'brands', 'categories', 'productscount', 'genders'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('menpage/tops', compact('products', 'brands', 'categories', 'productscount', 'genders'));
+
+        }
+    }
+
+    public function filterMenBottoms(Request $request)
+    {
+        if($request->ajax()){
+            $products = new Product();
+            $products = $products->where('gender_id', '=', 1)->where('categoryid', '2');
+            
+            // sorting product
+            // if(isset($request->sort) && !empty($request->sort)){}
+            if ($request->sort == "product_price_low_high") {
+                $products->orderBy('productprice','asc');
+            } elseif ($request->sort == "product_price_high_low") {
+                $products->orderBy('productprice','desc');
+            } elseif ($request->sort == "product_latest") {
+                $products->orderBy('products.id','desc');
+            } elseif ($request->sort == "product_relevance") {
+                $products;
+            }          
+
+            // filter category
+            if(isset($request->category) && !empty($request->category)){
+                $products->whereIn('categoryid', $request->category);
+            }
+
+            // filter product
+            if(isset($request->brand) && !empty($request->brand)){
+                $products->whereIn('brandid', $request->brand);
+            }
+
+            // filter size
+            $sizes = $request->size_alphabet;
+            if(isset($sizes) && !empty($sizes)){
+                $products->whereIn('productsize', $sizes);
+            }  
+
+            // filter price
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
+            
+            $products = $products->get();
+
+            // dd($products);
+
+            if ($products->count() == 0)
+                return view('menpage/filter_men_product', compact('products'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('menpage/filter_men_product', compact('products'));
+
+        }else {
+            $products = new Product();
+            $products = $products->where('gender_id', '=', 1)->where('categoryid', '2');
+            $productscount = Product::where('gender_id', '=', 1)->where('categoryid', '2')->count();
+
+            // retrieve and display data categories, genders, brands
+            $productFilters = Product::productFilter();
+            $categories = $productFilters["categories"];
+            $genders = $productFilters["genders"];
+            $brands = $productFilters["brands"];
+
+            $products = $products->get();
+
+            if ($products->count() == 0)
+                return view('menpage/bottoms', compact('products', 'brands', 'categories', 'productscount', 'genders'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('menpage/bottoms', compact('products', 'brands', 'categories', 'productscount', 'genders'));
+
+        }
+    }
+
+    public function filterMenShoes(Request $request)
+    {
+        if($request->ajax()){
+            $products = new Product();
+            $products = $products->where('gender_id', '=', 1)->where('categoryid', '3');
+            
+            // sorting product
+            // if(isset($request->sort) && !empty($request->sort)){}
+            if ($request->sort == "product_price_low_high") {
+                $products->orderBy('productprice','asc');
+            } elseif ($request->sort == "product_price_high_low") {
+                $products->orderBy('productprice','desc');
+            } elseif ($request->sort == "product_latest") {
+                $products->orderBy('products.id','desc');
+            } elseif ($request->sort == "product_relevance") {
+                $products;
+            }          
+
+            // filter category
+            if(isset($request->category) && !empty($request->category)){
+                $products->whereIn('categoryid', $request->category);
+            }
+
+            // filter product
+            if(isset($request->brand) && !empty($request->brand)){
+                $products->whereIn('brandid', $request->brand);
+            }
+
+            // filter size
+            $size_number = $request->size_number;
+            if(isset($size_number) && !empty($size_number)){
+                $products->whereIn('productsize', $size_number);
+            }
+
+            // filter price
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
+            
+            $products = $products->get();
+
+            // dd($products);
+
+            if ($products->count() == 0)
+                return view('menpage/filter_men_product', compact('products'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('menpage/filter_men_product', compact('products'));
+
+        }else {
+            $products = new Product();
+            $products = $products->where('gender_id', '=', 1)->where('categoryid', '3');
+            $productscount = Product::where('gender_id', '=', 1)->where('categoryid', '3')->count();
+
+            // retrieve and display data categories, genders, brands
+            $productFilters = Product::productFilter();
+            $categories = $productFilters["categories"];
+            $genders = $productFilters["genders"];
+            $brands = $productFilters["brands"];
+
+            $products = $products->get();
+
+            if ($products->count() == 0)
+                return view('menpage/shoes', compact('products', 'brands', 'categories', 'productscount', 'genders'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('menpage/shoes', compact('products', 'brands', 'categories', 'productscount', 'genders'));
+
+        }
+    }
+
+    public function filterMenAccessories(Request $request)
+    {
+        if($request->ajax()){
+            $products = new Product();
+            $products = $products->where('gender_id', '=', 1)->where('categoryid', '4');
+            
+            // sorting product
+            // if(isset($request->sort) && !empty($request->sort)){}
+            if ($request->sort == "product_price_low_high") {
+                $products->orderBy('productprice','asc');
+            } elseif ($request->sort == "product_price_high_low") {
+                $products->orderBy('productprice','desc');
+            } elseif ($request->sort == "product_latest") {
+                $products->orderBy('products.id','desc');
+            } elseif ($request->sort == "product_relevance") {
+                $products;
+            }          
+
+            // filter category
+            if(isset($request->category) && !empty($request->category)){
+                $products->whereIn('categoryid', $request->category);
+            }
+
+            // filter product
+            if(isset($request->brand) && !empty($request->brand)){
+                $products->whereIn('brandid', $request->brand);
+            }
+
+            // filter price
+            $min = $request->min;
+            $max = $request->max;
+
+            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+                $products->whereBetween('productprice', [$min, $max]);
+            }   
+            
+            $products = $products->get();
+
+            if ($products->count() == 0)
+                return view('menpage/filter_men_product', compact('products'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('menpage/filter_men_product', compact('products'));
+
+        }else {
+            $products = new Product();
+            $products = $products->where('gender_id', '=', 1)->where('categoryid', '4');
+            $productscount = Product::where('gender_id', '=', 1)->where('categoryid', '4')->count();
+
+            // retrieve and display data categories, genders, brands
+            $productFilters = Product::productFilter();
+            $categories = $productFilters["categories"];
+            $genders = $productFilters["genders"];
+            $brands = $productFilters["brands"];
+
+            $products = $products->get();
+
+            if ($products->count() == 0)
+                return view('menpage/accessories', compact('products', 'brands', 'categories', 'productscount', 'genders'))
+                    ->withErrors(['no_post_result' => 'No data found with current filters.']);
+            else
+                return view('menpage/accessories', compact('products', 'brands', 'categories', 'productscount', 'genders'));
 
         }
     }

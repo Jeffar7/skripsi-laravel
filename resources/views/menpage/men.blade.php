@@ -10,8 +10,10 @@
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Men</li>
         </ol>
     </nav>
-    <div class="text-center">
-        <img src="../storage/images/MenPage/men.jpg" alt="" height="472px;" width="1110px;">
+    <div class="big-image-men">
+        <div class="overlay">
+            <h3>MEN</h3>
+        </div>
     </div>
 </div>
 
@@ -63,10 +65,10 @@
 					<p class="mb-0 font-weight-bold">Price</p>
 					<div class="row">
 						<div class="col-md-6">
-							<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min_price_min" value="">
+							<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min">
 						</div>
 						<div class="col-md-6">
-							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max_price_max" value="">
+							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max">
 						</div>
 					</div>
   					<div id="slider-range" class="mx-2"></div>
@@ -85,8 +87,8 @@
 
 					<hr class="my-2">
 
-					<p class="mb-1 font-weight-bold">Size</p>
 					<div id="size_alphabet">
+						<p class="mb-1 font-weight-bold">Size</p>
 						<div class="mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XS" @if (request()->size == "XS") checked @endif> XS
@@ -117,19 +119,35 @@
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XXL" @if (request()->size == "XXL") checked @endif> XXL
 							</label>
 						</div>
-						<div class="mb-0 ml-2">
-							<label class="mb-0">
-								<input class="mb-0" name="size" type="checkbox" value="others" @if (request()->size == "others") checked @endif> Others
-							</label>
-						</div> 
 					</div>
-					<!-- <div id="size_number">
+					<div id="size_number">
+						<p class="mb-1 font-weight-bold">Size</p>
 						<div class="mb-0 ml-2">
 							<label class="mb-0">
-								Test yak
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="38" @if (request()->size == "38") checked @endif> 38
 							</label>
 						</div>
-					</div> -->
+						<div class="mb-0 ml-2">
+							<label class="mb-0">
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="39" @if (request()->size == "39") checked @endif> 39
+							</label>
+						</div>
+						<div class="mb-0 ml-2">
+							<label class="mb-0">
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="40" @if (request()->size == "40") checked @endif> 40
+							</label>
+						</div>
+						<div class="mb-0 ml-2">
+							<label class="mb-0">
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="41" @if (request()->size == "41") checked @endif> 41
+							</label>
+						</div>
+						<div class="mb-0 ml-2">
+							<label class="mb-0">
+								<input class="size_number mb-0" name="size_number[]" type="checkbox" value="42" @if (request()->size == "42") checked @endif> 42
+							</label>
+						</div>
+					</div>
 
 					
 					<div class="row">
@@ -178,40 +196,42 @@
 			var category = getIds("category[]");
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
+			var size_number = getIds("size_number[]");
+			var min = $("#amount_min").val();
+    		var max = $("#amount_max").val();
 			var sort = $(this).val();
 			var url = $(location).attr('href');
 			
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_alphabet:size_alphabet, sort:sort, url:url},
+				data: {category:category, brand:brand, size_alphabet:size_alphabet, size_number:size_number, min:min, max:max, sort:sort, url:url},
 				success: function(data){
 					$('.filter_products').html(data);
-					// alert([category, sort, brand, size_alphabet, url]);
 				}
 			})
 		});
 
 		//filter category
-		$(".category, .brand, .size_alphabet").on('click', function(){
+		$(".category, .brand, .size_alphabet, .size_number").on('click', function(){
 			var category = getIds("category[]");
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
-			// var size_alphabet = $(".size_alphabet input:checked").text();
+			var size_number = getIds("size_number[]");
+			var min = $("#amount_min").val();
+    		var max = $("#amount_max").val();
 			var sort = $("#sort option:selected").text();
 			var url = $(location).attr('href');
 
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:category, brand:brand, size_alphabet:size_alphabet, sort:sort, url:url},
+				data: {category:category, brand:brand, size_alphabet:size_alphabet, size_number:size_number, min:min, max:max, sort:sort, url:url},
 				success: function(data){
-					// console.log(data);
-					// alert([category, sort, brand, size_alphabet, url]);
 					$('.filter_products').html(data);
 					var itemCount = $('.filter_products').html(data).find(".pro").length;
     				$('.countMen').html(itemCount);
-					console.log("category success")
+					console.log(category)
 				}
 			})
 		});
@@ -232,18 +252,19 @@
 				$("#amount_max").val(ui.values[1]);
 			}, 
 			change: function(event, ui) {
-				var min = $("#amount_min").val();
-    			var max = $("#amount_max").val();
 				var category = getIds("category[]");
 				var brand = getIds("brand[]");
 				var size_alphabet = getIds("size_alphabet[]");
-				var sort = $("#sort").val();
+				var size_number = getIds("size_number[]");
+				var min = $("#amount_min").val();
+    			var max = $("#amount_max").val();
+				var sort = $("#sort option:selected").text();
 				var url = $(location).attr('href');
 			
 				$.ajax({
 					url: url,
 					method: 'POST',
-					data: {min:min, max:max, url:url},
+					data: {category:cataegory, brand:brand, size_alphabet:size_alphabet, size_number:size_number, min:min, max:max, sort:sort, url:url},
 					success: function(data){
 						$('.filter_products').html(data);
 						console.log(min,max)
@@ -258,53 +279,6 @@
 
 		$("#amount_min").val($("#slider-range").slider("values", 0));
 		$("#amount_max").val($("#slider-range").slider("values", 1));
-
-		// filter_products(minPrice, maxPrice);
-
-		// function filter_products(minPrice, maxPrice){
-		// 	var category = getIds("category[]");
-		// 	var brand = getIds("brand[]");
-		// 	var size_alphabet = getIds("size_alphabet[]");
-		// 	var sort = $("#sort").val();
-		// 	var url = $(location).attr('href');
-		
-		// 	$.ajax({
-		// 		url: url,
-		// 		method: 'POST',
-		// 		data: {category:category, brand:brand, size_alphabet:size_alphabet, minPrice:minPrice, maxPrice:maxPrice, sort:sort, url:url},
-		// 		success: function(data){
-		// 			// $('.filter_products').html(data);
-		// 			alert([category, sort, brand, size_alphabet, minPrice, maxPrice, url]);
-		// 			// console.log([category, sort, brand, size_alphabet, min, max, url]);
-		// 		}
-		// 	})
-		// }
-
-		// $("#amount_min").change(function() {
-		// 	$("#slider-range").slider("values", 0, $("#amount_min").val());
-		// });
-		// $("#amount_max").change(function() {
-		// 	$("#slider-range").slider("values", 1, $("#amount_max").val());
-		// })
-
-		// function loadProduct(range_min, range_max){
-		// 	var category = getIds("category[]");
-		// 	var brand = getIds("brand[]");
-		// 	var size_alphabet = getIds("size_alphabet[]");
-		// 	var sort = $(this).val();
-		// 	var url = $(location).attr('href');
-		
-		// 	$.ajax({
-		// 		url: url,
-		// 		method: 'POST',
-		// 		data: {category:category, brand:brand, size_alphabet:size_alphabet, range_min:range_min, range_max:range_max, sort:sort, url:url},
-		// 		success: function(data){
-		// 			// $('.filter_products').html(data);
-		// 			alert([category, sort, brand, size_alphabet, range_min, range_max, url]);
-		// 		}
-		// 	})
-		// }
-		// loadProduct(minPrice, maxPrice);
 		
 		$('#btnUncheckAll').click(function () {
 			$('input[type=checkbox]').each(
@@ -319,36 +293,26 @@
 			window.location='{{ route("men") }}';
 		});
 
-		// $("#size_alphabet").hide();
-		// $("#size_number").hide();
-		// // function filterResults () {
-		// // var foo = localStorage.getItem('value');
-		// $(".category").on('click', function() {
-		// // $("form").submit(function(e) {
-		// 	// this.form.submit(); 
-		// 	// ini gmn yak dia mau ganti tp kalo udh di form submit hilang
+		$("#size_alphabet").hide();
+		$("#size_number").hide();
 
-		// 	let catIds = getIds("category[]");
+		$(".category").on('click', function() {
+			let catIds = getIds("category[]");
 
-		// 	$.each(catIds, function(index, value){
-		// 		if (value == '1' || value == '2') {
-		// 			$("#size_alphabet").show();
-		// 			// this.form.submit();
-		// 			// console.log('yes');
-		// 		} else if (value == '3' || value == '4') {
-		// 			// $(".sizefilter").hide();
-		// 			$("#size_number").show();
-		// 			// console.log('no');
-		// 		} else {
-		// 			// $(".sizefilter").hide();
-		// 			// $("#size_alphabet").hide();
-		// 			// $("#size_number").hide();
-		// 			console.log('no');
-		// 		}
-				
-        //         // console.log('The value at arr[' + index + '] is: ' + value);
-		// 	});
-		// });
+			$.each(catIds, function(index, value){
+				if (value == '1' || value == '2') {
+					$("#size_alphabet").show();
+				} else if (value == '3') {
+					$("#size_number").show();
+				// } else if (value == '1' || value == '2' || value == '3') {
+				// 	$("#size_alphabet").show();
+				// 	$("#size_number").show();
+				} else if (empty(value)) {
+					$("#size_alphabet").hide();
+					$("#size_number").hide();
+				}
+			});
+		});
 	});
 </script>
 

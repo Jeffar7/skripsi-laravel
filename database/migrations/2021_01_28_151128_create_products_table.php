@@ -27,6 +27,10 @@ class CreateProductsTable extends Migration
             $table->integer('productprice');
             $table->string('productsize');
             $table->integer('productquantity');
+            $table->string('productcolor');
+            $table->string('productweight');
+            $table->string('productcare');
+            $table->string('productmaterial');
             $table->string('productimage');
             $table->rememberToken();
             $table->timestamps();
