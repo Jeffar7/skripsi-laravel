@@ -231,13 +231,33 @@
         </div>
 
         <div class="col-md-6 text-right">
-          <button type="buttpn" class="btn btn-dark" id="submitBtn">SUBMIT</button>
+          <button type="submit" class="btn btn-dark" id="submitBtn" disabled="disabled">SUBMIT</button>
         </div>
       </div>
 
     </div>
   </div>
 </div>
+
+<script>
+  (function() {
+    $('form > input').keyup(function() {
+
+      var empty = false;
+      $('form > input').each(function() {
+        if ($(this).val() == '') {
+          empty = true;
+        }
+      });
+
+      if (empty) {
+        $('#submitBtn').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+      } else {
+        $('#submitBtn').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+      }
+    });
+  })()
+</script>
 
 <script>
   $(document).on('change', '.div-toggle-payment', function() {
@@ -252,12 +272,10 @@
     $('#select_payment').on('change', function() {
       var option_value = $(this).val();
       if (option_value == 'credit') {
-        console.log('credit');
         $("#submitBtn").click(function() {
           $("#payment-form").submit(); // Submit the form
         });
       } else if (option_value == 'debit') {
-        console.log('debit');
         $("#submitBtn").click(function() {
           $("#debit_payment").submit(); // Submit the form
         });
@@ -342,5 +360,7 @@
 
   });
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 @endsection

@@ -32,7 +32,9 @@ class RaffleController extends Controller
     public function raffle()
     {
         $raffles = Raffle::where('status', '=', 'running')->orWhere('status', '=', 'not started')->paginate(3);
-        return view('/raffles/raffle', compact('raffles'));
+        $joined = raffle_user::where('user_id', '=', Auth::user()->id)->first();
+
+        return view('/raffles/raffle', compact('raffles', 'joined'));
     }
 
     public function allraffle(Request $request)
