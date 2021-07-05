@@ -1247,3 +1247,11 @@ textarea{
 .modalBtn:hover{
     opacity: 0.7;
 }
+
+.brand-pic{
+    border: 1px solid; 
+    object-fit: contain;
+    background-color: white;
+    width:250px;
+    height:150px;
+}

@@ -131,7 +131,7 @@ class BrandsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Hijack Sandal',
-                'picture' => 'Hijack Sandal/Hijack_Sandal.png',
+                'picture' => 'Hijack Sandal/Hijack_Sandals.png',
                 'detail_picture' => 'Hijack Sandal/Display Picture/WEBSITE-SLIDER-PRODUCT-DEKSTOP-DALI-BLACH-2048x1024.jpg',
                 'owner' => 'Fahmi Faisal',
                 'website' => 'https://hijacksandals.com/',
@@ -254,7 +254,7 @@ class BrandsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Portee Goods',
-                'picture' => 'Portee Goods/Portee_Goods.png',
+                'picture' => 'Portee Goods/PorteeGoods.png',
                 'owner' => 'Adhi Nugraha',
                 'detail_picture' => 'Portee Goods/Display Picture/slideshow-5_860x.jpg',
                 'website' => 'https://porteegoods.com/',

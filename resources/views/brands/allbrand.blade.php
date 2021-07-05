@@ -135,9 +135,12 @@
                 <div class="row pl-3">
                     @foreach($groups as $letter => $group)
                     @foreach($group as $category)
-                    @if($letter == '1')
-                    <a href="/brands/{{$category->id}}" class="text-decoration-none mr-5 text-dark">{{ $category['name'] }}</a>
-                    @endif
+                    <div class="col-md-3 px-2">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
+                            <p class="text-center pt-2">{{ $category['name'] }}</p>
+                        </a>
+                    </div>
                     @endforeach
                     @endforeach
                 </div>
@@ -149,10 +152,8 @@
                     @foreach($group as $category)
                     @if($letter == 'A')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -168,10 +169,8 @@
                     @foreach($group as $category)
                     @if($letter == 'B')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -187,10 +186,8 @@
                     @foreach($group as $category)
                     @if($letter == 'C')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -206,10 +203,8 @@
                     @foreach($group as $category)
                     @if($letter == 'D')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -225,10 +220,8 @@
                     @foreach($group as $category)
                     @if($letter == 'E')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -244,10 +237,8 @@
                     @foreach($group as $category)
                     @if($letter == 'F')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -263,10 +254,8 @@
                     @foreach($group as $category)
                     @if($letter == 'G')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -282,10 +271,8 @@
                     @foreach($group as $category)
                     @if($letter == 'H')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -301,10 +288,8 @@
                     @foreach($group as $category)
                     @if($letter == 'I')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -320,10 +305,8 @@
                     @foreach($group as $category)
                     @if($letter == 'J')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -339,10 +322,8 @@
                     @foreach($group as $category)
                     @if($letter == 'K')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -358,10 +339,8 @@
                     @foreach($group as $category)
                     @if($letter == 'L')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -377,10 +356,8 @@
                     @foreach($group as $category)
                     @if($letter == 'M')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -396,10 +373,8 @@
                     @foreach($group as $category)
                     @if($letter == 'N')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -415,10 +390,8 @@
                     @foreach($group as $category)
                     @if($letter == 'O')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -434,10 +407,8 @@
                     @foreach($group as $category)
                     @if($letter == 'P')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -453,10 +424,8 @@
                     @foreach($group as $category)
                     @if($letter == 'Q')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -472,10 +441,8 @@
                     @foreach($group as $category)
                     @if($letter == 'R')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -491,10 +458,8 @@
                     @foreach($group as $category)
                     @if($letter == 'S')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -510,10 +475,8 @@
                     @foreach($group as $category)
                     @if($letter == 'T')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -529,10 +492,8 @@
                     @foreach($group as $category)
                     @if($letter == 'U')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -548,10 +509,8 @@
                     @foreach($group as $category)
                     @if($letter == 'V')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -567,10 +526,8 @@
                     @foreach($group as $category)
                     @if($letter == 'W')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -586,10 +543,8 @@
                     @foreach($group as $category)
                     @if($letter == 'X')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -605,10 +560,8 @@
                     @foreach($group as $category)
                     @if($letter == 'Y')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
@@ -624,10 +577,8 @@
                     @foreach($group as $category)
                     @if($letter == 'Z')
                     <div class="col-md-3 px-2">
-                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark" style="
-                                ">
-                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0"
-                                alt="..." width="250px" height="150px" style="border: 1px solid">
+                        <a href="/brands/{{$category->id}}" class="text-decoration-none text-dark">
+                            <img src="{{asset('../storage/images/Brands/' . $category->picture)}}" class="rounded-0 brand-pic" alt="...">
                             <p class="text-center pt-2">{{ $category['name'] }}</p>
                         </a>
                     </div>
