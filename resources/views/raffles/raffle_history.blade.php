@@ -7,7 +7,10 @@
 <div class="container pt-2">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1 class="title-home mt-3">Raffle Entries Item</h1>
+            <h3 class="font-weight-bold mt-3" style="
+    text-align: left;
+">Raffle Entries Item</h3>
+            <div class="top-border my-4"></div>
 
             @if (session('status'))
             <div class="alert alert-success">

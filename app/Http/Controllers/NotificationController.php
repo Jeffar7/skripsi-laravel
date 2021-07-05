@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Notifications\UserNotification;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\DB;
 
 class NotificationController extends Controller
@@ -90,6 +91,18 @@ class NotificationController extends Controller
         // ->limit(1)
         // ->get();
 
+    }
+
+    public function destroynotif(Notification $notification)
+    {
+        Notification::destroy($notification->id);
+        // $notification =  DB::table('notifications')->where('role', '=', 'admin')->first();
+        // $notification->forceDelete();
+
+        // product_user::where('id', '=', $id)->first();
+        // $wishlist->forceDelete();
+
+        return redirect('notification')->with('status', 'Notification successfully deleted');
     }
 
     /**

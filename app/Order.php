@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Order extends Model
 {
-    use Notifiable;
+    // use Notifiable;
 
     protected $table = "orders";
     protected $fillable = [

@@ -15,8 +15,10 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            <h1 class="title-home mt-3">Payment History Detail</h1>
+        <div class="col-md-12 mb-4"><h3 class="font-weight-bold mt-3" style="
+            text-align: left;
+        ">Payment History</h3>
+        <div class="top-border my-4"></div>
 
             <table class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
@@ -39,7 +41,7 @@
                         <td class="text-center font-weight-normal">Rp. {{number_format($product->productprice)}}</td>
                         <td class="text-center font-weight-normal">
                             @if($product->is_review == 'no')
-                            <a href="/products/review/{{$product->id}}" class="btn btn-success">Write Review</a>
+                            <a href="/products/review/{{$product->id}}" class="btn btn-warning">Write Review</a>
                             @endif
                             <a href="/payment-history/buy-again/{{$product->id}}" class="btn btn-success">Buy Again</a>
                             <!-- <form action="/payment-history/buy-again/{{$product->id}}" method="POST">
@@ -51,7 +53,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="mt-4"></div>
+            <div class="mb-5"></div>
         </div>
     </div>
 </div>

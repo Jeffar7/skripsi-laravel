@@ -11,12 +11,16 @@
                 @csrf
                 <div class="card shadow-lg">
                     <div class="card-header text-left bg-dark text-white">
+                        <i class="far fa-comment mr-2" style="
+    color: black;
+    font-size: 16px;
+"></i>
                         <strong>
                             Write Review
                         </strong>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mx-4">
                             <div class="col-4">
                                 <img src="{{asset('../storage/images/Products/' . $product->productimage)}}" alt="Image" width="100%;">
                             </div>
@@ -53,7 +57,7 @@
 
                                 <div class="form-group mt-2">
                                     <p>What do you think about this product?</p>
-                                    <textarea name="review_description" class="form-control" id="exampleFormControlTextarea1" rows="3" col="2"></textarea>
+                                    <textarea name="review_description" class="form-control notes" id="exampleFormControlTextarea1" placeholder="type your review here..." rows="3" col="2"></textarea>
                                 </div>
 
                                 <div class="row justify-content-end">

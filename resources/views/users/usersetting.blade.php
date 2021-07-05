@@ -5,26 +5,14 @@
 @section('content')
 <div class="container">
     <div class="row pt-4 pb-2">
-        <h4>My Profile</h4>
+        <h4>Edit Profile</h4>
     </div>
 </div>
 <div id="exTab1" class="container pb-5">
-    <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active bg-transparent" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home" aria-selected="true">Profile</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#2a" role="tab" aria-controls="profile" aria-selected="false">Notification</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#3a" role="tab" aria-controls="profile" aria-selected="false">Privacy</a>
-        </li>
-    </ul>
+   
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
-        <div class="tab-content pt-4">
+        <div class="tab-content p-4">
             <div class="tab-pane fade show active" id="1a" role="tabpanel">
-                <h4>Edit Profile</h4>
-
                 @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
@@ -401,13 +389,16 @@
 
                             <div class="row justify-content-between mt-4 mb-4">
                                 <div class="col-md-6 ">
-                                    <div class="text-center">
-                                        <a href="/userprofile"><button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button></a>
-                                        <button type="submit" id="submit" name="submit" class="btn btn-primary">Save</button>
+                                    <div class="text-left">
+                                        <button type="submit" id="submit" name="submit" class="btn btn-primary" style="
+                                        width: 50%;
+                                    ">Save</button>
                                     </div>
                                 </div>
-                                <div class="col-md-4 offset-md-2">
-                                    <button type="button" id="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger">Delete Account</button>
+                                <div class="col-md-6 text-right">
+                                    <button type="button" id="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" style="
+                                    width: 50%;
+                                ">Delete Account</button>
                                 </div>
                             </div>
                         </form>
@@ -417,68 +408,28 @@
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
-                    <div class="modal-content shadow-sm">
+                    <div class="modal-content" style="    box-shadow: 4px 4px 4px 4px #575252;
+                    ">
                         <form action="/delete-my-account/{{$user->id}}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
                             <div class="modal-body">
+                                <div class="faq-section-logo">
+                                    <img src="http://127.0.0.1:8000/../storage/images/Wish List Page/DeleteLogo.png" class="rounded-0 image-cat" alt="Men Display Picture" width="50px" height="">
+                        </div>
                                 <h3 class="text-center">Are you sure?</h3>
                                 <p class="text-center font-weight-normal mb-0">Do you really want to delete your <span class="font-weight-bold">account.</span> This process cannot be undone.</p>
                             </div>
                             <div class="modal-footer justify-content-around pt-0 border-top-0">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" name="formaddress">Delete</button>
+                                <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal" style="
+                                background-color: #C4C4C4;
+                                border: none;
+                                width: 40%;
+                            ">Close</button>
+                                <button type="submit" class="btn btn-danger" name="formaddress" style="                                        width: 40%;
+                                ">Delete</button>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="2a" role="tabpanel">
-                <h4>Notification</h4>
-                <p>Set the notifications you want to receive here</p>
-                <table class="table mt-2">
-                    <tbody>
-                        <h6 style="font-weight:600;" class="mt-4"><i class="fas fa-shopping-cart mr-2"></i>Payment Transaction</h6>
-                        <tr>
-                            <th scope="row" style="font-weight: 100;">Waiting Payment</th>
-                            <td colspan="2"></td>
-                            <td><i class="far fa-check-square"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" style="font-weight: 100;">Waiting Confirmation</th>
-                            <td colspan="2"></td>
-                            <td><i class="far fa-check-square"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" style="font-weight: 100;">Orders Processed</th>
-                            <td colspan="2"></td>
-                            <td><i class="far fa-check-square"></i></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" style="font-weight: 100;">Orders Arrived</th>
-                            <td colspan="2"></td>
-                            <td><i class="far fa-check-square"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade mb-3" id="3a" role="tabpanel">
-                <h4>Change Password</h4>
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <input type="password" class="log-field mb-3" id="password" name="password" placeholder="Current Password">
-                        <input type="password" class="log-field mb-3" id="password" name="password" placeholder="New Password">
-                        <input type="password" class="log-field mb-3" id="password" name="password" placeholder="Confirm New Password">
-                        <button type="submit" class="btn-regist">
-                            Change Password
-                        </button>
-                    </div>
-                    <div class="col-md-6" style="text-align:center; font-weight:bold;">
-                        <p>Password Must Contain:</p>
-                        <p>At least 1 upper case letter (A-Z)</p>
-                        <p>At least 1 number (0-9)</p>
-                        <p>At least 8 characters</p>
                     </div>
                 </div>
             </div>

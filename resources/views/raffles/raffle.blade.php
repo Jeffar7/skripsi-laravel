@@ -12,26 +12,26 @@
     </nav>
 </div>
 
-<div class="big-image">
-    <div class="overlay">
-        <h1>Enter A Raffle</h1>
+<div class="col-md-12 mb-1 p-0">
+    <div class="card rounded-0 border-0 con-photo">
+        <img src="{{ asset('../storage/images/Raffles/ahhagang.png') }}" class="rounded-0 image-cat"
+            alt="Men Display Picture"height="472px"> <!-- card-img -->
+        <div class="middle-cat" style="color: white; opacity: 1;">
+            <h1>Enter A Raffle</h1>
         <h6>If you want to enter the raffle please read our rules & regulation first</h6>
-        <!-- <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
+        </div>
     </div>
 </div>
 
 <div class="container mt-4">
-    <div class="row justify-content-between mt-4">
+    <div class="row justify-content-between mt-4 mx-2">
         <p class="title-home text-left" style="font-weight:bold;">ITEMS TO BE RAFFLE</p>
         <a href="/allraffle" class="title-home text-right text-decoration-none" style="text-transform:none; font-weight:bold; color:black; font-size:15px;">See More <i class="fas fa-arrow-circle-right"></i></a>
     </div>
     <div class="row justify-content-around">
         @foreach($raffles as $raffle)
-        <div class="col-md-3 mb-3">
-            <div class="card rounded-lg shadow-lg">
+        <div class="col-md-4 mb-3">
+            <div class="card rounded-lg" style="box-shadow: 4px 4px 4px 4px #888888;">
                 <a href="/raffle/description/{{$raffle->id}}" class="text-decoration-none" style="color:black;">
                     <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="card-img-top p-3" alt="Image">
                     <div class="card-body border" style="background: #E5E5E5;">
@@ -39,7 +39,7 @@
                             <div class="col align-self-end">
                                 <p class="text-right mb-0">
                                     <!-- <u> -->
-                                        <small class="font-weight-bolder">Started From:</small>
+                                        <small class="font-weight-bolder mr-5">Started From:</small>
                                     <!-- </u> -->
                                 </p>
                             </div>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="row">
                             <div class="col align-self-start">
-                                <p class="mb-0">
+                                <p class="mb-0" style="font-size: 12px">
                                     {{$raffle->brand->name}}
                                 </p>
                             </div>
@@ -80,7 +80,7 @@
                         </div>
                         <div class="row">
                             <div class="col align-self-start">
-                                <p class="font-weight-normal mb-0">
+                                <p class="font-weight-bold mb-0">
                                     Rp. {{number_format($raffle->raffleprice)}}
                                 </p>
                             </div>
@@ -111,6 +111,21 @@
     <div class="row justify-content-around my-4">
         <img src="images/raffle_timeline.png" alt="Timeline" class="col-md-10">
     </div>
+
+    {{-- <div class="yuhu">
+        <ul class="progressbar">
+            <li class="active"><p>Step 1</p>
+            <p>Select Raffle Item</p></li>
+            <li><p>Step 2</p>
+                <p>Clicked Enter Now</p></li>
+            <li><p>Step 3</p>
+                <p>Enter Registration</p></li>
+            <li><p>Step 4</p>
+                <p>Finalized & wait for winner announcement</p></li>
+    </ul>
+    </div>
+
+    <br><br><br> --}}
 
     <!-- <div class="row justify-content-around mt-5">
         {{ $raffles->links() }}

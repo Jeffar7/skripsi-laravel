@@ -56,9 +56,11 @@
         <a class="col-sm-4">SUMMARY</a>
         <a class="active col-sm-4">PAYMENT</a>
       </div>
-      <div class="card shadow-lg">
+      <div class="card" style="box-shadow: 4px 4px 4px 4px #888888;">
         <div class="card-header text-left bg-dark text-white">
-          <strong>
+          <img src="{{ asset('../storage/images/Transaction Page/paymentLogo.png') }}" alt=""
+                            style="width: 2%;height: 20px;margin-top: -0.5%;">
+          <strong class="ml-2">
             Payment Overview
           </strong>
         </div>
@@ -230,6 +232,13 @@
         </div>
       </div>
     </div>
+    <div class="col-md-6 text-left my-4">
+      <button type="submit"  class="btn btn-dark" style="width: 40%"><i
+          class="fas fa-arrow-circle-left pr-2"></i>PREVIOUS</button>
+    </div>
+    {{-- <div class="col-md-6 text-right my-4">
+      <button type="submit" class="btn btn-dark" style="width: 40%">SUBMIT</button>
+    </div> --}}
   </div>
 </div>
 

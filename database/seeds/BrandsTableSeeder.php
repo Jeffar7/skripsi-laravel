@@ -16,7 +16,7 @@ class BrandsTableSeeder extends Seeder
         DB::table('brands')->insert([
             [
                 'name' => 'Ageless Galaxy',
-                'picture' => 'Ageless Galaxy/Ageless_Galaxy.jpeg',
+                'picture' => 'Ageless Galaxy/DisplayAgeless_Galaxy.jpeg',
                 'owner' => 'Tamish Aswani',
                 'website' => 'https://aglxy.com/',
                 'about' => 'Ageless Galaxy is a lifestyle brand inspired by outer space exploration. At the heart of the brand lies the mentality of staying curious and striving to make your mark in this never-ending galaxy. Working with passionate and like-minded individuals, constantly striving for greatness and on a mission against time to create a legacy for mankind to remember.',

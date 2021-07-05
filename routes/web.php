@@ -172,6 +172,10 @@ Route::get('/markAsRead', function(){
     auth()->user()->unreadNotifications->markAsRead();
 });
 
+Route::delete('/wish-list/delete/{id}', 'ProductController@destroynotif');
+// Route::delete('/notification-/delete/{id}', 'NotificationController@destroywish');
+Route::get('/notification', 'NotificationController@show');
+
 // Check again this route
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'ProductController@search')->name('search');
@@ -237,12 +241,6 @@ Route::post('/delivery/addaddress', 'OrderController@addaddress');
 Route::post('/payment', 'OrderController@payment');
 Route::post('/order-summary', 'OrderController@summary');
 Route::post('/makepayment', 'OrderController@makepayment');
-
-//Notification
-Route::get('/notification', 'NotificationController@show');
-
-// Route::get('faq/detailfaqinfo/{faq}', 'DetailFAQInformationController@show');
-
 
 // HISTORY
 Route::get('/payment-history', 'StatusController@payment_history');
@@ -330,7 +328,10 @@ Route::get('/termsandcondition', function () {
     return view('pages/terms');
 });
 
-
+// Privacy Policy
+Route::get('/privacypolicy', function () {
+    return view('pages/privacypolicy');
+});
 
 
 
