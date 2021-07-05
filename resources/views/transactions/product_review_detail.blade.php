@@ -28,7 +28,6 @@
                             <div class="col-8">
                                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product->brand->name}}</p>
                                 <p class="mb-0" style="font-weight:bold;">{{$product->productname}}</p>
-                                <p>{{$product->productdescription}}</p>
                                 <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">
                                 <input type="hidden" name="product_id" value="{{$product->id}}">
 
@@ -105,7 +104,7 @@
     });
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

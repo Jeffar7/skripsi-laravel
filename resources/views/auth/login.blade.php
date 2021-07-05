@@ -33,9 +33,9 @@
 <body>
     <div class="container card-middle-sizing"
 >
-        <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 8%;">
-    <div class="row no-gutters" style="height: 700px;">
-        <div class="col-md-6 no-gutters" style="height: 700px;">
+        <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
+    <div class="row no-gutters" style="height: 600px;">
+        <div class="col-md-6 no-gutters" style="height: 600px;">
             <div class="leftside">
                 <div style="text-align: center;">
                     <h6 class="mb-3 font-weight-bold">WELCOME BACK TO</h6>
@@ -131,7 +131,7 @@
             </div>
         </div>
         <div class="col-md-6 no-gutters">
-            <div class="rightside" style="height: 700px"></div>
+            <div class="rightside" style="height: 600px"></div>
         </div>
     </div>
 </div></div>

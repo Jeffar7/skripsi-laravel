@@ -21,7 +21,7 @@
 
 <div class="container pb-5">
     {{-- @if ($notification->count() > 0) --}}
-    <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 4px 4px 4px 4px #888888;">
+    <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
         <div class="tab-content py-3" id="myTabContent">
             <div class="tab-pane fade show active mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row">

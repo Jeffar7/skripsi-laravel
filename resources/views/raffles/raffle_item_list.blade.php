@@ -20,7 +20,7 @@
             <div class="search-group rounded left-addon-search inner-addon" style="width:100%;">
                 <div class="col-md-10" style="margin-top: 2%;">
                 <i class="fas fa-search ml-3"></i>
-                <input type="search" class="search-field rounded" placeholder="Type your search here..." aria-label="Search" aria-describedby="search-addon" style="width:100%;" />
+                <input type="search" class="search-field rounded search-input" name="search" placeholder="Type your search here..." aria-label="Search" aria-describedby="search-addon" style="width:100%;" autocomplete="off" />
                 </div>
                 <div class="col-md-2" style=" margin: 2% 0;">
                     <button type="submit" class="btn btn-clock btn-faq" style="height: 100%">Search</button>
@@ -44,7 +44,7 @@
 
 				<div class="col-sm-2 text-left">
 					<form name="sortProducts" id="sortProducts" style="margin-top: 1rem; margin-bottom: 1rem;">
-						<select id="sortRaffle" name="sortRaffle">
+						<select id="sort" name="sort">
                             <option value="">Select Option</option>
 							<option value="open_raffle" @if (request()->sort == "open_raffle") selected @endif>Status: Open</option>
 							<option value="closed_raffle" @if (request()->sort == "closed_raffle") selected @endif>Status: Closed</option>
@@ -76,23 +76,55 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
 		//sort in ajax
-		$("#sortRaffle").on('change', function(e){
+		$("#sort").on('change', function(e){
             e.preventDefault();
 
 			var sort = $(this).val();
 			var url = $(location).attr('href');
+            var search = $('.search-input').val();
 			
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {sort:sort, url:url},
-				success: function(response){
+				data: {search:search, sort:sort, url:url},
+				success: function(data){
                     $('.filter_raffles').html(data);
-                    console.log(response);
-
 				}
 			})
 		});
+
+        $(".search-input").on('keyup', function(){
+            var search = $(this).val();
+            var url = $(location).attr('href');
+            var sort = $("#sort option:selected").text();
+
+            if(search.length >= 0){
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    data: {sort:sort, search:search},
+                    beforeSend: function(){
+                        $('.filter_raffles').html(
+                                '<p style="font-weight:bold;">Loading...</p>'
+                        );
+                    },
+                    success: function(data){
+                        if(data < 1) {
+                            $('.filter_raffles').html(
+                                '<div class="text-center">' +
+                                    '<img src="images/empty_item.png" alt="" height="200px" width="200px">' +
+                                    '<p class="mb-0">Oops!</p>' +
+                                    '<p>No data was found. Please try and submit another keyword.</p>' +
+                                '</div>'
+                            );
+                        } else {
+                            $('.filter_raffles').html(data);
+                        }
+                    }
+                })
+            } 
+        });
 	});
 </script>

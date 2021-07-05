@@ -23,6 +23,7 @@
         @endif
     </div>
     <div class="row">
+
         <div class="col col-lg-2 border border-dark">
             <img src="{{asset('../storage/images/Men Page/UpArrow.png')}}" width="100%;" alt="Image">
             <br><br>
@@ -34,7 +35,59 @@
         </div>
         <div class="col">
             <div class="card-body">
-                <!-- product about -->
+
+
+
+
+        {{-- <div id='carousel-custom' class='col carousel slide m-0' data-interval='false'>
+            <div class="row">
+                <div class="col-3">
+                    <ol class='carousel-indicators justify-content-center flex-column'>
+                            <li data-target='#carousel-custom' data-slide-to='0' class="active"><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark photo-thumb"/></li>
+                        @if(!empty($image_detail->image_detail_2))
+                            <li data-target='#carousel-custom' data-slide-to='1'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-thumb"/></li>
+                        @endif
+                        @if(!empty($image_detail->image_detail_3))
+                            <li data-target='#carousel-custom' data-slide-to='2'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-thumb"/></li>
+                        @endif
+                        @if(!empty($image_detail->image_detail_4))
+                            <li data-target='#carousel-custom' data-slide-to='3'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-thumb"/></li>
+                        @endif
+                    </ol>
+                </div>
+                <div class="col">
+                    <div class='carousel-inner text-center'>
+                        <div class='carousel-item active'>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark photo-detail"/>
+                        </div>
+                        @if(!empty($image_detail->image_detail_2))
+                        <div class='carousel-item'>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-detail"/>
+                        </div>
+                        @endif
+                        @if(!empty($image_detail->image_detail_3))
+                        <div class='carousel-item'>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-detail"/>
+                        </div>
+                        @endif
+                        @if(!empty($image_detail->image_detail_4))
+                        <div class='carousel-item'>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-detail"/>
+                        </div>
+                        @endif  
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+        <div class="col-6">
+            <div class="card p-4 border border-dark"> --}}
+               
+
+
+
+
+<!-- product about -->
                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
                 <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
                 <p style="font-weight:bold;">Rp. {{number_format($product_tops->productprice)}}</p>
@@ -148,8 +201,8 @@
                     <div class="col-sm-5 offset-sm-2 col-md-10 offset-md-0">
                         <p class="about-title">:  <span style="padding-left: 2%">{{$product_tops->sku}}</span></p>
                         <p class="about-title">: <span style="padding-left: 2%">{{$product_tops->category->name}}</span></p>
-                        <p class="about-title">: <span style="padding-left: 2%"></span></p>
-                        <p class="about-title">: <span style="padding-left: 2%"></span></p>
+                        <p class="about-title">: <span style="padding-left: 2%">{{$product_tops->productcare}}</span></p>
+                        <p class="about-title">: <span style="padding-left: 2%">{{$product_tops->productmaterial}}</span></p>
                     </div>
                 </div>
             </div>
@@ -166,10 +219,10 @@
                     <p class="about-title">Weight :</p>
                 </div>
                 <div class="col-sm-5 offset-sm-2 col-md-10 offset-md-0">
-                    <p class="about-title">{{$product_tops->sku}}</p>
-                    <p class="about-title">{{$product_tops->category->name}}</p>
-                    <p class="about-title"></p>
-                    <p class="about-title"></p>
+                    <p class="about-title"><span style="padding-left: 2%">{{$product_tops->productquantity}}</span></p>
+                    <p class="about-title"><span style="padding-left: 2%">{{$product_tops->productcolor}}</span></p>
+                    <p class="about-title"><span style="padding-left: 2%">{{$product_tops->productquantity}}</span></p>
+                    <p class="about-title"><span style="padding-left: 2%">{{$product_tops->productweight}}</span></p>
                 </div>
             </div>
         </div>
@@ -306,44 +359,8 @@
 
 <!-- Others Product -->
 <div class="container mb-5">
-    <div class="mt-4 row justify-content-around">
-        <div id="myCarousel" class="carousel slide  w-100" data-interval="false">
-            <div class="carousel-inner w-100 px-3">
-
-                @foreach($others as $key => $product)
-                <div class="carousel-item col col-md-3 {{$key == 0 ? 'active' : '' }}">
-                    <!-- Gambar 1 -->
-                    <!-- <div class="col col-sm-3 mb-3"> -->
-                    <div class="card">
-                        <a href="/men-tops/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img
-                                src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="239.5px;"
-                                height="272px;" alt="Image" class="card-img-top"></a>
-                    </div>
-                    <div class="card px-2 mb-4" style="width: 239.5px; border:none; background-color: #f3f7f9">
-                        <a href="/men-tops/detail/{{$product->id}}" style="color:black;">
-                            <p class="mt-3 mb-0 text-truncate font-weight-bold">{{$product->productname}}
-                            </p>
-                        </a>
-                        <a class="about-title mb-0" href="/brands/{{$product->brand->id}}"
-                            style="color:#757575;">{{$product->brand->name}}</a>
-                        <p class="font-weight-bold mt-2" style="color: black">Rp.
-                            {{number_format($product->productprice)}}</p>
-                    </div>
-                    <!-- </div> -->
-                    <!-- Akhir Gambar 1 -->
-                </div>
-                @endforeach
-            </div>
-            <a class="carousel-control-prev w-auto" href="#myCarousel" role="button" data-slide="prev">
-                <span><i class="fa fa-angle-left" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next w-auto" href="#myCarousel" role="button" data-slide="next">
-                <span><i class="fa fa-angle-right" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
+    <p class="title-home">Other Choice</p>
+    @include('bestseller')
 </div>
 <!-- End Other Product -->
 
@@ -372,13 +389,12 @@
                 }
             });
         });
-        
+
         $(function() {
   $(".heart").on("click", function() {
     $(this).toggleClass("is-active");
   });
 });
-
 </script>
 
 

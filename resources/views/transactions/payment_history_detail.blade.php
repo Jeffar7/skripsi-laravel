@@ -34,7 +34,7 @@
                 <tbody>
                     @foreach($order_product_detail as $product)
                     <tr>
-                        <th scope="row" class="text-center font-weight-normal"><a href="/men-tops/detail/{{$product->product_id}}" class="text-dark">{{$product->productname}}</a></th>
+                        <th scope="row" class="text-center font-weight-normal"><a href="/product/detail/{{$product->product_id}}" class="text-dark">{{$product->productname}}</a></th>
                         <td class="text-center font-weight-normal"> <img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;" height="80px;" alt="Image"></td>
                         <td class="text-center font-weight-normal">{{$product->quantity}}</td>
                         <td class="text-center font-weight-normal">{{$product->productsize}}</td>

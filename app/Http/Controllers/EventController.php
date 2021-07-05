@@ -53,10 +53,10 @@ class EventController extends Controller
             'name' => 'required',
             'theme' => 'required',
             'website' => 'required',
-            'capacity' => 'required',
+            'capacity' => 'required|numeric',
             'held_on' => 'required',
             'about_us' => 'required|string',
-            'picture' => 'required|file',
+            'picture' => 'required|image',
         ]);
 
         $event = new Event();
@@ -114,6 +114,18 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'theme' => 'required',
+            'website' => 'required',
+            'capacity' => 'required|numeric',
+            'held_on' => 'required',
+            'about_us' => 'required|string',
+            'picture' => 'required|image',
+        ]);
+
+
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
             $filenameWithoutExt = $file->getClientOriginalName();

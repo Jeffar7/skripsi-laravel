@@ -8,6 +8,8 @@ use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Product;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -34,11 +36,16 @@ class HomeController extends Controller
 
         // $user->notify(new UserNotification($user));
 
-        return view('home', compact('notifications'));
+        // return view('home', compact('notifications'));
         
         // dd($waitingpayment);
+        $others = Product::all();
+        // return view('/home', compact('others'));
 
+        return view('home', compact('notifications', 'others')); //others
+        // return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products'));
         return view('/home');
+
     }
 
 }

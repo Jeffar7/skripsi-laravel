@@ -16,7 +16,6 @@
             @endif
             <form action="/checkout" id="form_checkout" method="POST">
                 @csrf
-
                 @if ($cartlists->count() > 0)
                 <div class="card "> {{-- 
                     background-color: #F3F7F9;
@@ -40,19 +39,19 @@
                             <tr class="cartpage">
                                 <td class="text-center"><img src="{{asset('../storage/images/Products/' . $cartlist->product->productimage)}}" width="150px;" height="150px;" alt="Image"></td>
                                 <td class="text-center" style="
-                                padding-top: 6%;
+                                padding-top: 3%;
                             ">{{$cartlist->product->brand->name}}</td>
                                 <td class="text-center" style="
-                                padding-top: 6%;
+                                padding-top: 3%;
                             ">{{$cartlist->product->productname}}</td>
                                 <td class="text-center" style="
-                                padding-top: 6%;
+                                padding-top: 3%;
                             ">{{$cartlist->product->productsize}}</td>
                                 <td class="text-center" style="
-                                padding-top: 6%;
+                                padding-top: 3%;
                             ">Rp. <span class="price">{{ $cartlist->product->productprice}}</span></td>
                                 <td class="cart-product-quantity text-center" width="132px" style="
-                                padding-top: 6%;
+                                padding-top: 3%;
                             ">
                                     <div class="input-group quantity">
                                         <div class="input-group-prepend decrement-btn changeQuantity" style="cursor: pointer">
@@ -65,25 +64,32 @@
                                     </div>
                                 </td>
                                 <td class="text-center" style="
-                                padding-top: 6%;
+                                padding-top: 3%;
                             ">
                                     <span class="subtotal">Rp. {{ number_format($cartlist->product->productprice*$cartlist->quantity)}}</span>
-                                    <!-- <input type="hidden" id="subtotal" name="subtotal" value=""> -->
                                 </td>
+
                                 <!-- <td class="text-center">
                                     <span id="subtotal">Rp. {{ number_format($cartlist->product->productprice)}}</span>
                                 </td> -->
-                                <td class="text-center" style="
-                                padding-top: 6%;
+                                {{-- <td class="text-center" style="
+                                padding-top: 3%;
                             ">
-                                    <a class="d-inline btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</a>
-                                </td>
+                                    <a class="d-inline btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</a> --}}
+
+
+                                <td class="text-center" style="padding-top: 3%;
+                                
+                            ">
+                                    <a href="/product-cart/delete/{{$cartlist->id}}" class="d-inline badge btn-danger" data-value="{{$cartlist->id}}" data-toggle="modal" data-target="#exampleModal{{$cartlist->id}}"><i class="fas fa-trash-alt" style="color:white"></i></a>
+                               
+</td>
                             </tr>
                         </tbody>
                         @endforeach
                     </table>
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-sm">
                             <div class="modal-content" style="4px 4px 4px 4px #575252">
                                 <div class="modal-body">
@@ -110,7 +116,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 @else
                 @error('no_post_result')
@@ -145,6 +151,42 @@
                 </div>
         </div>
         </form>
+
+        @foreach($cartlists as $cartlist)
+        <div class="modal fade" id="exampleModal{{$cartlist->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content" style="4px 4px 4px 4px #575252">
+                    <form action="/product-cart/delete/{{$cartlist->id}}" method="POST" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <div class="modal-body">
+                            <div class="faq-section-logo">
+                                <img src="{{ asset('../storage/images/Wish List Page/DeleteLogo.png') }}" class="rounded-0 image-cat"
+                        alt="Men Display Picture" width="50px" height="">
+                    </div>
+                            <h3 class="text-center"  >Are you sure?</h3>
+                            <p class="text-center font-weight-normal mb-0" style="
+                            color: black;
+                        ">Do you really want to delete 
+                            <br>
+                            <span class="font-weight-bold">{{$cartlist->product->productname}}</span> item?</p> 
+                            <p class="text-center font-weight-normal mb-0">This process cannot be undone.</p>
+                        </div>
+                        <div class="modal-footer justify-content-around pt-0 border-top-0">
+                            <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal" style="
+                            background-color: #C4C4C4;
+                            border: none;
+                            width: 40%;
+                        ">Cancel</button>
+                            <button type="submit" class="btn btn-danger" name="delete_user" style="
+                            width: 40%;
+                        ">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
 </div>
 

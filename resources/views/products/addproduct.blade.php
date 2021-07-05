@@ -13,6 +13,17 @@
                     <h5 class="text-white">PRODUCT</h5>
                 </div>
                 <div class="card-body">
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <form method="POST" action="/manageproduct" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group ">
@@ -64,12 +75,12 @@
 
                         <div class="form-group ">
                             <label for="productprice">Price</label>
-                            <input type="text" class="form-control" id="productprice" placeholder="" name="productprice">
+                            <input type="number" class="form-control" id="productprice" placeholder="" name="productprice">
                         </div>
 
                         <div class="form-group ">
                             <label for="productquantity">Quantity</label>
-                            <input type="text" class="form-control" id="productquantity" placeholder="" name="productquantity">
+                            <input type="number" class="form-control" id="productquantity" placeholder="" name="productquantity">
                         </div>
 
                         <div class="form-group ">
@@ -78,7 +89,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="productdescription">About</label>
+                            <label for="productdescription">Product Description</label>
                             <textarea class="form-control" id="productdescription" rows="3" placeholder="add product information here..." name="productdescription"></textarea>
                         </div>
 

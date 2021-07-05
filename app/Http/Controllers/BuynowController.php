@@ -41,8 +41,6 @@ class BuynowController extends Controller
         $user = User::find(Auth::user()->id);
         $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
         $amount_order = Order::where('id', '=', $flashData->order_id)->first();
-        // dd($flashData);
-        $payment = new Payment();
 
         if ($request->payment_type === 'credit') {
 
@@ -56,22 +54,24 @@ class BuynowController extends Controller
                 // 'valid_until' => ['required']
             ]);
 
+            $payment = new Payment();
+
             // validation STRIPE
-            try {
-                $charge =  Stripe::charges()->create([
-                    'currency' => 'IDR',
-                    'source' => $request->stripeToken,
-                    'description' => 'Payment Credit',
-                    'amount' => $amount_order->grand_total,
-                    'receipt_email' => $user->email,
-                    'metadata' => [
-                        'first_name' => $request->first_name,
-                        'last_name' => $request->last_name
-                    ],
-                ]);
-            } catch (CardErrorException $e) {
-                return back()->withErrors('Error! ' . $e->getMessage());
-            }
+            // try {
+            //     $charge =  Stripe::charges()->create([
+            //         'currency' => 'IDR',
+            //         'source' => $request->stripeToken,
+            //         'description' => 'Payment Credit',
+            //         'amount' => $amount_order->grand_total,
+            //         'receipt_email' => $user->email,
+            //         'metadata' => [
+            //             'first_name' => $request->first_name,
+            //             'last_name' => $request->last_name
+            //         ],
+            //     ]);
+            // } catch (CardErrorException $e) {
+            //     return back()->withErrors('Error! ' . $e->getMessage());
+            // }
 
             $payment->payment_type = 'credit';
             $payment->first_name = $request->first_name;
@@ -83,6 +83,16 @@ class BuynowController extends Controller
             $payment->user_id = Auth::user()->id;
             $payment->save();
         } else {
+
+            $request->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'bank_name' => 'required',
+                'bank_type' => 'required',
+                'account_number' => 'required|digits:11',
+            ]);
+
+            $payment = new Payment();
 
             $payment->payment_type = 'debit';
             $payment->first_name = $request->first_name;

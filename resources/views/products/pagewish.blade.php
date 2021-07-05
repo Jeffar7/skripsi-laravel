@@ -30,7 +30,7 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container mb-5">
     @foreach($productwishs as $productwish)
     <div class="card mt-4 pl-3 pr-3 mb-4" style="border-radius: 10px; box-shadow: 4px 4px 4px 4px #888888; width:100%; height:290px">
         <div class="row">

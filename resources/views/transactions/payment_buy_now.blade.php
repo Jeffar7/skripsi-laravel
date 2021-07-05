@@ -4,7 +4,7 @@
 
 @section('extra-css')
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -48,13 +48,13 @@
 @endsection
 
 @section('content')
-<div class="container pt-2">
+<div class="container mt-2 mb-5">
   <div class="row justify-content-center mb-3">
     <div class="col-md-12 text-center">
-      <div class="breadcrumb-a flat my-4">
-        <a class="col-sm-4">DELIVERY</a>
-        <a class="col-sm-4">SUMMARY</a>
-        <a class="active col-sm-4">PAYMENT</a>
+      <div class="breadcrumb-a flat mt-4 mb-5">
+        <a class="col-sm-4"><span class="ml-2">DELIVERY</span></a>
+        <a class="col-sm-4"><span class="ml-2">SUMMARY</span></a>
+        <a class="active col-sm-4"><span class="ml-2">PAYMENT</span></a>
       </div>
       <div class="card" style="box-shadow: 4px 4px 4px 4px #888888;">
         <div class="card-header text-left bg-dark text-white">
@@ -79,9 +79,9 @@
 
         <div class="row justify-content-center m-3">
           <div class="col-sm-12">
-            <select class="form-control div-toggle-payment" data-target=".payment-info">
+            <select class="form-control div-toggle-payment" data-target=".payment-info" id="select_payment">
               <option value="">Select Payment Type</option>
-              <option value="credit" data-show=".credit" selected>Credit</option>
+              <option value="credit" data-show=".credit">Credit</option>
               <option value="debit" data-show=".debit">Debit</option>
             </select>
           </div>
@@ -167,16 +167,17 @@
 
               <input type="hidden" name="payment_type" value="credit">
 
-              <div class="row justify-content-center mb-1">
+              <!-- <div class="row justify-content-center mb-1">
                 <div class="col-md-12 text-right">
                   <button type="submit" class="btn btn-dark">SUBMIT</button>
                 </div>
-              </div>
+              </div> -->
+
             </form>
           </div>
 
           <div class="debit hide">
-            <form class="m-3 card p-4" action="/makepayment/buy_now" method="POST">
+            <form class="m-3 card p-4" action="/makepayment/buy_now" method="POST" id="debit_payment">
               @csrf
               <div class="form-row">
                 <div class="col-md-6 mb-3">
@@ -203,7 +204,7 @@
 
                 <div class="col-md-6 mb-3">
                   <label for="account_number">Account Number</label>
-                  <input type="account_number" class="form-control" id="account_number" name="account_number" required>
+                  <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="ex: 12345678910" required>
                 </div>
               </div>
 
@@ -220,27 +221,48 @@
               </div>
 
               <input type="hidden" name="payment_type" value="debit">
-
-              <div class="row justify-content-center mb-1">
-                <div class="col-md-12 text-right">
-                  <button type="submit" class="btn btn-dark">SUBMIT</button>
-                </div>
-              </div>
-
             </form>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6 text-left my-4">
-      <button type="submit"  class="btn btn-dark" style="width: 40%"><i
-          class="fas fa-arrow-circle-left pr-2"></i>PREVIOUS</button>
+
+      <div class="row justify-content-center mt-5">
+
+        <div class="col-md-6 text-left">
+          <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+        </div>
+
+        <div class="col-md-6 text-right">
+          <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
+        </div>
+      </div>
+
     </div>
     {{-- <div class="col-md-6 text-right my-4">
       <button type="submit" class="btn btn-dark" style="width: 40%">SUBMIT</button>
     </div> --}}
   </div>
 </div>
+
+<script>
+  (function() {
+    $('form > input').keyup(function() {
+
+      var empty = false;
+      $('form > input').each(function() {
+        if ($(this).val() == '') {
+          empty = true;
+        }
+      });
+
+      if (empty) {
+        $('#submitBtn').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+      } else {
+        $('#submitBtn').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+      }
+    });
+  })()
+</script>
 
 <script>
   $(document).on('change', '.div-toggle-payment', function() {
@@ -251,6 +273,20 @@
   });
   $(document).ready(function() {
     $('.div-toggle-payment').trigger('change');
+
+    $('#select_payment').on('change', function() {
+      var option_value = $(this).val();
+      if (option_value == 'credit') {
+        $("#submitBtn").click(function() {
+          $("#payment-form").submit(); // Submit the form
+        });
+      } else if (option_value == 'debit') {
+        $("#submitBtn").click(function() {
+          $("#debit_payment").submit(); // Submit the form
+        });
+      }
+    });
+
   });
 </script>
 
@@ -329,5 +365,7 @@
 
   });
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 @endsection

@@ -34,12 +34,12 @@
 <body>
     <div class="container card-middle-sizing"
 >
-        <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 8%;">
-    <div class="row no-gutters" style="height: 700px;">
+        <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
+    <div class="row no-gutters" style="height: 600px;">
         <div class="col-md-6 no-gutters">
-            <div class="leftside-register" style="height: 700px;"></div>
+            <div class="leftside-register" style="height: 600px;"></div>
         </div>
-        <div class="col-md-6 no-gutters" style="height: 700px;">
+        <div class="col-md-6 no-gutters" style="height: 600px;">
             <div class="rightside-register">
                 <div style="text-align: center;" class="mb-2">
                     <h6 class="mb-3 font-weight-bold">WELCOME TO</h6>
