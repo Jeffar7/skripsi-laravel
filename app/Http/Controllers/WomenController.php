@@ -82,30 +82,6 @@ class WomenController extends Controller
             return view('womenpage/accessories', compact('products', 'brands', 'minprice', 'maxprice'));
     }
 
-    // public function index()
-    // {
-    //     // count total product for women
-    //     $productscount = Product::where('gender_id', '=', 2)->count();
-    //     //filter all product by brand and categories for women
-    //     $categories = Category::all();
-
-    //     $brands = Brand::all();
-
-    //     $products = QueryBuilder::for(Product::class)
-    //         ->allowedFilters([
-    //             AllowedFilter::exact('brand', 'brandid'),
-    //             AllowedFilter::exact('category', 'categoryid'),
-    //             AllowedFilter::exact('gender_id')->default('2')
-    //         ])
-    //         ->get();
-
-    //     if ($products->count() == 0)
-    //         return view('womenpage/women', compact('products', 'brands', 'categories', 'productscount'))
-    //             ->withErrors(['no_post_result' => 'No data found with current filters.']);
-    //     else
-    //         return view('womenpage/women', compact('products', 'brands', 'categories', 'productscount'));
-    // }
-
     public function filterWomen(Request $request)
     {
         if($request->ajax()){
