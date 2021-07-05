@@ -15,11 +15,16 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10 text-center">
-            <h3 class="mt-4">Raffle Item List</h3>
-            <p style="font-weight:normal;">Here are all our listed raffle item that you can joined, hope you enjoyed it!</p>
+            <h3 class="mt-4 font-weight-bold">Raffle Item List</h3>
+            <p class="font-weight-bold">Here are all our listed raffle item that you can joined, hope you enjoyed it!</p>
             <div class="search-group rounded left-addon-search inner-addon" style="width:100%;">
-                <i class="fas fa-search"></i>
-                <input type="search" class="search-field rounded search-input" name="search" placeholder="Search Raffle" aria-label="Search" aria-describedby="search-addon" style="width:100%;" autocomplete="off"/>
+                <div class="col-md-10" style="margin-top: 2%;">
+                <i class="fas fa-search ml-3"></i>
+                <input type="search" class="search-field rounded search-input" name="search" placeholder="Type your search here..." aria-label="Search" aria-describedby="search-addon" style="width:100%;" autocomplete="off" />
+                </div>
+                <div class="col-md-2" style=" margin: 2% 0;">
+                    <button type="submit" class="btn btn-clock btn-faq" style="height: 100%">Search</button>
+                  </div>
             </div>
         </div>
     </div>

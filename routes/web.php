@@ -158,6 +158,21 @@ Route::group(['middleware' =>  'role:customer'], function () {
 
 
 
+//notiification 
+Route::get('/test', function(){
+    $notifications = auth()->user()->unreadNotifications;
+    foreach($notifications as $notification){
+         dd($notification->data['user']['name']); //buat yang duplicate array
+    }
+});
+
+Route::get('/markAsRead', function(){
+    auth()->user()->unreadNotifications->markAsRead();
+});
+
+Route::delete('/wish-list/delete/{id}', 'ProductController@destroynotif');
+// Route::delete('/notification-/delete/{id}', 'NotificationController@destroywish');
+Route::get('/notification', 'NotificationController@show');
 
 // Check again this route
 Route::get('/', 'HomeController@index')->name('home');
@@ -176,6 +191,87 @@ Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription')
 
 Route::get('/brands/{brand}', 'BrandController@show');
 Route::get('/allbrand', 'BrandController@allbrand')->name('brand');
+Route::delete('/brands/{brand}', 'BrandController@destroy')->middleware('role:admin');
+Route::get('/brands/{brand}/edit', 'BrandController@edit')->middleware('role:admin');
+Route::patch('/brands/{brand}', 'BrandController@update')->middleware('role:admin');
+
+Route::get('/manageproduct', 'ProductController@index')->middleware('role:admin');
+Route::get('/products/create', 'ProductController@create')->middleware('role:admin');
+Route::post('/manageproduct', 'ProductController@store')->middleware('role:admin');
+Route::get('/products/{product}/edit', 'ProductController@edit')->middleware('role:admin');
+Route::patch('/products/{product}', 'ProductController@update')->middleware('role:admin');
+Route::delete('/products/{product}', 'ProductController@destroy')->middleware('role:admin');
+
+Route::get('/product-wish', 'ProductController@productwish')->middleware('role:customer|admin');
+Route::post('/wish-list/save', 'ProductController@productwishsave');
+Route::delete('/wish-list/delete/{id}', 'ProductController@destroywish');
+Route::delete('/wish-list/addtocart/{id}', 'ProductController@addtocart');
+
+//new cart
+Route::post('/addtocart/{id}', 'ProductController@addtocartt');
+//add to cart via detail product
+Route::post('/cart-list/add', 'ProductController@addtocartviadetail');
+
+Route::get('/product-cart', 'ProductController@productcart');
+Route::get('/product-cart/delete/{id}', 'ProductController@destroylist');
+
+//checkout
+Route::post('/checkout', 'OrderController@checkout');
+Route::get('/transactions/delivery', 'OrderController@viewCheckOut');
+Route::get('/transactions/ordersummary', 'OrderController@viewSummary')->name('order.summary.checkout');
+
+//buynow
+Route::get('/buy-now/{id}', 'BuynowController@buynow');
+
+//buy now get quantity
+Route::post('/buy-now/add', 'BuynowController@buyNowQuantity');
+
+Route::post('order-summary-buy-now', 'BuynowController@summary');
+Route::post('/payment/buy_now', 'BuynowController@payment');
+Route::post('/makepayment/buy_now', 'BuynowController@makepayment');
+
+Route::post('/delivery/addaddress/buy_now', 'BuynowController@addaddress');
+
+// Flash data transaction (BuynowController)
+Route::get('/transactions/delivery_buy_now', 'BuynowController@assignAddressDelivery');
+Route::get('/transactions/ordersummary_buy_now', 'BuynowController@orderSummaryBuyNow')->name('order.summary');
+Route::get('/transactions/payment_buy_now', 'BuynowController@paymentBuyNow');
+
+//delivery
+Route::get('/checkout/delivery', 'OrderController@delivery');
+Route::get('/delivery/address/{id}', 'OrderController@chooseaddress');
+Route::post('/delivery/addaddress', 'OrderController@addaddress');
+Route::post('/payment', 'OrderController@payment');
+Route::post('/order-summary', 'OrderController@summary');
+Route::post('/makepayment', 'OrderController@makepayment');
+
+// HISTORY
+Route::get('/payment-history', 'StatusController@payment_history');
+Route::get('/payment-history/{id}/detail', 'StatusController@payment_history_detail');
+Route::get('/payment-history/{id}/continue-checkout', 'StatusController@continue_checkout'); // Continue Checkout
+Route::get('/waiting-for-review', 'StatusController@waiting_for_review');
+Route::get('/products/review/{id}', 'StatusController@product_review_detail');
+Route::post('/submit/review', 'StatusController@product_submit_review');
+Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
+
+Route::get('/raffle', 'RaffleController@raffle');
+Route::get('/allraffle', 'RaffleController@allraffle');
+Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
+Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
+Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
+Route::get('/manageraffle', 'RaffleController@index');
+Route::get('/raffles/create', 'RaffleController@create');
+Route::get('/raffles/check/{id}', 'RaffleController@check');
+Route::get('/raffles/check/random/{id}', 'RaffleController@random');
+Route::post('/manageraffle', 'RaffleController@store');
+Route::get('/raffles/{raffle}/edit', 'RaffleController@edit');
+Route::patch('/raffles/{raffle}', 'RaffleController@update');
+Route::delete('/raffles/{raffle}', 'RaffleController@destroy');
+
+//place raffle
+Route::post('/raffle/submit', 'RaffleController@submit');
+Route::get('/raffle/history', 'RaffleController@history');
+
 Route::get('/event', 'EventController@event');
 Route::get('/events/detail/{event}', 'EventController@eventdetail');
 
@@ -184,13 +280,14 @@ Route::get('/product/detail/{product}', 'ManController@topsdetail');
 Route::get('/men-bottoms', 'ManController@bottoms');
 Route::get('/men-shoes', 'ManController@shoes');
 Route::get('/men-accessories', 'ManController@accessories');
-Route::get('/men-new', 'ManController@new');
-Route::get('/men-sale', 'ManController@sale');
+// Route::get('/men-new', 'ManController@new');
+// Route::get('/men-sale', 'ManController@sale');
 Route::get('/men', 'ManController@men');
 Route::post('/men', 'ManController@filterMen')->name('men');
 Route::post('/men-tops', 'ManController@filterMenTops')->name('men-tops');
 Route::post('/men-bottoms', 'ManController@filterMenBottoms')->name('men-bottoms');
 Route::post('/men-accessories', 'ManController@filterMenAccessories')->name('men-accessories');
+Route::post('/men-shoes', 'ManController@filterMenShoes')->name('men-shoes');
 
 Route::get('/women', 'WomenController@women');
 Route::post('/women', 'WomenController@filterWomen')->name('women');
@@ -201,9 +298,8 @@ Route::post('/women-bottoms', 'WomenController@filterWomenBottoms')->name('women
 Route::get('/women-shoes', 'WomenController@shoes');
 Route::post('/women-shoes', 'WomenController@filterWomenShoes')->name('women-shoes');
 Route::get('/women-accessories', 'WomenController@accessories');
+Route::get('/women', 'WomenController@index');
 Route::post('/women-accessories', 'WomenController@filterWomenAccessories')->name('women-accessories');
-Route::get('/women-new', 'WomenController@new');
-Route::get('/women-sale', 'WomenController@sale');
 
 Route::get('/search', 'ProductController@search')->name('search');
 Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
@@ -250,7 +346,10 @@ Route::get('/termsandcondition', function () {
     return view('pages/terms');
 });
 
-
+// Privacy Policy
+Route::get('/privacypolicy', function () {
+    return view('pages/privacypolicy');
+});
 
 
 

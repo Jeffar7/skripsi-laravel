@@ -11,12 +11,10 @@
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Bottom</li>
         </ol>
     </nav>
-    <!-- <div class="text-center">
-        <img src="../storage/images/MenPage/men.jpg" alt="" height="472px;" width="1110px;">
-    </div> -->
-    <div class="big-image-women">
-        <div class="overlay">
-            <h3>BOTTOMS FOR WOMEN</h3>
+    <div class="card rounded-0 border-0 con-photo">
+        <img src="../storage/images/Women Page/women.jpg" alt="" height="472px;" width="1110px;" class="rounded-0 image-cat" alt="Women Display Picture">
+        <div class="middle-cat">
+            <div class="text-cat">WOMEN</div>
         </div>
     </div>
 </div>
@@ -25,13 +23,13 @@
     <div class="row">
         <div class="col">
 		</div>
-		<div class="col text-right">
+		<div class="col text-right mr-3">
 			<div class="row">
-				<div class="col px-0">
+				<div class="col px-0 mr-3">
 					<p class="" style="font-weight:bold;">Sort By</p>
 				</div>
 
-				<div class="col-sm-3 text-left">
+				<div class="text-left">
 					<form name="sortProducts" id="sortProducts">
 						<input type="hidden" name="url" id="url" value="{{ route('women-bottoms') }}">
 						<select id="sort" name="sort">
@@ -48,8 +46,8 @@
 
     <div class="row">
 		<div class="col-3">
-			<div class="card px-2 border border-dark" >
-				<p class="mb-1 pt-2 font-weight-bold">Women's Bottom (<span class="countMen"></span>)</p>
+			<div class="card px-2 border" >
+				<p class="mb-1 pt-3 font-weight-bold">Women's Bottom (<span class="countMen"></span>)</p>
 				
 				<input type="hidden" name="min_price" class="min_price" value="{{ $minprice }}" id="min_price"/>
 				<input type="hidden" name="max_price" class="max_price" value="{{ $maxprice }}" id="max_price"/>

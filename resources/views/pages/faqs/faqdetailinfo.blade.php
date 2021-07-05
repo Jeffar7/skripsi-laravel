@@ -16,7 +16,7 @@
     }
 </script>
 
-<div class="container pt-4">
+<div class="container py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>

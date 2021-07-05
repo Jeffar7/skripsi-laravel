@@ -7,17 +7,20 @@
 @enderror
 <div class="row">
     @foreach($products as $p)
+    <a href="/men-tops/detail/{{$p->id}}" style="color: black">
     <div class="pro col-4">
+        
         <!-- Gambar 1 -->
         <div class="card" style="width: 250px; border:none;height:270px;">
-        <a href="/product/detail/{{$p->id}}" style="width: 250px;height:270px;"><img src="{{asset('../storage/images/Products/' . $p->productimage)}}" width="250px;" height="270px;" alt="Image" class="card-img-top border border-dark"></a>
+        <a href="/product/detail/{{$p->id}}" style="width: 250px;height:270px;"><img src="{{asset('../storage/images/Products/' . $p->productimage)}}" width="250px;" height="270px;" alt="Image" class="card-img-top border"></a>
         </div>
-        <div class="card px-2 mb-4 border border-dark" style="width: 250px; border:none;">
-            <a href="/product/detail/{{$p->id}}" style="color:black;"><p class="mt-3 mb-0 text-truncate" style="font-weight:bold;">{{$p->productname}}</p></a>
-            <a class="about-title mb-0" style="text-decoration:normal;" href="/brands/{{$p->brand->id}}">{{$p->brand->name}}</a>
-            <p style="font-weight:bold;">Rp. {{number_format($p->productprice)}}</p>
+        <div class="card px-2 mb-4" style="width: 250px; border:none; background-color: #f3f7f9">
+            <a href="/product/detail/{{$p->id}}" style="color:black;"><p class="mt-3 mb-0 text-truncate font-weight-bold">{{$p->productname}}</p></a>
+            <a class="about-title mb-0" style="color:#757575;" href="/brands/{{$p->brand->id}}">{{$p->brand->name}}</a>
+            <p class="font-weight-bold mt-2" style="color: black">Rp. {{number_format($p->productprice)}}</p>
         </div>
         <!-- Akhir Gambar 1 -->
     </div>
+</a>
     @endforeach
 </div>

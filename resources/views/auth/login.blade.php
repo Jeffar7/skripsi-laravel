@@ -31,13 +31,20 @@
 </head>
 
 <body>
-    <div class="row no-gutters">
-        <div class="col-md-6 no-gutters">
+    <div class="container card-middle-sizing"
+>
+        <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
+    <div class="row no-gutters" style="height: 600px;">
+        <div class="col-md-6 no-gutters" style="height: 600px;">
             <div class="leftside">
                 <div style="text-align: center;">
-                    <h6 style="font-weight: 200" class="mb-3">WELCOME BACK TO</h6>
+                    <h6 class="mb-3 font-weight-bold">WELCOME BACK TO</h6>
                     <a href="{{ url('/') }}"><img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="70" height="60" alt="" class="mb-3"></a>
-                    <h6>Log in to get in the moment updates on the things that interest you</h6>
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <h6>Log in to get in the moment updates on the things that interest you</h6>
+                        </div>
+                    </div>
                 </div>
 
                 <form method="POST" action="{{ route('login') }}" id="formlogin">
@@ -69,7 +76,7 @@
 
                     <div class="form-group row justify-content-center">
                         <div class="col-md-12">
-                            <button type="submit" class="btn-regist">
+                            <button type="submit" class="btn-regist visibleBtn">
                                 {{ __('Login') }}
                             </button>
                         </div>
@@ -77,14 +84,14 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-12 mb-1" style="text-align: center;">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <input class="form-check-input ml-1" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <label class="form-check-label" for="remember">
+                            <label class="form-check-label pl-4" for="remember">
                                 {{ __('Stay Logged In') }}
                             </label>
 
                             @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="ml-4">
+                            <a href="{{ route('password.request') }}" class="ml-5">
                                 {{ __('Reset Password') }}
                             </a>
                             @endif
@@ -93,12 +100,16 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-12 mb-1" style="text-align: center;">
-                            <label>Don't have an account?</label>
-                            <a href="{{ route('register') }}">Sign Up Now</a>
+                            <label class="font-weight-bold mr-3 pr-5">Don't have an account?</label>
+                            <a href="{{ route('register') }}">Sign Up</a>
                         </div>
                     </div>
 
-                    <hr class="mt-1 mb-1">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="hl"></div>
+                        </div>
+                    </div>
 
                     <div class="form-row justify-content-center">
                         <div class="form-group mb-0">
@@ -108,19 +119,22 @@
 
                     <div class="form-row justify-content-center">
                         <div class="form-group">
+                            <a href="www.gmail.com"></a>
+                            {{-- <a href="mailto:info@example.com?subject=subject&cc=cc@example.com"> --}}
                             <i class="fab fa-google"></i>
-                            <i class="fab fa-google"></i>
-                            <i class="fab fa-google"></i>
-                            <i class="fab fa-google"></i>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-apple"></i>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
         <div class="col-md-6 no-gutters">
-            <div class="rightside"></div>
+            <div class="rightside" style="height: 600px"></div>
         </div>
     </div>
+</div></div>
 </body>
 
 </html>

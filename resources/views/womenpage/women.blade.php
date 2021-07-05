@@ -10,24 +10,27 @@
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Women</li>
         </ol>
     </nav>
-    <div class="big-image-women">
-        <div class="overlay">
-            <h3>WOMEN</h3>
-        </div>
-    </div>
+    <div class="col-md-12 mb-1 p-0">
+		<div class="card rounded-0 border-0 con-photo">
+            <img src="../storage/images/Women Page/women.jpg" alt="" height="472px;" width="1110px;" class="rounded-0 image-cat" alt="Women Display Picture">
+			<div class="middle-cat">
+				<div class="text-cat">WOMEN</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="container pb-4">
     <div class="row">
         <div class="col">
 		</div>
-		<div class="col text-right">
+		<div class="col text-right mr-3">
 			<div class="row">
-				<div class="col px-0">
+				<div class="col px-0 mr-3">
 					<p class="" style="font-weight:bold;">Sort By</p>
 				</div>
 
-				<div class="col-sm-3 text-left">
+				<div class="text-left">
 					<form name="sortProducts" id="sortProducts">
 						<input type="hidden" name="url" id="url" value="{{ route('women') }}">
 						<select id="sort" name="sort">
@@ -44,16 +47,16 @@
 
     <div class="row">
 		<div class="col-3">
-			<div class="card px-2 border border-dark" >
-				<p class="mb-1 pt-2 font-weight-bold">Women's Product (<span class="countMen"></span>)</p>
+			<div class="card px-2 border" >
+				<p class="mb-1 pt-3 font-weight-bold">Women's Product (<span class="countMen"></span>)</p>
 				
 				<input type="hidden" name="min_price" class="min_price" value="{{ $minprice }}" id="min_price"/>
 				<input type="hidden" name="max_price" class="max_price" value="{{ $maxprice }}" id="max_price"/>
 				
-					<p class="mb-1 font-weight-bold">Categories</p>
+					<p class="mb-0 font-weight-bold">Categories</p>
 					@foreach ($categories as $category)
-					<div class="mb-0 ml-2">
-						<label class="mb-0">
+					<div>
+						<label>
 							<input class="category mb-0" name="category[]" id="{{ $category->id }}" type="checkbox" value="{{ $category->id }}">
 							{{ $category->name }}
 						</label>
@@ -75,7 +78,7 @@
 
 					<hr class="my-2">
 
-					<p class="mb-1 font-weight-bold">Brand</p>
+					<p class="mb-0 font-weight-bold">Brand</p>
 					@foreach ($brands as $brand)
 					<div class="mb-0 ml-2">
 						<label class="mb-0">

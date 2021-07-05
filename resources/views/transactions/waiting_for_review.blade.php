@@ -6,8 +6,11 @@
 
 <div class="container pt-2">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            <h1 class="title-home mt-3">Waiting for Review</h1>
+        <div class="col-md-12 mb-4">
+            <h3 class="font-weight-bold mt-3" style="
+            text-align: left;
+        ">Waiting For Review</h3>
+        <div class="top-border my-4"></div>
             @if ($all_order->count() > 0)
             <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
@@ -40,7 +43,7 @@
             </div>
             @enderror
             @endif
-            <div class="mt-4"></div>
+            <div class="mb-5"></div>
         </div>
     </div>
 </div>

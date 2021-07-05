@@ -11,27 +11,28 @@
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Top</li>
         </ol>
     </nav>
-    <!-- <div class="text-center">
-        <img src="../storage/images/MenPage/men.jpg" alt="" height="472px;" width="1110px;">
-    </div> -->
-    <div class="big-image-men">
-        <div class="overlay">
-            <h3>TOPS FOR MEN</h3>
-        </div>
-    </div>
+    <div class="col-md-12 mb-1 p-0">
+		<div class="card rounded-0 border-0 con-photo">
+			<img src="{{ asset('../storage/images/Men Page/men.jpg') }}" class="rounded-0 image-cat"
+				alt="Men Display Picture" width="1110px" height="472px"> <!-- card-img -->
+			<div class="middle-cat">
+				<div class="text-cat">MEN</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="container pb-4">
     <div class="row">
         <div class="col">
 		</div>
-		<div class="col text-right">
+		<div class="col text-right mr-3">
 			<div class="row">
-				<div class="col px-0">
-					<p class="" style="font-weight:bold;">Sort By</p>
+				<div class="col px-0 mr-3">
+					<p class="font-weight-bold">Sort By</p>
 				</div>
 
-				<div class="col-sm-3 text-left">
+				<div class="text-left">
 					<form name="sortProducts" id="sortProducts">
 						<input type="hidden" name="url" id="url" value="{{ route('men-tops') }}">
 						<select id="sort" name="sort">
@@ -46,10 +47,11 @@
 		</div>
 	</div>
 
+
     <div class="row">
-		<div class="col-3">
-			<div class="card px-2 border border-dark" >
-				<p class="mb-1 pt-2 font-weight-bold">Men's Top (<span class="countMen"></span>)</p>
+        <div class="col-3">
+        <div class="card px-2 border">
+            <p class="mb-1 pt-2 font-weight-bold">Men's Top (<span class="countMen"></span>)</p>
 				
 				<input type="hidden" name="min_price" class="min_price" value="{{ $minprice }}" id="min_price"/>
 				<input type="hidden" name="max_price" class="max_price" value="{{ $maxprice }}" id="max_price"/>
@@ -60,7 +62,7 @@
 							<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min">
 						</div>
 						<div class="col-md-6">
-							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max">
+							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="max-price text-right" name="min">
 						</div>
 					</div>
   					<div id="slider-range" class="mx-2"></div>
@@ -126,6 +128,7 @@
 			@include('menpage.filter_men_product')
         </div>
         <!--AKhir Tampilan Gambar Produk -->
+    </div>
     </div>
 </div>
 

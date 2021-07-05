@@ -10,31 +10,37 @@
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Men</li>
         </ol>
     </nav>
-    <div class="big-image-men">
-        <div class="overlay">
-            <h3>MEN</h3>
-        </div>
-    </div>
+
+	<div class="col-md-12 mb-1 p-0">
+		<div class="card rounded-0 border-0 con-photo">
+			<img src="{{ asset('../storage/images/Men Page/men.jpg') }}" class="rounded-0 image-cat"
+				alt="Men Display Picture" width="1110px" height="472px"> <!-- card-img -->
+			<div class="middle-cat">
+				<div class="text-cat">MEN</div>
+			</div>
+		</div>
+	</div>
+
 </div>
 
 <div class="container pb-4">
     <div class="row">
         <div class="col">
 		</div>
-		<div class="col text-right">
+		<div class="col text-right mr-3">
 			<div class="row">
-				<div class="col px-0">
+				<div class="col px-0 mr-3">
 					<p class="" style="font-weight:bold;">Sort By</p>
 				</div>
 
-				<div class="col-sm-3 text-left">
+				<div class="text-left">
 					<form name="sortProducts" id="sortProducts">
-						<input type="hidden" name="url" id="url" value="{{ route('men') }}">
+						<input type="hidden" name="url" id="url" value="http://127.0.0.1:8000/men">
 						<select id="sort" name="sort">
-							<option value="product_relevance" @if (request()->sort == "product_relevance") selected @endif>Relevance</option>
-							<option value="product_price_low_high" @if (request()->sort == "product_price_low_high") selected @endif>Price: Low to High</option>
-							<option value="product_price_high_low" @if (request()->sort == "product_price_high_low") selected @endif>Price: High to Low</option>
-							<option value="product_latest" @if (request()->sort == "product_latest") selected @endif>Latest Arrivals</option>
+							<option value="product_relevance">Relevance</option>
+							<option value="product_price_low_high">Price: Low to High</option>
+							<option value="product_price_high_low">Price: High to Low</option>
+							<option value="product_latest">Latest Arrivals</option>
 						</select>
 					</form>
 				</div>
@@ -44,7 +50,7 @@
 
     <div class="row">
 		<div class="col-3">
-			<div class="card px-2 border border-dark" >
+			<div class="card px-2 border" >
 				<p class="mb-1 pt-2 font-weight-bold">Men Products (<span class="countMen"></span>)</p>
 				
 				<input type="hidden" name="min_price" class="min_price" value="{{ $minprice }}" id="min_price"/>

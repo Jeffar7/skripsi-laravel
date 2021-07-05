@@ -3,6 +3,10 @@ html {
     min-height: 100%;
 }
 
+body{
+    background-color: #f3f7f9;
+}
+
 main {
     margin: 0;
     font-family: "Nunito", sans-serif;
@@ -162,6 +166,14 @@ position:absolute; */
     margin-left: -128px;
 }
 
+.card-middle-sizing{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 .leftside,
 .rightside {
     height: 100vh;
@@ -192,7 +204,7 @@ position:absolute; */
   }
   
   .leftside-register{
-    background-image: url("signup.jpg");
+    background-image: url("../storage/images/SignUp Page/signup4.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -354,14 +366,14 @@ height: 240px; */
 .text-cat {
     /* background-color: #4CAF50; */
     color: black;
-    font-size: 16px;
+    font-size: 20px;
     padding: 16px 32px;
 }
 
-.img-ab {
+/* .img-ab {
     margin-left: -200px;
     width: 1428px;
-}
+} */
 
 hr {
     height: 1px;
@@ -397,6 +409,7 @@ hr {
 .nav-link-brand:hover {
     color: black;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .nav-tabs-brand .nav-link-brand.active {
@@ -416,13 +429,13 @@ hr {
 
 .about-title {
     color: #757575;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 0em;
     /* text-align: left; */
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .about-desc {
@@ -481,7 +494,7 @@ hr {
     opacity: .4;
 }
 
-.overlay {
+.overlay { /* ?? */
     position: absolute;
     height: 100%;
     width: 100%;
@@ -614,7 +627,7 @@ hr {
 }
 
 .inner-contact-logo {
-    padding: 4% 35%;
+    padding: 4% 30%;
 }
 
 .img-fit {
@@ -629,7 +642,7 @@ hr {
     height: 50px;
 }
 
-.text-center {
+.text-center { /* ??? */
     font-weight: bold;
     text-align: center;
 }
@@ -646,11 +659,11 @@ hr {
 }
 
 .silver {
-    color: silver;
+    color: #545b62;
 }
 
 .spacing {
-    margin-top: 2%;
+    margin-top: 5%;
 }
 
 .ta-title {
@@ -674,8 +687,8 @@ hr {
 .btn-faq {
     color: #fff;
     background-color: #837f7f;
-    width: 100%;
-    height: 50px;
+    width: 120%;
+    height: 40px;
 }
 
 .center-faq {
@@ -694,6 +707,14 @@ hr {
     border: 4px solid #c4c4c4;
     border-radius: 10px;
     height: 300px;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  cursor: pointer;
+}
+
+.card-faq:hover{
+    transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 
 .faq-section-logo {
@@ -740,7 +761,7 @@ hr {
 .breadcrumb-a {
 	/*centering*/
 	display: inline-block;
-	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.35);
+	box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.35);
 	overflow: hidden;
 	border-radius: 5px;
 	/*Lets add the numbers for each link using CSS counters. flag is the name of the counter. to be defined using counter-reset in the parent element of the links*/
@@ -857,6 +878,296 @@ hr {
 	background: #343a40;
 }
 
+.visibleBtn{
+    opacity: 0.3;
+    transition: 0.7s;
+}
+
+.visibleBtn:hover {opacity: 1}
+
+.hl {
+    height: 1px;
+    background-color: black;
+    border: none;
+}
+
+.event-card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 4px 4px 4px 4px #888888;
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  cursor: pointer;
+  /* min-height: 350px; */
+}
+
+.event-card:hover{
+     transform: scale(1.05);
+  box-shadow: 4px 4px 4px 4px #888888;
+}
+
+.event-card h3{
+  font-weight: 600;
+}
+
+.about-hr-line {
+    height: 5px;
+    background-color: #001B74;
+    border-radius: 20px;
+    margin: 0 35%;
+}
+
+.location:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  .cons:hover .overlay {
+    opacity: 0.5;
+  }
+  
+
+  .overlay { /* ?? */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 95%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: silver;
+    border-radius: 15px;
+    margin-left: 2.5%;
+  }
+
+  .about-text {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .nav-link:active{
+      font-weight: bold;
+  }
+
+  #detail-tab.active {
+    font-weight: bold;
+    color:black;
+}
+  
+  #sizedetail-tab.active{
+    font-weight: bold;
+    color:black;
+}
+  
+  #review-tab.active{
+    font-weight: bold;
+    color:black;
+}
+
+#policy-tab.active{
+      font-weight: bold;
+      color:black;
+  }
+
+  #profile-tab.active{
+    font-weight: bold;
+    color:black;
+}
+
+#notification-tab.active{
+    font-weight: bold;
+    color:black;
+}
+
+  #privacy-tab.active{
+    font-weight: bold;
+    color:black;
+}
+
+  /* .bolder:hover{
+      font-weight: bolder;
+  } */
+
+
+
+  .heart {
+    width: 160%;
+    height: 70px;
+    background: url("heart.png") no-repeat;
+    background-position: 0 0;
+    cursor: pointer;
+    transition: background-position 1s steps(28);
+    transition-duration: 0s;
+  }
+  .heart.is-active {
+    transition-duration: 1s;
+    background-position: -2800px 0;
+  }
+  
+  
+  
+  .stage {
+    /* position: fixed; */
+    /* top: 50%; */
+    left: 10%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+
+  .visBtn:hover{
+      opacity: 0.7;
+  }
+
+  .continueShopBtn {
+    display: block;
+    width: 40%;
+    height: 40px;
+    background: #c4c4c4;
+    padding: 1% 4%;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    line-height: 25px;
+    text-decoration: none;
+}
+
+.continueShopBtn:hover{
+    opacity: 0.7;
+    color: white;
+}
+
+
+
+.yuhu {
+    width: 600px;
+    margin: 100px auto; 
+}
+.progressbar {
+    /* counter-reset: step; */
+}
+.progressbar li {
+    list-style-type: none;
+    width: 25%;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #7d7d7d;
+}
+.progressbar li:before {
+    width: 30px;
+    height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 30px;
+    border: 2px solid #7d7d7d;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+}
+.progressbar li:after {
+    width: 100%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #7d7d7d;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+}
+.progressbar li:first-child:after {
+    content: none;
+}
+.progressbar li.active {
+    color: black;
+}
+.progressbar li.active:before {
+    border-color: black;
+}
+.progressbar li.active + li:after {
+    background-color: black;
+}
+
+
+/* .orderLine{
+    border-bottom: 2px solid #ABABAB;
+} */
+
+.table thead th {
+    border-top: 2px solid #ababab;
+    border-bottom: 2px solid #ababab;
+}
+
+/* .table th, .table td{
+    border-top: 2px solid #ababab;
+    border-bottom: 2px solid #ababab;
+} */
+
+.top-left-right-border{
+    border-top: 2px solid #ababab;
+    border-left: 2px solid #ababab;
+    border-right: 2px solid #ababab;
+}
+
+.top-border{
+    border-top: 2px solid #ababab;
+}
+
+.down-border{
+    border-bottom: 2px solid #ababab;
+}
+
+.all-border{
+    border: 2px solid #ababab;
+}
+
+/* .notes::placeholder{
+    padding: 0 0;
+} */
+
+textarea{
+    padding: 1% 2%;
+  /* margin: 8px 0; */
+}
+
+.notes{
+    opacity: 0.5;
+}
+
+.notes:hover{
+    opacity: 1;
+}
+/* 
+.clickedForm:focus{
+    background: #C4C4C4;
+} */
 #carousel-example-generic {
     margin: 20px auto;
     width: 400px;
@@ -933,3 +1244,6 @@ hr {
     object-fit:cover;
 }
 
+.modalBtn:hover{
+    opacity: 0.7;
+}

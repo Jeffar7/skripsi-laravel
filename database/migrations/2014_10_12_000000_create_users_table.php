@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('gender');
             $table->string('DOB');
             $table->string('password');
+            // $table->string('notification_preference')->default('mail');
             $table->string('role');    
             $table->string('address')->nullable();
             $table->string('site')->nullable();
