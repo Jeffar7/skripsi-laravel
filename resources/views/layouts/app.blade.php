@@ -236,7 +236,7 @@
                 <div class="row">
                     <div class="col-4">
                         <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="100"
-                            height="50" alt="Tokolokal Logo">
+                            height="50" alt="Tokolokal Logo" style="object-fit:contain;">
                         <p class="pt-4">TokoLokal is a concept electronic store based in Jakarta. Started in 2021,
                             TokoLokal become a point for fashion and lifestyle from Indonesian local brands. TokoLokal
                             is a place for curated local products to compete with international products.</p>

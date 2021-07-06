@@ -32,20 +32,7 @@ class HomeController extends Controller
     {
         $notifications = auth()->user()->unreadNotifications;
 
-        // auth()->user()->notify(new UserNotification());
-
-        // $user->notify(new UserNotification($user));
-
-        // return view('home', compact('notifications'));
-        
-        // dd($waitingpayment);
-        $others = Product::all();
-        // return view('/home', compact('others'));
-
-        return view('home', compact('notifications', 'others')); //others
-        // return view('/transactions/delivery_buy_now', compact('addresses', 'shipments', 'products'));
-        return view('/home');
-
+        return view('home', compact('notifications')); 
     }
 
 }

@@ -175,6 +175,13 @@ class ProductController extends Controller
         return view('products/manageproduct', compact('products'));
     }
 
+    public function home()
+    {
+        $others = Product::all();
+
+        return view('/home', compact( 'others'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -206,19 +213,22 @@ class ProductController extends Controller
 
     public function productwishsave(Request $request)
     {
-        $wishlist = product_user::all();
+        // $wishlist = product_user::all();
 
-        if (product_user::where('product_id', '=', $request->product_id)->exists() & product_user::where('user_id', '=', $request->user_id)->exists()) {
-            return back()->with('status', 'Item has already on wish list.');
-        } else {
+        // if($request->ajax()){
+            if (product_user::where('product_id', '=', $request->product_id)->exists() & product_user::where('user_id', '=', $request->user_id)->exists()) {
+                return back()->with('status', 'Item has already on wish list!');
+            } else {
 
-            $productwishsave = new product_user();
-            $productwishsave->product_id = $request->product_id;
-            $productwishsave->user_id = Auth::user()->id;
-            $productwishsave->save();
+                $productwishsave = new product_user();
+                $productwishsave->product_id = $request->product_id;
+                $productwishsave->user_id = Auth::user()->id;
+                $productwishsave->save();
 
-            return back()->with('status', 'item successfully added to wish wish!');
-        }
+                return back()->with('status', 'Item successfully added to wish list!');
+                // return view('menpage/tops_detail');
+            }
+        // }
     }
 
     /**
