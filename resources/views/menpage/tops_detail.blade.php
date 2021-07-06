@@ -23,23 +23,7 @@
         @endif
     </div>
     <div class="row">
-
-        <div class="col col-lg-2 border border-dark">
-            <img src="{{asset('../storage/images/Men Page/UpArrow.png')}}" width="100%;" alt="Image">
-            <br><br>
-            <img src="{{asset('../storage/images/Men Page/DownArrow.png')}}" width="100%;" alt="Image">
-        </div>
-        <div class="col-5 p-0">
-            <img src="{{asset('../storage/images/Products/' . $product_tops->productimage)}}" width="100%;"
-                height="300px;" alt="Image">
-        </div>
-        <div class="col">
-            <div class="card-body">
-
-
-
-
-        {{-- <div id='carousel-custom' class='col carousel slide m-0' data-interval='false'>
+        <div id='carousel-custom' class='col carousel slide m-0' data-interval='false'>
             <div class="row">
                 <div class="col-3">
                     <ol class='carousel-indicators justify-content-center flex-column'>
@@ -81,13 +65,8 @@
         </div>  
 
         <div class="col-6">
-            <div class="card p-4 border border-dark"> --}}
-               
-
-
-
-
-<!-- product about -->
+            <div class="card p-4 border border-dark"> 
+                <!-- product about -->
                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
                 <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
                 <p style="font-weight:bold;">Rp. {{number_format($product_tops->productprice)}}</p>
@@ -126,37 +105,33 @@
                     @guest
                     <div class="row" style="margin-bottom: -5%">
                         <div class="col-3 stage pt-2">
-                            <div class="heart"></div> {{-- kurang ke submitnya --}}
+                            <a href="/login"><div class="heart"></div></a>
                         </div>
                         <div class="col">
                             <button class="btn btn-light border border-dark"
-                                style="width:100%; background-color:white;"><a href="/login" class="card-link"
-                                    style="color:black;">Add to Cart</a></button>
+                                style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link"
-                                    style="color:white;">Buy Now</a></button>
+                            <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
                         </div>
                     </div>
                     @else
-                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-                    <input type="hidden" name="product_id" value="{{$product_tops->id}}">
+                    <input type="hidden" id="userid" name="user_id" value="{{Auth::user()->id}}">
+                    <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
                     <div class="row" style="margin-bottom: -5%">
-                        <div class="col-3 stage pt-2">
-                            <div class="heart"><input type="submit" /></div> {{-- kurang ke submitnya --}}
+                        <div class="col-3">
+                            <button type="submit" class="heart" style="border:none;"></button>
                         </div>
                         <div class="col">
                             <button type="submit" class="btn btn-light border border-dark"
-                                style="width:100%; background-color:white;" formaction="/cart-list/add">Add to
-                                Cart</button>
+                                style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy
-                                Now</button>
+                            <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
                         </div>
                     </div>
                     @endguest
@@ -189,8 +164,7 @@
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">
             <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="detail-tab" style="
-            margin: 0 4%;
-        ">
+            margin: 0 4%;">
                 <div class="row">
                     <div class="col-sm-1 col-md-2">
                         <p class="about-title">SKU              </p>
@@ -209,8 +183,7 @@
     </div>
     <div class="tab-pane fade mt-3 show mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">
         <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="sizedetail-tab" style="
-        margin: 0 4%;
-    ">
+        margin: 0 4%;">
             <div class="row">
                 <div class="col-sm-1 col-md-2">
                     <p class="about-title">Size :</p>
@@ -227,32 +200,8 @@
             </div>
         </div>
     </div>
-
     <div class="tab-pane fade show mt-3" id="review" role="tabpanel" aria-labelledby="review-tab">
         <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="sizedetail-tab">
-
-
-            <!--            
-            @guest
-            <div class="card mb-3" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: #F8F8F8">
-                <div class="form-group text-center mb-0 pt-2 bg-white">
-                    <label for="commentbox" class="font-weight-bold" style="color: #888888">Please, log in first to write review.</label>
-                </div>
-            </div>
-            @else
-            <div class="card mb-3" style="border-radius: 10px; box-shadow: 1px 2px #888888; background-color: #F8F8F8">
-                <div class="form-group">
-                    <div class="row my-1 ml-2">
-                        <label for="commentbox">Write and submit review:</label>
-                    </div>
-                    <div class="row my-1 ml-2">
-                        <textarea name="review" id="commentbox" rows="3" cols="123"></textarea>
-                        <button class="btn btn-light border border-dark ml-3 mt-3" type="submit" style="height:37px;"><a href="#" class="card-link" style="color:black;">Submit</a></button>
-                    </div>
-                </div>
-            </div>
-            @endguest -->
-
             @foreach($reviews as $review)
             @if($review->product_id == $product_tops->id)
             <div class="row">
@@ -325,12 +274,8 @@
             @endforeach
         </div>
     </div>
-
-
-
     <div class="tab-pane fade show mt-3" id="policy" role="tabpanel" aria-labelledby="policy-tab">
         <div class="tab-pane fade show active mt-4" id="policy" role="tabpanel" aria-labelledby="policy-tab">
-
             <ul class="m-4">
                 <p>
                     Refund request must be made within 14 days of delivery date. After 14 days from delivery
@@ -344,10 +289,8 @@
                     be replaced at TokoLokal cost.
                 </p>
             </ul>
-
         </div>
     </div>
-    {{-- </div> --}}
 </div>
 
 <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
@@ -366,34 +309,62 @@
 
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>
-    $(document).ready(function() {
-            $('.increment-btn').click(function(e) {
-                e.preventDefault();
-                var incre_value = $(this).parents('.quantity').find('.qty-input').val();
-                var value = parseInt(incre_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value < 100) {
-                    value++;
-                    $(this).parents('.quantity').find('.qty-input').val(value);
-                }
-            });
+$(document).ready(function() {
+    $('.increment-btn').click(function(e) {
+        e.preventDefault();
+        var incre_value = $(this).parents('.quantity').find('.qty-input').val();
+        var value = parseInt(incre_value, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value < 100) {
+            value++;
+            $(this).parents('.quantity').find('.qty-input').val(value);
+        }
+    });
 
-            $('.decrement-btn').click(function(e) {
-                e.preventDefault();
-                var decre_value = $(this).parents('.quantity').find('.qty-input').val();
-                var value = parseInt(decre_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value > 1) {
-                    value--;
-                    $(this).parents('.quantity').find('.qty-input').val(value);
-                }
-            });
-        });
+    $('.decrement-btn').click(function(e) {
+        e.preventDefault();
+        var decre_value = $(this).parents('.quantity').find('.qty-input').val();
+        var value = parseInt(decre_value, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value > 1) {
+            value--;
+            $(this).parents('.quantity').find('.qty-input').val(value);
+        }
+    });
 
-        $(function() {
-  $(".heart").on("click", function() {
-    $(this).toggleClass("is-active");
-  });
+    // $(function() {
+    $(".heart").on("click", function() {
+        $(this).toggleClass("is-active");
+    });
+
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
+
+    // $('.heart').click(function () {
+    //     var user = $("#userid").val();
+    //     var product = $("#productid").val();
+    //     var url = "http://127.0.0.1:8000/wish-list/save"
+
+    //     // console.log(user, product);
+
+    //     $.ajax({
+    //         url: url,
+    //         method: 'POST',
+    //         // data: {user:user, product:product, url:url},
+    //         data: $("#wish-list").serialize(),
+    //         success: function(data){
+    //             if(data<1){
+    //                 alert("Data has already added");
+    //                 console.log(data)
+    //             }else{
+    //                 alert("Data has successfully added")
+    //             }
+    //         }
+    //     })
+    // });
 });
 </script>
 
