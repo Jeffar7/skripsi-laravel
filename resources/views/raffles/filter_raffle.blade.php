@@ -68,11 +68,11 @@
                                     @if($raffle->categoryraffle->categoryname === 'Top')
                                     <a href="/men-tops">{{$raffle->categoryraffle->categoryname}}</a>
                                     @elseif($raffle->categoryraffle->categoryname === 'Bottom')
-                                    <a href="/men-tops">{{$raffle->categoryraffle->categoryname}}</a>
+                                    <a href="/men-bottoms">{{$raffle->categoryraffle->categoryname}}</a>
                                     @elseif($raffle->categoryraffle->categoryname === 'Shoes')
-                                    <a href="/men-tops">{{$raffle->categoryraffle->categoryname}}</a>
+                                    <a href="/men-shoes">{{$raffle->categoryraffle->categoryname}}</a>
                                     @elseif($raffle->categoryraffle->categoryname === 'Accessories')
-                                    <a href="/men-tops">{{$raffle->categoryraffle->categoryname}}</a>
+                                    <a href="/men-accessories">{{$raffle->categoryraffle->categoryname}}</a>
                                     @endif
                                 </small>
                             </p>

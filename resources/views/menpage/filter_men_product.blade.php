@@ -7,7 +7,7 @@
 @enderror
 <div class="row">
     @foreach($products as $p)
-    <a href="/men-tops/detail/{{$p->id}}" style="color: black">
+    <a href="/product/detail/{{$p->id}}" style="color: black">
         <div class="pro col-4">     
             <!-- Gambar 1 -->
             <div class="card" style="width: 250px; border:none;height:270px;">
