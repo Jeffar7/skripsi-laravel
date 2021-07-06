@@ -18,7 +18,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'TOP',
                 'size' => 'XS',
                 'category_id' => 1,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -26,7 +25,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'TOP',
                 'size' => 'S',
                 'category_id' => 1,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -34,7 +32,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'TOP',
                 'size' => 'M',
                 'category_id' => 1,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -42,7 +39,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'TOP',
                 'size' => 'L',
                 'category_id' => 1,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -50,7 +46,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'TOP',
                 'size' => 'XL',
                 'category_id' => 1,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -58,7 +53,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'TOP',
                 'size' => 'XXL',
                 'category_id' => 1,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -66,7 +60,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'BOTTOM',
                 'size' => 'XS',
                 'category_id' => 2,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -74,7 +67,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'BOTTOM',
                 'size' => 'S',
                 'category_id' => 2,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -82,7 +74,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'BOTTOM',
                 'size' => 'M',
                 'category_id' => 2,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -90,7 +81,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'BOTTOM',
                 'size' => 'L',
                 'category_id' => 2,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -98,7 +88,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'BOTTOM',
                 'size' => 'XL',
                 'category_id' => 2,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -106,7 +95,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'BOTTOM',
                 'size' => 'XXL',
                 'category_id' => 2,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -114,7 +102,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'SHOES',
                 'size' => '37',
                 'category_id' => 3,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -122,7 +109,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'SHOES',
                 'size' => '38',
                 'category_id' => 3,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -130,7 +116,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'SHOES',
                 'size' => '39',
                 'category_id' => 3,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -138,7 +123,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'SHOES',
                 'size' => '40',
                 'category_id' => 3,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -146,7 +130,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'SHOES',
                 'size' => '41',
                 'category_id' => 3,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -154,7 +137,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'SHOES',
                 'size' => '42',
                 'category_id' => 3,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -162,7 +144,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'SHOES',
                 'size' => '43',
                 'category_id' => 3,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -170,7 +151,6 @@ class SizeDetailsSeeder extends Seeder
                 'category' => 'SHOES',
                 'size' => '44',
                 'category_id' => 3,
-                'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
