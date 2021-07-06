@@ -131,8 +131,8 @@ class BrandsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Hijack Sandal',
-                'picture' => 'Hijack Sandal/Hijack_Sandals.png',
-                'detail_picture' => 'Hijack Sandal/Display Picture/WEBSITE-SLIDER-PRODUCT-DEKSTOP-DALI-BLACH-2048x1024.jpg',
+                'picture' => 'Hijack Sandals/Hijack_Sandals.png',
+                'detail_picture' => 'Hijack Sandals/Display Picture/WEBSITE-SLIDER-PRODUCT-DEKSTOP-DALI-BLACH-2048x1024.jpg',
                 'owner' => 'Fahmi Faisal',
                 'website' => 'https://hijacksandals.com/',
                 'about' => '-',
@@ -254,9 +254,9 @@ class BrandsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Portee Goods',
-                'picture' => 'Portee Goods/PorteeGoods.png',
+                'picture' => 'PorteeGoods/PorteeGoods.png',
                 'owner' => 'Adhi Nugraha',
-                'detail_picture' => 'Portee Goods/Display Picture/slideshow-5_860x.jpg',
+                'detail_picture' => 'PorteeGoods/Display Picture/slideshow-5_860x.jpg',
                 'website' => 'https://porteegoods.com/',
                 'about' => "Portee Goods, one of Bandung's original local shoe products that has been established since 2011, provides various types of shoes that you can customize to suit your activities. There are two series of shoes sold, classic series and life series. Almost all Portee Goods shoes are multifunctional, perfect for wearing for formal or casual events.",
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
