@@ -103,7 +103,7 @@
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
                     <img src="{{ asset('../storage/images/Category/top.png') }}" class="rounded-0 image-cat" alt="..."
-                        width="550px" height="300px"> <!-- card-img -->
+                        width="550px" height="300px" style="object-fit:cover"> <!-- card-img -->
                     <div class="middle-cat">
                         <div class="text-cat"><a href="/top" style="text-decoration:none; color:black">TOP</a></div>
                     </div>
@@ -113,7 +113,7 @@
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
                     <img src="{{ asset('../storage/images/Category/bottom.png') }}" class="rounded-0 image-cat"
-                        alt="..." width="550px" height="300px"> <!-- card-img -->
+                        alt="..." width="550px" height="300px" style="object-fit:cover"> <!-- card-img -->
                     <div class="middle-cat">
                         <div class="text-cat"><a href="/bottom" style="text-decoration:none; color:black">BOTTOM</a>
                         </div>
@@ -125,7 +125,7 @@
                 <!--offset-md-3  mr-1 -->
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
                     <img src="{{ asset('../storage/images/Category/shoes.png') }}" class="rounded-0 image-cat" alt="..."
-                        width="550px" height="300px"> <!-- card-img -->
+                        width="550px" height="300px" style="object-fit:cover"> <!-- card-img -->
                     <div class="middle-cat">
                         <div class="text-cat"><a href="/shoes" style="text-decoration:none; color:black">SHOES</a></div>
                     </div>
@@ -135,7 +135,7 @@
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
                     <img src="{{ asset('../storage/images/Category/accessories.png') }}" class="rounded-0 image-cat"
-                        alt="..." width="550px" height="300px"> <!-- card-img -->
+                        alt="..." width="550px" height="300px" style="object-fit:cover"> <!-- card-img -->
                     <div class="middle-cat">
                         <div class="text-cat"><a href="/accessories"
                                 style="text-decoration:none; color:black">ACCESSORIES</a></div>
