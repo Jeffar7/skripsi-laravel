@@ -82,16 +82,6 @@ class WomenController extends Controller
             return view('womenpage/accessories', compact('products', 'brands', 'minprice', 'maxprice'));
     }
 
-    public function new()
-    {
-        return view('/womenpage/new');
-    }
-
-    public function sale()
-    {
-        return view('/womenpage/sale');
-    }
-
     public function filterWomen(Request $request)
     {
         if($request->ajax()){

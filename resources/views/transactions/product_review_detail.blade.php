@@ -11,12 +11,16 @@
                 @csrf
                 <div class="card shadow-lg">
                     <div class="card-header text-left bg-dark text-white">
+                        <i class="far fa-comment mr-2" style="
+    color: black;
+    font-size: 16px;
+"></i>
                         <strong>
                             Write Review
                         </strong>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mx-4">
                             <div class="col-4">
                                 <img src="{{asset('../storage/images/Products/' . $product->productimage)}}" alt="Image" width="100%;">
                             </div>
@@ -24,7 +28,6 @@
                             <div class="col-8">
                                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product->brand->name}}</p>
                                 <p class="mb-0" style="font-weight:bold;">{{$product->productname}}</p>
-                                <p>{{$product->productdescription}}</p>
                                 <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">
                                 <input type="hidden" name="product_id" value="{{$product->id}}">
 
@@ -63,7 +66,7 @@
 
                                 <div class="form-group mt-2">
                                     <p>What do you think about this product?</p>
-                                    <textarea name="review_description" class="form-control" id="exampleFormControlTextarea1" rows="3" col="2"></textarea>
+                                    <textarea name="review_description" class="form-control notes" id="exampleFormControlTextarea1" placeholder="type your review here..." rows="3" col="2"></textarea>
                                 </div>
 
                                 <div class="row justify-content-end">
@@ -111,7 +114,7 @@
     });
 </script>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 

@@ -159,9 +159,29 @@ Route::group(['middleware' =>  'role:customer'], function () {
 
 
 
+//notiification 
+Route::get('/test', function(){
+    $notifications = auth()->user()->unreadNotifications;
+    foreach($notifications as $notification){
+         dd($notification->data['user']['name']); //buat yang duplicate array
+    }
+});
+
+Route::get('/markAsRead', function(){
+    auth()->user()->unreadNotifications->markAsRead();
+});
+
+// Route::get('/', function () {
+
+//     return view('home');
+// });
+
+// Route::delete('/notification-/delete/{id}', 'NotificationController@destroywish');
+Route::get('/notification', 'NotificationController@show');
 
 // Check again this route
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'ProductController@home')->name('home');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/pagehome', 'PageController@home')->middleware('auth');
 Route::get('/homeman', 'PageController@homeman')->name('homeman');;
@@ -177,6 +197,7 @@ Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription')
 
 Route::get('/brands/{brand}', 'BrandController@show');
 Route::get('/allbrand', 'BrandController@allbrand')->name('brand');
+
 Route::get('/event', 'EventController@event');
 Route::get('/events/detail/{event}', 'EventController@eventdetail');
 
@@ -185,13 +206,14 @@ Route::get('/product/detail/{product}', 'ManController@topsdetail');
 Route::get('/men-bottoms', 'ManController@bottoms');
 Route::get('/men-shoes', 'ManController@shoes');
 Route::get('/men-accessories', 'ManController@accessories');
-Route::get('/men-new', 'ManController@new');
-Route::get('/men-sale', 'ManController@sale');
+// Route::get('/men-new', 'ManController@new');
+// Route::get('/men-sale', 'ManController@sale');
 Route::get('/men', 'ManController@men');
 Route::post('/men', 'ManController@filterMen')->name('men');
 Route::post('/men-tops', 'ManController@filterMenTops')->name('men-tops');
 Route::post('/men-bottoms', 'ManController@filterMenBottoms')->name('men-bottoms');
 Route::post('/men-accessories', 'ManController@filterMenAccessories')->name('men-accessories');
+Route::post('/men-shoes', 'ManController@filterMenShoes')->name('men-shoes');
 
 Route::get('/women', 'WomenController@women');
 Route::post('/women', 'WomenController@filterWomen')->name('women');
@@ -203,8 +225,6 @@ Route::get('/women-shoes', 'WomenController@shoes');
 Route::post('/women-shoes', 'WomenController@filterWomenShoes')->name('women-shoes');
 Route::get('/women-accessories', 'WomenController@accessories');
 Route::post('/women-accessories', 'WomenController@filterWomenAccessories')->name('women-accessories');
-Route::get('/women-new', 'WomenController@new');
-Route::get('/women-sale', 'WomenController@sale');
 
 Route::get('/search', 'ProductController@search')->name('search');
 Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
@@ -251,7 +271,10 @@ Route::get('/termsandcondition', function () {
     return view('pages/terms');
 });
 
-
+// Privacy Policy
+Route::get('/privacypolicy', function () {
+    return view('pages/privacypolicy');
+});
 
 
 

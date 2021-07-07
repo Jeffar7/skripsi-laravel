@@ -4,7 +4,7 @@
 
 @section('extra-css')
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -48,17 +48,19 @@
 @endsection
 
 @section('content')
-<div class="container pt-2">
+<div class="container mt-2 mb-5">
   <div class="row justify-content-center mb-3">
     <div class="col-md-12 text-center">
-      <div class="breadcrumb-a flat my-4">
-        <a class="col-sm-4">DELIVERY</a>
-        <a class="col-sm-4">SUMMARY</a>
-        <a class="active col-sm-4">PAYMENT</a>
+      <div class="breadcrumb-a flat mt-4 mb-5">
+        <a class="col-sm-4"><span class="ml-2">DELIVERY</span></a>
+        <a class="col-sm-4"><span class="ml-2">SUMMARY</span></a>
+        <a class="active col-sm-4"><span class="ml-2">PAYMENT</span></a>
       </div>
-      <div class="card shadow-lg">
+      <div class="card" style="box-shadow: 4px 4px 4px 4px #888888;">
         <div class="card-header text-left bg-dark text-white">
-          <strong>
+          <img src="{{ asset('../storage/images/Transaction Page/paymentLogo.png') }}" alt=""
+                            style="width: 2%;height: 20px;margin-top: -0.5%;">
+          <strong class="ml-2">
             Payment Overview
           </strong>
         </div>
@@ -202,7 +204,7 @@
 
                 <div class="col-md-6 mb-3">
                   <label for="account_number">Account Number</label>
-                  <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="11 digits number : ex:12345678910" required>
+                  <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="ex: 12345678910" required>
                 </div>
               </div>
 
@@ -224,7 +226,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-center mt-3">
+      <div class="row justify-content-center mt-5">
 
         <div class="col-md-6 text-left">
           <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
@@ -234,12 +236,10 @@
           <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
         </div>
       </div>
-
-    </div>
   </div>
 </div>
 
-<script>
+<!-- <script>
   (function() {
     $('form > input').keyup(function() {
 
@@ -257,7 +257,7 @@
       }
     });
   })()
-</script>
+</script> -->
 
 <script>
   $(document).on('change', '.div-toggle-payment', function() {
@@ -269,16 +269,22 @@
   $(document).ready(function() {
     $('.div-toggle-payment').trigger('change');
 
+    $('#submitBtn').attr('disabled', 'disabled');
+
     $('#select_payment').on('change', function() {
       var option_value = $(this).val();
       if (option_value == 'credit') {
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#payment-form").submit(); // Submit the form
         });
       } else if (option_value == 'debit') {
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#debit_payment").submit(); // Submit the form
         });
+      } else {
+        $('#submitBtn').attr('disabled', 'disabled');
       }
     });
 

@@ -7,35 +7,41 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item"><a href="/men" class="text-dark">Men</a></li>
+			<li class="breadcrumb-item"><a href="/men" class="text-dark">Men</a></li>
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Bottom</li>
         </ol>
     </nav>
-    <div class="big-image-men">
-        <div class="overlay">
-            <h3>BOTTOMS FOR MEN</h3>
-        </div>
-    </div>
+
+	<div class="col-md-12 mb-1 p-0">
+		<div class="card rounded-0 border-0 con-photo">
+			<img src="{{ asset('../storage/images/Men Page/men.jpg') }}" class="rounded-0 image-cat"
+				alt="Men Display Picture" width="1110px" height="472px" style="object-fit: cover;">
+			<div class="middle-cat">
+				<div class="text-cat">MEN</div>
+			</div>
+		</div>
+	</div>
+
 </div>
 
 <div class="container pb-4">
     <div class="row">
         <div class="col">
 		</div>
-		<div class="col text-right">
+		<div class="col text-right mr-3">
 			<div class="row">
-				<div class="col px-0">
+				<div class="col px-0 mr-3">
 					<p class="" style="font-weight:bold;">Sort By</p>
 				</div>
 
-				<div class="col-sm-3 text-left">
+				<div class="text-left">
 					<form name="sortProducts" id="sortProducts">
-						<input type="hidden" name="url" id="url" value="{{ route('men-bottoms') }}">
+						<input type="hidden" name="url" id="url" value="http://127.0.0.1:8000/men-bottoms">
 						<select id="sort" name="sort">
-							<option value="product_relevance" @if (request()->sort == "product_relevance") selected @endif>Relevance</option>
-							<option value="product_price_low_high" @if (request()->sort == "product_price_low_high") selected @endif>Price: Low to High</option>
-							<option value="product_price_high_low" @if (request()->sort == "product_price_high_low") selected @endif>Price: High to Low</option>
-							<option value="product_latest" @if (request()->sort == "product_latest") selected @endif>Latest Arrivals</option>
+							<option value="product_relevance">Relevance</option>
+							<option value="product_price_low_high">Price: Low to High</option>
+							<option value="product_price_high_low">Price: High to Low</option>
+							<option value="product_latest">Latest Arrivals</option>
 						</select>
 					</form>
 				</div>
@@ -45,76 +51,94 @@
 
     <div class="row">
 		<div class="col-3">
-			<div class="card px-2 border border-dark" >
-				<p class="mb-1 pt-2 font-weight-bold">Men's Bottom (<span class="countMen"></span>)</p>
-				
+			<div class="card border">
+				<div class="bg-light border-bottom filter-header">
+					<p class="mb-1 pt-2 px-2 font-weight-bold">Men Bottoms (<span class="countMen"></span>)</p>			
+				</div>
+
 				<input type="hidden" name="min_price" class="min_price" value="{{ $minprice }}" id="min_price"/>
 				<input type="hidden" name="max_price" class="max_price" value="{{ $maxprice }}" id="max_price"/>
 
-					<p class="mb-0 font-weight-bold">Price</p>
-					<div class="row">
-						<div class="col-md-6">
-							<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min">
+				<div class="bg-light border-bottom filter-header">
+					<p class="my-2 px-2 font-weight-bold" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
+						<i class="fas fa-chevron-up my-1 more-less"></i>
+						Price
+					</p>
+				</div>
+				<div class="collapse multi-collapse show" id="multiCollapseExample2">
+					<div class="px-2 mb-2">
+						<div class="row">
+							<div class="col-md-6">
+								<input type="text" id="amount_min" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="minprice" name="min">
+							</div>
+							<div class="col-md-6">
+								<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max">
+							</div>
 						</div>
-						<div class="col-md-6">
-							<input type="text" id="amount_max" style="border:0; color:#d64d2f; font-weight:bold; width:100%;" class="maxprice text-right" name="max">
-						</div>
+						<div id="slider-range" class="mx-2"></div>
 					</div>
-  					<div id="slider-range" class="mx-2"></div>
+				</div>
 
-					<hr class="my-2">
-
-					<p class="mb-1 font-weight-bold">Brand</p>
+				<div class="bg-light border-bottom filter-header">
+					<p class="my-2 px-2 font-weight-bold" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">
+						<i class="fas fa-chevron-down my-1 more-less"></i>
+						Brand
+					</p>
+				</div>
+				<div class="collapse multi-collapse" id="multiCollapseExample3">
 					@foreach ($brands as $brand)
-					<div class="mb-0 ml-2">
+					<div class="mt-1 mb-0 ml-2">
 						<label class="mb-0">
 							<input class="brand mb-0" name="brand[]" type="checkbox" value="{{ $brand->id }}">
 							{{ $brand->name }}
 						</label>
 					</div>
 					@endforeach
+				</div>
 
-					<hr class="my-2">
-
-					<div id="size_alphabet">
-						<p class="mb-1 font-weight-bold">Size</p>
-						<div class="mb-0 ml-2">
+				<div id="size_alphabet">
+					<div class="bg-light border-bottom filter-header">
+						<p class="p-2 font-weight-bold m-0" data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false" aria-controls="multiCollapseExample4">
+							<i class="fas fa-chevron-down my-1 more-less"></i>
+							Size
+						</p>
+					</div>
+					<div class="collapse multi-collapse" id="multiCollapseExample4">
+						<div class="mt-1 mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XS" @if (request()->size == "XS") checked @endif> XS
 							</label>
 						</div>
-						<div class="mb-0 ml-2">
+						<div class="mt-1 mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="S" @if (request()->size == "S") checked @endif> S
 							</label>
 						</div>
-						<div class="mb-0 ml-2">
+						<div class="mt-1 mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="M" @if (request()->size == "M") checked @endif> M
 							</label>
 						</div>
-						<div class="mb-0 ml-2">
+						<div class="mt-1 mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="L" @if (request()->size == "L") checked @endif> L
 							</label>
 						</div>
-						<div class="mb-0 ml-2">
+						<div class="mt-1 mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XL" @if (request()->size == "XL") checked @endif> XL
 							</label>
 						</div>
-						<div class="mb-0 ml-2">
+						<div class="mt-1 mb-0 ml-2">
 							<label class="mb-0">
 								<input class="size_alphabet mb-0" name="size_alphabet[]" type="checkbox" value="XXL" @if (request()->size == "XXL") checked @endif> XXL
 							</label>
 						</div>
 					</div>
-					
-					<div class="row">
-					</div>
-					<div>
-						<input type="button" value="RESET FILTER" id="btnUncheckAll" class="btn btn-light border border-dark mt-3 mb-3" style="width:100%; background-color:white;" />
-					</div>
+				</div>
+			</div>
+			<div>
+				<input type="button" value="RESET FILTER" id="btnUncheckAll" class="btn btn-light border border-dark mt-3 mb-3" style="width:100%; background-color:white;" />
 			</div>
 		</div>
         <!-- Akhir Drop Down -->
@@ -133,6 +157,10 @@
 
 <script>
 	$(document).ready(function(){
+		$('.filter-header').click(function() {
+            $(this).find('i').toggleClass('fas fa-chevron-down fas fa-chevron-up');
+        });
+
 		var itemCount = $('.filter_products').find(".pro").length;
     	$('.countMen').html(itemCount);
 
@@ -151,45 +179,43 @@
 			}
 		});
 
-		//sort in ajax
+		// sort in ajax
 		$("#sort").on('change', function(){
-			var category = getIds("category[]");
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
-			var sort = $(this).val();
-			var url = $(location).attr('href');
 			var min = $("#amount_min").val();
     		var max = $("#amount_max").val();
+			var sort = $(this).val();
+			var url = $(location).attr('href');
 			
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:cataegory, brand:brand, size_alphabet:size_alphabet, min:min, max:max, sort:sort, url:url},
+				data: {sort:sort, brand:brand, size_alphabet:size_alphabet, min:min, max:max, url:url},
 				success: function(data){
 					$('.filter_products').html(data);
 				}
 			})
 		});
 
-		//filter category
-		$(".category, .brand, .size_alphabet").on('click', function(){
-			var category = getIds("category[]");
+		//filter brand
+		$(".brand, .size_alphabet").on('change', function(){
 			var brand = getIds("brand[]");
 			var size_alphabet = getIds("size_alphabet[]");
-			var sort = $("#sort option:selected").text();
-			var url = $(location).attr('href');
 			var min = $("#amount_min").val();
     		var max = $("#amount_max").val();
+			var sort = $("#sort").val();
+			var url = $(location).attr('href');
 
 			$.ajax({
 				url: url,
 				method: 'POST',
-				data: {category:cataegory, brand:brand, size_alphabet:size_alphabet, min:min, max:max, sort:sort, url:url},
+				data: {sort:sort, brand:brand, size_alphabet:size_alphabet, min:min, max:max, url:url},
 				success: function(data){
 					$('.filter_products').html(data);
 					var itemCount = $('.filter_products').html(data).find(".pro").length;
     				$('.countMen').html(itemCount);
-					console.log("category success")
+					console.log(brand)
 				}
 			})
 		});
@@ -210,20 +236,21 @@
 				$("#amount_max").val(ui.values[1]);
 			}, 
 			change: function(event, ui) {
-				var min = $("#amount_min").val();
-    			var max = $("#amount_max").val();
-				var category = getIds("category[]");
 				var brand = getIds("brand[]");
 				var size_alphabet = getIds("size_alphabet[]");
+				var min = $("#amount_min").val();
+    			var max = $("#amount_max").val();
 				var sort = $("#sort").val();
 				var url = $(location).attr('href');
 			
 				$.ajax({
 					url: url,
 					method: 'POST',
-					data: {category:cataegory, brand:brand, size_alphabet:size_alphabet, min:min, max:max, sort:sort, url:url},
+					data: {brand:brand, size_alphabet:size_alphabet, min:min, max:max, url:url},
 					success: function(data){
 						$('.filter_products').html(data);
+						var itemCount = $('.filter_products').html(data).find(".pro").length;
+    					$('.countMen').html(itemCount);
 						console.log(min,max)
 					},
 					error: function (e) {
@@ -244,10 +271,25 @@
 					checkbox.checked = false;
 				}
 			});
-		});
 
-		$("#btnUncheckAll").on('click', function(){
-			window.location='{{ route("men-bottoms") }}';
+			var brand = getIds("brand[]");
+			var size_alphabet = getIds("size_alphabet[]");
+			var min = $("#amount_min").val();
+    		var max = $("#amount_max").val();
+			var sort = $("#sort").val();
+			var url = $(location).attr('href');
+
+			$.ajax({
+				url: url,
+				method: 'POST',
+				data: {sort:sort, brand:brand, size_alphabet:size_alphabet, min:min, max:max, url:url},
+				success: function(data){
+					$('.filter_products').html(data);
+					var itemCount = $('.filter_products').html(data).find(".pro").length;
+    				$('.countMen').html(itemCount);
+					console.log(brand)
+				}
+			})
 		});
 	});
 </script>

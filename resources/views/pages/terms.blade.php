@@ -7,10 +7,10 @@
     <div class="ta-title" style="color: white;">
         <img src="{{ asset('../storage/images/Terms & Condition Page/Terms&Condition.png') }}" height="200" alt=""
             style="width: 100%;">
-        <h5 class="centered">TERMS & CONDITIONS</h5>
+        <h5 class="centered font-weight-bold">TERMS & CONDITIONS</h5>
     </div>
 
-    <div class="container-xl">
+    <div class="container-xl my-5">
 
         <div class="spacing">
             <h5 class="text-terms">WELCOME</h5>
@@ -96,8 +96,9 @@
 
         <div class="spacing">
             <h5 class="text-terms">QUESTIONS & CONCERNS</h5>
-            <div class="silver"><p>If you have any questions or concerns about your online order and our policies please
-                contact us at info@tokolokal.com </p>
+            <div class="silver">
+                <p>If you have any questions or concerns about your online order and our policies please
+                    contact us at info@tokolokal.com </p>
 
                 <p></p>
                 <p>MAILING ADDRESS</p>

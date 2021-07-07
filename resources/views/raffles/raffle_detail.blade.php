@@ -16,7 +16,7 @@
 <div class="container">
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">
-            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 400px; max-width: 100%;">
+            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 500px; width: 100%;">
         </div>
     </div>
 
@@ -25,22 +25,28 @@
             <p class="h3 font-weight-bold" id="countdown"></p>
         </div>
         <div class="col-12 text-center">
-            <p>DAYS | HOURS | MINUTES | SECOND</p>
+            <p>DAYS | HOURS | MINUTES | SECONDS</p>
         </div>
     </div>
 
-    <hr>
-
-    <div class="row justify-content-center">
+    <div class="row justify-content-center my-4">
         <div class="col-12 text-center">
-            <p class="font-weight-normal mb-0">{{$raffle->raffledescription}}</p>
+            <p class="font-weight-normal mb-0" style="color: #ABABAB">{{$raffle->brand->name}}</p>
         </div>
     </div>
 
-    <hr>
+    <div class="offset-md-3 col-md-6 top-border"></div>
+
+    <div class="row justify-content-center my-4">
+        <div class="col-12 text-center">
+            <p class="font-weight-normal mb-0" style="color: #ABABAB">{{$raffle->raffledescription}}</p>
+        </div>
+    </div>
+
+    <div class="offset-md-3 col-md-6 top-border"></div>
 
     <div class="row justify-content-center">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center mt-3">
             <p class="h3 font-weight-bold"> {{$raffle->rafflename}}</p>
         </div>
     </div>
@@ -67,10 +73,10 @@
 
     <!-- Form -->
 
-    <form action="/raffle/submit" method="post">
+    <form action="/raffle/submit" method="post" class="">
         @csrf
         <div class="form-row justify-content-around">
-            <div class="col-md-4">
+            <div class="col-md-4 pl-3">
                 <div class="row mb-3">
                     <label for="firstname">First Name*</label>
                     <input type="text" id="firstname" class="form-control" value="{{Auth::user()->first_name}}" name="first_name">
@@ -113,7 +119,7 @@
 
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 pr-3">
                 <div class="row mb-3">
                     <label for="address">Number and street address*</label>
                     <input type="text" id="address" class="form-control" value="{{Auth::user()->address}}" name="address">
@@ -382,12 +388,19 @@
                     </select>
                 </div>
 
-                <div class="row mb-1 text-center">
-                    <p class="font-weight-normal">By submitting the form you agree to the Terms & Conditions below.</p>
+                <div class="row text-center">
+                    <p class="font-weight-normal" style="
+    font-size: 14px;
+">By submitting the form you agree to the Terms &amp; Conditions below.</p>
                 </div>
 
-                <div class="row mb-1 text-center">
-                    <p class="font-weight-normal">Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment will be taken and the product will be sent via your choosen delivery method after draw has closed. If unsucessful your held payment will be released after the close of the draw, depending on your bank this may take 3-5 days. You’ll receive a confirmation email when entering and once the draw closes if sucessful or unsuccesful. Full T&C’s are on our site.</p>
+                <div class="row  text-center">
+                    <p class="font-weight-normal" style="
+    font-size: 14px;
+">Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment
+                        will be taken and the product will be sent via your choosen delivery method after draw has
+                        closed. If unsucessful your held payment will be released after the close of the draw, depending
+                        on your bank this may take 3-5 days.</p>
                 </div>
 
                 <div class="row justify-content-around">
@@ -405,7 +418,7 @@
         <!-- End Hidden Input -->
 
         <div class="form-row justify-content-around mt-3">
-            <div class="col-md-10">
+            <div class="col-md-10 p-0">
                 <button type="input" class="btn btn-dark btn-block">Confirm Here</button>
             </div>
         </div>
@@ -413,7 +426,10 @@
 
     <!-- End Form -->
 
-    <div class="mb-5"></div>
+    <div class="mb-5 row justify-content-center mt-4">
+        <i class="fas fa-arrow-alt-circle-down mt-1"></i><a href="/termsandcondition" class="ml-2 font-weight-bold" style="text-decoration: none; color: black;">View full Terms & Conditions of this raffle</a>
+    </div>
+
 </div>
 
 <script>

@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\UserNotification;
 
 class RegisterController extends Controller
 {
@@ -110,7 +111,11 @@ class RegisterController extends Controller
         $detailaddress->zip_code = "-";
         $detailaddress->country = "-";
         $detailaddress->user_id = $user->id;
+
+        // auth()->user()->notify(new UserNotification());
         $detailaddress->save();
+
+        $user->notify(new UserNotification($user));
 
         return $user;
     }
