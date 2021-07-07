@@ -58,6 +58,10 @@ class StatusController extends Controller
     public function product_submit_review(Request $request)
     {
 
+        $request->validate([
+            'selected_rating' => 'required'
+        ]);
+
         //STORE DATA FROM FORM TO TABLE REVIEW
         $review = new Review();
         $review->product_id = $request->product_id;

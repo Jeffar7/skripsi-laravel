@@ -8,8 +8,7 @@
         <ol class="breadcrumb p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
             <li class="breadcrumb-item"><a href="/allraffle" class="text-dark">Raffle</a></li>
-            <li class="breadcrumb-item active text-bold text-dark" aria-current="page"
-                style="color:black;font-weight:bold;">{{$raffle->rafflename}}</li>
+            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$raffle->rafflename}}</li>
         </ol>
     </nav>
 </div>
@@ -17,8 +16,7 @@
 <div class="container">
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">
-            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}"
-                class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 500px; width: 100%;">
+            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 500px; width: 100%;">
         </div>
     </div>
 
@@ -81,14 +79,12 @@
             <div class="col-md-4 pl-3">
                 <div class="row mb-3">
                     <label for="firstname">First Name*</label>
-                    <input type="text" id="firstname" class="form-control" value="{{Auth::user()->first_name}}"
-                        name="first_name">
+                    <input type="text" id="firstname" class="form-control" value="{{Auth::user()->first_name}}" name="first_name">
                 </div>
 
                 <div class="row mb-3">
                     <label for="lastname">Last Name*</label>
-                    <input type="text" id="lastname" class="form-control" value="{{Auth::user()->last_name}}"
-                        name="last_name">
+                    <input type="text" id="lastname" class="form-control" value="{{Auth::user()->last_name}}" name="last_name">
                 </div>
 
                 <fieldset disabled>
@@ -100,8 +96,7 @@
 
                 <div class="row mb-3">
                     <label for="lastname">Province*</label>
-                    <input type="text" id="province" class="form-control"
-                        value="{{Auth::user()->detailaddress->province}}" name="province">
+                    <input type="text" id="province" class="form-control" value="{{Auth::user()->detailaddress->province}}" name="province">
                 </div>
 
                 <div class="row mb-3">
@@ -119,8 +114,7 @@
 
                 <div class="row mb-3">
                     <label for="postcode">Post Code*</label>
-                    <input type="number" id="postcode" class="form-control"
-                        value="{{Auth::user()->detailaddress->zip_code}}" name="post_code">
+                    <input type="number" id="postcode" class="form-control" value="{{Auth::user()->detailaddress->zip_code}}" name="post_code">
                 </div>
 
 
@@ -128,8 +122,7 @@
             <div class="col-md-4 pr-3">
                 <div class="row mb-3">
                     <label for="address">Number and street address*</label>
-                    <input type="text" id="address" class="form-control" value="{{Auth::user()->address}}"
-                        name="address">
+                    <input type="text" id="address" class="form-control" value="{{Auth::user()->address}}" name="address">
                 </div>
 
                 <div class="row mb-3">
@@ -139,14 +132,12 @@
 
                 <div class="row mb-3">
                     <label for="city">Town City*</label>
-                    <input type="text" id="city" class="form-control" value="{{Auth::user()->detailaddress->city}}"
-                        name="city">
+                    <input type="text" id="city" class="form-control" value="{{Auth::user()->detailaddress->city}}" name="city">
                 </div>
 
                 <div class="row mb-3">
                     <label for="firstname">Country*</label>
-                    <select id="country" name="country" class="form-control"
-                        value="{{Auth::user()->detailaddress->country}}">
+                    <select id="country" name="country" class="form-control" value="{{Auth::user()->detailaddress->country}}">
 
                         <option value="Afganistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
@@ -412,9 +403,9 @@
                         on your bank this may take 3-5 days.</p>
                 </div>
 
-                <div class="row">
-                    <p><input type="checkbox">
-                        <span class="ml-5">I understand the raffle payment terms.</span>
+                <div class="row justify-content-around">
+                    <p><input type="checkbox" required>
+                        I understand the raffle payment terms.
                     </p>
                 </div>
             </div>
@@ -438,19 +429,20 @@
     <div class="mb-5 row justify-content-center mt-4">
         <i class="fas fa-arrow-alt-circle-down mt-1"></i><a href="/termsandcondition" class="ml-2 font-weight-bold" style="text-decoration: none; color: black;">View full Terms & Conditions of this raffle</a>
     </div>
-    
+
 </div>
 
 <script>
     CountDownTimer('{{$raffle->rafflereleasedate}}', 'countdown');
-    function CountDownTimer(dt, id)
-    {
+
+    function CountDownTimer(dt, id) {
         var end = new Date('{{$raffle->raffleclosedate}}');
         var _second = 1000;
         var _minute = _second * 60;
         var _hour = _minute * 60;
         var _day = _hour * 24;
         var timer;
+
         function showRemaining() {
             var now = new Date();
             var distance = end - now;

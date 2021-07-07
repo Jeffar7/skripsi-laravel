@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'TokoLokal | Delivery')
+@section('title', 'TokoLokal | Review')
 
 @section('content')
 
@@ -32,8 +32,18 @@
                                 <input type="hidden" name="product_id" value="{{$product->id}}">
 
                                 <div class="form-group mb-0">
-                                    <p class="mb-0">Please, give rate for this product!</p>
+                                    <p class="mb-0 @error('selected_rating') is-invalid @enderror">Please, give rate for this product!</p>
                                 </div>
+
+                                <!-- Flash Error Message -->
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                    {{ $error }}
+                                    @endforeach
+                                </div>
+                                @endif
+                                <!-- End Flash Error Message -->
 
                                 <button type="button" class="btnrating btn btn-default btn-lg" data-attr="1" id="rating-star-1">
                                     <i class="fa fa-star" aria-hidden="true"></i>

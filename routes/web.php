@@ -92,6 +92,7 @@ Route::group(['middleware' =>  'auth'], function () {
     Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
     // RAFFLE
+    // Route::get('/raffle', 'RaffleController@raffle');
     Route::get('/raffles/checkout/{id}', 'RaffleController@raffleCheckout');
     Route::get('/raffles/checkout', 'RaffleController@raffleCheckoutView');
     Route::post('/raffles/summary', 'RaffleController@raffleSummary');
@@ -189,7 +190,7 @@ Route::get('/itemdetail', 'PageController@itemdetail');
 Route::get('/itemdetail', 'PageController@itemdetail');
 
 //GUEST
-Route::get('/raffle', 'RaffleController@raffle');
+Route::get('/raffle', 'RaffleController@raffleGuest');
 Route::get('/allraffle', 'RaffleController@allraffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
 Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');

@@ -37,6 +37,18 @@ class RaffleController extends Controller
         return view('/raffles/raffle', compact('raffles', 'joined'));
     }
 
+
+    public function raffleGuest()
+    {
+        $raffles = Raffle::where('status', '=', 'running')->orWhere('status', '=', 'not started')->paginate(3);
+        if (Auth::user()) {
+            $joined = raffle_user::where('user_id', '=', Auth::user()->id)->first();
+            return view('/raffles/raffle', compact('raffles', 'joined'));
+        } else {
+            return view('/raffles/raffle', compact('raffles'));
+        }
+    }
+
     public function allraffle(Request $request)
     {
         $raffles = Raffle::paginate(3);

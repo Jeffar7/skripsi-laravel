@@ -14,11 +14,10 @@
 
 <div class="col-md-12 mb-1 p-0">
     <div class="card rounded-0 border-0 con-photo">
-        <img src="{{ asset('../storage/images/Raffles/ahhagang.png') }}" class="rounded-0 image-cat"
-            alt="Men Display Picture"height="472px"> <!-- card-img -->
+        <img src="{{ asset('../storage/images/Raffles/ahhagang.png') }}" class="rounded-0 image-cat" alt="Men Display Picture" height="472px"> <!-- card-img -->
         <div class="middle-cat" style="color: white; opacity: 1;">
             <h1>Enter A Raffle</h1>
-        <h6>If you want to enter the raffle please read our rules & regulation first</h6>
+            <h6>If you want to enter the raffle please read our rules & regulation first</h6>
         </div>
     </div>
 </div>
@@ -30,9 +29,9 @@
     </div>
     <div class="row justify-content-around">
         @foreach($raffles as $raffle)
-        <div class="col-md-4 mb-3">
-            <div class="card rounded-lg" style="box-shadow: 4px 4px 4px 4px #888888;">
-                @if($raffle->id != $joined->raffle_id)
+        <div class="col-md-3 mb-3">
+            <div class="card rounded-lg shadow-lg">
+                @guest
                 <a href="/raffle/description/{{$raffle->id}}" class="text-decoration-none" style="color:black;">
                     <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="card-img-top p-3" alt="Image">
                     <div class="card-body border" style="background: #E5E5E5;">
@@ -40,7 +39,7 @@
                             <div class="col align-self-end">
                                 <p class="text-right mb-0">
                                     <!-- <u> -->
-                                        <small class="font-weight-bolder mr-5">Started From:</small>
+                                    <small class="font-weight-bolder mr-5">Started From:</small>
                                     <!-- </u> -->
                                 </p>
                             </div>
@@ -104,6 +103,7 @@
                     </div>
                 </a>
                 @else
+                @if($joined != null && $raffle->id == $joined->raffle_id )
                 <a href="#" class="text-decoration-none" style="color:black; pointer-events: none; cursor: default;">
                     <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="card-img-top p-3" alt="Image">
                     <div class="card-body border" style="background: #E5E5E5;">
@@ -174,7 +174,79 @@
                         </div>
                     </div>
                 </a>
+                @else
+                <a href="/raffle/description/{{$raffle->id}}" class="text-decoration-none" style="color:black;">
+                    <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="card-img-top p-3" alt="Image">
+                    <div class="card-body border" style="background: #E5E5E5;">
+                        <div class="row">
+                            <div class="col align-self-end">
+                                <p class="text-right mb-0">
+                                    <!-- <u> -->
+                                    <small class="font-weight-bolder">Started From:</small>
+                                    <!-- </u> -->
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-end">
+                                <h5 class="text-right">
+                                    <u>
+                                        <!-- <small></small> -->
+                                        {{date('d M Y',strtotime($raffle->rafflereleasedate))}}
+                                    </u>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-start">
+                                <p class="about-title mb-0">Item</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-start">
+                                <p class="mb-0">
+                                    {{$raffle->brand->name}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-start">
+                                <p class="font-weight-bolder mb-0">
+                                    {{$raffle->rafflename}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-start">
+                                <p class="about-title mb-0">Price</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-start">
+                                <p class="font-weight-normal mb-0">
+                                    Rp. {{number_format($raffle->raffleprice)}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col align-self-end text-right">
+                                @guest
+                                <a href="/register" class="btn btn-primary">Enter Now</a>
+                                @else
+                                @if($raffle->status === 'running')
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
+                                @elseif($raffle->status === 'closed')
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
+                                @else
+                                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
+                                @endif
+                                @endguest
+                            </div>
+                        </div>
+                    </div>
+                </a>
                 @endif
+                @endguest
             </div>
         </div>
         @endforeach
