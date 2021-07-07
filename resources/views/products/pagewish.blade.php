@@ -38,7 +38,8 @@
                 <div class="card-body">
                     <img src="{{asset('../storage/images/Products/' . $productwish->product->productimage)}}" width="400px;" alt="Image" style="
                     height: 220px;
-                    margin: 5% 0;
+                    margin: 5% 0; 
+                    object-fit:contain;
                 ">
                 </div>
             </div>

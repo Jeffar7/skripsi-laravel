@@ -240,9 +240,6 @@
       <button type="button" class="btn btn-dark" id="submitBtn">SUBMIT</button>
     </div>
     </div>
-    {{-- <div class="col-md-6 text-right my-4">
-      <button type="submit" class="btn btn-dark" style="width: 40%">SUBMIT</button>
-    </div> --}}
   </div>
 </div>
 
@@ -263,16 +260,23 @@
     // function submit() {
     //   console.log('berhasil');
 
+
+    $("#submitBtn").hide();
+
     $('#select_payment').on('change', function() {
       var option_value = $(this).val();
       if (option_value == 'credit') {
+        $("#submitBtn").show();
         $("#submitBtn").click(function() {
           $("#payment-form").submit(); // Submit the form
         });
       } else if (option_value == 'debit') {
+        $("#submitBtn").show();
         $("#submitBtn").click(function() {
           $("#debit_payment").submit(); // Submit the form
         });
+      } else {
+        $("#submitBtn").hide();
       }
     });
   });

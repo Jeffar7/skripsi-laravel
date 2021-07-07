@@ -236,15 +236,10 @@
           <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
         </div>
       </div>
-
-    </div>
-    {{-- <div class="col-md-6 text-right my-4">
-      <button type="submit" class="btn btn-dark" style="width: 40%">SUBMIT</button>
-    </div> --}}
   </div>
 </div>
 
-<script>
+<!-- <script>
   (function() {
     $('form > input').keyup(function() {
 
@@ -262,7 +257,7 @@
       }
     });
   })()
-</script>
+</script> -->
 
 <script>
   $(document).on('change', '.div-toggle-payment', function() {
@@ -274,16 +269,22 @@
   $(document).ready(function() {
     $('.div-toggle-payment').trigger('change');
 
+    $('#submitBtn').attr('disabled', 'disabled');
+
     $('#select_payment').on('change', function() {
       var option_value = $(this).val();
       if (option_value == 'credit') {
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#payment-form").submit(); // Submit the form
         });
       } else if (option_value == 'debit') {
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#debit_payment").submit(); // Submit the form
         });
+      } else {
+        $('#submitBtn').attr('disabled', 'disabled');
       }
     });
 

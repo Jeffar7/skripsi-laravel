@@ -18,7 +18,6 @@ class VouchersTableSeeder extends Seeder
             'type' => 'fixed',
             'value' => 20000,
             'category' =>'bronze',
-            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -27,7 +26,6 @@ class VouchersTableSeeder extends Seeder
             'type' => 'percent',
             'percent_off' => 10,
             'category' => 'silver',
-            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -36,7 +34,6 @@ class VouchersTableSeeder extends Seeder
             'type' => 'percent',
             'percent_off' => 20,
             'category' => 'gold',
-            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -45,7 +42,6 @@ class VouchersTableSeeder extends Seeder
             'type' => 'fixed',
             'value' => 50000,
             'category' => 'platinum',
-            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

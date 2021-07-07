@@ -3,25 +3,30 @@
         <div class="carousel-inner carousel-inner-custom w-100 px-3">
             @foreach($others as $key => $product)
             <div class="carousel-item carousel-item-custom col col-md-3 {{$key == 0 ? 'active' : '' }}">
-                <div class="card" style="width: 250px; border:none;height:270px;">
-                    <a href="/product/detail/{{$product->id}}" style="width: 250px; border:none;height:270px;"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="250px;" height="270px;" alt="Image" class="card-img-top border "></a>
+                <div class="card">
+                    <a href="/product/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img
+                            src="{{asset('../storage/images/Products/' . $product->productimage)}}"
+                            width="239.5px;" height="272px;" alt="Image" class="card-img-top border"></a>
                 </div>
-                <div class="card px-2 mb-4" style="width: 250px;height:270px; border:none; background-color: #f3f7f9">
+                <div class="card px-2 mb-4" style="border:none; background-color: #f3f7f9">
                     <a href="/product/detail/{{$product->id}}" style="color:black;">
-                        <p class="mt-3 mb-0 text-truncate font-weight-bold" >{{$product->productname}}</p>
+                        <p class="mt-3 mb-0 text-truncate font-weight-bold">{{$product->productname}}</p>
                     </a>
-                    <a class="about-title mb-0 font-weight-bold" style="color:#757575;" href="/brands/{{$product->brand->id}}">{{$product->brand->name}}</a>
-                    <p class="font-weight-bold mt-2">Rp. {{number_format($product->productprice)}}</p>
+                    <a class="about-title mb-0 bolder" style="color:#757575;"
+                        href="/brands/{{$product->brand->id}}">{{$product->brand->name}}</a>
+                    <p style="font-weight:bold;">Rp. {{number_format($product->productprice)}}</p>
                 </div>
             </div>
             @endforeach
         </div>
-        <a class="carousel-control-prev carousel-control-prev-custom w-auto" href="#myCarousel" role="button" data-slide="prev">
-            <span style="margin-bottom: 2500%"><i class="fa fa-angle-left" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
+        <a class="carousel-control-prev w-auto" href="#myCarousel" role="button" data-slide="prev">
+            <span style="margin-bottom: 1000%"><i class="fa fa-angle-left" aria-hidden="true"
+                    style="color:black; font-size:22px;"></i></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next carousel-control-next-custom w-auto" href="#myCarousel" role="button" data-slide="next">
-            <span style="margin-bottom: 2500%"><i class="fa fa-angle-right" aria-hidden="true" style="color:black; font-size:22px;"></i></span>
+        <a class="carousel-control-next w-auto" href="#myCarousel" role="button" data-slide="next">
+            <span style="margin-bottom: 1000%"><i class="fa fa-angle-right" aria-hidden="true"
+                    style="color:black; font-size:22px;"></i></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
