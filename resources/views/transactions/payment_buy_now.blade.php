@@ -231,7 +231,7 @@
         </div>
 
         <div class="col-md-6 text-right">
-          <button type="submit" class="btn btn-dark" id="submitBtn" disabled="disabled">SUBMIT</button>
+          <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
         </div>
       </div>
 

@@ -391,7 +391,7 @@
                 </div>
 
                 <div class="row justify-content-around">
-                    <p><input type="checkbox">
+                    <p><input type="checkbox" required>
                         I understand the raffle payment terms.
                     </p>
                 </div>
@@ -418,14 +418,15 @@
 
 <script>
     CountDownTimer('{{$raffle->rafflereleasedate}}', 'countdown');
-    function CountDownTimer(dt, id)
-    {
+
+    function CountDownTimer(dt, id) {
         var end = new Date('{{$raffle->raffleclosedate}}');
         var _second = 1000;
         var _minute = _second * 60;
         var _hour = _minute * 60;
         var _day = _hour * 24;
         var timer;
+
         function showRemaining() {
             var now = new Date();
             var distance = end - now;
