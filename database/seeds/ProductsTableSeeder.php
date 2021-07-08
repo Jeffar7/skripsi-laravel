@@ -81,7 +81,7 @@ class ProductsTableSeeder extends Seeder
                 'sku' => 'AG.BLO-UA010',
                 'productprice' => 385000,
                 'productsize' => 'XL',
-                'productquantity' => 20, 
+                'productquantity' => 20,
                 'productcolor' => 'Black',
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
@@ -167,7 +167,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.2 gram',
                 'productcare' => 'Not Machine Washable',
                 'productmaterial' => 'Paper',
-                'productimage' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/ALL_GONE_BOOK_2020.jpg',
+                'productimage' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/ALL_GONE_BOOK_2020.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -310,7 +310,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 1,
                 'gender_id' => 2,
-                'image_detail_id' => 16,                
+                'image_detail_id' => 16,
                 'productname' => 'PATTA CURVE LOGO LONGSLEEVE',
                 'productdescription' => 'PATTA CURVE LOGO LONGSLEEVE',
                 'sku' => 'AG.BLO-UA029',
@@ -329,7 +329,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 1,
                 'gender_id' => 2,
-                'image_detail_id' => 17, 
+                'image_detail_id' => 17,
                 'productname' => 'PATTA WEIRD BABY HOODED SWEATER',
                 'productdescription' => 'PATTA WEIRD BABY HOODED SWEATER',
                 'sku' => 'AG.BLO-UA030',
@@ -348,7 +348,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 1,
                 'gender_id' => 2,
-                'image_detail_id' => 18, 
+                'image_detail_id' => 18,
                 'productname' => 'SPACE MONKEY ELEMENTS',
                 'productdescription' => 'SPACE MONKEY ELEMENTS – WHITE',
                 'sku' => 'AG.BLO-UA031',
@@ -368,7 +368,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 2,
                 'gender_id' => 2,
-                'image_detail_id' => 19, 
+                'image_detail_id' => 19,
                 'productname' => 'AGLXY POPPLIN SHORTS 012',
                 'productdescription' => 'Black Popplin shorts
                 AGLXY label patch on lower front LHS
@@ -391,7 +391,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 20, 
+                'image_detail_id' => 20,
                 'productname' => 'AGLXY X BAKMI GM NOODLE BOWL',
                 'productdescription' => 'AGLXY X BAKMI GM NOODLE BOWL',
                 'sku' => 'AG.BLO-UA020',
@@ -410,7 +410,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 21, 
+                'image_detail_id' => 21,
                 'productname' => 'CONTEMPORARY PIGEON PIN',
                 'productdescription' => 'CONTEMPORARY PIGEON PIN',
                 'sku' => 'AG.BLO-UA021',
@@ -429,7 +429,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 22, 
+                'image_detail_id' => 22,
                 'productname' => 'PATTA SCRIPT P WATCH HAT',
                 'productdescription' => 'This iteration of the Patta Script P watch hat comes in a stylish Medieval Blue colour-way with 100% Acrylic keeping you warm and snug wherever you may be.',
                 'sku' => 'AG.BLO-UA022',
@@ -448,7 +448,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 23, 
+                'image_detail_id' => 23,
                 'productname' => 'TERRY THE SPACE SHUTTLE E-MONEY',
                 'productdescription' => '-E-money Card
                 -Credits are not yet included.',
@@ -468,7 +468,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 1,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 24, 
+                'image_detail_id' => 24,
                 'productname' => 'THE DISCOVERY 006 – CARPET',
                 'productdescription' => 'THE DISCOVERY 006 – CARPET',
                 'sku' => 'AG.BLO-UA024',
@@ -487,7 +487,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 1,
-                'image_detail_id' => 25, 
+                'image_detail_id' => 25,
                 'productname' => 'AHHA DENIM RA KARTINI',
                 'productdescription' => 'AHHA DENIM RA KARTINI',
                 'sku' => 'AH.BLO-UA010',
@@ -498,7 +498,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'High Twist',
-                'productimage' => 'AHHA/Men/Tops/AHHA - DENIM RA KARTINI/AHHA_DENIM_RA_KARTINI.jpg',
+                'productimage' => 'AHHA/Men/Tops/AHHA - DENIM RA KARTINI/AHHA_DENIM_RA_KARTINI.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -506,7 +506,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 1,
-                'image_detail_id' => 26, 
+                'image_detail_id' => 26,
                 'productname' => 'Hoodie Si Pitung',
                 'productdescription' => 'AHHA - Hoodie Si Pitung',
                 'sku' => 'AH.BLO-UA011',
@@ -517,7 +517,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Fleece',
-                'productimage' => 'AHHA/Men/Tops/AHHA - Hoodie Si Pitung/AHHA-Hoodie_Si_Pitung.jpg',
+                'productimage' => 'AHHA/Men/Tops/AHHA - Hoodie Si Pitung/AHHA-Hoodie_Si_Pitung.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -525,7 +525,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 1,
-                'image_detail_id' => 27, 
+                'image_detail_id' => 27,
                 'productname' => 'Oversized T-Shirt - Cakil',
                 'productdescription' => 'AHHA Oversized T-Shirt - Cakil',
                 'sku' => 'AH.BLO-UA012',
@@ -536,7 +536,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Cakil/AHHA_Oversized_T-Shirt-Cakil.jpg',
+                'productimage' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Cakil/AHHA_Oversized_T-Shirt-Cakil.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -544,7 +544,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 1,
-                'image_detail_id' => 28, 
+                'image_detail_id' => 28,
                 'productname' => 'Oversized T-Shirt - Prambanan',
                 'productdescription' => 'AHHA Oversized T-Shirt - Prambanan',
                 'sku' => 'AH.BLO-UA013',
@@ -555,7 +555,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Prambanan/AHHA_Oversized_T-Shirt-Prambanan.jpg',
+                'productimage' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Prambanan/AHHA_Oversized_T-Shirt-Prambanan.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -563,7 +563,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 1,
-                'image_detail_id' => 29, 
+                'image_detail_id' => 29,
                 'productname' => 'Oversized T-Shirt - Si Pitung',
                 'productdescription' => 'AHHA - Oversized T-Shirt - Si Pitung',
                 'sku' => 'AH.BLO-UA015',
@@ -574,7 +574,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Si Pitung/AHHA-Oversized_T-Shirt-Si_Pitung.jpg',
+                'productimage' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Si Pitung/AHHA-Oversized_T-Shirt-Si_Pitung.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -582,7 +582,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 4,
                 'gender_id' => 1,
-                'image_detail_id' => 30, 
+                'image_detail_id' => 30,
                 'productname' => 'AHHA MASK Indo Pride Edition "PARANG HITAM"',
                 'productdescription' => 'Cotton material
                 Can be washed and reused',
@@ -594,7 +594,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'AHHA/Men/Accessories/AHHA MASK Indo Pride Edition PARANG HITAM/AHHA_MASK_Indo_Pride_Edition.jpg',
+                'productimage' => 'AHHA/Men/Accessories/AHHA MASK Indo Pride Edition PARANG HITAM/AHHA_MASK_Indo_Pride_Edition.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -602,7 +602,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 4,
                 'gender_id' => 1,
-                'image_detail_id' => 31, 
+                'image_detail_id' => 31,
                 'productname' => 'AHHA Navy Gym Bag',
                 'productdescription' => "-Using waterproof material
                 -Soft material and comfortable to use
@@ -617,7 +617,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Men/Accessories/AHHA Navy Gym Bag/AHHA_Navy_Gym_Bag.jpg',
+                'productimage' => 'AHHA/Men/Accessories/AHHA Navy Gym Bag/AHHA_Navy_Gym_Bag.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -625,7 +625,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 4,
                 'gender_id' => 1,
-                'image_detail_id' => 32, 
+                'image_detail_id' => 32,
                 'productname' => 'SlingBag AHHA Lenity Camo (Limited Edition)',
                 'productdescription' => "-Using waterproof material
                 -Soft material and comfortable to use
@@ -640,7 +640,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Men/Accessories/SlingBag AHHA Lenity Camo (Limited Edition)/SlingBag_AHHA_Lenity_Camo.jpg',
+                'productimage' => 'AHHA/Men/Accessories/SlingBag AHHA Lenity Camo (Limited Edition)/SlingBag_AHHA_Lenity_Camo.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -648,7 +648,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 2,
-                'image_detail_id' => 33, 
+                'image_detail_id' => 33,
                 'productname' => 'T-Shirt Diponegoro',
                 'productdescription' => 'AHHA - T-Shirt Diponegoro',
                 'sku' => 'AH.BLO-UA021',
@@ -659,7 +659,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Women/Tops/AHHA - T-Shirt Diponegoro/asdsdsds.jpg',
+                'productimage' => 'AHHA/Women/Tops/AHHA - T-Shirt Diponegoro/asdsdsds.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -667,7 +667,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 2,
-                'image_detail_id' => 34, 
+                'image_detail_id' => 34,
                 'productname' => 'AHHA - T-Shirt Fahombo (Limited Edition)',
                 'productdescription' => 'AHHA - T-Shirt Fahombo (Limited Edition)',
                 'sku' => 'AH.BLO-UA022',
@@ -678,7 +678,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Women/Tops/AHHA - T-Shirt Fahombo (Limited Edition)/FAFSFSe.jpg',
+                'productimage' => 'AHHA/Women/Tops/AHHA - T-Shirt Fahombo (Limited Edition)/FAFSFSe.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -686,7 +686,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 2,
-                'image_detail_id' => 35, 
+                'image_detail_id' => 35,
                 'productname' => 'AHHA - T-Shirt Let it Burn',
                 'productdescription' => 'AHHA - T-Shirt Let it Burn',
                 'sku' => 'AH.BLO-UA023',
@@ -697,7 +697,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Women/Tops/AHHA - T-Shirt Let it Burn/AHHA-T-Shirt_Let_it_Burn.jpg',
+                'productimage' => 'AHHA/Women/Tops/AHHA - T-Shirt Let it Burn/AHHA-T-Shirt_Let_it_Burn.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -705,7 +705,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 2,
-                'image_detail_id' => 36, 
+                'image_detail_id' => 36,
                 'productname' => 'AHHA - T-Shirt Unity Batik',
                 'productdescription' => 'AHHA - T-Shirt Unity Batik',
                 'sku' => 'AH.BLO-UA024',
@@ -716,7 +716,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'AHHA/Women/Tops/AHHA - T-Shirt Unity Batik/AHHA-T-Shirt_Unity_Batik.jpg',
+                'productimage' => 'AHHA/Women/Tops/AHHA - T-Shirt Unity Batik/AHHA-T-Shirt_Unity_Batik.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -724,7 +724,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 1,
                 'gender_id' => 2,
-                'image_detail_id' => 37, 
+                'image_detail_id' => 37,
                 'productname' => 'AHHA - T-Shirt Kerapan Sapi (Limited Edition)',
                 'productdescription' => '100% cotton with a special material that is not hot when used
                 Plastisol screen printing is strong and durable',
@@ -736,7 +736,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'AHHA/Women/Tops/T-Shirt Kerapan Sapi (Limited Edition)/AHHA-T-Shirt_Kerapan_Sapi.jpg',
+                'productimage' => 'AHHA/Women/Tops/T-Shirt Kerapan Sapi (Limited Edition)/AHHA-T-Shirt_Kerapan_Sapi.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -744,7 +744,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 38, 
+                'image_detail_id' => 38,
                 'productname' => 'AHHA MASK Indo Pride Edition "Jumputan"',
                 'productdescription' => 'Cotton material
                 Can be washed and reused',
@@ -756,7 +756,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'AHHA/Women/Accessories/AHHA MASK Indo Pride Edition Jumputan/AHHA_MASK_Indo_Pride_Edition.jpg',
+                'productimage' => 'AHHA/Women/Accessories/AHHA MASK Indo Pride Edition Jumputan/AHHA_MASK_Indo_Pride_Edition.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -764,7 +764,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 39, 
+                'image_detail_id' => 39,
                 'productname' => 'AHHA MASK Indo Pride Edition "TENUN TIMUR"',
                 'productdescription' => 'Cotton material
                 Can be washed and reused',
@@ -776,7 +776,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'AHHA/Women/Accessories/AHHA MASK Indo Pride Edition TENUN TIMUR/AHHA_MASK_Indo_Pride_Edition_TENUN_TIMUR.jpg',
+                'productimage' => 'AHHA/Women/Accessories/AHHA MASK Indo Pride Edition TENUN TIMUR/AHHA_MASK_Indo_Pride_Edition_TENUN_TIMUR.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -784,7 +784,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 40, 
+                'image_detail_id' => 40,
                 'productname' => 'Scrunchie Voal',
                 'productdescription' => "Voal material
                 There is a rail in the middle that locks the material so it doesn't run
@@ -798,7 +798,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'AHHA/Women/Accessories/Scrunchie Voal/Scrunchie_Voal.jpg',
+                'productimage' => 'AHHA/Women/Accessories/Scrunchie Voal/Scrunchie_Voal.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -806,7 +806,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 2,
                 'categoryid' => 4,
                 'gender_id' => 2,
-                'image_detail_id' => 41, 
+                'image_detail_id' => 41,
                 'productname' => 'Signature Pin Gold',
                 'productdescription' => 'The exclusive PIN with the AHHA Hijab logo is available in two colors, namely Gold and Silver. In the form of AHHA Hijab logo horizontally, PIN is equipped with pearl as the hook.
                 Size : 3x8 cm
@@ -819,7 +819,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Stainless Metal',
-                'productimage' => 'AHHA/Women/Accessories/Signature Pin Gold/Signature_Pin_Gold.jpg',
+                'productimage' => 'AHHA/Women/Accessories/Signature Pin Gold/Signature_Pin_Gold.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -827,7 +827,7 @@ class ProductsTableSeeder extends Seeder
                 'brandid' => 3,
                 'categoryid' => 1,
                 'gender_id' => 1,
-                'image_detail_id' => 42, 
+                'image_detail_id' => 42,
                 'productname' => 'AYE X SMILEY ARCA DYE SMI WHITE TEES',
                 'productdescription' => 'AYE X SMILEY Collaboration graphic tees made from 100% cotton.
                 Model is wearing size Small (170cm/55kg)',
@@ -839,7 +839,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Aye & Co/Men/Tops/AYE X SMILEY ARCA DYE SMI WHITE TEES/asa.jpg',
+                'productimage' => 'Aye & Co/Men/Tops/AYE X SMILEY ARCA DYE SMI WHITE TEES/asa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -867,7 +867,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Aye & Co/Men/Tops/AYE X SMILEY BELLATRO SMI - GREEN JACKET/faas.jpg',
+                'productimage' => 'Aye & Co/Men/Tops/AYE X SMILEY BELLATRO SMI - GREEN JACKET/faas.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -886,7 +886,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Aye & Co/Men/Tops/Aye X Smiley Olens smi Dye Blue Hoodie/dia.jpg',
+                'productimage' => 'Aye & Co/Men/Tops/Aye X Smiley Olens smi Dye Blue Hoodie/dia.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -921,7 +921,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Canvas Cotton',
-                'productimage' => 'Aye & Co/Men/Tops/AYE X SMILEY PATRON SMI BLUE TYPE 2 JACKET/bb.jpg',
+                'productimage' => 'Aye & Co/Men/Tops/AYE X SMILEY PATRON SMI BLUE TYPE 2 JACKET/bb.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -945,7 +945,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Aye & Co/Men/Tops/AYE X SMILEY VITA SMI PEACH TEES/taga.jpg',
+                'productimage' => 'Aye & Co/Men/Tops/AYE X SMILEY VITA SMI PEACH TEES/taga.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -1015,7 +1015,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Denim',
-                'productimage' => 'Aye & Co/Men/Bottom/AYE X SMILEY QUARE SMI - BLACK DISTRESSED JEANS/0A923613-02C7-46B6-8B07-45D483330D53-7802-000003575D712166_1604577726568_resized1024.jpg',
+                'productimage' => 'Aye & Co/Men/Bottom/AYE X SMILEY QUARE SMI - BLACK DISTRESSED JEANS/0A923613-02C7-46B6-8B07-45D483330D53-7802-000003575D712166_1604577726568_resized1024.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -1049,7 +1049,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Denim',
-                'productimage' => 'Aye & Co/Men/Bottom/BIGOLLO SLIM STRAIGHT SELVEDGE JEANS/DSCF6864_1587886312583_resized1024.jpg',
+                'productimage' => 'Aye & Co/Men/Bottom/BIGOLLO SLIM STRAIGHT SELVEDGE JEANS/DSCF6864_1587886312583_resized1024.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -1099,7 +1099,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Ripstop Cotton',
-                'productimage' => 'Aye & Co/Men/Bottom/Sentinell Green Cargo Pants/asvzcbfn.jpg',
+                'productimage' => 'Aye & Co/Men/Bottom/Sentinell Green Cargo Pants/asvzcbfn.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2608,7 +2608,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Elders Company/Men/Tops/Classic Garage – Raglan Navy Cream - 275K/hdnfdn.jpg',
+                'productimage' => 'Elders Company/Men/Tops/Classic Garage – Raglan Navy Cream - 275K/hdnfdn.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2629,7 +2629,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Fleece',
-                'productimage' => 'Elders Company/Men/Tops/Hoodie “Support The Culture” - 495K/gdghf.jpg',
+                'productimage' => 'Elders Company/Men/Tops/Hoodie “Support The Culture” - 495K/gdghf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2667,7 +2667,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Glove',
-                'productimage' => 'Elders Company/Men/Accessories/Elders Co X Supercub 125 Glove – Hornet - 775K/jgkkhgk.jpg',
+                'productimage' => 'Elders Company/Men/Accessories/Elders Co X Supercub 125 Glove – Hornet - 775K/jgkkhgk.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2687,7 +2687,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Glove',
-                'productimage' => 'Elders Company/Men/Accessories/Hornet Gloves – Black - 690K/ghgkghff.jpg',
+                'productimage' => 'Elders Company/Men/Accessories/Hornet Gloves – Black - 690K/ghgkghff.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2706,7 +2706,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '1000 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Stainless Metal',
-                'productimage' => 'Elders Company/Men/Accessories/Space - 4375K/gfhds.jpg',
+                'productimage' => 'Elders Company/Men/Accessories/Space - 4375K/gfhds.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2744,7 +2744,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Elders Company/Women/Tops/Hot Rod – Forest Green - 250K/fasaag.jpg',
+                'productimage' => 'Elders Company/Women/Tops/Hot Rod – Forest Green - 250K/fasaag.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2763,7 +2763,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Elders Company/Women/Tops/Womens Souvenir Jacket - 1.475K/hshfsg.jpg',
+                'productimage' => 'Elders Company/Women/Tops/Womens Souvenir Jacket - 1.475K/hshfsg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2782,7 +2782,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Elders Company/Women/Tops/Work Shirt “Snake” – Olive - 500K/ndffbs.jpg',
+                'productimage' => 'Elders Company/Women/Tops/Work Shirt “Snake” – Olive - 500K/ndffbs.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2802,7 +2802,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Elders Company/Women/Accessories/5 Panel Hat – Square - 125K/gagas.jpg',
+                'productimage' => 'Elders Company/Women/Accessories/5 Panel Hat – Square - 125K/gagas.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2821,7 +2821,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Stainless Metal',
-                'productimage' => 'Elders Company/Women/Accessories/Elders Ring Ftw – Gold - 350K/kfgfh.jpg',
+                'productimage' => 'Elders Company/Women/Accessories/Elders Ring Ftw – Gold - 350K/kfgfh.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -2859,7 +2859,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Get Dirrty/Men/Tops/Jesus Is King - 165k/JESUS_IS_KING.jpg',
+                'productimage' => 'Get Dirrty/Men/Tops/Jesus Is King - 165k/JESUS_IS_KING.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3006,7 +3006,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Denim',
-                'productimage' => 'Guten Inc/Men/Tops/Bullitt Raw Dark Blue Trucker Denim Jacket - 169K/gaga.jpg',
+                'productimage' => 'Guten Inc/Men/Tops/Bullitt Raw Dark Blue Trucker Denim Jacket - 169K/gaga.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3031,7 +3031,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Guten Inc/Men/Tops/Dover Black Shirt LS - 110K/gasfas.jpg',
+                'productimage' => 'Guten Inc/Men/Tops/Dover Black Shirt LS - 110K/gasfas.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3050,7 +3050,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Guten Inc/Men/Tops/GutenInc - Fantasy White T-Shirt - 79K/gasga.jpg',
+                'productimage' => 'Guten Inc/Men/Tops/GutenInc - Fantasy White T-Shirt - 79K/gasga.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3080,7 +3080,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Guten Inc/Men/Tops/Guten Inc - Smith Camp Collar Khaki - 110K/fasfa.jpg',
+                'productimage' => 'Guten Inc/Men/Tops/Guten Inc - Smith Camp Collar Khaki - 110K/fasfa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3119,7 +3119,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Windbreaker',
-                'productimage' => "Guten Inc/Men/Tops/Malibu blue Windbreaker - Men's Jacket Guteninc Coach Jacket - 179K/fasfasf.jpg",
+                'productimage' => "Guten Inc/Men/Tops/Malibu blue Windbreaker - Men's Jacket Guteninc Coach Jacket - 179K/fasfasf.JPG",
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3157,7 +3157,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Corduroy',
-                'productimage' => 'Guten Inc/Men/Bottom/Guteninc - Andrew Boardshort Cream - 100K/adas.jpg',
+                'productimage' => 'Guten Inc/Men/Bottom/Guteninc - Andrew Boardshort Cream - 100K/adas.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3182,7 +3182,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Twill',
-                'productimage' => 'Guten Inc/Men/Bottom/GutenInc - Leone Cargo Pants Olive - 140K/fagegag.jpg',
+                'productimage' => 'Guten Inc/Men/Bottom/GutenInc - Leone Cargo Pants Olive - 140K/fagegag.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3208,7 +3208,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Twill Cotton',
-                'productimage' => 'Guten Inc/Men/Bottom/Guteninc Fabio Black Chino Pants  - 135K/dadsae.jpg',
+                'productimage' => 'Guten Inc/Men/Bottom/Guteninc Fabio Black Chino Pants  - 135K/dadsae.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3233,7 +3233,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Denim',
-                'productimage' => 'Guten Inc/Men/Bottom/Rambler Dark Blue Washed Denim - 160K/GAGSAF.jpg',
+                'productimage' => 'Guten Inc/Men/Bottom/Rambler Dark Blue Washed Denim - 160K/GAGSAF.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3258,7 +3258,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Denim',
-                'productimage' => 'Guten Inc/Men/Bottom/Triumph Blue Washed Stretch Denim Pants - 160K/asfaf.jpg',
+                'productimage' => 'Guten Inc/Men/Bottom/Triumph Blue Washed Stretch Denim Pants - 160K/asfaf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3284,7 +3284,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Canvas',
-                'productimage' => 'Guten Inc/Men/Shoes/Campbell Classic Sneakers - 250K/asfa.jpg',
+                'productimage' => 'Guten Inc/Men/Shoes/Campbell Classic Sneakers - 250K/asfa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3318,7 +3318,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Crazy Horse',
-                'productimage' => 'Guten Inc/Men/Shoes/Caroe Wingtip CH Brown - 350K/dsadsre.jpg',
+                'productimage' => 'Guten Inc/Men/Shoes/Caroe Wingtip CH Brown - 350K/dsadsre.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3347,7 +3347,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Suede, Leather, Canvas, Mesh, Rubber',
-                'productimage' => 'Guten Inc/Men/Shoes/Guten Inc - Quincy Low Military Green - 250K/ASFAFa.jpg',
+                'productimage' => 'Guten Inc/Men/Shoes/Guten Inc - Quincy Low Military Green - 250K/ASFAFa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3375,7 +3375,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Leather, Suede, Rubber',
-                'productimage' => 'Guten Inc/Men/Shoes/Lucas Cool Grey - 250K/dsdssad.jpg',
+                'productimage' => 'Guten Inc/Men/Shoes/Lucas Cool Grey - 250K/dsdssad.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3399,7 +3399,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Stainless Steel',
-                'productimage' => 'Guten Inc/Men/Accessories/Ring Liberty Gold Matte - 120K/AFSAS.jpg',
+                'productimage' => 'Guten Inc/Men/Accessories/Ring Liberty Gold Matte - 120K/AFSAS.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3418,7 +3418,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton, Fleece',
-                'productimage' => 'Guten Inc/Women/Tops/GutenInc - Dead Chills Blue Hoodie - 160K/sfasfs.jpg',
+                'productimage' => 'Guten Inc/Women/Tops/GutenInc - Dead Chills Blue Hoodie - 160K/sfasfs.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3437,7 +3437,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Guten Inc/Women/Tops/GutenInc - OG College Grey T-Shirt - 80K/fssfse.jpg',
+                'productimage' => 'Guten Inc/Women/Tops/GutenInc - OG College Grey T-Shirt - 80K/fssfse.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3456,7 +3456,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Fleece',
-                'productimage' => 'Guten Inc/Women/Tops/OG College Brown Hoodie - 160K/sfasf.jpg',
+                'productimage' => 'Guten Inc/Women/Tops/OG College Brown Hoodie - 160K/sfasf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3485,7 +3485,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Leather, Suede, Rubber',
-                'productimage' => 'Guten Inc/Women/Shoes/Guten Inc- Lucas White Gum - 250K/fsfasssf.jpg',
+                'productimage' => 'Guten Inc/Women/Shoes/Guten Inc- Lucas White Gum - 250K/fsfasssf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3515,7 +3515,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Canvas, Floater, Rubber',
-                'productimage' => 'Guten Inc/Women/Shoes/Guteninc - Marty Sneakers White - 250K/AFSFa.jpg',
+                'productimage' => 'Guten Inc/Women/Shoes/Guteninc - Marty Sneakers White - 250K/AFSFa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3538,10 +3538,10 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Pyhlon',
-                'productimage' => 'Guten Inc/Women/Shoes/Ralph Sandal Cream - 80K/dsadsde.jpg',
+                'productimage' => 'Guten Inc/Women/Shoes/Ralph Sandal Cream - 80K/dsadsde.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ],            
+            ],
             [
                 'brandid' => 11,
                 'categoryid' => 4,
@@ -3587,7 +3587,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Canvas',
-                'productimage' => 'Guten Inc/Women/Accessories/Frins White Slingbag - Guteninc - 80K/sdss.jpg',
+                'productimage' => 'Guten Inc/Women/Accessories/Frins White Slingbag - Guteninc - 80K/sdss.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -3620,7 +3620,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Guten Inc/Women/Accessories/Masker Tali Strap Extender - Guteninc - 120K/gdgsdg.jpg',
+                'productimage' => 'Guten Inc/Women/Accessories/Masker Tali Strap Extender - Guteninc - 120K/gdgsdg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4652,7 +4652,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Tops/Brighter Day Tee - 249K/adsde.jpg',
+                'productimage' => 'Monstore/Men/Tops/Brighter Day Tee - 249K/adsde.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4671,7 +4671,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Tops/Constant Pleasure Green Jersey - 899K/FASFGs.jpg',
+                'productimage' => 'Monstore/Men/Tops/Constant Pleasure Green Jersey - 899K/FASFGs.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4690,7 +4690,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Tops/Constant Pleasure Tee - 249K/safsf.jpg',
+                'productimage' => 'Monstore/Men/Tops/Constant Pleasure Tee - 249K/safsf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4709,7 +4709,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Tops/Emotion Shirt - 599K/fafffsf.jpg',
+                'productimage' => 'Monstore/Men/Tops/Emotion Shirt - 599K/fafffsf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4728,7 +4728,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Tops/Monstore Cross Logo Tee Maroon - 149K/AFSFe.jpg',
+                'productimage' => 'Monstore/Men/Tops/Monstore Cross Logo Tee Maroon - 149K/AFSFe.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4747,7 +4747,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Tops/Positive Capability Chore Jacket Blue - 549K/afsf.jpg',
+                'productimage' => 'Monstore/Men/Tops/Positive Capability Chore Jacket Blue - 549K/afsf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4766,7 +4766,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Denim, Twill',
-                'productimage' => 'Monstore/Men/Bottom/Fantaisie Pants - 720K/FFAF.jpg',
+                'productimage' => 'Monstore/Men/Bottom/Fantaisie Pants - 720K/FFAF.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4785,7 +4785,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Twill Cotton',
-                'productimage' => 'Monstore/Men/Bottom/Jeune Cargo Pants - 680K/afsfssssf.jpg',
+                'productimage' => 'Monstore/Men/Bottom/Jeune Cargo Pants - 680K/afsfssssf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4804,7 +4804,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Accessories/Cross Bucket Hat Washed Green -180K/fafsfs.jpg',
+                'productimage' => 'Monstore/Men/Accessories/Cross Bucket Hat Washed Green -180K/fafsfs.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4823,7 +4823,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Accessories/DWPV Crystal Sling Bag - 150K/sdsafe.jpg',
+                'productimage' => 'Monstore/Men/Accessories/DWPV Crystal Sling Bag - 150K/sdsafe.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4846,7 +4846,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '100 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Accessories/DWPV Orion V2 Mask - 57K/afsfsfJPG.jpg',
+                'productimage' => 'Monstore/Men/Accessories/DWPV Orion V2 Mask - 57K/afsfsfJPG.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4865,7 +4865,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Accessories/Positive Capability Sling Bag - 180K/asfsfsf.jpg',
+                'productimage' => 'Monstore/Men/Accessories/Positive Capability Sling Bag - 180K/asfsfsf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4884,7 +4884,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '100 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Accessories/Recycle Tyrant Mask - 49K/fsaffre.jpg',
+                'productimage' => 'Monstore/Men/Accessories/Recycle Tyrant Mask - 49K/fsaffre.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4903,7 +4903,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '100 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Men/Accessories/WTF Replayrepliy Scarf - 91K/afsfafg.jpg',
+                'productimage' => 'Monstore/Men/Accessories/WTF Replayrepliy Scarf - 91K/afsfafg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4926,7 +4926,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Windbreaker',
-                'productimage' => 'Monstore/Women/Tops/Feast Windbreaker - 480K/sdadsde.jpg',
+                'productimage' => 'Monstore/Women/Tops/Feast Windbreaker - 480K/sdadsde.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4945,7 +4945,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Women/Tops/Home Chore Jacket Army Green - 549K/adsda.jpg',
+                'productimage' => 'Monstore/Women/Tops/Home Chore Jacket Army Green - 549K/adsda.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4964,7 +4964,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Women/Tops/Long weekend Pattern Kimono - 450K/DSAFS.jpg',
+                'productimage' => 'Monstore/Women/Tops/Long weekend Pattern Kimono - 450K/DSAFS.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -4983,7 +4983,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Bomber',
-                'productimage' => 'Monstore/Women/Tops/Mammon x Monstore Bomber Jacket - 479K/dadssde.jpg',
+                'productimage' => 'Monstore/Women/Tops/Mammon x Monstore Bomber Jacket - 479K/dadssde.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5002,7 +5002,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Twill',
-                'productimage' => 'Monstore/Women/Tops/Memoire Long Jacket Black - 800K/adssssda.jpg',
+                'productimage' => 'Monstore/Women/Tops/Memoire Long Jacket Black - 800K/adssssda.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5021,7 +5021,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester, Cotton',
-                'productimage' => 'Monstore/Women/Bottom/Moonlight Short - 360K/ASFFSa.jpg',
+                'productimage' => 'Monstore/Women/Bottom/Moonlight Short - 360K/ASFFSa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5040,7 +5040,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester, Cotton',
-                'productimage' => 'Monstore/Women/Bottom/Trespasser Short - 360K/asfsfaf.jpg',
+                'productimage' => 'Monstore/Women/Bottom/Trespasser Short - 360K/asfsfaf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5063,7 +5063,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Stainless Metal',
-                'productimage' => 'Monstore/Women/Accessories/Agatha Pricilla Enamel Pin - 72K/AFSFFe.jpg',
+                'productimage' => 'Monstore/Women/Accessories/Agatha Pricilla Enamel Pin - 72K/AFSFFe.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5086,7 +5086,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '100 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Women/Accessories/DWPV x LFBD Alpha Mask Tosca - 57K/adsfagsg.jpg',
+                'productimage' => 'Monstore/Women/Accessories/DWPV x LFBD Alpha Mask Tosca - 57K/adsfagsg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5109,7 +5109,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Canvas',
-                'productimage' => 'Monstore/Women/Accessories/Hindia Tote Bag Beige - 176K/ASAFSF.jpg',
+                'productimage' => 'Monstore/Women/Accessories/Hindia Tote Bag Beige - 176K/ASAFSF.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5128,7 +5128,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Canvas',
-                'productimage' => 'Monstore/Women/Accessories/Monstore Saving Graces Bag - 50K/SADSAFS.jpg',
+                'productimage' => 'Monstore/Women/Accessories/Monstore Saving Graces Bag - 50K/SADSAFS.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5147,7 +5147,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Monstore/Women/Accessories/SunEater Lanyard - 80K/dasdsde.jpg',
+                'productimage' => 'Monstore/Women/Accessories/SunEater Lanyard - 80K/dasdsde.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5166,7 +5166,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Scuba',
-                'productimage' => 'Monstore/Women/Accessories/WTF Summer Gloves Beige - 120K/SaaAFSF.jpg',
+                'productimage' => 'Monstore/Women/Accessories/WTF Summer Gloves Beige - 120K/SaaAFSF.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5202,7 +5202,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 160 - 250K/afsafa.jpg',
+                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 160 - 250K/afsafa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5236,7 +5236,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 321 - 250K/hfhfssd.jpg',
+                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 321 - 250K/hfhfssd.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5270,7 +5270,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 325 - 250K/jtfdsg.jpg',
+                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 325 - 250K/jtfdsg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5304,7 +5304,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 350 - 250K/hrfhg.jpg',
+                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 350 - 250K/hrfhg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5338,7 +5338,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 372 - 250K/hagag.jpg',
+                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 372 - 250K/hagag.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5374,7 +5374,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 385 - 250K/lukgy.jpg',
+                'productimage' => 'Nama Studios/Men/Accessories/LITE - NO. 385 - 250K/lukgy.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5410,7 +5410,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Women/Accessories/LITE - NO. 151 - 250K/ktktje.jpg',
+                'productimage' => 'Nama Studios/Women/Accessories/LITE - NO. 151 - 250K/ktktje.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5444,7 +5444,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Women/Accessories/LITE - NO. 301 - 250K/ggahhrr.jpg',
+                'productimage' => 'Nama Studios/Women/Accessories/LITE - NO. 301 - 250K/ggahhrr.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5478,7 +5478,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Women/Accessories/LITE - NO. 361 - 250K/hrkyky.jpg',
+                'productimage' => 'Nama Studios/Women/Accessories/LITE - NO. 361 - 250K/hrkyky.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5514,7 +5514,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '500 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Nylon',
-                'productimage' => 'Nama Studios/Women/Accessories/LITE - NO. 381 - 250K/fhfjtj.jpg',
+                'productimage' => 'Nama Studios/Women/Accessories/LITE - NO. 381 - 250K/fhfjtj.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -5866,7 +5866,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '100 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Oldblue/Men/Accessories/Bandana - The Loopin Good/Oldblue-Bandana-The-Loopin-Good.jpg',
+                'productimage' => 'Oldblue/Men/Accessories/Bandana - The Loopin Good/Oldblue-Bandana-The-Loopin-Good.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6427,7 +6427,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Hand wash normal, Line dry, No bleach, No tumble dry, Iron medium heat',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Pattent Goods/Men/Accessories/Boden Green - 36K/ykykf.jpg',
+                'productimage' => 'Pattent Goods/Men/Accessories/Boden Green - 36K/ykykf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6446,7 +6446,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Hand wash normal, Line dry, No bleach, No tumble dry, Iron medium heat',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Pattent Goods/Men/Accessories/Jax Navy - 36K/hjdgjdd.jpg',
+                'productimage' => 'Pattent Goods/Men/Accessories/Jax Navy - 36K/hjdgjdd.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6465,7 +6465,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Pattent Goods/Men/Accessories/Polo Cap Black - 150K/lgkhg.jpg',
+                'productimage' => 'Pattent Goods/Men/Accessories/Polo Cap Black - 150K/lgkhg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6484,7 +6484,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productmaterial' => 'Cotton',
                 'productcare' => 'Hand wash normal, Line dry, No bleach, No tumble dry, Iron medium heat',
-                'productimage' => 'Pattent Goods/Men/Accessories/Shelby Maroon - 36K/jtdjdf.jpg',
+                'productimage' => 'Pattent Goods/Men/Accessories/Shelby Maroon - 36K/jtdjdf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6503,7 +6503,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Pattent Goods/Men/Accessories/Vermi Navy Cap - 150K/kgkkyg.jpg',
+                'productimage' => 'Pattent Goods/Men/Accessories/Vermi Navy Cap - 150K/kgkkyg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6531,7 +6531,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Hand wash normal, Line dry, No bleach, No tumble dry, Iron medium heat',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Pattent Goods/Women/Accessories/Basic Circle Shibori - 75K/jdjfd.jpg',
+                'productimage' => 'Pattent Goods/Women/Accessories/Basic Circle Shibori - 75K/jdjfd.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6550,7 +6550,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Hand wash normal, Line dry, No bleach, No tumble dry, Iron medium heat',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Pattent Goods/Women/Accessories/Hidden 2 White - 35K/gdsgsds.jpg',
+                'productimage' => 'Pattent Goods/Women/Accessories/Hidden 2 White - 35K/gdsgsds.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6569,7 +6569,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Hand wash normal, Line dry, No bleach, No tumble dry, Iron medium heat',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Pattent Goods/Women/Accessories/Holo Red - 36K/agafasa.jpg',
+                'productimage' => 'Pattent Goods/Women/Accessories/Holo Red - 36K/agafasa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6588,7 +6588,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Hand wash normal, Line dry, No bleach, No tumble dry, Iron medium heat',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Pattent Goods/Women/Accessories/Solid Ruby - 38K/jdvdgs.jpg',
+                'productimage' => 'Pattent Goods/Women/Accessories/Solid Ruby - 38K/jdvdgs.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -6898,7 +6898,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' =>'Pot Meets Pop/Men/Tops/POT MEETS POP - GROOVY DUB HOODIE NAVY - 480K/a3c5c215-b5ba-462c-8353-f7ae6db92a9d.jpg',
+                'productimage' => 'Pot Meets Pop/Men/Tops/POT MEETS POP - GROOVY DUB HOODIE NAVY - 480K/a3c5c215-b5ba-462c-8353-f7ae6db92a9d.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7478,7 +7478,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Sage Denim/Men/Tops/Alaskan Front Tees Black - 200K/rhrrr.jpg',
+                'productimage' => 'Sage Denim/Men/Tops/Alaskan Front Tees Black - 200K/rhrrr.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7499,7 +7499,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton, Fleece',
-                'productimage' => 'Sage Denim/Men/Tops/Pierce Hoodie - 370K/gafa.jpg',
+                'productimage' => 'Sage Denim/Men/Tops/Pierce Hoodie - 370K/gafa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7521,7 +7521,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Rayon',
-                'productimage' => 'Sage Denim/Men/Tops/Sage x Havana Sunset  Mountain - 299K/jyfjg.jpg',
+                'productimage' => 'Sage Denim/Men/Tops/Sage x Havana Sunset  Mountain - 299K/jyfjg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7542,7 +7542,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Sage Denim/Men/Tops/Senjo Tees Khaki - 200K/agafas.jpg',
+                'productimage' => 'Sage Denim/Men/Tops/Senjo Tees Khaki - 200K/agafas.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7563,7 +7563,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'Sage Denim/Men/Tops/Solid Crafts JP Tees - 200K/assfsf.jpg',
+                'productimage' => 'Sage Denim/Men/Tops/Solid Crafts JP Tees - 200K/assfsf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7601,7 +7601,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Denim, Cotton, Selvedge',
-                'productimage' => 'Sage Denim/Men/Bottom/7th Anniversary Special  River 18oz Unsanforized Deep Indigo x Blue Weft - 1150K/zadag.jpg',
+                'productimage' => 'Sage Denim/Men/Bottom/7th Anniversary Special  River 18oz Unsanforized Deep Indigo x Blue Weft - 1150K/zadag.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7639,7 +7639,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Denim, Cotton, Selvedge',
-                'productimage' => 'Sage Denim/Men/Bottom/7th Anniversary Special  Sierra 18oz Unsanforized Deep Indigo x Brown Weft - 1150K/fasfasf.jpg',
+                'productimage' => 'Sage Denim/Men/Bottom/7th Anniversary Special  Sierra 18oz Unsanforized Deep Indigo x Brown Weft - 1150K/fasfasf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7673,7 +7673,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Denim, Cotton, Selvedge',
-                'productimage' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo Denim - 520K/gheh.jpg',
+                'productimage' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo Denim - 520K/gheh.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7707,7 +7707,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Denim, Cotton, Selvedge',
-                'productimage' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo x Black Denim- 600K/afseg.jpg',
+                'productimage' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo x Black Denim- 600K/afseg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7744,7 +7744,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Denim, Cotton, Selvedge',
-                'productimage' => 'Sage Denim/Men/Bottom/Wolfberg 21oz Sanforized Deep Indigo - 1250K/fafss.jpg',
+                'productimage' => 'Sage Denim/Men/Bottom/Wolfberg 21oz Sanforized Deep Indigo - 1250K/fafss.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7769,7 +7769,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Leather',
-                'productimage' => 'Sage Denim/Men/Accessories/Sage Craftworks  Bearer Belt Tan - 320K/fasff.jpg',
+                'productimage' => 'Sage Denim/Men/Accessories/Sage Craftworks  Bearer Belt Tan - 320K/fasff.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7794,7 +7794,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Leather',
-                'productimage' => 'Sage Denim/Men/Accessories/Sage Craftworks  Mountwise Bifold Wallet Natural - 600K/fasffs.jpg',
+                'productimage' => 'Sage Denim/Men/Accessories/Sage Craftworks  Mountwise Bifold Wallet Natural - 600K/fasffs.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -7818,7 +7818,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Leather',
-                'productimage' => 'Sage Denim/Men/Accessories/Talon Lanyard II Tan - 80K/agsf.jpg',
+                'productimage' => 'Sage Denim/Men/Accessories/Talon Lanyard II Tan - 80K/agsf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8282,7 +8282,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Brown - 135K/zvxzvxz.jpg',
+                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Brown - 135K/zvxzvxz.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8304,7 +8304,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Red - 135K/xzzcz.jpg',
+                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Red - 135K/xzzcz.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8326,7 +8326,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Smile Tee White - 143K/acxz.jpg',
+                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Smile Tee White - 143K/acxz.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8348,7 +8348,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Jarvis Short Sleeve Shirt Dark Olive - 250K/vxzx.jpg',
+                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Jarvis Short Sleeve Shirt Dark Olive - 250K/vxzx.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8371,7 +8371,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/abva.jpg',
+                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/abva.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8394,7 +8394,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue - 175K/vavsacx.jpg',
+                'productimage' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue - 175K/vavsacx.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8418,7 +8418,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Rubber',
-                'productimage' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/vava.jpg',
+                'productimage' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/vava.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8441,7 +8441,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Rubber',
-                'productimage' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/vavsa.jpg',
+                'productimage' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/vavsa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8460,7 +8460,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Leather',
-                'productimage' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/vavssa.jpg',
+                'productimage' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/vavssa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8479,7 +8479,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/agaa.jpg',
+                'productimage' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/agaa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8498,7 +8498,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Vinyl Sticker',
-                'productimage' => 'The Goods Dept/Men/Accessories/88RISING STICKER PACK - 29K/nsfnsf.jpg',
+                'productimage' => 'The Goods Dept/Men/Accessories/88RISING STICKER PACK - 29K/nsfnsf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8523,7 +8523,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Accessories/OVER-P EASY LARGE SLING BAG BLACK - 300K/agaf.jpg',
+                'productimage' => 'The Goods Dept/Men/Accessories/OVER-P EASY LARGE SLING BAG BLACK - 300K/agaf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8542,7 +8542,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Accessories/OVER-P EASY SHOULDER BAG BLACK - 180K/hljhl.jpg',
+                'productimage' => 'The Goods Dept/Men/Accessories/OVER-P EASY SHOULDER BAG BLACK - 180K/hljhl.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8563,7 +8563,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Sticker Vinyl',
-                'productimage' => 'The Goods Dept/Men/Accessories/STICKER PACK RIPPLE.MIX - 29K/jtjfg.jpg',
+                'productimage' => 'The Goods Dept/Men/Accessories/STICKER PACK RIPPLE.MIX - 29K/jtjfg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8582,7 +8582,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/gfnfg.jpg',
+                'productimage' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/gfnfg.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8601,7 +8601,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT SINGLE LOGO DRAWSTRING BAG - 49K/dnd.jpg',
+                'productimage' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT SINGLE LOGO DRAWSTRING BAG - 49K/dnd.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8626,7 +8626,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable, No bleach, No tumble dry',
                 'productmaterial' => 'Canvas',
-                'productimage' => 'The Goods Dept/Men/Accessories/The Goods Dept Tote Bag Jakarta Coklat - 149K/fasfa.jpg',
+                'productimage' => 'The Goods Dept/Men/Accessories/The Goods Dept Tote Bag Jakarta Coklat - 149K/fasfa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8647,7 +8647,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Wash color seperately, Wash Inside Out, Do not iron on graphic, Do not beach.',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Women/Tops/LOGO LONGSLEEVE .DARK BROWN.S - 279K/fafsad.jpg',
+                'productimage' => 'The Goods Dept/Women/Tops/LOGO LONGSLEEVE .DARK BROWN.S - 279K/fafsad.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8668,7 +8668,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Wash color seperately, Wash Inside Out, Do not iron on graphic, Do not beach.',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Women/Tops/MULTICOLOR TEE SS.BLUE - 249K/afsaf.jpg',
+                'productimage' => 'The Goods Dept/Women/Tops/MULTICOLOR TEE SS.BLUE - 249K/afsaf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8689,7 +8689,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Wash color seperately, Wash Inside Out, Do not iron on graphic, Do not beach.',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Women/Tops/PUFF TEE SS.MUSTARD - 249K/agsge.jpg',
+                'productimage' => 'The Goods Dept/Women/Tops/PUFF TEE SS.MUSTARD - 249K/agsge.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8710,7 +8710,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Wash color seperately, Wash Inside Out, Do not iron on graphic, Do not beach.',
                 'productmaterial' => 'Cotton',
-                'productimage' => 'The Goods Dept/Women/Tops/PUFF TEE SS.OFF WHITE - 249K/gafa.jpg',
+                'productimage' => 'The Goods Dept/Women/Tops/PUFF TEE SS.OFF WHITE - 249K/gafa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8729,7 +8729,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable',
                 'productmaterial' => 'Rubber',
-                'productimage' => 'The Goods Dept/Women/Shoes/88RISING SANDAL SLIP ON WHITE - 199K/asvacz.jpg',
+                'productimage' => 'The Goods Dept/Women/Shoes/88RISING SANDAL SLIP ON WHITE - 199K/asvacz.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8748,7 +8748,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable',
                 'productmaterial' => 'Leather',
-                'productimage' => 'The Goods Dept/Women/Shoes/DONNA FLAT SHOES BLUE - 175K/asva.jpg',
+                'productimage' => 'The Goods Dept/Women/Shoes/DONNA FLAT SHOES BLUE - 175K/asva.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8767,7 +8767,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable',
                 'productmaterial' => 'Knitted, Rubber',
-                'productimage' => 'The Goods Dept/Women/Shoes/GOODS LIZZY SANDAL MIX - 100K/vaasa.jpg',
+                'productimage' => 'The Goods Dept/Women/Shoes/GOODS LIZZY SANDAL MIX - 100K/vaasa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8788,7 +8788,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'The Goods Dept/Women/Shoes/GOODS ROUND HEELS GREEN - 149K/avszsax.jpg',
+                'productimage' => 'The Goods Dept/Women/Shoes/GOODS ROUND HEELS GREEN - 149K/avszsax.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8811,7 +8811,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Washable',
                 'productmaterial' => 'Rubber',
-                'productimage' => 'The Goods Dept/Women/Shoes/NEON SLIDE - PINK - 279K/aaa.jpg',
+                'productimage' => 'The Goods Dept/Women/Shoes/NEON SLIDE - PINK - 279K/aaa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8832,7 +8832,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Wash color separately, Wash inside out, Do not iron on graphic, Do not beach',
                 'productmaterial' => 'Cotton, Canvas',
-                'productimage' => 'The Goods Dept/Women/Accessories/LOGO HAT.OLIVE.F - 159K/ndn.jpg',
+                'productimage' => 'The Goods Dept/Women/Accessories/LOGO HAT.OLIVE.F - 159K/ndn.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8853,7 +8853,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Wash color separately, Wash inside out, Do not iron on graphic, Do not beach',
                 'productmaterial' => 'Cotton, Canvas',
-                'productimage' => 'The Goods Dept/Women/Accessories/MULTICOLOR TOTE.OFF WHITE - 179K/aczx.jpg',
+                'productimage' => 'The Goods Dept/Women/Accessories/MULTICOLOR TOTE.OFF WHITE - 179K/aczx.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8876,7 +8876,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Wash color separately, Wash inside out, Do not iron on graphic, Do not beach',
                 'productmaterial' => 'LDPE plastic with Bubble Wrap and Ziplock lid',
-                'productimage' => 'The Goods Dept/Women/Accessories/The Goods Dept TRANSPARANT POUCH SET - 55K/asczc.jpg',
+                'productimage' => 'The Goods Dept/Women/Accessories/The Goods Dept TRANSPARANT POUCH SET - 55K/asczc.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -8897,7 +8897,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '250 gram',
                 'productcare' => 'Wash color separately, Wash inside out, Do not iron on graphic, Do not beach',
                 'productmaterial' => 'Cotton, Canvas',
-                'productimage' => 'The Goods Dept/Women/Accessories/THUNDER R TOTE.OLIVE - 179K/avxzc.jpg',
+                'productimage' => 'The Goods Dept/Women/Accessories/THUNDER R TOTE.OLIVE - 179K/avxzc.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],

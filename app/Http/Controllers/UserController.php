@@ -63,7 +63,6 @@ class UserController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|email|unique:users',
             'gender' => 'required',
             'DOB' => 'required',
             'password' => 'required|string|min:8|confirmed',
@@ -71,7 +70,7 @@ class UserController extends Controller
             'address' => 'required|string',
             'site' => 'required',
             'about' => 'required|string|max:255',
-            'picture' => 'required|file',
+            'picture' => 'required|image',
             'phone' => 'required'
         ]);
 
@@ -159,7 +158,7 @@ class UserController extends Controller
             'DOB' => 'required',
             'address' => 'required|string',
             'about' => 'string|max:255',
-            'picture' => 'required'
+            'picture' => 'required|image'
         ]);
 
 
