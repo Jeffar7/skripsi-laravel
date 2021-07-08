@@ -67,7 +67,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'Ageless Galaxy/Men/Tops/AGLXY STRIPES/AGLXY_STRIPES.jpg',
+                'productimage' => 'Ageless Galaxy/Men/Tops/AGLXY STRIPES/AGLXY_STRIPES.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -124,7 +124,7 @@ class ProductsTableSeeder extends Seeder
                 'productweight' => '0.5 gram',
                 'productcare' => 'Machine Washable',
                 'productmaterial' => 'Polyester',
-                'productimage' => 'Ageless Galaxy/Men/Tops/WHATEVER IT TAKES 011/Whatever-it-Takes-012-Black-Front-Product-Image-555x555.jpg',
+                'productimage' => 'Ageless Galaxy/Men/Tops/WHATEVER IT TAKES 011/Whatever-it-Takes-012-Black-Front-Product-Image-555x555.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
