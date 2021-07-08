@@ -7,9 +7,20 @@
     <div class="row pt-4 pb-2">
         <h4>Edit Profile</h4>
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 </div>
+
+
+
 <div id="exTab1" class="container pb-5">
-   
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
         <div class="tab-content p-4">
             <div class="tab-pane fade show active" id="1a" role="tabpanel">
@@ -416,7 +427,7 @@
                             <div class="modal-body">
                                 <div class="faq-section-logo">
                                     <img src="http://127.0.0.1:8000/../storage/images/Wish List Page/DeleteLogo.png" class="rounded-0 image-cat" alt="Men Display Picture" width="50px" height="">
-                        </div>
+                                </div>
                                 <h3 class="text-center">Are you sure?</h3>
                                 <p class="text-center font-weight-normal mb-0">Do you really want to delete your <span class="font-weight-bold">account.</span> This process cannot be undone.</p>
                             </div>

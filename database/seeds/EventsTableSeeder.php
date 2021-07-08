@@ -19,7 +19,7 @@ class EventsTableSeeder extends Seeder
             [
                 'name' => 'BrightSpotMrkt',
                 'theme' => 'Event Management',
-                'picture' => 'BrightspotMrkt/Logo/Brightspotmrkt.jpg',
+                'picture' => 'BrightspotMrkt/Logo/BrightspotMrkt.jpg',
                 'detail_picture' => 'BrightspotMrkt/Display Picture/brightspot-market.jpg',
                 'held_on' => Carbon::now()->format('Y-m-d H:i:s'),
                 'website' => 'www.BrightSpotMrkt.com',
@@ -70,7 +70,7 @@ class EventsTableSeeder extends Seeder
             [
                 'name' => 'Para-site',
                 'theme' => 'Brand Development & Graphic Artworks',
-                'picture' => 'Para-Site/Logo/Para-site.jpg',
+                'picture' => 'Para-Site/Logo/Para-Site.jpg',
                 'detail_picture' => 'Para-Site/Display Picture/ilustrasi-event-streetwear-sumber-foto-citybuzz.jpg',
                 'held_on' => Carbon::now()->format('Y-m-d H:i:s'),
                 'website' => '-',
@@ -142,7 +142,7 @@ class EventsTableSeeder extends Seeder
             [
                 'name' => 'Wall of Fades',
                 'theme' => 'Environmental & Place Making',
-                'picture' => 'Wall Of Fades/Logo/Wall_of_Fades.jpg',
+                'picture' => 'Wall Of Fades/Logo/Wall_Of_Fades.jpg',
                 'detail_picture' => 'Wall Of Fades/Display Picture/foto-ultimagz.jpg',
                 'held_on' => Carbon::now()->format('Y-m-d H:i:s'),
                 'website' => 'https://www.darahkubiru.com/tag/wall-of-fades/',
