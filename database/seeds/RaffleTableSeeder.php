@@ -15,10 +15,10 @@ class RaffleTableSeeder extends Seeder
     {
         DB::table('raffles')->insert([
             [
-                'rafflename' => 'Gazzele Hi Black & White',
+                'rafflename' => 'NAH Project Shoes',
                 'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
                 'raffleprice' => 400000,
-                'raffleimage' => 'image.jpg',
+                'raffleimage' => 'raffle1.jpg',
                 'rafflequantity' => 10,
                 'rafflequota' => 15,
                 'rafflereleasedate' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -29,10 +29,10 @@ class RaffleTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'rafflename' => 'Gazzele Hi Pink',
+                'rafflename' => 'Compass Gazelle Low Black White',
                 'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
                 'raffleprice' => 350000,
-                'raffleimage' => 'image.jpg',
+                'raffleimage' => 'raffle2.jpg',
                 'rafflequantity' => 10,
                 'rafflequota' => 15,
                 'rafflereleasedate' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -43,10 +43,10 @@ class RaffleTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'rafflename' => 'Gazzele Low Blue Sky',
+                'rafflename' => 'Geoff Max Official - Authentic Black Gum',
                 'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
                 'raffleprice' => 352000,
-                'raffleimage' => 'image.jpg',
+                'raffleimage' => 'raffle3.jpg',
                 'rafflequantity' => 10,
                 'rafflequota' => 15,
                 'rafflereleasedate' => Carbon::now()->format('Y-m-d H:i:s'),
