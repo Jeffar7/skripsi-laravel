@@ -16,7 +16,7 @@
 <div class="container">
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">
-            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 500px; width: 100%;">
+            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 500px; width: 100%; object-fit:contain">
         </div>
     </div>
 
