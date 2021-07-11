@@ -15,48 +15,89 @@ class RaffleTableSeeder extends Seeder
     {
         DB::table('raffles')->insert([
             [
-                'rafflename' => 'Gazzele Hi Black & White',
+                'rafflename' => 'BLK Buck Barkley Saint Cls Heaven',
+                'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
+                'raffleprice' => 648000,
+                'raffleimage' => 'raffle4.jpg',
+                'rafflequantity' => 10,
+                'rafflequota' => 15,
+                'rafflereleasedate' => Carbon::create(2021, 7, 1)->format('Y-m-d H:i:s'),
+                'raffleclosedate' => Carbon::create(2021, 7, 5)->format('Y-m-d H:i:s'),
+                'brand_id' => 1,
+                'category_id' => 3,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'rafflename' => 'NAH Project Shoes',
                 'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
                 'raffleprice' => 400000,
-                'raffleimage' => 'image.jpg',
+                'raffleimage' => 'raffle1.jpg',
                 'rafflequantity' => 10,
                 'rafflequota' => 15,
                 'rafflereleasedate' => Carbon::now()->format('Y-m-d H:i:s'),
-                'raffleclosedate' => Carbon::tomorrow()->format('Y-m-d H:i:s'),
+                'raffleclosedate' => Carbon::create(2021, 7, 11)->format('Y-m-d H:i:s'),
                 'brand_id' => 1,
-                'category_id' => 1,
+                'category_id' => 3,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'rafflename' => 'Gazzele Hi Pink',
+                'rafflename' => 'Compass Gazelle Low Black White',
                 'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
                 'raffleprice' => 350000,
-                'raffleimage' => 'image.jpg',
+                'raffleimage' => 'raffle2.jpg',
                 'rafflequantity' => 10,
                 'rafflequota' => 15,
                 'rafflereleasedate' => Carbon::now()->format('Y-m-d H:i:s'),
-                'raffleclosedate' => Carbon::tomorrow()->format('Y-m-d H:i:s'),
-                'brand_id' => 2,
-                'category_id' => 2,
+                'raffleclosedate' => Carbon::create(2021, 7, 12)->format('Y-m-d H:i:s'),
+                'brand_id' => 6,
+                'category_id' => 3,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'rafflename' => 'Gazzele Low Blue Sky',
+                'rafflename' => 'Geoff Max Official - Authentic Black Gum',
                 'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
                 'raffleprice' => 352000,
-                'raffleimage' => 'image.jpg',
+                'raffleimage' => 'raffle3.jpg',
                 'rafflequantity' => 10,
                 'rafflequota' => 15,
                 'rafflereleasedate' => Carbon::now()->format('Y-m-d H:i:s'),
-                'raffleclosedate' => Carbon::tomorrow()->format('Y-m-d H:i:s'),
+                'raffleclosedate' => Carbon::create(2021, 7, 13)->format('Y-m-d H:i:s'),
                 'brand_id' => 3,
-                'category_id' => 1,
+                'category_id' => 3,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'rafflename' => 'Imperior Footwer Dalton High Black White',
+                'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
+                'raffleprice' => 320000,
+                'raffleimage' => 'raffle5.jpg',
+                'rafflequantity' => 10,
+                'rafflequota' => 15,
+                'rafflereleasedate' => Carbon::create(2021, 7, 10)->format('Y-m-d H:i:s'),
+                'raffleclosedate' => Carbon::create(2021, 7, 15)->format('Y-m-d H:i:s'),
+                'brand_id' => 3,
+                'category_id' => 3,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'rafflename' => 'FLEXKNIT V3.0 AQUATIC BLUE',
+                'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
+                'raffleprice' => 415000,
+                'raffleimage' => 'raffle6.jpg',
+                'rafflequantity' => 10,
+                'rafflequota' => 15,
+                'rafflereleasedate' => Carbon::create(2021, 7, 10)->format('Y-m-d H:i:s'),
+                'raffleclosedate' => Carbon::create(2021, 7, 15)->format('Y-m-d H:i:s'),
+                'brand_id' => 7,
+                'category_id' => 3,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
-
         ]);
     }
 }
