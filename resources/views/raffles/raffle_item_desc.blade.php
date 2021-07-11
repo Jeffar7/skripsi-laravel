@@ -16,7 +16,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10 text-center mt-2 mb-4">
-        <p class="title-home mt-0 mb-4 font-weight-bold">Raffle Item Description</p>
+            <p class="title-home mt-0 mb-4 font-weight-bold">Raffle Item Description</p>
         </div>
     </div>
 </div>
@@ -25,25 +25,37 @@
     <div class="row justify-content-around">
         <div class="col-md-4 text-center">
             <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="rounded-lg" alt="..." width="100%" height="300px" style="
-            border: 1px solid #c4c4c4; box-shadow: 4px 4px 4px 4px #888888;
+            border: 1px solid #c4c4c4; box-shadow: 4px 4px 4px 4px #888888; object-fit:contain
         ">
             <div class="mt-5">
                 @guest
-                <a href="/register" class="btn btn-primary">Enter Now</a>
-                @else
-                    @if($raffle->status === 'running')
-                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary" style="
+                @if($raffle->status === 'running')
+                <a href="/register" class="btn btn-primary" style="
                         width: 50%;
                     ">ENTER NOW</a>
-                    @elseif($raffle->status === 'closed')
-                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled" style="
+                @elseif($raffle->status === 'closed')
+                <a href="#" class="btn btn-danger disabled" style="
                         width: 50%;
                     ">CLOSED</a>
-                    @else
-                    <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled" style="
+                @else
+                <a href="#" class="btn btn-secondary disabled" style="
                         width: 50%;
                     ">UPCOMING</a>
-                    @endif
+                @endif
+                @else
+                @if($raffle->status === 'running')
+                <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary" style="
+                        width: 50%;
+                    ">ENTER NOW</a>
+                @elseif($raffle->status === 'closed')
+                <a href="#" class="btn btn-danger disabled" style="
+                        width: 50%;
+                    ">CLOSED</a>
+                @else
+                <a href="#" class="btn btn-secondary disabled" style="
+                        width: 50%;
+                    ">UPCOMING</a>
+                @endif
                 @endguest
             </div>
         </div>
@@ -61,18 +73,20 @@
                         <a class="nav-link font-weight-bold bg-transparent" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab" aria-controls="privacy" aria-selected="false">NOTES</a>
                     </li>
                 </ul>
-            
+
                 <div class="tab-content py-2" id="myTabContent">
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div style="background-color: #c4c4c4;height: 50px;"><h2 class="px-5 py-2">{{$raffle->rafflename}}</h2></div>
+                        <div style="background-color: #c4c4c4;height: 50px;">
+                            <h2 class="px-5 py-2">{{$raffle->rafflename}}</h2>
+                        </div>
                         <table class="mt-2 table table-borderless mx-5" style="
                         width: 90%;
-                    "> 
+                    ">
                             <tbody>
                                 <tr>
                                     <th scope="row" style=" font-weight: bold; width: 40%;">Brand</th>
                                     <td style="color: #8b8b8b;
-                                ">{{$raffle->brand->name}}</td>                    
+                                ">{{$raffle->brand->name}}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row" style=" font-weight: bold; width: 40%;">Price</th>
@@ -103,14 +117,18 @@
                         </table>
                     </div>
                     <div class="tab-pane fade mt-3" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-                        <div class="pb-1 pt-3" style="background-color: #c4c4c4;"><p class="py-2" style="text-align: center">{{$raffle->raffledescription}}</p></div>
+                        <div class="pb-1 pt-3" style="background-color: #c4c4c4;">
+                            <p class="py-2" style="text-align: center">{{$raffle->raffledescription}}</p>
+                        </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
-                        <div class="pb-1 pt-3" style="background-color: #c4c4c4;"><p class="py-2" style="text-align: center">Please read our <a href="/termsandcondition" class="text-dark font-weight-bold">Terms & Condition</a> before joining the raffles for the convenience</p></div>
+                        <div class="pb-1 pt-3" style="background-color: #c4c4c4;">
+                            <p class="py-2" style="text-align: center">Please read our <a href="/termsandcondition" class="text-dark font-weight-bold">Terms & Condition</a> before joining the raffles for the convenience</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="pb-5"></div>
     </div>
-    <div class="pb-5"></div>
-</div>
-@endsection
+    @endsection
