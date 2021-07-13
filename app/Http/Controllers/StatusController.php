@@ -126,7 +126,7 @@ class StatusController extends Controller
         // dd($product->id);
 
         if (Cart::where('product_id', '=', $product->id)->exists() & Cart::where('user_id', '=', Auth::user()->id)->exists()) {
-            return back()->with('status', 'Item has already on cart list.');
+            return back()->with('already', 'Item has already on cart list.');
         } else {
             $productcartsave = new Cart();
             $productcartsave->product_id = $product->id;
@@ -134,7 +134,7 @@ class StatusController extends Controller
             $productcartsave->quantity = 1;
             $productcartsave->save();
 
-            return back()->with('status', 'Item successfully added to cart list!');
+            return back()->with('success', 'Item successfully added to cart list!');
         }
     }
 }

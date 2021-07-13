@@ -146,11 +146,10 @@ class BrandController extends Controller
         Brand::where('id', $brand->id)
             ->update([
                 'name' => $request->name,
-                'picture' => $request->picture,
+                'picture' => $brand->picture,
                 'owner' => $request->owner,
                 'website' => $request->website,
-                'about' => $request->about,
-
+                'about' => $request->about
             ]);
 
         return redirect('/managebrand')->with('status', 'brand successfully updated!');
