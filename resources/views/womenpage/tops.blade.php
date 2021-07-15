@@ -17,7 +17,7 @@
 			<img src="../storage/images/Women Page/women.jpg" class="rounded-0 image-cat"
 				alt="Women Display Picture" width="1110px" height="472px" style="object-fit: cover;">
 			<div class="middle-cat">
-				<div class="text-cat">WOMEN</div>
+				<div class="text-cat">TOPS FOR WOMEN</div>
 			</div>
 		</div>
 	</div>

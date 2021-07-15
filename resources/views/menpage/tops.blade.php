@@ -14,10 +14,10 @@
 
 	<div class="col-md-12 mb-1 p-0">
 		<div class="card rounded-0 border-0 con-photo">
-			<img src="{{ asset('../storage/images/Men Page/men.jpg') }}" class="rounded-0 image-cat"
+			<img src="{{ asset('../storage/images/Men Page/men-tops.jpg') }}" class="rounded-0 image-cat"
 				alt="Men Display Picture" width="1110px" height="472px" style="object-fit: cover;">
 			<div class="middle-cat">
-				<div class="text-cat">MEN</div>
+				<div class="text-cat">TOPS FOR MEN</div>
 			</div>
 		</div>
 	</div>
