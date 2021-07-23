@@ -215,9 +215,14 @@ class ProductController extends Controller
     {
         // $wishlist = product_user::all();
 
+        $validasiwishlist = product_user::where('product_id', '=', $request->product_id)
+        ->where('user_id', '=', $request->user_id)
+        ->first();
+
         // if($request->ajax()){
-            if (product_user::where('product_id', '=', $request->product_id)->exists() & product_user::where('user_id', '=', $request->user_id)->exists()) {
-                return back()->with('status', 'Item has already on wish list!');
+            if ($validasiwishlist) {
+                $validasiwishlist->delete();
+                return back()->with('status', 'Item successfully removed to wish list!');
             } else {
 
                 $productwishsave = new product_user();
@@ -411,7 +416,7 @@ class ProductController extends Controller
     }
 
     //new cart
-    public function addtocartt($id)
+    public function addtocartt($id, Request $request)
     {
         $wish = product_user::where('id', '=', $id)->first();
 
@@ -421,9 +426,10 @@ class ProductController extends Controller
 
             Cart::create([
                 'product_id' => $wish->product_id,
-                'user_id' => $wish->user_id
+                'user_id' => $wish->user_id,
+                'quantity' => $request->quantity
             ]);
-            return back()->with('status', 'item successfully added to cart list!');
+            return back()->with('status', 'Item successfully added to cart list!');
         }
     }
 
