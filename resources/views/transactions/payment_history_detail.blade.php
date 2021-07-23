@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12 mb-4"><h3 class="font-weight-bold mt-3" style="
             text-align: left;
-        ">Payment History</h3>
+        ">Transaction History</h3>
         <div class="top-border my-4"></div>
 
             <table class="table table-striped table-bordered" style="width:100%">

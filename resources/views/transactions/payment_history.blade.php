@@ -9,7 +9,7 @@
     <div class="col-md-12">
       <h3 class="font-weight-bold mt-3" style="
     text-align: left;
-">Payment History</h3>
+">Transaction History</h3>
 <div class="top-border my-4"></div>
 
       @if ($all_order->count() > 0)

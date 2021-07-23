@@ -93,7 +93,7 @@
     </div>
 
     <div class="container mb-5">
-        <p class="title-home font-weight-bold">BEST SELLER</p>
+        <p class="title-home font-weight-bold">TRENDING NOW</p>
         @include('bestseller')
     </div>
 

@@ -76,7 +76,7 @@
             <p class='mb-1'>District</p>
           </div>
           <div class="col-md-7 text-left mt-2">
-            <p class='mb-1'>: Rp. {{$address->recipient_name}}
+            <p class='mb-1'>: {{$address->recipient_name}}
               <p class='mb-1'>: {{$address->contact_number}}</p>
               <p class='mb-1'>: {{$address->address}}</p>
               <p class='mb-1'>: {{$address->address_note}}</p>

@@ -72,7 +72,7 @@
                     @if(Auth::check() && Auth::user()->role === 'admin')
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
                         <li class="nav-item mx-1">
-                            <a class="nav-link" href="/usercontrol">ADMIN</a>
+                            <a class="nav-link" href="/usercontrol">USER</a>
                         </li>
                         <li class="nav-item mx-1">
                             <a class="nav-link" href="/manageproduct">PRODUCT</a>
