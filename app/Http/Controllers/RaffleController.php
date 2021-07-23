@@ -51,8 +51,14 @@ class RaffleController extends Controller
 
     public function allraffle(Request $request)
     {
-        $raffles = Raffle::paginate(3);
-        return view('/raffles/raffle_item_list', compact('raffles'));
+        if ($request->ajax()) {
+            $raffles = Raffle::paginate(3);
+            return view('/raffles/filter_raffle', compact('raffles'));
+        }
+        else {
+            $raffles = Raffle::paginate(3);
+            return view('/raffles/raffle_item_list', compact('raffles'));
+        }
     }
 
     public function sortRaffle(Request $request)

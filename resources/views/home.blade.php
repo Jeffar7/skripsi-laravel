@@ -3,6 +3,7 @@
 @section('title','TokoLokal')
 
 @section('content')
+<div class="loader"></div>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -156,5 +157,4 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('js/app.js') }}" defer></script>
 @endsection
