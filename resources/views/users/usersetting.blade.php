@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row pt-4 pb-2">
-        <h4>Edit Profile</h4>
+        <h4 class="pl-4">Edit Profile</h4>
     </div>
 </div>
 <div id="exTab1" class="container pb-5">
@@ -26,7 +26,7 @@
                             @csrf
                             <div class="text-center">
                                 <img src="{{asset('../storage/images/Users/' . $user->picture)}}" class=" img-thumbnail  mb-3" width="250" alt="profileimage">
-                                <div class="form-group">
+                                <div class="form-group pt-2">
                                     <div class="custom-file">
                                         <label for="picture">Picture</label>
                                         <input type="file" class="custom-file-input" name="picture" id="picture">
@@ -387,20 +387,17 @@
 
                             <input type="hidden" name="role" value="{{$user->role}}">
 
-                            <div class="row justify-content-between mt-4 mb-4">
-                                <div class="col-md-6 ">
-                                    <div class="text-left">
-                                        <button type="submit" id="submit" name="submit" class="btn btn-primary" style="
-                                        width: 50%;
-                                    ">Save</button>
-                                    </div>
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-6 text-left my-4">
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary saveBtn">Save</button>
                                 </div>
-                                <div class="col-md-6 text-right">
-                                    <button type="button" id="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" style="
-                                    width: 50%;
-                                ">Delete Account</button>
-                                </div>
-                            </div>
+                                
+                                <div class="col-6 text-right my-4">
+                                    <button type="button" id="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger saveBtn">Delete Account</button>
+                                  </div>
+                              </div>
+
+                              
                         </form>
                     </div>
                 </div>

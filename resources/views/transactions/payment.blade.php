@@ -51,7 +51,7 @@
 
 
 <div class="container mt-2 mb-5">
-  <div class="row justify-content-center mb-3">
+  <div class="row justify-content-center">
     <div class="col-md-12 text-center">
       <div class="breadcrumb-a flat mt-4 mb-5">
         <a class="col-sm-4"><span class="ml-2">DELIVERY</span></a>
@@ -229,16 +229,18 @@
 
         </div>
       </div>
+
+      <div class="row justify-content-center mt-5">
+
+        <div class="col-6 text-left my-4">
+          <a href="/transactions/ordersummary" name="formsummary" class="btn btn-dark h-100"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+        </div>
+
+        <div class="col-6 text-right my-4">
+          <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
+        </div>
+      </div>
       
-    </div>
-  </div>
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-6 text-left">
-      <a href="/transactions/ordersummary" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
-    </div>
-    <div class="col-md-6 text-right">
-      <button type="button" class="btn btn-dark" id="submitBtn">SUBMIT</button>
-    </div>
     </div>
   </div>
 </div>
@@ -260,23 +262,22 @@
     // function submit() {
     //   console.log('berhasil');
 
-
-    $("#submitBtn").hide();
+    $("#submitBtn").attr('disabled', 'disabled');
 
     $('#select_payment').on('change', function() {
       var option_value = $(this).val();
       if (option_value == 'credit') {
-        $("#submitBtn").show();
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#payment-form").submit(); // Submit the form
         });
       } else if (option_value == 'debit') {
-        $("#submitBtn").show();
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#debit_payment").submit(); // Submit the form
         });
       } else {
-        $("#submitBtn").hide();
+        $("#submitBtn").attr('disabled', 'disabled');
       }
     });
   });

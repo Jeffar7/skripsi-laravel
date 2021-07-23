@@ -27,7 +27,7 @@
 
                     <div class="row justify-content-center m-3">
                         <div class="col-sm-9">
-                            <select class="form-control" id="address" name="address_detail" required>
+                            <select class="form-control dropdownSize" id="address" name="address_detail" required>
                                 <option value="">Select Address</option>
                                 @foreach($addresses as $address)
                                 <option id="address-{{$address->id}}" value="{{$address->id}}"
@@ -42,8 +42,8 @@
 
                         <div class="col-sm-3">
                             <div class="form-row">
-                                <button type="button" class="btn btn-secondary" data-toggle="modal"
-                                    data-target="#exampleModal" style="width:100%"><i
+                                <button type="button" class="btn btn-secondary dropdownSize" data-toggle="modal"
+                                    data-target="#exampleModal"><i
                                         class="fas fa-plus-circle"></i><span class="ml-3">New Address</span></button>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
         <!-- End Address -->
 
         <!-- Shipping Option-->
-        <div class="row justify-content-center mb-3">
+        <div class="row justify-content-center mt-4 mb-3">
             <div class="col-md-12 text-center ">
                 <div class="card mt-2" style="box-shadow: 4px 4px 4px 4px #888888;">
                     <div class="card-header text-left bg-dark text-white">
@@ -84,7 +84,7 @@
 
                     <div class="row justify-content-center m-3">
                         <div class="col-sm-12">
-                            <select class="form-control" id="shipment_type" name="shipment" required>
+                            <select class="form-control dropdownSize" id="shipment_type" name="shipment" required>
                                 <option value="">Select Shipment Type</option>
                                 @foreach($shipments as $shipment)
                                 <option id="shipment-{{$shipment->id}}" value="{{$shipment->id}}"
@@ -122,7 +122,7 @@
 
         <div class="row justify-content-end mb-3">
             <div class="col-md-12 text-right my-4">
-                <button type="submit" name="formsummary" class="btn btn-dark" style="width: 10%"><i
+                <button type="submit" name="formsummary" class="btn btn-dark"><i
                         class="fas fa-arrow-circle-right pr-2"></i>NEXT</button>
             </div>
         </div>

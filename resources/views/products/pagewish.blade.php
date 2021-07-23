@@ -26,24 +26,24 @@
             </div>
         </div>
         <div class="col-md-2 text-center pt-2">
-            <p>Manage</p>
+            <p class="manage-text">Manage</p>
         </div>
     </div>
 </div>
 <div class="container mb-5">
     @foreach($productwishs as $productwish)
-    <div class="card mt-4 pl-3 pr-3 mb-4" style="border-radius: 10px; box-shadow: 4px 4px 4px 4px #888888; width:100%; height:290px">
+    <div class="card mt-4 px-3 mb-4" style="border-radius: 10px; box-shadow: 4px 4px 4px 4px #888888; width:100%; min-height:290px">
         <div class="row">
             <div class="col-sm-5">
                 <div class="card-body">
-                    <img src="{{asset('../storage/images/Products/' . $productwish->product->productimage)}}" width="400px;" alt="Image" style="
+                    <img src="{{asset('../storage/images/Products/' . $productwish->product->productimage)}}" alt="Image" style="
                     height: 220px;
                     margin: 5% 0; 
-                    object-fit:contain;
+                    width: 100%;
                 ">
                 </div>
             </div>
-            <div class="col-sm-7">
+            <div class="col-md-7 mb-2">
                 <div class="card-body pt-4">
                     <div class="my-4">
                         <p class="about-title mb-0" style="text-decoration:normal;">{{$productwish->product->brand->name}}</p>
@@ -53,23 +53,26 @@
                     <p style="font-weight:bold;font-size: 18px;" class="pt-1">Rp {{$productwish->product->productprice}}</p>
                     </div>
                 </div>
-                <div class="row text-left ml-1 pt-1">
+                <div class="row text-left pt-1">
                     <!-- <form action="/wish-list/delete/{{$productwish->id}}" method="POST" class="d-inline"> -->
                     <!-- @method('delete')
                     @csrf -->
-                    <button class="badge btn-danger" type="submit" style="height: 40px;width: 50px; border: 1px solid #e3342f;" data-toggle="modal" data-target="#exampleModal">
+                    <div class="col-md-2 mb-2">
+                    <button class="badge btn-danger" type="submit" style="height: 40px;width: 100%; border: 1px solid #e3342f;" data-toggle="modal" data-target="#exampleModal">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                     <!-- </form> -->
-
+                </div>
+                <div class="col-md-9">
                     <form action="addtocart/{{$productwish->id}}" method="POST" class="d-inline">
                         @csrf
-                        <button class="badge btn-success ml-2" style="height: 40px;width: 500px;border: 1px solid #38c172;"><p class="mt-2" style="
+                        <button class="badge btn-success" style="height: 40px;width: 100%;border: 1px solid #38c172;"><p class="mt-2" style="
                             font-size: 16px;
                             color: white;
                         ">+ Add to Cart</p></button>
                     </form>
                 </div>
+            </div>
             </div>
         </div>
     </div>

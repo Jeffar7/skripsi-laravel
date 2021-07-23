@@ -139,13 +139,14 @@
                 <div class="form-group row" style="
                 margin-bottom: 6%;
             ">
-                    <div class="col-md-6">
-                    <a href="/" class="continueShopBtn" style="text-decoration: none">Continue Shopping</a>
+                    <div class="col-md-6" style="width: 50%">
+                    <a href="/" class="continueShopBtn" style="text-decoration: none;">Continue Shopping</a>
                     </div>
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary mt-4" for="form_checkout" style="
+                        <button type="submit" class="btn btn-primary" for="form_checkout" style="
                         width: 30%;
                         float: right;
+                        height: 40px;
                     ">Checkout</button>
                     </div>
                 </div>

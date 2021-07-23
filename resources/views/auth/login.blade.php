@@ -33,7 +33,7 @@
 <body>
     <div class="container card-middle-sizing"
 >
-        <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
+        <div class="card login-card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
     <div class="row no-gutters" style="height: 600px;">
         <div class="col-md-6 no-gutters" style="height: 600px;">
             <div class="leftside">

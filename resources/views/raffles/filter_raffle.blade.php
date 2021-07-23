@@ -1,5 +1,5 @@
 @foreach($raffles as $raffle)
-<div class="raf col-md-10 mb-3">
+<div class="raf col-md-10 mb-4">
     @if($raffle->status === 'running' || $raffle->status === 'not_started')
     <div class="event-card rounded-lg">
         <div class="row no-gutters">

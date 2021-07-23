@@ -4,12 +4,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row pt-4 pb-2">
+    <div class=" pt-4 pb-2">
         <h4>My Profile</h4>
     </div>
-</div>
-
-<div class="container pb-5">
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
@@ -27,65 +24,86 @@
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
         <div class="tab-content py-3" id="myTabContent">
             <div class="tab-pane fade show active m-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 pt-2">
                         <img src="{{asset('../storage/images/Users/'.Auth::user()->picture)}}"
-                            class="rounded img-thumbnail " alt="..." width="200" height="150"
-                            style="margin-left: 80px;">
+                            class="rounded img-thumbnail " alt="..." width="200" height="150" style="margin-left: 15%;">
                         <div style="padding-top: 20px;text-decoration: underline;text-align: center;"><a
                                 href="/usersettings">Edit My Profile</a></div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 pt-2">
                         <tbody>
                             <h1 style="text-transform:capitalize;">{{Auth::user()->first_name}}
                                 {{Auth::user()->last_name}}</h1>
                             <p style="text-transform:capitalize;">{{Auth::user()->role}}</p>
                             <p style="font-style: italic;">"{{Auth::user()->about}}"</p>
                         </tbody>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item active row">
-                                
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home" aria-selected="true" style="
-    width: 100px;
-"><i class="fas fa-user" style="=
-                                "></i><span style="
-                                    padding-left: 10%;
-                                ">About</span></a>
+
+                        <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#1a"
+                                    role="tab" aria-controls="home" aria-selected="true" style="
+                                width: 100px;
+                            "><i class="fas fa-user" style="=
+                                    "></i><span style="
+                                        padding-left: 10%;
+                                    ">About</span></a>
+                            </li></a>
                             </li>
                         </ul>
-                        <p class="about-title pt-3 pb-2">Contact Information</p>
-                        <div class="row">
-                            <div class="col-sm-1 col-md-2">
-                                <p class="about-title" style="color: black">Phone</p>
-                                <p class="about-title" style="color: black">Address</p>
-                                <p class="about-title" style="color: black">E-mail</p>
-                                <p class="about-title" style="color: black">Site</p>
-                            </div>
-                            <div class="col-sm-5 offset-sm-2 col-md-10 offset-md-0">
-                                <p class="about-title" style="color: black">: <span
-                                        style="padding-left: 2%">{{Auth::user()->phone}}</span></p>
-                                <p class="about-title" style="color: black">: <span
-                                        style="padding-left: 2%">{{Auth::user()->address}}</span></p>
-                                <p class="about-title" style="color: black">: <span
-                                        style="padding-left: 2%">{{Auth::user()->email}}</span></p>
-                                <p class="about-title" style="color: black">: <span
-                                        style="padding-left: 2%">{{Auth::user()->site}}</span></p>
+
+                        <p class="about-title pt-3 pb-0">Contact Information</p>
+                        <div class="col-sm-12">
+                            <div class="table-responsive-sm">
+                                <table class="table mb-0">
+                                    <tr class="border-0 about-title">
+                                        <td  class="text-left border-0 font-weight-bold" style="color: black">
+                                            <p class="about-title" style="color: black">Phone</p>
+
+                                        </td>
+                                        <td class="text-left border-0" style="color: black"><p class="about-title" style="color: black">: <span
+                                            style="padding-left: 2%">{{Auth::user()->phone}}</span></p></td>
+                                    </tr>
+                                    <tr class="about-title">
+                                        
+                                        <td class="text-left border-0" style="color: black">                                <p class="about-title" style="color: black">Address</p>
+                                        </td>
+                                        <td class="text-left border-0" style="color: black"><p class="about-title" style="color: black">: <span
+                                            style="padding-left: 2%">{{Auth::user()->address}}</span></p></td>
+                                    </tr>
+                                    <tr class="about-title">
+                                        <td class="text-left border-0" style="color: black">                                <p class="about-title" style="color: black">Email</p>
+                                        </td>
+                                        <td class="text-left border-0" style="color: black"><p class="about-title" style="color: black">: <span
+                                            style="padding-left: 2%">{{Auth::user()->email}}</span></p></td>
+                                    </tr>
+                                    <tr class="about-title">
+                                        <td class="text-left border-0" style="color: black">                                <p class="about-title" style="color: black">Site</p>
+                                        </td>
+                                        <td class="text-left border-0" style="color: black"><p class="about-title" style="color: black">: <span
+                                            style="padding-left: 2%">{{Auth::user()->site}}</span></p></td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
 
-                        <p class="about-title pb-2">Basic Information</p>
-                        <div class="row">
-                            <div class="col-sm-1 col-md-2">
-                                <p class="about-title" style="color: black">Birthday</p>
-                                <p class="about-title" style="color: black">Gender</p>
-                            </div>
-                            <div class="col-sm-5 offset-sm-2 col-md-10 offset-md-0">
-                                <p class="about-title" style="color: black">: <span
-                                        style="padding-left: 2%">{{Auth::user()->DOB}}</span></p>
-                                <p class="about-title" style="color: black">: <span
-                                        style="padding-left: 2%">{{Auth::user()->gender}}</span></p>
+
+                        <p class="about-title pt-3 pb-0">Basic Information</p>
+                        <div class="col-sm-12">
+                            <div class="table-responsive-sm">
+                                <table class="table mb-0">
+                                    <tr class="about-title">
+                                        <td class="text-left border-0" style="color: black; width: 20%">Birthday</td>
+                                        <td class="text-left border-0" style="color: black;">: <span style="padding-left: 2%">{{Auth::user()->DOB}}</span></td>
+                                    </tr>
+                                    <tr class="about-title">
+                                        <td class="text-left border-0" style="color: black">Gender</td>
+                                        <td class="text-left border-0" style="color: black">: <span style="padding-left: 2%">{{Auth::user()->gender}}</span></td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row pt-4 pb-2">
+    <div class="row pt-4 pb-2 pl-3">
         <h4 style="font-weight: bold">Notification Center</h4>
     </div>
 
@@ -23,19 +23,18 @@
     {{-- @if ($notification->count() > 0) --}}
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
         <div class="tab-content py-3" id="myTabContent">
-            <div class="tab-pane fade show active mt-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="row">
-                    <div class="col-md-1">
+            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="row" style="
+                min-height: 100px;
+            ">
+                    <div class="col-2 pt-4"> <!-- col-md-1 -->
                         @foreach($find as $finds)
                         <img src="http://127.0.0.1:8000/../storage/images/Users/Amy_Jones.jpg"
-                            class="rounded img-thumbnail rounded-circle" alt="..." style="height: 60%;width: 100%;">
+                            class="rounded img-thumbnail rounded-circle profile-pic" alt="...">
                     </div>
-                    <div class="col-md-10 mb-3">
+                    <div class="col-8 mb-3 px-2 pt-4"> <!-- col-md-10 -->
                         <p href="#" style="margin: 0; font-size: 12px;">{{$finds->first_name}} (Admin)</p>
-                        <p href="#" style="
-                        font-size: 20px;
-                        margin: 0;
-                    ">{{auth()->user()->first_name.' '.auth()->user()->last_name}} has just registered</p>
+                        <p href="#" class="notification-content">{{auth()->user()->first_name.' '.auth()->user()->last_name}} has just registered</p>
                         @endforeach
 
                         <p href="#" style="
@@ -43,8 +42,8 @@
                         color: #c4c4c4; margin: 0;
                     ">{{auth()->user()->created_at->diffForHumans()}}</p>
                     </div>
-                    <div class="col-md-1">
-                        <i class="fas fa-user-check" style="font-size: 36px;padding-top: 25%;padding-left: 20%;"></i>
+                    <div class="col-2"> <!-- col-md-10 -->
+                        <i class="fas fa-user-check notification-icon" ></i>
                     </div>
                 </div>
 

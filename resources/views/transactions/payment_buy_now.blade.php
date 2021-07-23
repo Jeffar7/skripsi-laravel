@@ -228,11 +228,11 @@
 
       <div class="row justify-content-center mt-5">
 
-        <div class="col-md-6 text-left">
-          <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+        <div class="col-6 text-left my-4">
+          <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark h-100"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
         </div>
 
-        <div class="col-md-6 text-right">
+        <div class="col-6 text-right my-4">
           <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
         </div>
       </div>

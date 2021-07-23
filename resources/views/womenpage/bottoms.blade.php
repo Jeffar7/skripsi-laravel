@@ -13,9 +13,9 @@
     </nav>
 
 	<div class="col-md-12 mb-1 p-0">
-		<div class="card rounded-0 border-0 con-photo">
+		<div class="card rounded-0 border-0 con-photo w-100">
 			<img src="../storage/images/Women Page/women.jpg" class="rounded-0 image-cat"
-				alt="Women Display Picture" width="1110px" height="472px" style="object-fit: cover;">
+				alt="Women Display Picture" height="472px" style="object-fit: cover;">
 			<div class="middle-cat">
 				<div class="text-cat">WOMEN</div>
 			</div>
@@ -26,8 +26,6 @@
 
 <div class="container pb-4">
     <div class="row">
-        <div class="col">
-		</div>
 		<div class="col text-right mr-3">
 			<div class="row">
 				<div class="col px-0 mr-3">
@@ -50,7 +48,7 @@
 	</div>
 
     <div class="row">
-		<div class="col-3">
+		<div class="sm-3">
 			<div class="card border">
 				<div class="bg-light border-bottom filter-header">
 					<p class="mb-1 pt-2 px-2 font-weight-bold">Women Bottoms (<span class="countMen"></span>)</p>			
@@ -143,7 +141,7 @@
 		</div>
         <!-- Akhir Drop Down -->
         <!-- Tampilan Gambar Produk -->
-        <div class="filter_products col-9">
+        <div class="filter_products col-sm-9">
 			@include('menpage.filter_men_product')
         </div>
         <!--AKhir Tampilan Gambar Produk -->

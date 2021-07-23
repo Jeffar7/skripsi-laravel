@@ -12,21 +12,21 @@
                 <h1><b>Drop us a line</b></h1>
                 <form method="POST" action="/contact" enctype="multipart/form-data">
                     @csrf
-                    <div class="container">
+                    {{-- <div class="container"> --}}
                         <div class="row justify-content-center">
-                            <div class="form-group" style="margin-right: 9%;">
+                            <div class="form-group col-md-6">
                                 <label for="name">Your Name</label>
                                 <input type="text" class="form-control" name="name" id="name"
                                     placeholder="Enter your name ...">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="email">Your Email</label>
                                 <input type="text" class="form-control @error('email') is-invalid @enderror"
                                     name="email" id="email" placeholder="Enter your email ...">
                             </div>
                         </div>
-                    </div>
+                    {{-- </div> --}}
 
                     <div class="form-group">
                         <label for="name">Your Message</label>
@@ -39,9 +39,10 @@
                             Send Now!</button>
                     </div>
                 </form>
+                {{-- <div class="vr"></div> --}}
             </div>
             <div class="vr"></div>
-            <div class="col-md-5" style="margin: 4% 0% 4% 8%;">
+            <div class="col-md-5 about-icon">
                 <div class="inner-contact-logo">
                     <div class="location">
                         <img src="{{ asset('../storage/images/Contact Us Page/phoneLogo.png') }}" width="100"

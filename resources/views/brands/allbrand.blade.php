@@ -17,8 +17,8 @@
     </div>
 </div>
 <div class="container pb-5">
-    <ul class="nav nav-tabs-brand justify-content-between" id="myTab" role="tablist"
-        style="margin-left: 360px;margin-right: 360px;">
+    <ul class="nav nav-tabs-brand justify-content-start" id="myTab" role="tablist"
+        style="margin-left: 30%;margin-right: 30%;">
         <li class="nav-item-brand" role="presentation">
             <a class="nav-link-brand bg-transparent" id="hash-tab" data-toggle="tab" href="#hash" role="tab"
                 aria-controls="hash" aria-selected="false">#</a>

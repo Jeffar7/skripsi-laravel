@@ -21,11 +21,11 @@
                     </div>
                     <div class="card-body">
                         <div class="row mx-4">
-                            <div class="col-4">
+                            <div class="col-md-4">
                                 <img src="{{asset('../storage/images/Products/' . $product->productimage)}}" alt="Image" width="100%;">
                             </div>
 
-                            <div class="col-8">
+                            <div class="col-md-8">
                                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product->brand->name}}</p>
                                 <p class="mb-0" style="font-weight:bold;">{{$product->productname}}</p>
                                 <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">

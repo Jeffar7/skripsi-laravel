@@ -20,19 +20,19 @@
         <div class="carousel-item">
             <img class="d-block w-100" src="{{ asset('../storage/images/Home Page/image 2.png') }}" alt="Second slide">
             <div class="text-center">
-                <a href="/product/detail/96" class="btn btn-home-slider-2" style="margin-left: 1000px">View More</a>
+                <a href="/product/detail/96" class="btn btn-home-slider-2">View More</a>
             </div>
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="{{ asset('../storage/images/Home Page/image 3.jpg') }}" alt="Third slide">
             <div class="text-center">
-                <a href="/product/detail/425" class="btn btn-home-slider-2">View Now</a>
+                <a href="/product/detail/425" class="btn btn-home-slider-3">View Now</a>
             </div>
         </div>
         <div class="carousel-item">
             <img class="d-block w-100" src="{{ asset('../storage/images/Home Page/image 4.png') }}" alt="Third slide">
             <div class="text-center">
-                <a href="/events/detail/8" class="btn btn-home-slider-3">Go Now</a>
+                <a href="/events/detail/8" class="btn btn-home-slider">Go Now</a>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@
                     <div class="col-md-4">
                         <div class="card-body text-center">
                             <img src="{{ asset('../storage/images/Category/men.png') }}" alt="" height="141px"
-                                width="135px">
+                                width="100%">
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                     <div class="col-md-4">
                         <div class="card-body text-center">
                             <img src="{{ asset('../storage/images/Category/woman.png') }}" alt="" height="141px"
-                                width="135px">
+                                width="100%">
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
                     <img src="{{ asset('../storage/images/Category/top.png') }}" class="rounded-0 image-cat" alt="..."
-                        width="550px" height="300px" style="object-fit:cover"> <!-- card-img -->
+                        width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
                     <div class="middle-cat">
                         <div class="text-cat"><a href="/top" style="text-decoration:none; color:black">TOP</a></div>
                     </div>
@@ -113,7 +113,7 @@
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
                     <img src="{{ asset('../storage/images/Category/bottom.png') }}" class="rounded-0 image-cat"
-                        alt="..." width="550px" height="300px" style="object-fit:cover"> <!-- card-img -->
+                        alt="..." width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
                     <div class="middle-cat">
                         <div class="text-cat"><a href="/bottom" style="text-decoration:none; color:black">BOTTOM</a>
                         </div>
@@ -125,7 +125,7 @@
                 <!--offset-md-3  mr-1 -->
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
                     <img src="{{ asset('../storage/images/Category/shoes.png') }}" class="rounded-0 image-cat" alt="..."
-                        width="550px" height="300px" style="object-fit:cover"> <!-- card-img -->
+                        width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
                     <div class="middle-cat">
                         <div class="text-cat"><a href="/shoes" style="text-decoration:none; color:black">SHOES</a></div>
                     </div>
@@ -135,7 +135,7 @@
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
                     <img src="{{ asset('../storage/images/Category/accessories.png') }}" class="rounded-0 image-cat"
-                        alt="..." width="550px" height="300px" style="object-fit:cover"> <!-- card-img -->
+                        alt="..." width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
                     <div class="middle-cat">
                         <div class="text-cat"><a href="/accessories"
                                 style="text-decoration:none; color:black">ACCESSORIES</a></div>

@@ -34,14 +34,14 @@
 <body>
     <div class="container card-middle-sizing"
 >
-        <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
+        <div class="card regist-card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
     <div class="row no-gutters" style="height: 600px;">
         <div class="col-md-6 no-gutters">
             <div class="leftside-register" style="height: 600px;"></div>
         </div>
         <div class="col-md-6 no-gutters" style="height: 600px;">
-            <div class="rightside-register">
-                <div style="text-align: center;" class="mb-2">
+            <div class="rightside-register" style="padding: 2% 0">
+                <div style="text-align: center;" class="mb-2 margin-top-regist">
                     <h6 class="mb-3 font-weight-bold">WELCOME TO</h6>
                     <a href="{{ url('/') }}"><img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}"
                             width="70" height="60" alt="" class="mb-3"></a>
@@ -53,10 +53,10 @@
                     </div>
                 </div>
 
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}"  style="padding: 0 10%;">
                     @csrf
                     <div class="form-group row justify-content-center">
-                        <div class="col-md-6 inner-addon left-addon">
+                        <div class="col-md-6 inner-addon left-addon reduce-regist">
                             <i class="fas fa-user"></i>
                             <input type="text" class="log-field  @error('first_name') is-invalid @enderror"
                                 id="first_name" name="first_name" placeholder="First Name" autofocus>
@@ -67,7 +67,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="col-md-6 inner-addon left-addon">
+                        <div class="col-md-6 inner-addon left-addon reduce-regist">
                             <i class="fas fa-user"></i>
                             <input type="text" class="log-field  @error('last_name') is-invalid @enderror"
                                 id="last_name" name="last_name" placeholder="Last Name">
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="form-group row justify-content-center">
-                        <div class="col-md-6 inner-addon left-addon">
+                        <div class="col-md-6 inner-addon left-addon reduce-regist">
                             <i class="fas fa-lock"></i>
                             <input type="password" class="log-field  @error('password') is-invalid @enderror"
                                 id="password" name="password" placeholder="Password">
@@ -105,7 +105,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="col-md-6 inner-addon left-addon">
+                        <div class="col-md-6 inner-addon left-addon reduce-regist">
                             <i class="fas fa-lock"></i>
                             <input type="password" class="log-field" id="password_confirm" name="password_confirmation"
                                 placeholder="Confirm Password">
@@ -113,11 +113,11 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-6" style="text-align: center;">
+                        <div class="form-group col-md-6 reduce-regist" style="text-align: center;">
                             <input type="radio" class="form-check-input  @error('gender') is-invalid @enderror"
                                 id="Gender" name="gender" value="Male">Male
                         </div>
-                        <div class="form-group col-md-6" style="text-align: center;">
+                        <div class="form-group col-md-6 reduce-regist" style="text-align: center;">
                             <input type="radio" class="form-check-input  @error('gender') is-invalid @enderror"
                                 id="Gender" name="gender" value="Female">Female
                         </div>

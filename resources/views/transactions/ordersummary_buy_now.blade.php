@@ -136,37 +136,45 @@
         @endif
 
         <!-- Table voucher -->
-        <div class="row">
+        {{-- <div class="row"> --}}
           <div class="col-sm-12">
             <div class="table-responsive-sm">
               <table class="table mb-0">
                 <tr class="top-border">
-                  <td class="text-left top-border font-weight-bold">VOUCHERS</td>
+
+                  <td rowspan="4" colspan="2" class="text-left top-border font-weight-bold"><div>
+                    <p style="font-size: 24px">VOUCHERS</p>
+                  <p class="font-weight-lighter">Ignore it if you dont have any voucher</p>
+
+                  <p><form action="/voucher/store" method="POST">
+                    @csrf
+                    <span class="text-left border-0">
+                      <div class="row">
+                      <input type="text" class="form-control notes" name="voucher_code" style="width: 45%;">
+                      <button type="submit" class="btn btn-dark voucherBtn" style="
+                      margin-left: 10%;
+                  "><span class="font-weight-normal voucherTxt">SELECT VOUCHERS</span></button>
+
+                      <input type="hidden" class="form-control" name="grand_total" value="{{$product->productprice*$quantityBuy}}">
+                    </span>
+                  </form></p>
+
+                  <p class="font-weight-lighter">Take Advantage of our exclusive offers</p></div>
+              </td>
                   <td class="text-right top-border"></td>
                   <td class="text-right all-border">Total Product (tax incl.)</td>
                   <td class="text-right top-border down-border">Rp. {{ number_format($product->productprice*$quantityBuy)}}</td>
                 </tr>
+                  
                 <tr>
-                  <td class="text-left border-0 font-weight-normal">Ignore it if you dont have any voucher</td>
+                  
                   <td class="text-right border-0">
-
                   </td>
                   <td class="text-right all-border">Delivery Cost</td>
                   <td class="text-right top-border down-border">Rp. {{ number_format($shipment->delivery_cost)}}</td>
                 </tr>
                 <tr>
-
-                  <form action="/voucher/store" method="POST">
-                    @csrf
-                    <td class="text-left border-0">
-                      <input type="text" class="form-control" name="voucher_code">
-                      <input type="hidden" class="form-control" name="grand_total" value="{{$product->productprice*$quantityBuy}}">
-                    </td>
-                    <td class="text-center border-0"><button type="submit" class="btn btn-dark">SELECT VOUCHERS</button>
-                    </td>
-                  </form>
-
-
+                  <td class="border-0"></td>
                   <td class="text-right all-border">Voucher ({{session()->get('voucher')['category']}})</td>
                   @if(session()->has('voucher'))
                   <form action="/voucher/destroy" method="POST" style="display: inline;">
@@ -176,10 +184,9 @@
                   </form>
                   @endif
                   <td class="text-right top-border down-border">Rp. {{number_format(session()->get('voucher')['discount'])}}</td>
-
                 </tr>
                 <tr>
-                  <td class="text-left border-0 font-weight-normal">Take Advantage of our exclusive offers</td>
+                  {{-- <td class="text-left border-0 font-weight-normal">Take Advantage of our exclusive offers</td> --}}
                   <td class="text-right border-0"></td>
                   <td class="text-right top-left-right-border font-weight-bold">TOTAL</td>
                   <td class="text-right top-border font-weight-bold">Rp. {{number_format($newTotal)}}</td>
@@ -187,7 +194,7 @@
               </table>
             </div>
           </div>
-        </div>
+        {{-- </div> --}}
 
       </div>
     </div>
@@ -206,13 +213,13 @@
 
 
     <div class="row justify-content-center mb-3">
-      <div class="col-md-5 text-left my-4">
-        <a href="/transactions/delivery_buy_now" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+      <div class="col-6 text-left my-4">
+        <a href="/transactions/delivery_buy_now" name="formsummary" class="btn btn-dark h-100"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
       </div>
       {{-- <form action="/payment" method="post" id="form-id"> --}}
         @csrf
-        <div class="col-md-6 text-right my-4">
-          <button type="submit" name="formsummary" class="btn btn-dark" style="width: 40%"><i
+        <div class="col-6 text-right my-4">
+          <button type="submit" name="formsummary" class="btn btn-dark"><i
               class="fas fa-arrow-circle-right pr-2"></i> PROCEED
             TO PAYMENT</button>
         </div>
