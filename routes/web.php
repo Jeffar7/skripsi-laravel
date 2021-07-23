@@ -275,7 +275,9 @@ Route::get('/privacypolicy', function () {
 });
 
 
-
+// Socialite Google Login
+Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/google/callback', 'Auth\LoginController@handleProviderCallBack');
 
 
 

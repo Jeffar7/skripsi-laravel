@@ -75,7 +75,7 @@ class StatusController extends Controller
             'is_review' => 'yes'
         ]);
 
-        return redirect('/waiting-for-review')->with('status', 'Succes give review');
+        return redirect('/waiting-for-review')->with('status', 'Success give review!');
     }
 
     public function payment_history_detail($id)

@@ -34,6 +34,12 @@ return [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
-    ]
+    ],
+
+    'google' => [
+        'client_id' => '755175876608-vebcveok6rvarivgfdpcknv73fe1kq1d.apps.googleusercontent.com',
+        'client_secret' => 'D5u_Vsy1T1XQr1Ukgk6Lfoq3',
+        'redirect' => 'http://127.0.0.1:8000/login/google/callback',
+    ],
 
 ];

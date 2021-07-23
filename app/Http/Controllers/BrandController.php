@@ -64,8 +64,9 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:brands',
             'picture' => 'required',
+            'detail_picture' => 'required',
             'owner' => 'required',
             'website' => 'required',
             'about' => 'required',
@@ -80,13 +81,19 @@ class BrandController extends Controller
 
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
+            $detail_picture = $request->file('detail_picture');
             $filenameWithoutExt = $file->getClientOriginalName();
+            $filenameWithoutExtdetail_picture = $detail_picture->getClientOriginalName();
             $filenamesave = $filenameWithoutExt;
+            $filenamedetail_picture = $filenameWithoutExtdetail_picture;
             $file->storeAs('public/images/Brands/', $filenamesave);
+            $file->storeAs('public/images/Brands/', $filenamedetail_picture);
             $brand->picture = $filenamesave;
+            $brand->detail_picture = $filenamedetail_picture;
         } else {
             return $request;
             $brand->picture = '';
+            $brand->detail_picture = '';
         }
 
         $brand->save();
