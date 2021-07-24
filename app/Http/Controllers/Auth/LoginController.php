@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\DetailAddress;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Contracts\Session\Session;
-
-
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -50,5 +51,50 @@ class LoginController extends Controller
         }
 
         return redirect('/');
+    }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleProviderCallBack()
+    {
+        $user = Socialite::driver('google')->stateless()->user();
+
+        $this->_registerOrLoginUser($user);
+
+        // Return home after login
+        return redirect()->route('home');
+    }
+
+    protected function _registerOrLoginUser($data)
+    {
+
+
+
+        $user = User::where('email', '=', $data->email)->first();
+        if (!$user) {
+            $user = new User();
+            $user->first_name = $data->name;
+            $user->username = $data->name;
+            $user->email = $data->email;
+            $user->provider_id = $data->id;
+            $user->picture = $data->avatar;
+            $user->role = 'customer';
+            $user->save();
+        }
+
+        $addresses = new DetailAddress();
+        $addresses->city = '-';
+        $addresses->province = '-';
+        $addresses->zip_code = '-';
+        $addresses->city = '-';
+        $addresses->country = '-';
+        $addresses->user_id = $user->id;
+        $addresses->save();
+
+
+        Auth::login($user);
     }
 }

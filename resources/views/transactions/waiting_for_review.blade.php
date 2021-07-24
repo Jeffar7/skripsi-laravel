@@ -7,10 +7,16 @@
 <div class="container pt-2">
     <div class="row justify-content-center">
         <div class="col-md-12 mb-4">
-            <h3 class="font-weight-bold mt-3" style="
-            text-align: left;
-        ">Waiting For Review</h3>
-        <div class="top-border my-4"></div>
+
+            @if ($message = Session::get('status'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+            @endif
+
+            <h3 class="font-weight-bold mt-3" style="text-align: left;">Waiting For Review</h3>
+            <div class="top-border my-4"></div>
             @if ($all_order->count() > 0)
             <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">
