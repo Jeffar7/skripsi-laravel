@@ -144,6 +144,19 @@
                             <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"><span
                                         class="badge badge-pill badge-danger">{{$totalItemCart}}</span></i></a>
                         </li>
+                        <li class="nav-item dropdown mx-1">
+                            <a class="nav-link" href="#"><i class="fas fa-envelope"></i></a>
+
+                            <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/raffle/history">My Raffle <span
+                                        class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span
+                                        class="badge badge-primary badge-pill"></span></a>
+                                <a class="dropdown-item" href="/payment-history">Payment History <span
+                                        class="badge badge-primary badge-pill"></span></a>
+                            </div>
+
+                        </li>
                         @endif
                         @guest
                         <li class="nav-item mx-1">

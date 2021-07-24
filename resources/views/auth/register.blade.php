@@ -125,8 +125,7 @@
 
                     <div class="form-group row justify-content-center">
                         <div class="col-md-12">
-                            <input id="datepicker" width="276" name="DOB" type="date"
-                                class="log-field @error('DOB') is-invalid @enderror">
+                                <input type="text" placeholder="Date of Birth" onfocus="(this.type='date')" id="date" width="276" name="DOB" class="log-field @error('DOB') is-invalid @enderror">
                             @error('DOB')
                             <span class="invalid-feedback" role="alert">
                                 <strong>The Date Of Birth fields is required.</strong>
