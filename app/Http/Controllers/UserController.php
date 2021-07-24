@@ -304,6 +304,6 @@ class UserController extends Controller
         Auth::logout();
         User::where('id', $user->id)->forceDelete();
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Success Delete Account!');
     }
 }

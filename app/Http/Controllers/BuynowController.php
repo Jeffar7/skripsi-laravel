@@ -41,6 +41,8 @@ class BuynowController extends Controller
         $user = User::find(Auth::user()->id);
         $flashData = FlashData::where('user_id', '=', Auth::user()->id)->first();
         $amount_order = Order::where('id', '=', $flashData->order_id)->first();
+        $quantityBuy = $flashData->quantity;
+        Product::where('id', $flashData->product_id)->decrement('productquantity',  $quantityBuy);
 
         if ($request->payment_type === 'credit') {
 

@@ -57,6 +57,7 @@ class EventController extends Controller
             'held_on' => 'required',
             'about_us' => 'required|string',
             'picture' => 'required|image',
+            'detail_picture' => 'required'
         ]);
 
         $event = new Event();
@@ -70,13 +71,19 @@ class EventController extends Controller
 
         if ($request->hasFile('picture')) {
             $file = $request->file('picture');
+            $detail_picture = $request->file('detail_picture');
             $filenameWithoutExt = $file->getClientOriginalName();
+            $filenameWithoutExtdetail_picture = $detail_picture->getClientOriginalName();
             $filenamesave = $filenameWithoutExt;
+            $filenamedetail_picture = $filenameWithoutExtdetail_picture;
             $file->storeAs('public/images/Events/', $filenamesave);
+            $file->storeAs('public/images/Events/', $filenamedetail_picture);
             $event->picture = $filenamesave;
+            $event->detail_picture = $filenamedetail_picture;
         } else {
             return $request;
             $event->picture = '';
+            $event->detail_picture = '';
         }
 
         $event->save();
@@ -144,7 +151,7 @@ class EventController extends Controller
             'capacity' => $request->capacity,
             'held_on' => $request->held_on,
             'picture' => $event->picture,
-            'about_us' => $event->about_us
+            'about_us' => $request->about_us
         ]);
 
         return redirect('/manageevent')->with('status', 'Event successfully updated!');

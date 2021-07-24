@@ -39,7 +39,7 @@
                                 <img src="{{asset('../storage/images/Users/' . $user->picture)}}" class=" img-thumbnail  mb-3" width="250" alt="profileimage">
                                 <div class="form-group">
                                     <div class="custom-file">
-                                        <label for="picture">Picture</label>
+                                        <!-- <label for="picture">Picture</label> -->
                                         <input type="file" class="custom-file-input" name="picture" id="picture">
                                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>

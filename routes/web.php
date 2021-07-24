@@ -38,6 +38,8 @@ Route::group(['middleware' =>  'auth'], function () {
     Route::patch('/users/cstm/{user}', 'UserController@update');
     Route::delete('/delete-my-account/{user}', 'UserController@deleteMyAccount');
     Route::get('/userprofile', 'UserController@index');
+    Route::get('/usersettings', 'UserController@usersettings');
+    Route::post('/users/changepassword', 'UserController@changePassword');
 
     // PRODUCTWISH
     Route::get('/product-wish', 'ProductController@productwish');
@@ -92,7 +94,7 @@ Route::group(['middleware' =>  'auth'], function () {
     Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
     // RAFFLE
-    // Route::get('/raffle', 'RaffleController@raffle');
+    Route::get('/raffle', 'RaffleController@raffle');
     Route::get('/raffles/checkout/{id}', 'RaffleController@raffleCheckout');
     Route::get('/raffles/checkout', 'RaffleController@raffleCheckoutView');
     Route::post('/raffles/summary', 'RaffleController@raffleSummary');
@@ -151,23 +153,19 @@ Route::group(['middleware' =>  'role:admin'], function () {
 });
 
 Route::group(['middleware' =>  'role:customer'], function () {
-
-    // USER
-    Route::get('/usersettings', 'UserController@usersettings');
-    Route::post('/users/changepassword', 'UserController@changePassword');
 });
 
 
 
 //notiification 
-Route::get('/test', function(){
+Route::get('/test', function () {
     $notifications = auth()->user()->unreadNotifications;
-    foreach($notifications as $notification){
-         dd($notification->data['user']['name']); //buat yang duplicate array
+    foreach ($notifications as $notification) {
+        dd($notification->data['user']['name']); //buat yang duplicate array
     }
 });
 
-Route::get('/markAsRead', function(){
+Route::get('/markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
 });
 
@@ -277,7 +275,9 @@ Route::get('/privacypolicy', function () {
 });
 
 
-
+// Socialite Google Login
+Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/google/callback', 'Auth\LoginController@handleProviderCallBack');
 
 
 
