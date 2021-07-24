@@ -3,6 +3,7 @@
 @section('title','TokoLokal | List Raffle')
 
 @section('content')
+<div class="loader"></div>
 <div class="container pt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent mb-0">
@@ -57,12 +58,10 @@
         </div>
     </div>
 
-    <div class="filter_raffles row justify-content-around" id="filter_raffles">
-        @include('raffles.filter_raffle')
-    </div>
-
-    <div class="row justify-content-around mt-5">
-        {{ $raffles->links() }}
+    <div class="row justify-content-center">
+        <div class="filter_raffles">
+            @include('raffles.filter_raffle')
+        </div>
     </div>
 </div>
 @endsection
@@ -126,5 +125,25 @@
                 })
             } 
         });
+
+        $(document).on('click', '.pagination a', function(e) { 
+            e.preventDefault(); 
+            var url = $(this).attr('href');  
+            getRaffles(url);
+            window.history.pushState("", "", url); 
+        });
+
+        function getRaffles(url) {
+            var sort = $('#sort').val();
+            var search = $('.search-input').val();
+            $.ajax({
+                url : url, 
+                data: {sort:sort, search:search, url:url},
+            }).done(function (data) {
+                $('.filter_raffles').html(data);  
+            }).fail(function () {
+                alert('Data could not be loaded.');
+            });
+        }
 	});
 </script>

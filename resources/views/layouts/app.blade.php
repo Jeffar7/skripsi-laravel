@@ -26,6 +26,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
@@ -40,8 +45,6 @@
     <!-- style for stripe -->
     @yield('extra-css')
 </head>
-
-
 
 <body>
     <div id="app">
@@ -222,16 +225,11 @@
             </div>
         </nav>
 
-
-
         <main class="pt-0">
             @yield('content')
         </main>
 
-        <footer style="
-        bottom: 0;
-        width: 100%;
-    ">
+        <footer style="bottom: 0; width: 100%;">
             <div class="container">
                 <div class="row">
                     <div class="col-4">
@@ -274,8 +272,5 @@
             </div>
         </footer>
     </div>
-
-
 </body>
-
 </html>

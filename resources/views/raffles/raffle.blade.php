@@ -3,6 +3,7 @@
 @section('title','TokoLokal | Raffle')
 
 @section('content')
+<div class="loader"></div>
 <div class="container pt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">

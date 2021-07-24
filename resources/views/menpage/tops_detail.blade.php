@@ -3,11 +3,20 @@
 @section('title','TokoLokal | ' .e($product_tops->productname))
 
 @section('content')
+<div class="loader"></div>
 <div class="container py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item"><a href="#" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @if($product_tops->category->name == 'Top')
+            <li class="breadcrumb-item"><a href="/top" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @elseif($product_tops->category->name == 'Bottom')
+            <li class="breadcrumb-item"><a href="/bottom" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @elseif($product_tops->category->name == 'Shoes')
+            <li class="breadcrumb-item"><a href="/shoes" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @elseif($product_tops->category->name == 'Accessories')
+            <li class="breadcrumb-item"><a href="/accessories" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @endif
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$product_tops->productname}}</li>
         </ol>
     </nav>
@@ -117,9 +126,18 @@
                     @else
                     <input type="hidden" id="userid" name="user_id" value="{{Auth::user()->id}}">
                     <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
-                    <div class="row" style="margin-bottom: -5%">
-                        <div class="col-3">
-                            <button type="submit" class="heart" style="border:none;"></button>
+                    <div class="row mb-2">
+                        <div class="col-3 filter-heart text-center">
+                            <!-- <button type="submit" class="heart" style="border:none;"></button> -->
+                            <button class="btn" style="border:none;" type="submit">
+                                <!-- <i class="far fa-heart" style="font-size: 23px"></i> -->
+                                @if(isset($validasiwishlist) && $validasiwishlist)
+                                <i class="fas fa-heart wish-active"style="font-size: 23px"></i>
+                                @else
+                                <i class="fas fa-heart wish-not-active"style="font-size: 23px"></i>
+                                @endif
+                            </button>
+                            <!-- <i class="fas fa-heart"></i> -->
                         </div>
                         <div class="col">
                             <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
@@ -283,67 +301,72 @@
         @include('bestseller')
     </div>
     <!-- End Other Product -->
+</div>
 
-    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-    <script>
-        $(document).ready(function() {
-            $('.increment-btn').click(function(e) {
-                e.preventDefault();
-                var incre_value = $(this).parents('.quantity').find('.qty-input').val();
-                var value = parseInt(incre_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value < 100) {
-                    value++;
-                    $(this).parents('.quantity').find('.qty-input').val(value);
-                }
-            });
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+    $(document).ready(function() {
+        // $('.filter-heart').click(function() {
+        //     $(this).find('i').toggleClass('far fa-heart fas fa-heart');
+        // });
 
-            $('.decrement-btn').click(function(e) {
-                e.preventDefault();
-                var decre_value = $(this).parents('.quantity').find('.qty-input').val();
-                var value = parseInt(decre_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value > 1) {
-                    value--;
-                    $(this).parents('.quantity').find('.qty-input').val(value);
-                }
-            });
-
-            // $(function() {
-            $(".heart").on("click", function() {
-                $(this).toggleClass("is-active");
-            });
-
-            // $.ajaxSetup({
-            //     headers: {
-            //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            //     }
-            // });
-
-            // $('.heart').click(function () {
-            //     var user = $("#userid").val();
-            //     var product = $("#productid").val();
-            //     var url = "http://127.0.0.1:8000/wish-list/save"
-
-            //     // console.log(user, product);
-
-            //     $.ajax({
-            //         url: url,
-            //         method: 'POST',
-            //         // data: {user:user, product:product, url:url},
-            //         data: $("#wish-list").serialize(),
-            //         success: function(data){
-            //             if(data<1){
-            //                 alert("Data has already added");
-            //                 console.log(data)
-            //             }else{
-            //                 alert("Data has successfully added")
-            //             }
-            //         }
-            //     })
-            // });
+        $('.increment-btn').click(function(e) {
+            e.preventDefault();
+            var incre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(incre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value < 100) {
+                value++;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
         });
-    </script>
+
+        $('.decrement-btn').click(function(e) {
+            e.preventDefault();
+            var decre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(decre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value > 1) {
+                value--;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
+        });
+
+        // $(function() {
+        $(".heart").on("click", function() {
+            $(this).toggleClass("is-active");
+        });
+
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+
+        // $('.heart').click(function () {
+        //     var user = $("#userid").val();
+        //     var product = $("#productid").val();
+        //     var url = "http://127.0.0.1:8000/wish-list/save"
+
+        //     // console.log(user, product);
+
+        //     $.ajax({
+        //         url: url,
+        //         method: 'POST',
+        //         // data: {user:user, product:product, url:url},
+        //         data: $("#wish-list").serialize(),
+        //         success: function(data){
+        //             if(data<1){
+        //                 alert("Data has already added");
+        //                 console.log(data)
+        //             }else{
+        //                 alert("Data has successfully added")
+        //             }
+        //         }
+        //     })
+        // });
+    });
+</script>
 
 
     @endsection

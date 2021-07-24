@@ -23,3 +23,7 @@
     </a>
     @endforeach
 </div>
+
+<div class="row justify-content-around mt-5">
+    {{ $products->links() }}
+</div>

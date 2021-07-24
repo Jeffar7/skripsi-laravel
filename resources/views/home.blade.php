@@ -3,6 +3,7 @@
 @section('title','TokoLokal')
 
 @section('content')
+<div class="loader"></div>
 
 
 @if ($message = Session::get('success'))
@@ -171,7 +172,4 @@
         </div>
     </div>
 </div>
-
-
-<script src="{{ asset('js/app.js') }}" defer></script>
 @endsection
