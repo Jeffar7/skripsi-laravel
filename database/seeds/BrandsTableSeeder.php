@@ -167,8 +167,8 @@ class BrandsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Lthrkrft',
-                'picture' => 'Lthrkrft/Lthrkrft.png',
-                'detail_picture' => 'Lthrkrft/Display Picture/lg-b-blog-6.jpg',
+                'picture' => 'LTHRKRFT/LTHRKRFT.png',
+                'detail_picture' => 'LTHRKRFT/Display Picture/lg-b-blog-6.jpg',
                 'owner' => 'Adhi Nugraha Bhakti',
                 'website' => 'http://lthrkrft.com/',
                 'about' => '-',

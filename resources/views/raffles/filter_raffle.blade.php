@@ -41,12 +41,18 @@
                     </a>
                     <div class="text-right">
                         @guest
-                        <a href="/register" class="btn btn-primary">Enter Now</a>
+                        @if($raffle->status === 'running')
+                        <a href="/register" class="btn btn-primary">ENTER NOW</a>
+                        @elseif($raffle->status === 'closed')
+                        <a href="#" class="btn btn-danger disabled">CLOSED</a>
+                        @else
+                        <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
+                        @endif
                         @else
                         @if($raffle->status === 'running')
                         <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
                         @elseif($raffle->status === 'closed')
-                        <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
+                        <a href="#" class="btn btn-danger disabled">CLOSED</a>
                         @else
                         <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
                         @endif
@@ -64,7 +70,7 @@
                         </div>
                         <div class="col">
                             <p class="mb-0">
-                                <small class="font-weight-bolder">Category: 
+                                <small class="font-weight-bolder">Category:
                                     @if($raffle->categoryraffle->categoryname === 'Top')
                                     <a href="/men-tops">{{$raffle->categoryraffle->categoryname}}</a>
                                     @elseif($raffle->categoryraffle->categoryname === 'Bottom')
@@ -114,12 +120,18 @@
                     </a>
                     <div class="text-right">
                         @guest
-                        <a href="/register" class="btn btn-primary">Enter Now</a>
+                        @if($raffle->status === 'running')
+                        <a href="/register" class="btn btn-primary">ENTER NOW</a>
+                        @elseif($raffle->status === 'closed')
+                        <a href="#" class="btn btn-danger disabled">CLOSED</a>
+                        @else
+                        <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
+                        @endif
                         @else
                         @if($raffle->status === 'running')
                         <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
                         @elseif($raffle->status === 'closed')
-                        <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-danger disabled">CLOSED</a>
+                        <a href="#" class="btn btn-danger disabled">CLOSED</a>
                         @else
                         <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
                         @endif

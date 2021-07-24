@@ -16,7 +16,11 @@
 <div class="container">
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">
+{{-- <<<<<<< HEAD --}}
             <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" width="100%">
+{{-- =======
+            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 500px; width: 100%; object-fit:contain">
+>>>>>>> 122acf5ca9e96ae9661bbbd9afcee46a6939edf4 --}}
         </div>
     </div>
 

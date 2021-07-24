@@ -15,8 +15,8 @@ class ImageDetailProductSeeder extends Seeder
     {
         DB::table('imagedetail')->insert([
             [
-                'image_detail_1' => 'Ageless Galaxy/Men/Tops/AGLXY GRAPHIC SPREAD 011/AGLXY_GRAPHIC_SPREAD_011.jpg',
-                'image_detail_2' => 'Ageless Galaxy/Men/Tops/AGLXY GRAPHIC SPREAD 011/sdasdd.jpg',
+                'image_detail_1' => 'Ageless Galaxy/Men/Tops/AGLXY GRAPHIC SPREAD 011/AGLXY_GRAPHIC_SPREAD_011.JPG',
+                'image_detail_2' => 'Ageless Galaxy/Men/Tops/AGLXY GRAPHIC SPREAD 011/sdasdd.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -31,8 +31,8 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Ageless Galaxy/Men/Tops/AGLXY STRIPES/AGLXY_STRIPES.jpg',
-                'image_detail_2' => 'Ageless Galaxy/Men/Tops/AGLXY STRIPES/sfasfs.jpg',
+                'image_detail_1' => 'Ageless Galaxy/Men/Tops/AGLXY STRIPES/AGLXY_STRIPES.JPG',
+                'image_detail_2' => 'Ageless Galaxy/Men/Tops/AGLXY STRIPES/sfasfs.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -71,24 +71,24 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/ALL_GONE_BOOK_2020.jpg',
-                'image_detail_2' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/fafsfss.jpg',
-                'image_detail_3' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/dadss.jpg',
+                'image_detail_1' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/ALL_GONE_BOOK_2020.JPG',
+                'image_detail_2' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/fafsfss.JPG',
+                'image_detail_3' => 'Ageless Galaxy/Men/Accessories/ALL GONE BOOK 2020/dadss.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Ageless Galaxy/Men/Accessories/PATTA RIPSTOP SHOULDER BAG/PATTA RIPSTOP SHOULDER BAG.jpg',
-                'image_detail_2' => 'Ageless Galaxy/Men/Accessories/PATTA RIPSTOP SHOULDER BAG/Cassasure.jpg',
-                'image_detail_3' => 'Ageless Galaxy/Men/Accessories/PATTA RIPSTOP SHOULDER BAG/dadasds.jpg',
+                'image_detail_1' => 'Ageless Galaxy/Men/Accessories/PATTA RIPSTOP SHOULDER BAG/PATTA RIPSTOP SHOULDER BAG.JPG',
+                'image_detail_2' => 'Ageless Galaxy/Men/Accessories/PATTA RIPSTOP SHOULDER BAG/Cassasure.JPG',
+                'image_detail_3' => 'Ageless Galaxy/Men/Accessories/PATTA RIPSTOP SHOULDER BAG/dadasds.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Ageless Galaxy/Men/Accessories/TERRY THE SPACE SHUTTLE PIN/Terry-Pin-555x555.jpg',
-                'image_detail_2' => 'Ageless Galaxy/Men/Accessories/TERRY THE SPACE SHUTTLE PIN/Terry-Pin-Front-555x555.jpg',
+                'image_detail_1' => 'Ageless Galaxy/Men/Accessories/TERRY THE SPACE SHUTTLE PIN/Terry-Pin-555x555.jpeg',
+                'image_detail_2' => 'Ageless Galaxy/Men/Accessories/TERRY THE SPACE SHUTTLE PIN/Terry-Pin-Front-555x555.jpeg',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -103,24 +103,24 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Ageless Galaxy/Men/Accessories/WHATEVER IT TAKES E-MONEY/WHATEVER_IT_TAKES_E-MONEY.jpg',
-                'image_detail_2' => 'Ageless Galaxy/Men/Accessories/WHATEVER IT TAKES E-MONEY/sadsds.jpg',
+                'image_detail_1' => 'Ageless Galaxy/Men/Accessories/WHATEVER IT TAKES E-MONEY/WHATEVER_IT_TAKES_E-MONEY.JPG',
+                'image_detail_2' => 'Ageless Galaxy/Men/Accessories/WHATEVER IT TAKES E-MONEY/sadsds.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Ageless Galaxy/Women/Tops/AGLXY HZ TRACKTOP 011/AGLXY_HZ_TRACKTOP_011–BLACKPURPLE.jpg',
-                'image_detail_2' => 'Ageless Galaxy/Women/Tops/AGLXY HZ TRACKTOP 011/asfsfff.jpg',
+                'image_detail_1' => 'Ageless Galaxy/Women/Tops/AGLXY HZ TRACKTOP 011/AGLXY_HZ_TRACKTOP_011–BLACKPURPLE.JPG',
+                'image_detail_2' => 'Ageless Galaxy/Women/Tops/AGLXY HZ TRACKTOP 011/asfsfff.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Ageless Galaxy/Women/Tops/BYB POCKET STRIPES/BYB_POCKET_STRIPES.jpg',
-                'image_detail_2' => 'Ageless Galaxy/Women/Tops/BYB POCKET STRIPES/fasfsfe.jpg',
+                'image_detail_1' => 'Ageless Galaxy/Women/Tops/BYB POCKET STRIPES/BYB_POCKET_STRIPES.JPG',
+                'image_detail_2' => 'Ageless Galaxy/Women/Tops/BYB POCKET STRIPES/fasfsfe.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -207,39 +207,39 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Men/Tops/AHHA - DENIM RA KARTINI/AHHA_DENIM_RA_KARTINI.jpg',
-                'image_detail_2' => 'AHHA/Men/Tops/AHHA - DENIM RA KARTINI/Capture2.jpg',
+                'image_detail_1' => 'AHHA/Men/Tops/AHHA - DENIM RA KARTINI/AHHA_DENIM_RA_KARTINI.JPG',
+                'image_detail_2' => 'AHHA/Men/Tops/AHHA - DENIM RA KARTINI/Capture2.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Men/Tops/AHHA - Hoodie Si Pitung/AHHA-Hoodie_Si_Pitung.jpg',
-                'image_detail_2' => 'AHHA/Men/Tops/AHHA - Hoodie Si Pitung/Capture2.jpg',
+                'image_detail_1' => 'AHHA/Men/Tops/AHHA - Hoodie Si Pitung/AHHA-Hoodie_Si_Pitung.JPG',
+                'image_detail_2' => 'AHHA/Men/Tops/AHHA - Hoodie Si Pitung/Capture2.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Cakil/AHHA_Oversized_T-Shirt-Cakil.jpg',
-                'image_detail_2' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Cakil/Capture2.jpg',
+                'image_detail_1' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Cakil/AHHA_Oversized_T-Shirt-Cakil.JPG',
+                'image_detail_2' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Cakil/Capture2.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Prambanan/AHHA_Oversized_T-Shirt-Prambanan.jpg',
-                'image_detail_2' => 'AHHA/Men/Tops/AHHA Oversized T-Shirt - Prambanan/Capture2.jpg',
+                'image_detail_1' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Prambanan/AHHA_Oversized_T-Shirt-Prambanan.JPG',
+                'image_detail_2' => 'AHHA/Men/Tops/AHHA Oversized T-Shirt - Prambanan/Capture2.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Si Pitung/AHHA-Oversized_T-Shirt-Si_Pitung.jpg',
+                'image_detail_1' => 'AHHA/Men/Tops/AHHA - Oversized T-Shirt - Si Pitung/AHHA-Oversized_T-Shirt-Si_Pitung.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -247,7 +247,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Men/Accessories/AHHA MASK Indo Pride Edition PARANG HITAM/AHHA_MASK_Indo_Pride_Edition.jpg',
+                'image_detail_1' => 'AHHA/Men/Accessories/AHHA MASK Indo Pride Edition PARANG HITAM/AHHA_MASK_Indo_Pride_Edition.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -255,7 +255,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Men/Accessories/AHHA Navy Gym Bag/AHHA_Navy_Gym_Bag.jpg',
+                'image_detail_1' => 'AHHA/Men/Accessories/AHHA Navy Gym Bag/AHHA_Navy_Gym_Bag.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -263,7 +263,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Men/Accessories/SlingBag AHHA Lenity Camo (Limited Edition)/SlingBag_AHHA_Lenity_Camo.jpg',
+                'image_detail_1' => 'AHHA/Men/Accessories/SlingBag AHHA Lenity Camo (Limited Edition)/SlingBag_AHHA_Lenity_Camo.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -271,24 +271,24 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Women/Tops/AHHA - T-Shirt Diponegoro/asdsdsds.jpg',
-                'image_detail_2' => 'AHHA/Women/Tops/AHHA - T-Shirt Diponegoro/AHHA- T-Shirt_Diponegoro.jpg',
+                'image_detail_1' => 'AHHA/Women/Tops/AHHA - T-Shirt Diponegoro/asdsdsds.JPG',
+                'image_detail_2' => 'AHHA/Women/Tops/AHHA - T-Shirt Diponegoro/AHHA- T-Shirt_Diponegoro.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Women/Tops/AHHA - T-Shirt Fahombo (Limited Edition)/FAFSFSe.jpg',
-                'image_detail_2' => 'AHHA/Women/Tops/AHHA - T-Shirt Fahombo (Limited Edition)/AHHA-T-Shirt_Fahombo.jpg',
+                'image_detail_1' => 'AHHA/Women/Tops/AHHA - T-Shirt Fahombo (Limited Edition)/FAFSFSe.JPG',
+                'image_detail_2' => 'AHHA/Women/Tops/AHHA - T-Shirt Fahombo (Limited Edition)/AHHA-T-Shirt_Fahombo.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Women/Tops/AHHA - T-Shirt Let it Burn/AHHA-T-Shirt_Let_it_Burn.jpg',
-                'image_detail_2' => 'AHHA/Women/Tops/AHHA - T-Shirt Let it Burn/sadsds.jpg',
+                'image_detail_1' => 'AHHA/Women/Tops/AHHA - T-Shirt Let it Burn/AHHA-T-Shirt_Let_it_Burn.JPG',
+                'image_detail_2' => 'AHHA/Women/Tops/AHHA - T-Shirt Let it Burn/sadsds.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -303,15 +303,15 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Women/Tops/T-Shirt Kerapan Sapi (Limited Edition)/AHHA-T-Shirt_Kerapan_Sapi.jpg',
-                'image_detail_2' =>'AHHA/Women/Tops/T-Shirt Kerapan Sapi (Limited Edition)/sadsdss.jpg',
+                'image_detail_1' => 'AHHA/Women/Tops/T-Shirt Kerapan Sapi (Limited Edition)/AHHA-T-Shirt_Kerapan_Sapi.JPG',
+                'image_detail_2' => 'AHHA/Women/Tops/T-Shirt Kerapan Sapi (Limited Edition)/sadsdss.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Women/Accessories/AHHA MASK Indo Pride Edition Jumputan/AHHA_MASK_Indo_Pride_Edition.jpg',
+                'image_detail_1' => 'AHHA/Women/Accessories/AHHA MASK Indo Pride Edition Jumputan/AHHA_MASK_Indo_Pride_Edition.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -319,7 +319,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Women/Accessories/AHHA MASK Indo Pride Edition TENUN TIMUR/AHHA_MASK_Indo_Pride_Edition_TENUN_TIMUR.jpg',
+                'image_detail_1' => 'AHHA/Women/Accessories/AHHA MASK Indo Pride Edition TENUN TIMUR/AHHA_MASK_Indo_Pride_Edition_TENUN_TIMUR.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -327,7 +327,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Women/Accessories/Scrunchie Voal/Scrunchie_Voal.jpg',
+                'image_detail_1' => 'AHHA/Women/Accessories/Scrunchie Voal/Scrunchie_Voal.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -335,7 +335,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'AHHA/Women/Accessories/Signature Pin Gold/Signature_Pin_Gold.jpg',
+                'image_detail_1' => 'AHHA/Women/Accessories/Signature Pin Gold/Signature_Pin_Gold.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -343,40 +343,40 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Aye & Co/Men/Tops/AYE X SMILEY ARCA DYE SMI WHITE TEES/asa.jpg',
-                'image_detail_2' => 'Aye & Co/Men/Tops/AYE X SMILEY ARCA DYE SMI WHITE TEES/back.jpg',
+                'image_detail_1' => 'Aye & Co/Men/Tops/AYE X SMILEY ARCA DYE SMI WHITE TEES/asa.JPG',
+                'image_detail_2' => 'Aye & Co/Men/Tops/AYE X SMILEY ARCA DYE SMI WHITE TEES/back.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Aye & Co/Men/Tops/AYE X SMILEY BELLATRO SMI - GREEN JACKET/faas.jpg',
-                'image_detail_2' => 'Aye & Co/Men/Tops/AYE X SMILEY BELLATRO SMI - GREEN JACKET/44CB5D8A-05EC-4BE6-9D9F-060A09CFEE9E-34166-00000D564F5D7A9D_1604575995400_resized1024.jpg',
-                'image_detail_3' => 'Aye & Co/Men/Tops/AYE X SMILEY BELLATRO SMI - GREEN JACKET/asafa.jpg',
+                'image_detail_1' => 'Aye & Co/Men/Tops/AYE X SMILEY BELLATRO SMI - GREEN JACKET/faas.JPG',
+                'image_detail_2' => 'Aye & Co/Men/Tops/AYE X SMILEY BELLATRO SMI - GREEN JACKET/44CB5D8A-05EC-4BE6-9D9F-060A09CFEE9E-34166-00000D564F5D7A9D_1604575995400_resized1024.JPG',
+                'image_detail_3' => 'Aye & Co/Men/Tops/AYE X SMILEY BELLATRO SMI - GREEN JACKET/asafa.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Aye & Co/Men/Tops/Aye X Smiley Olens smi Dye Blue Hoodie/dia.jpg',
+                'image_detail_1' => 'Aye & Co/Men/Tops/Aye X Smiley Olens smi Dye Blue Hoodie/dia.JPG',
                 'image_detail_2' => 'Aye & Co/Men/Tops/Aye X Smiley Olens smi Dye Blue Hoodie/1616412287988_1616412499743_resized1024.jpg',
-                'image_detail_3' => 'Aye & Co/Men/Tops/Aye X Smiley Olens smi Dye Blue Hoodie/oks.jpg',
+                'image_detail_3' => 'Aye & Co/Men/Tops/Aye X Smiley Olens smi Dye Blue Hoodie/oks.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Aye & Co/Men/Tops/AYE X SMILEY PATRON SMI BLUE TYPE 2 JACKET/bb.jpg',
+                'image_detail_1' => 'Aye & Co/Men/Tops/AYE X SMILEY PATRON SMI BLUE TYPE 2 JACKET/bb.JPG',
                 'image_detail_2' => 'Aye & Co/Men/Tops/AYE X SMILEY PATRON SMI BLUE TYPE 2 JACKET/IMG_8348_1614000496175_resized1024.jpg',
-                'image_detail_3' => 'Aye & Co/Men/Tops/AYE X SMILEY PATRON SMI BLUE TYPE 2 JACKET/afa.jpg',
+                'image_detail_3' => 'Aye & Co/Men/Tops/AYE X SMILEY PATRON SMI BLUE TYPE 2 JACKET/afa.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Aye & Co/Men/Tops/AYE X SMILEY VITA SMI PEACH TEES/taga.jpg',
-                'image_detail_2' => 'Aye & Co/Men/Tops/AYE X SMILEY VITA SMI PEACH TEES/afasa.jpg',
+                'image_detail_1' => 'Aye & Co/Men/Tops/AYE X SMILEY VITA SMI PEACH TEES/taga.JPG',
+                'image_detail_2' => 'Aye & Co/Men/Tops/AYE X SMILEY VITA SMI PEACH TEES/afasa.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -384,31 +384,31 @@ class ImageDetailProductSeeder extends Seeder
             ],
             [
                 'image_detail_1' => 'Aye & Co/Men/Tops/ORDO LIME TEES/84AB71B0-8D9C-4208-BF11-FA7D4018CDE3_1603095032968_resized1024.jpeg',
-                'image_detail_2' => 'Aye & Co/Men/Tops/ORDO LIME TEES/Capture.jpg',
+                'image_detail_2' => 'Aye & Co/Men/Tops/ORDO LIME TEES/Capture.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Aye & Co/Men/Bottom/AYE X SMILEY QUARE SMI - BLACK DISTRESSED JEANS/0A923613-02C7-46B6-8B07-45D483330D53-7802-000003575D712166_1604577726568_resized1024.jpg',
-                'image_detail_2' => 'Aye & Co/Men/Bottom/AYE X SMILEY QUARE SMI - BLACK DISTRESSED JEANS/basa.jpg',
+                'image_detail_1' => 'Aye & Co/Men/Bottom/AYE X SMILEY QUARE SMI - BLACK DISTRESSED JEANS/0A923613-02C7-46B6-8B07-45D483330D53-7802-000003575D712166_1604577726568_resized1024.JPG',
+                'image_detail_2' => 'Aye & Co/Men/Bottom/AYE X SMILEY QUARE SMI - BLACK DISTRESSED JEANS/basa.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Aye & Co/Men/Bottom/BIGOLLO SLIM STRAIGHT SELVEDGE JEANS/DSCF6864_1587886312583_resized1024.jpg',
-                'image_detail_2' => 'Aye & Co/Men/Bottom/BIGOLLO SLIM STRAIGHT SELVEDGE JEANS/fsafsa.jpg',
+                'image_detail_1' => 'Aye & Co/Men/Bottom/BIGOLLO SLIM STRAIGHT SELVEDGE JEANS/DSCF6864_1587886312583_resized1024.JPG',
+                'image_detail_2' => 'Aye & Co/Men/Bottom/BIGOLLO SLIM STRAIGHT SELVEDGE JEANS/fsafsa.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Aye & Co/Men/Bottom/Sentinell Green Cargo Pants/asvzcbfn.jpg',
-                'image_detail_2' => 'Aye & Co/Men/Bottom/Sentinell Green Cargo Pants/badbfnn.jpg',
+                'image_detail_1' => 'Aye & Co/Men/Bottom/Sentinell Green Cargo Pants/asvzcbfn.JPG',
+                'image_detail_2' => 'Aye & Co/Men/Bottom/Sentinell Green Cargo Pants/badbfnn.JPG',
                 'image_detail_3' => 'Aye & Co/Men/Bottom/Sentinell Green Cargo Pants/IMG_9755_1616576615183_resized1024.jpg',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -416,7 +416,7 @@ class ImageDetailProductSeeder extends Seeder
             ],
             [
                 'image_detail_1' => 'Aye & Co/Men/Bottom/WARDEN BLACK PANTS/49031571_0a01e96e-32b1-4996-95fb-2e493dfd3c7c_938_938_1582367555397._resized1024.jpg',
-                'image_detail_2' => 'Aye & Co/Men/Bottom/WARDEN BLACK PANTS/afsaa.jpg',
+                'image_detail_2' => 'Aye & Co/Men/Bottom/WARDEN BLACK PANTS/afsaa.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -424,8 +424,8 @@ class ImageDetailProductSeeder extends Seeder
             ],
             [
                 'image_detail_1' => 'Aye & Co/Men/Bottom/WARDEN KHAKI PANTS/49031571_43daae2f-2d82-4c79-85e2-d29e43770e0b_936_936_1582357369824._resized1024.jpg',
-                'image_detail_2' => 'Aye & Co/Men/Bottom/WARDEN KHAKI PANTS/avsavavd.jpg',
-                'image_detail_3' => 'Aye & Co/Men/Bottom/WARDEN KHAKI PANTS/bfbsda.jpg',
+                'image_detail_2' => 'Aye & Co/Men/Bottom/WARDEN KHAKI PANTS/avsavavd.JPG',
+                'image_detail_3' => 'Aye & Co/Men/Bottom/WARDEN KHAKI PANTS/bfbsda.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -464,7 +464,7 @@ class ImageDetailProductSeeder extends Seeder
             ],
             [
                 'image_detail_1' => 'Aye & Co/Women/Accessories/AYE & CO CULTUS BLACK DAD CAP - 210K/sasds.jpg',
-                'image_detail_2' => 'Aye & Co/Women/Accessories/AYE & CO CULTUS BLACK DAD CAP - 210K/sadsdse.jpg',
+                'image_detail_2' => 'Aye & Co/Women/Accessories/AYE & CO CULTUS BLACK DAD CAP - 210K/sadsdse.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -935,7 +935,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Crooz/Women/Accessories/crooz pin pack - 165K/Capture.jpg',
+                'image_detail_1' => 'Crooz/Women/Accessories/crooz pin pack - 165K/Capture.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -999,16 +999,16 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Men/Tops/Classic Garage – Raglan Navy Cream - 275K/hdnfdn.jpg',
-                'image_detail_2' => 'Elders Company/Men/Tops/Classic Garage – Raglan Navy Cream - 275K/gbsds.jpg',
+                'image_detail_1' => 'Elders Company/Men/Tops/Classic Garage – Raglan Navy Cream - 275K/hdnfdn.JPG',
+                'image_detail_2' => 'Elders Company/Men/Tops/Classic Garage – Raglan Navy Cream - 275K/gbsds.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Men/Tops/Hoodie “Support The Culture” - 495K/gdghf.jpg',
-                'image_detail_2' => 'Elders Company/Men/Tops/Hoodie “Support The Culture” - 495K/bhsnmgh.jpg',
+                'image_detail_1' => 'Elders Company/Men/Tops/Hoodie “Support The Culture” - 495K/gdghf.JPG',
+                'image_detail_2' => 'Elders Company/Men/Tops/Hoodie “Support The Culture” - 495K/bhsnmgh.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1016,14 +1016,14 @@ class ImageDetailProductSeeder extends Seeder
             ],
             [
                 'image_detail_1' => 'Elders Company/Men/Tops/Local Garage Cat – Navy - 250K/IMG_1474-600x600.jpg',
-                'image_detail_2' => 'Elders Company/Men/Tops/Local Garage Cat – Navy - 250K/asfasfca.jpg',
-                'image_detail_3' => 'Elders Company/Men/Tops/Local Garage Cat – Navy - 250K/asafs.jpg',
+                'image_detail_2' => 'Elders Company/Men/Tops/Local Garage Cat – Navy - 250K/asfasfca.JPG',
+                'image_detail_3' => 'Elders Company/Men/Tops/Local Garage Cat – Navy - 250K/asafs.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Men/Accessories/Elders Co X Supercub 125 Glove – Hornet - 775K/jgkkhgk.jpg',
+                'image_detail_1' => 'Elders Company/Men/Accessories/Elders Co X Supercub 125 Glove – Hornet - 775K/jgkkhgk.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -1031,16 +1031,16 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Men/Accessories/Hornet Gloves – Black - 690K/ghgkghff.jpg',
-                'image_detail_2' => 'Elders Company/Men/Accessories/Hornet Gloves – Black - 690K/khfkhhmh.jpg',
+                'image_detail_1' => 'Elders Company/Men/Accessories/Hornet Gloves – Black - 690K/ghgkghff.JPG',
+                'image_detail_2' => 'Elders Company/Men/Accessories/Hornet Gloves – Black - 690K/khfkhhmh.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Men/Accessories/Space - 4375K/gfhds.jpg',
-                'image_detail_2' => 'Elders Company/Men/Accessories/Space - 4375K/jtgjfgjd.jpg',
+                'image_detail_1' => 'Elders Company/Men/Accessories/Space - 4375K/gfhds.JPG',
+                'image_detail_2' => 'Elders Company/Men/Accessories/Space - 4375K/jtgjfgjd.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1055,23 +1055,23 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Women/Tops/Hot Rod – Forest Green - 250K/fasaag.jpg',
+                'image_detail_1' => 'Elders Company/Women/Tops/Hot Rod – Forest Green - 250K/fasaag.JPG',
                 'image_detail_2' => 'Elders Company/Women/Tops/Hot Rod – Forest Green - 250K/IMG_1463-1600x1600.jpg',
-                'image_detail_3' => 'Elders Company/Women/Tops/Hot Rod – Forest Green - 250K/bfhshr.jpg',
+                'image_detail_3' => 'Elders Company/Women/Tops/Hot Rod – Forest Green - 250K/bfhshr.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Women/Tops/Womens Souvenir Jacket - 1.475K/hshfsg.jpg',
+                'image_detail_1' => 'Elders Company/Women/Tops/Womens Souvenir Jacket - 1.475K/hshfsg.JPG',
                 'image_detail_2' => 'Elders Company/Women/Tops/Womens Souvenir Jacket - 1.475K/souvenir-jacket-womens-05.jpg',
-                'image_detail_3' => 'Elders Company/Women/Tops/Womens Souvenir Jacket - 1.475K/gedshhfdh.jpg',
+                'image_detail_3' => 'Elders Company/Women/Tops/Womens Souvenir Jacket - 1.475K/gedshhfdh.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Women/Tops/Work Shirt “Snake” – Olive - 500K/ndffbs.jpg',
+                'image_detail_1' => 'Elders Company/Women/Tops/Work Shirt “Snake” – Olive - 500K/ndffbs.JPG',
                 'image_detail_2' => 'Elders Company/Women/Tops/Work Shirt “Snake” – Olive - 500K/6.jpg',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -1079,15 +1079,15 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Women/Accessories/5 Panel Hat – Square - 125K/gagas.jpg',
-                'image_detail_2' => 'Elders Company/Women/Accessories/5 Panel Hat – Square - 125K/jjdjdhd.jpg',
-                'image_detail_3' => 'Elders Company/Women/Accessories/5 Panel Hat – Square - 125K/hatt.jpg',
+                'image_detail_1' => 'Elders Company/Women/Accessories/5 Panel Hat – Square - 125K/gagas.JPG',
+                'image_detail_2' => 'Elders Company/Women/Accessories/5 Panel Hat – Square - 125K/jjdjdhd.JPG',
+                'image_detail_3' => 'Elders Company/Women/Accessories/5 Panel Hat – Square - 125K/hatt.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Elders Company/Women/Accessories/Elders Ring Ftw – Gold - 350K/kfgfh.jpg',
+                'image_detail_1' => 'Elders Company/Women/Accessories/Elders Ring Ftw – Gold - 350K/kfgfh.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -1159,23 +1159,23 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Tops/Bullitt Raw Dark Blue Trucker Denim Jacket - 169K/gaga.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Tops/Bullitt Raw Dark Blue Trucker Denim Jacket - 169K/asfad.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Tops/Bullitt Raw Dark Blue Trucker Denim Jacket - 169K/eaga.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Tops/Bullitt Raw Dark Blue Trucker Denim Jacket - 169K/gaga.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Tops/Bullitt Raw Dark Blue Trucker Denim Jacket - 169K/asfad.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Tops/Bullitt Raw Dark Blue Trucker Denim Jacket - 169K/eaga.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Tops/Dover Black Shirt LS - 110K/gasfas.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Tops/Dover Black Shirt LS - 110K/agdgeff.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Tops/Dover Black Shirt LS - 110K/gasfas.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Tops/Dover Black Shirt LS - 110K/agdgeff.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Tops/GutenInc - Fantasy White T-Shirt - 79K/gasga.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Tops/GutenInc - Fantasy White T-Shirt - 79K/gasga.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -1183,103 +1183,103 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Tops/Guten Inc - Smith Camp Collar Khaki - 110K/fasfa.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Tops/Guten Inc - Smith Camp Collar Khaki - 110K/agdge.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Tops/Guten Inc - Smith Camp Collar Khaki - 110K/fasfa.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Tops/Guten Inc - Smith Camp Collar Khaki - 110K/agdge.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => "Guten Inc/Men/Tops/Malibu blue Windbreaker - Men's Jacket Guteninc Coach Jacket - 179K/fasfasf.jpg",
-                'image_detail_2' => "Guten Inc/Men/Tops/Malibu blue Windbreaker - Men's Jacket Guteninc Coach Jacket - 179K/fafsf.jpg",
+                'image_detail_1' => "Guten Inc/Men/Tops/Malibu blue Windbreaker - Men's Jacket Guteninc Coach Jacket - 179K/fasfasf.JPG",
+                'image_detail_2' => "Guten Inc/Men/Tops/Malibu blue Windbreaker - Men's Jacket Guteninc Coach Jacket - 179K/fafsf.JPG",
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Bottom/Guteninc - Andrew Boardshort Cream - 100K/adas.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Bottom/Guteninc - Andrew Boardshort Cream - 100K/fsfasf.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Bottom/Guteninc - Andrew Boardshort Cream - 100K/fasfase.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Bottom/Guteninc - Andrew Boardshort Cream - 100K/adas.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Bottom/Guteninc - Andrew Boardshort Cream - 100K/fsfasf.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Bottom/Guteninc - Andrew Boardshort Cream - 100K/fasfase.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Bottom/GutenInc - Leone Cargo Pants Olive - 140K/fagegag.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Bottom/GutenInc - Leone Cargo Pants Olive - 140K/asfsafe.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Bottom/GutenInc - Leone Cargo Pants Olive - 140K/agsga.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Bottom/GutenInc - Leone Cargo Pants Olive - 140K/fagegag.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Bottom/GutenInc - Leone Cargo Pants Olive - 140K/asfsafe.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Bottom/GutenInc - Leone Cargo Pants Olive - 140K/agsga.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Bottom/Guteninc Fabio Black Chino Pants  - 135K/dadsae.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Bottom/Guteninc Fabio Black Chino Pants  - 135K/dsade.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Bottom/Guteninc Fabio Black Chino Pants  - 135K/dasdsae.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Bottom/Guteninc Fabio Black Chino Pants  - 135K/dadsae.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Bottom/Guteninc Fabio Black Chino Pants  - 135K/dsade.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Bottom/Guteninc Fabio Black Chino Pants  - 135K/dasdsae.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Bottom/Rambler Dark Blue Washed Denim - 160K/GAGSAF.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Bottom/Rambler Dark Blue Washed Denim - 160K/GASGA.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Bottom/Rambler Dark Blue Washed Denim - 160K/gagsare.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Bottom/Rambler Dark Blue Washed Denim - 160K/GAGSAF.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Bottom/Rambler Dark Blue Washed Denim - 160K/GASGA.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Bottom/Rambler Dark Blue Washed Denim - 160K/gagsare.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Bottom/Triumph Blue Washed Stretch Denim Pants - 160K/asfaf.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Bottom/Triumph Blue Washed Stretch Denim Pants - 160K/fafsfs.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Bottom/Triumph Blue Washed Stretch Denim Pants - 160K/asse.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Bottom/Triumph Blue Washed Stretch Denim Pants - 160K/asfaf.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Bottom/Triumph Blue Washed Stretch Denim Pants - 160K/fafsfs.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Bottom/Triumph Blue Washed Stretch Denim Pants - 160K/asse.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Shoes/Campbell Classic Sneakers - 250K/asfa.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Shoes/Campbell Classic Sneakers - 250K/gags.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Shoes/Campbell Classic Sneakers - 250K/asdade.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Shoes/Campbell Classic Sneakers - 250K/asfa.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Shoes/Campbell Classic Sneakers - 250K/gags.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Shoes/Campbell Classic Sneakers - 250K/asdade.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Shoes/Caroe Wingtip CH Brown - 350K/dsadsre.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Shoes/Caroe Wingtip CH Brown - 350K/asdas.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Shoes/Caroe Wingtip CH Brown - 350K/ASFAAe.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Shoes/Caroe Wingtip CH Brown - 350K/dsadsre.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Shoes/Caroe Wingtip CH Brown - 350K/asdas.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Shoes/Caroe Wingtip CH Brown - 350K/ASFAAe.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Shoes/Guten Inc - Quincy Low Military Green - 250K/ASFAFa.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Shoes/Guten Inc - Quincy Low Military Green - 250K/sfsfe.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Shoes/Guten Inc - Quincy Low Military Green - 250K/sdads.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Shoes/Guten Inc - Quincy Low Military Green - 250K/ASFAFa.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Shoes/Guten Inc - Quincy Low Military Green - 250K/sfsfe.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Shoes/Guten Inc - Quincy Low Military Green - 250K/sdads.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Shoes/Lucas Cool Grey - 250K/dsdssad.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Shoes/Lucas Cool Grey - 250K/sdsdd.jpg',
-                'image_detail_3' => 'Guten Inc/Men/Shoes/Lucas Cool Grey - 250K/sfsafs.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Shoes/Lucas Cool Grey - 250K/dsdssad.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Shoes/Lucas Cool Grey - 250K/sdsdd.JPG',
+                'image_detail_3' => 'Guten Inc/Men/Shoes/Lucas Cool Grey - 250K/sfsafs.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Men/Accessories/Ring Liberty Gold Matte - 120K/AFSAS.jpg',
-                'image_detail_2' => 'Guten Inc/Men/Accessories/Ring Liberty Gold Matte - 120K/fasaf.jpg',
+                'image_detail_1' => 'Guten Inc/Men/Accessories/Ring Liberty Gold Matte - 120K/AFSAS.JPG',
+                'image_detail_2' => 'Guten Inc/Men/Accessories/Ring Liberty Gold Matte - 120K/fasaf.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Women/Tops/GutenInc - Dead Chills Blue Hoodie - 160K/sfasfs.jpg',
+                'image_detail_1' => 'Guten Inc/Women/Tops/GutenInc - Dead Chills Blue Hoodie - 160K/sfasfs.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -1287,7 +1287,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Women/Tops/GutenInc - OG College Grey T-Shirt - 80K/fssfse.jpg',
+                'image_detail_1' => 'Guten Inc/Women/Tops/GutenInc - OG College Grey T-Shirt - 80K/fssfse.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -1295,7 +1295,7 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Women/Tops/OG College Brown Hoodie - 160K/sfasf.jpg',
+                'image_detail_1' => 'Guten Inc/Women/Tops/OG College Brown Hoodie - 160K/sfasf.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -1303,40 +1303,40 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Women/Shoes/Guten Inc- Lucas White Gum - 250K/fsfasssf.jpg',
-                'image_detail_2' => 'Guten Inc/Women/Shoes/Guten Inc- Lucas White Gum - 250K/SDAe.jpg',
-                'image_detail_3' => 'Guten Inc/Women/Shoes/Guten Inc- Lucas White Gum - 250K/dsdad.jpg',
+                'image_detail_1' => 'Guten Inc/Women/Shoes/Guten Inc- Lucas White Gum - 250K/fsfasssf.JPG',
+                'image_detail_2' => 'Guten Inc/Women/Shoes/Guten Inc- Lucas White Gum - 250K/SDAe.JPG',
+                'image_detail_3' => 'Guten Inc/Women/Shoes/Guten Inc- Lucas White Gum - 250K/dsdad.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Women/Shoes/Guteninc - Marty Sneakers White - 250K/AFSFa.jpg',
-                'image_detail_2' => 'Guten Inc/Women/Shoes/Guteninc - Marty Sneakers White - 250K/CDSD.jpg',
-                'image_detail_3' => 'Guten Inc/Women/Shoes/Guteninc - Marty Sneakers White - 250K/SAS.jpg',
+                'image_detail_1' => 'Guten Inc/Women/Shoes/Guteninc - Marty Sneakers White - 250K/AFSFa.JPG',
+                'image_detail_2' => 'Guten Inc/Women/Shoes/Guteninc - Marty Sneakers White - 250K/CDSD.JPG',
+                'image_detail_3' => 'Guten Inc/Women/Shoes/Guteninc - Marty Sneakers White - 250K/SAS.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Women/Shoes/Ralph Sandal Cream - 80K/dsadsde.jpg',
-                'image_detail_2' => 'Guten Inc/Women/Shoes/Ralph Sandal Cream - 80K/sds.jpg',
-                'image_detail_3' => 'Guten Inc/Women/Shoes/Ralph Sandal Cream - 80K/AFSA.jpg',
+                'image_detail_1' => 'Guten Inc/Women/Shoes/Ralph Sandal Cream - 80K/dsadsde.JPG',
+                'image_detail_2' => 'Guten Inc/Women/Shoes/Ralph Sandal Cream - 80K/sds.JPG',
+                'image_detail_3' => 'Guten Inc/Women/Shoes/Ralph Sandal Cream - 80K/AFSA.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Women/Accessories/Frins White Slingbag - Guteninc - 80K/sdss.jpg',
-                'image_detail_2' => 'Guten Inc/Women/Accessories/Frins White Slingbag - Guteninc - 80K/sdad.jpg',
-                'image_detail_3' => 'Guten Inc/Women/Accessories/Frins White Slingbag - Guteninc - 80K/sfsfss.jpg',
+                'image_detail_1' => 'Guten Inc/Women/Accessories/Frins White Slingbag - Guteninc - 80K/sdss.JPG',
+                'image_detail_2' => 'Guten Inc/Women/Accessories/Frins White Slingbag - Guteninc - 80K/sdad.JPG',
+                'image_detail_3' => 'Guten Inc/Women/Accessories/Frins White Slingbag - Guteninc - 80K/sfsfss.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Guten Inc/Women/Accessories/Masker Tali Strap Extender - Guteninc - 120K/gdgsdg.jpg',
-                'image_detail_2' => 'Guten Inc/Women/Accessories/Masker Tali Strap Extender - Guteninc - 120K/fsfsfs.jpg',
+                'image_detail_1' => 'Guten Inc/Women/Accessories/Masker Tali Strap Extender - Guteninc - 120K/gdgsdg.JPG',
+                'image_detail_2' => 'Guten Inc/Women/Accessories/Masker Tali Strap Extender - Guteninc - 120K/fsfsfs.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1751,160 +1751,160 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Tops/Brighter Day Tee - 249K/adsde.jpg',
-                'image_detail_2' => 'Monstore/Men/Tops/Brighter Day Tee - 249K/afsfsssf.jpg',
+                'image_detail_1' => 'Monstore/Men/Tops/Brighter Day Tee - 249K/adsde.JPG',
+                'image_detail_2' => 'Monstore/Men/Tops/Brighter Day Tee - 249K/afsfsssf.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Tops/Constant Pleasure Green Jersey - 899K/FASFGs.jpg',
-                'image_detail_2' => 'Monstore/Men/Tops/Constant Pleasure Green Jersey - 899K/aggdg.jpg',
+                'image_detail_1' => 'Monstore/Men/Tops/Constant Pleasure Green Jersey - 899K/FASFGs.JPG',
+                'image_detail_2' => 'Monstore/Men/Tops/Constant Pleasure Green Jersey - 899K/aggdg.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Tops/Constant Pleasure Tee - 249K/safsf.jpg',
-                'image_detail_2' => 'Monstore/Men/Tops/Constant Pleasure Tee - 249K/saffsff.jpg',
+                'image_detail_1' => 'Monstore/Men/Tops/Constant Pleasure Tee - 249K/safsf.JPG',
+                'image_detail_2' => 'Monstore/Men/Tops/Constant Pleasure Tee - 249K/saffsff.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Tops/Emotion Shirt - 599K/fafffsf.jpg',
-                'image_detail_2' => 'Monstore/Men/Tops/Emotion Shirt - 599K/fasffe.jpg',
+                'image_detail_1' => 'Monstore/Men/Tops/Emotion Shirt - 599K/fafffsf.JPG',
+                'image_detail_2' => 'Monstore/Men/Tops/Emotion Shirt - 599K/fasffe.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Tops/Monstore Cross Logo Tee Maroon - 149K/AFSFe.jpg',
-                'image_detail_2' => 'Monstore/Men/Tops/Monstore Cross Logo Tee Maroon - 149K/asdds.jpg',
+                'image_detail_1' => 'Monstore/Men/Tops/Monstore Cross Logo Tee Maroon - 149K/AFSFe.JPG',
+                'image_detail_2' => 'Monstore/Men/Tops/Monstore Cross Logo Tee Maroon - 149K/asdds.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Tops/Positive Capability Chore Jacket Blue - 549K/afsf.jpg',
-                'image_detail_2' => 'Monstore/Men/Tops/Positive Capability Chore Jacket Blue - 549K/fafaff.jpg',
+                'image_detail_1' => 'Monstore/Men/Tops/Positive Capability Chore Jacket Blue - 549K/afsf.JPG',
+                'image_detail_2' => 'Monstore/Men/Tops/Positive Capability Chore Jacket Blue - 549K/fafaff.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Bottom/Fantaisie Pants - 720K/FFAF.jpg',
-                'image_detail_2' => 'Monstore/Men/Bottom/Fantaisie Pants - 720K/adsffs.jpg',
-                'image_detail_3' => 'Monstore/Men/Bottom/Fantaisie Pants - 720K/asdsdsf.jpg',
+                'image_detail_1' => 'Monstore/Men/Bottom/Fantaisie Pants - 720K/FFAF.JPG',
+                'image_detail_2' => 'Monstore/Men/Bottom/Fantaisie Pants - 720K/adsffs.JPG',
+                'image_detail_3' => 'Monstore/Men/Bottom/Fantaisie Pants - 720K/asdsdsf.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Bottom/Jeune Cargo Pants - 680K/afsfssssf.jpg',
-                'image_detail_2' => 'Monstore/Men/Bottom/Jeune Cargo Pants - 680K/dadsd.jpg',
-                'image_detail_3' => 'Monstore/Men/Bottom/Jeune Cargo Pants - 680K/sdsdd.jpg',
+                'image_detail_1' => 'Monstore/Men/Bottom/Jeune Cargo Pants - 680K/afsfssssf.JPG',
+                'image_detail_2' => 'Monstore/Men/Bottom/Jeune Cargo Pants - 680K/dadsd.JPG',
+                'image_detail_3' => 'Monstore/Men/Bottom/Jeune Cargo Pants - 680K/sdsdd.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Accessories/Cross Bucket Hat Washed Green -180K/fafsfs.jpg',
-                'image_detail_2' => 'Monstore/Men/Accessories/Cross Bucket Hat Washed Green -180K/addse.jpg',
+                'image_detail_1' => 'Monstore/Men/Accessories/Cross Bucket Hat Washed Green -180K/fafsfs.JPG',
+                'image_detail_2' => 'Monstore/Men/Accessories/Cross Bucket Hat Washed Green -180K/addse.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Accessories/DWPV Crystal Sling Bag - 150K/sdsafe.jpg',
-                'image_detail_2' => 'Monstore/Men/Accessories/DWPV Crystal Sling Bag - 150K/safffsf.jpg',
-                'image_detail_3' => 'Monstore/Men/Accessories/DWPV Crystal Sling Bag - 150K/sdgdg.jpg',
+                'image_detail_1' => 'Monstore/Men/Accessories/DWPV Crystal Sling Bag - 150K/sdsafe.JPG',
+                'image_detail_2' => 'Monstore/Men/Accessories/DWPV Crystal Sling Bag - 150K/safffsf.JPG',
+                'image_detail_3' => 'Monstore/Men/Accessories/DWPV Crystal Sling Bag - 150K/sdgdg.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Accessories/DWPV Orion V2 Mask - 57K/afsfsfJPG.jpg',
-                'image_detail_2' => 'Monstore/Men/Accessories/DWPV Orion V2 Mask - 57K/asffsg.jpg',
+                'image_detail_1' => 'Monstore/Men/Accessories/DWPV Orion V2 Mask - 57K/afsfsfJPG.JPG',
+                'image_detail_2' => 'Monstore/Men/Accessories/DWPV Orion V2 Mask - 57K/asffsg.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Accessories/Positive Capability Sling Bag - 180K/asfsfsf.jpg',
-                'image_detail_2' => 'Monstore/Men/Accessories/Positive Capability Sling Bag - 180K/assssfsfsf.jpg',
+                'image_detail_1' => 'Monstore/Men/Accessories/Positive Capability Sling Bag - 180K/asfsfsf.JPG',
+                'image_detail_2' => 'Monstore/Men/Accessories/Positive Capability Sling Bag - 180K/assssfsfsf.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Accessories/Recycle Tyrant Mask - 49K/fsaffre.jpg',
-                'image_detail_2' => 'Monstore/Men/Accessories/Recycle Tyrant Mask - 49K/gasgge.jpg',
+                'image_detail_1' => 'Monstore/Men/Accessories/Recycle Tyrant Mask - 49K/fsaffre.JPG',
+                'image_detail_2' => 'Monstore/Men/Accessories/Recycle Tyrant Mask - 49K/gasgge.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Men/Accessories/WTF Replayrepliy Scarf - 91K/afsfafg.jpg',
-                'image_detail_2' => 'Monstore/Men/Accessories/WTF Replayrepliy Scarf - 91K/dsfagsge.jpg',
+                'image_detail_1' => 'Monstore/Men/Accessories/WTF Replayrepliy Scarf - 91K/afsfafg.JPG',
+                'image_detail_2' => 'Monstore/Men/Accessories/WTF Replayrepliy Scarf - 91K/dsfagsge.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Women/Tops/Feast Windbreaker - 480K/sdadsde.jpg',
-                'image_detail_2' => 'Monstore/Women/Tops/Feast Windbreaker - 480K/saddde.jpg',
-                'image_detail_3' => 'Monstore/Women/Tops/Feast Windbreaker - 480K/sadsdd.jpg',
+                'image_detail_1' => 'Monstore/Women/Tops/Feast Windbreaker - 480K/sdadsde.JPG',
+                'image_detail_2' => 'Monstore/Women/Tops/Feast Windbreaker - 480K/saddde.JPG',
+                'image_detail_3' => 'Monstore/Women/Tops/Feast Windbreaker - 480K/sadsdd.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Women/Tops/Home Chore Jacket Army Green - 549K/adsda.jpg',
-                'image_detail_2' => 'Monstore/Women/Tops/Home Chore Jacket Army Green - 549K/asffs.jpg',
+                'image_detail_1' => 'Monstore/Women/Tops/Home Chore Jacket Army Green - 549K/adsda.JPG',
+                'image_detail_2' => 'Monstore/Women/Tops/Home Chore Jacket Army Green - 549K/asffs.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Women/Tops/Long weekend Pattern Kimono - 450K/DSAFS.jpg',
-                'image_detail_2' => 'Monstore/Women/Tops/Long weekend Pattern Kimono - 450K/dasade.jpg',
+                'image_detail_1' => 'Monstore/Women/Tops/Long weekend Pattern Kimono - 450K/DSAFS.JPG',
+                'image_detail_2' => 'Monstore/Women/Tops/Long weekend Pattern Kimono - 450K/dasade.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Women/Tops/Mammon x Monstore Bomber Jacket - 479K/dadssde.jpg',
-                'image_detail_2' => 'Monstore/Women/Tops/Mammon x Monstore Bomber Jacket - 479K/sadsde.jpg',
-                'image_detail_3' => 'Monstore/Women/Tops/Mammon x Monstore Bomber Jacket - 479K/aasfsfe.jpg',
+                'image_detail_1' => 'Monstore/Women/Tops/Mammon x Monstore Bomber Jacket - 479K/dadssde.JPG',
+                'image_detail_2' => 'Monstore/Women/Tops/Mammon x Monstore Bomber Jacket - 479K/sadsde.JPG',
+                'image_detail_3' => 'Monstore/Women/Tops/Mammon x Monstore Bomber Jacket - 479K/aasfsfe.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Women/Tops/Memoire Long Jacket Black - 800K/adssssda.jpg',
-                'image_detail_2' => 'Monstore/Women/Tops/Memoire Long Jacket Black - 800K/sdsdsdsre.jpg',
-                'image_detail_3' => 'Monstore/Women/Tops/Memoire Long Jacket Black - 800K/adsdde.jpg',
+                'image_detail_1' => 'Monstore/Women/Tops/Memoire Long Jacket Black - 800K/adssssda.JPG',
+                'image_detail_2' => 'Monstore/Women/Tops/Memoire Long Jacket Black - 800K/sdsdsdsre.JPG',
+                'image_detail_3' => 'Monstore/Women/Tops/Memoire Long Jacket Black - 800K/adsdde.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'image_detail_4' => '',
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Monstore/Women/Bottom/Moonlight Short - 360K/ASFFSa.jpg',
-                'image_detail_2' => 'Monstore/Women/Bottom/Moonlight Short - 360K/dadsdss.jpg',
+                'image_detail_1' => 'Monstore/Women/Bottom/Moonlight Short - 360K/ASFFSa.JPG',
+                'image_detail_2' => 'Monstore/Women/Bottom/Moonlight Short - 360K/dadsdss.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -1925,7 +1925,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Monstore/Women/Accessories/DWPV x LFBD Alpha Mask Tosca - 57K/adsfagsg.jpg',
                 'image_detail_2' => 'Monstore/Women/Accessories/DWPV x LFBD Alpha Mask Tosca - 57K/sadaasde.jpg',
@@ -1934,28 +1934,28 @@ class ImageDetailProductSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Monstore/Women/Accessories/Hindia Tote Bag Beige - 176K/ASAFSF.jpg',
-                'image_detail_2' => 'Monstore/Women/Accessories/Hindia Tote Bag Beige - 176K/adsafe.jpg',
+                'image_detail_1' => 'Monstore/Women/Accessories/Hindia Tote Bag Beige - 176K/ASAFSF.JPG',
+                'image_detail_2' => 'Monstore/Women/Accessories/Hindia Tote Bag Beige - 176K/adsafe.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Monstore/Women/Accessories/Monstore Saving Graces Bag - 50K/SADSAFS.jpg',
-                'image_detail_2' => 'Monstore/Women/Accessories/Monstore Saving Graces Bag - 50K/fsfafe.jpg',
+                'image_detail_1' => 'Monstore/Women/Accessories/Monstore Saving Graces Bag - 50K/SADSAFS.JPG',
+                'image_detail_2' => 'Monstore/Women/Accessories/Monstore Saving Graces Bag - 50K/fsfafe.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Monstore/Women/Accessories/SunEater Lanyard - 80K/dasdsde.jpg',
-                'image_detail_2' => 'Monstore/Women/Accessories/SunEater Lanyard - 80K/safsafsf.jpg',
+                'image_detail_1' => 'Monstore/Women/Accessories/SunEater Lanyard - 80K/dasdsde.JPG',
+                'image_detail_2' => 'Monstore/Women/Accessories/SunEater Lanyard - 80K/safsafsf.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Monstore/Women/Accessories/WTF Summer Gloves Beige - 120K/SaaAFSF.jpg',
+                'image_detail_1' => 'Monstore/Women/Accessories/WTF Summer Gloves Beige - 120K/SaaAFSF.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -1963,73 +1963,73 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 160 - 250K/afsafa.jpg',
-                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 160 - 250K/agdga.jpg',
-                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 160 - 250K/ggkg.jpg',
+                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 160 - 250K/afsafa.JPG',
+                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 160 - 250K/agdga.JPG',
+                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 160 - 250K/ggkg.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 321 - 250K/hfhfssd.jpg',
-                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 321 - 250K/jtjrw.jpg',
-                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 321 - 250K/fasfa.jpg',
+                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 321 - 250K/hfhfssd.JPG',
+                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 321 - 250K/jtjrw.JPG',
+                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 321 - 250K/fasfa.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 325 - 250K/jtfdsg.jpg',
-                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 325 - 250K/khfghd.jpg',
-                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 325 - 250K/guguj.jpg',
+                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 325 - 250K/jtfdsg.JPG',
+                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 325 - 250K/khfghd.JPG',
+                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 325 - 250K/guguj.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 350 - 250K/hrfhg.jpg',
-                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 350 - 250K/jghs.jpg',
-                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 350 - 250K/fhfh.jpg',
+                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 350 - 250K/hrfhg.JPG',
+                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 350 - 250K/jghs.JPG',
+                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 350 - 250K/fhfh.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 372 - 250K/hagag.jpg',
-                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 372 - 250K/hdfhsh.jpg',
-                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 372 - 250K/jgjdjd.jpg',
+                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 372 - 250K/hagag.JPG',
+                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 372 - 250K/hdfhsh.JPG',
+                'image_detail_3' => 'Nama Studios/Men/Accessories/LITE - NO. 372 - 250K/jgjdjd.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 385 - 250K/lukgy.jpg',
-                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 385 - 250K/jfhdhfd.jpg',
+                'image_detail_1' => 'Nama Studios/Men/Accessories/LITE - NO. 385 - 250K/lukgy.JPG',
+                'image_detail_2' => 'Nama Studios/Men/Accessories/LITE - NO. 385 - 250K/jfhdhfd.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Nama Studios/Women/Accessories/LITE - NO. 151 - 250K/ktktje.jpg',
-                'image_detail_2' => 'Nama Studios/Women/Accessories/LITE - NO. 151 - 250K/hddgda.jpg',
+                'image_detail_1' => 'Nama Studios/Women/Accessories/LITE - NO. 151 - 250K/ktktje.JPG',
+                'image_detail_2' => 'Nama Studios/Women/Accessories/LITE - NO. 151 - 250K/hddgda.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Nama Studios/Women/Accessories/LITE - NO. 301 - 250K/ggahhrr.jpg',
-                'image_detail_2' => 'Nama Studios/Women/Accessories/LITE - NO. 301 - 250K/hgjf.jpg',
-                'image_detail_3' => 'Nama Studios/Women/Accessories/LITE - NO. 301 - 250K/khkyr.jpg',
+                'image_detail_1' => 'Nama Studios/Women/Accessories/LITE - NO. 301 - 250K/ggahhrr.JPG',
+                'image_detail_2' => 'Nama Studios/Women/Accessories/LITE - NO. 301 - 250K/hgjf.JPG',
+                'image_detail_3' => 'Nama Studios/Women/Accessories/LITE - NO. 301 - 250K/khkyr.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Nama Studios/Women/Accessories/LITE - NO. 361 - 250K/hrkyky.jpg',
-                'image_detail_2' => 'Nama Studios/Women/Accessories/LITE - NO. 361 - 250K/ljlghkg.jpg',
-                'image_detail_3' => 'Nama Studios/Women/Accessories/LITE - NO. 361 - 250K/ugfjfj.jpg',
+                'image_detail_1' => 'Nama Studios/Women/Accessories/LITE - NO. 361 - 250K/hrkyky.JPG',
+                'image_detail_2' => 'Nama Studios/Women/Accessories/LITE - NO. 361 - 250K/ljlghkg.JPG',
+                'image_detail_3' => 'Nama Studios/Women/Accessories/LITE - NO. 361 - 250K/ugfjfj.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ], [
-                'image_detail_1' => 'Nama Studios/Women/Accessories/LITE - NO. 381 - 250K/fhfjtj.jpg',
-                'image_detail_2' => 'Nama Studios/Women/Accessories/LITE - NO. 381 - 250K/kyhhj.jpg',
-                'image_detail_3' => 'Nama Studios/Women/Accessories/LITE - NO. 381 - 250K/gagadfa.jpg',
+                'image_detail_1' => 'Nama Studios/Women/Accessories/LITE - NO. 381 - 250K/fhfjtj.JPG',
+                'image_detail_2' => 'Nama Studios/Women/Accessories/LITE - NO. 381 - 250K/kyhhj.JPG',
+                'image_detail_3' => 'Nama Studios/Women/Accessories/LITE - NO. 381 - 250K/gagadfa.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -2184,7 +2184,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Men/Tops/TERU LS - 175K/b44b7088-8d27-49f9-82c7-df5d8467707a.jpg',
                 'image_detail_2' => 'Original Quzzy/Men/Tops/TERU LS - 175K/42b42f22-e3f8-461c-b6d3-72e10835687b.jpg',
@@ -2199,7 +2199,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Men/Bottom/FIELD BLACK BOXER - 75K/a96a3d2a-6e67-45f3-8f19-e2bd462126b0.jpg',
                 'image_detail_2' => 'Original Quzzy/Men/Bottom/FIELD BLACK BOXER - 75K/9b43deab-9140-442b-98c2-7ad1ec8b8483.jpg',
@@ -2207,7 +2207,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Men/Bottom/GRID OLIVE BOXER - 75K/40162ad7-93e4-4d50-889b-6dfc5d9565dc.jpg',
                 'image_detail_2' => 'Original Quzzy/Men/Bottom/GRID OLIVE BOXER - 75K/a16e63f1-e403-4ae8-a904-c45f705fa20f.jpg',
@@ -2215,7 +2215,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Men/Bottom/LEEDS MAROON - 175K/717dfa93-9e00-4fb2-a546-a70b211a4737.jpg',
                 'image_detail_2' => 'Original Quzzy/Men/Bottom/LEEDS MAROON - 175K/72320e7c-3134-4618-9c16-ff0faac40255.jpg',
@@ -2231,7 +2231,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Men/Accessories/NIZU BLACK - 100K/9feec9d7-39fa-443d-8428-2b6decb2df25.jpg',
                 'image_detail_2' => 'Original Quzzy/Men/Accessories/NIZU BLACK - 100K/78fa6e8e-0502-4230-bd5c-84127f35b89b.jpg',
@@ -2239,7 +2239,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Men/Accessories/ROWDI HAT - 140K/edb5fe7d-9739-4872-87d6-441baec2d50d.jpg',
                 'image_detail_2' => 'Original Quzzy/Men/Accessories/ROWDI HAT - 140K/92f28172-4876-4e00-a15e-ff9e75e4c117.jpg',
@@ -2247,7 +2247,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Men/Accessories/TORRU NAVY - 100K/ec789c99-f7c7-49fd-87e1-7ca95acb519d.jpg',
                 'image_detail_2' => '',
@@ -2255,7 +2255,7 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Men/Accessories/VERT BLACK - 35K/167be562-8f13-44d6-a37c-9e3c29646966.jpg',
                 'image_detail_2' => 'Original Quzzy/Men/Accessories/VERT BLACK - 35K/f07ea23b-175b-47d6-ba30-0a3fc07c0e50.jpg',
@@ -2263,10 +2263,10 @@ class ImageDetailProductSeeder extends Seeder
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ], 
+            ],
             [
                 'image_detail_1' => 'Original Quzzy/Women/Tops/ALL THAT JAZZ WHITE - 150K/a49aebef-1cfd-4953-bfd5-890dddb24501.jpg',
-                'image_detail_2' => '',                
+                'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -2353,47 +2353,47 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Men/Accessories/Boden Green - 36K/ykykf.jpg',
-                'image_detail_2' => 'Pattent Goods/Men/Accessories/Boden Green - 36K/guteur.jpg',
+                'image_detail_1' => 'Pattent Goods/Men/Accessories/Boden Green - 36K/ykykf.JPG',
+                'image_detail_2' => 'Pattent Goods/Men/Accessories/Boden Green - 36K/guteur.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Men/Accessories/Jax Navy - 36K/hjdgjdd.jpg',
-                'image_detail_2' => 'Pattent Goods/Men/Accessories/Jax Navy - 36K/sgdsgsgd.jpg',
+                'image_detail_1' => 'Pattent Goods/Men/Accessories/Jax Navy - 36K/hjdgjdd.JPG',
+                'image_detail_2' => 'Pattent Goods/Men/Accessories/Jax Navy - 36K/sgdsgsgd.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Men/Accessories/Polo Cap Black - 150K/lgkhg.jpg',
-                'image_detail_2' => 'Pattent Goods/Men/Accessories/Polo Cap Black - 150K/olkgkf.jpg',
-                'image_detail_3' => 'Pattent Goods/Men/Accessories/Polo Cap Black - 150K/oggkgh.jpg',
+                'image_detail_1' => 'Pattent Goods/Men/Accessories/Polo Cap Black - 150K/lgkhg.JPG',
+                'image_detail_2' => 'Pattent Goods/Men/Accessories/Polo Cap Black - 150K/olkgkf.JPG',
+                'image_detail_3' => 'Pattent Goods/Men/Accessories/Polo Cap Black - 150K/oggkgh.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Men/Accessories/Shelby Maroon - 36K/jtdjdf.jpg',
-                'image_detail_2' => 'Pattent Goods/Men/Accessories/Shelby Maroon - 36K/iyjffg.jpg',
+                'image_detail_1' => 'Pattent Goods/Men/Accessories/Shelby Maroon - 36K/jtdjdf.JPG',
+                'image_detail_2' => 'Pattent Goods/Men/Accessories/Shelby Maroon - 36K/iyjffg.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Men/Accessories/Vermi Navy Cap - 150K/kgkkyg.jpg',
-                'image_detail_2' => 'Pattent Goods/Men/Accessories/Vermi Navy Cap - 150K/kkfjd.jpg',
-                'image_detail_3' => 'Pattent Goods/Men/Accessories/Vermi Navy Cap - 150K/kfykff.jpg',
+                'image_detail_1' => 'Pattent Goods/Men/Accessories/Vermi Navy Cap - 150K/kgkkyg.JPG',
+                'image_detail_2' => 'Pattent Goods/Men/Accessories/Vermi Navy Cap - 150K/kkfjd.JPG',
+                'image_detail_3' => 'Pattent Goods/Men/Accessories/Vermi Navy Cap - 150K/kfykff.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Women/Accessories/Basic Circle Shibori - 75K/jdjfd.jpg',
+                'image_detail_1' => 'Pattent Goods/Women/Accessories/Basic Circle Shibori - 75K/jdjfd.JPG',
                 'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
@@ -2401,25 +2401,25 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Women/Accessories/Hidden 2 White - 35K/gdsgsds.jpg',
-                'image_detail_2' => 'Pattent Goods/Women/Accessories/Hidden 2 White - 35K/sgdsgs.jpg',
+                'image_detail_1' => 'Pattent Goods/Women/Accessories/Hidden 2 White - 35K/gdsgsds.JPG',
+                'image_detail_2' => 'Pattent Goods/Women/Accessories/Hidden 2 White - 35K/sgdsgs.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Women/Accessories/Holo Red - 36K/agafasa.jpg',
-                'image_detail_2' => 'Pattent Goods/Women/Accessories/Holo Red - 36K/gagava.jpg',
+                'image_detail_1' => 'Pattent Goods/Women/Accessories/Holo Red - 36K/agafasa.JPG',
+                'image_detail_2' => 'Pattent Goods/Women/Accessories/Holo Red - 36K/gagava.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Pattent Goods/Women/Accessories/Solid Ruby - 38K/jdvdgs.jpg',
-                'image_detail_2' => 'Pattent Goods/Women/Accessories/Solid Ruby - 38K/gagaga.jpg',
-                'image_detail_3' => 'Pattent Goods/Women/Accessories/Solid Ruby - 38K/ootkt.jpg',
+                'image_detail_1' => 'Pattent Goods/Women/Accessories/Solid Ruby - 38K/jdvdgs.JPG',
+                'image_detail_2' => 'Pattent Goods/Women/Accessories/Solid Ruby - 38K/gagaga.JPG',
+                'image_detail_3' => 'Pattent Goods/Women/Accessories/Solid Ruby - 38K/ootkt.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -2642,7 +2642,7 @@ class ImageDetailProductSeeder extends Seeder
             ],
             [
                 'image_detail_1' => 'Public Culture/Men/Tops/PC SPORT RUGBY – YELLOWNAVY - 500K/SS21-PC-SPORTSWEAR-01-scaled.jpg',
-                'image_detail_2' => '',                
+                'image_detail_2' => '',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -2735,104 +2735,104 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Tops/Alaskan Front Tees Black - 200K/rhrrr.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Tops/Alaskan Front Tees Black - 200K/fasfs.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Tops/Alaskan Front Tees Black - 200K/agrhrr.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Tops/Alaskan Front Tees Black - 200K/rhrrr.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Tops/Alaskan Front Tees Black - 200K/fasfs.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Tops/Alaskan Front Tees Black - 200K/agrhrr.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Tops/Pierce Hoodie - 370K/gafa.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Tops/Pierce Hoodie - 370K/agdr.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Tops/Pierce Hoodie - 370K/gafa.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Tops/Pierce Hoodie - 370K/agdr.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Tops/Sage x Havana Sunset  Mountain - 299K/jyfjg.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Tops/Sage x Havana Sunset  Mountain - 299K/kfyhg.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Tops/Sage x Havana Sunset  Mountain - 299K/gsdsff.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Tops/Sage x Havana Sunset  Mountain - 299K/jyfjg.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Tops/Sage x Havana Sunset  Mountain - 299K/kfyhg.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Tops/Sage x Havana Sunset  Mountain - 299K/gsdsff.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Tops/Senjo Tees Khaki - 200K/agafas.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Tops/Senjo Tees Khaki - 200K/gesgdg.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Tops/Senjo Tees Khaki - 200K/agdg.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Tops/Senjo Tees Khaki - 200K/agafas.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Tops/Senjo Tees Khaki - 200K/gesgdg.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Tops/Senjo Tees Khaki - 200K/agdg.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Tops/Solid Crafts JP Tees - 200K/assfsf.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Tops/Solid Crafts JP Tees - 200K/asfaf.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Tops/Solid Crafts JP Tees - 200K/ahhtdh.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Tops/Solid Crafts JP Tees - 200K/assfsf.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Tops/Solid Crafts JP Tees - 200K/asfaf.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Tops/Solid Crafts JP Tees - 200K/ahhtdh.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Bottom/7th Anniversary Special  River 18oz Unsanforized Deep Indigo x Blue Weft - 1150K/zadag.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Bottom/7th Anniversary Special  River 18oz Unsanforized Deep Indigo x Blue Weft - 1150K/fasfasada.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Bottom/7th Anniversary Special  River 18oz Unsanforized Deep Indigo x Blue Weft - 1150K/fasfafge.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Bottom/7th Anniversary Special  River 18oz Unsanforized Deep Indigo x Blue Weft - 1150K/zadag.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Bottom/7th Anniversary Special  River 18oz Unsanforized Deep Indigo x Blue Weft - 1150K/fasfasada.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Bottom/7th Anniversary Special  River 18oz Unsanforized Deep Indigo x Blue Weft - 1150K/fasfafge.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Bottom/7th Anniversary Special  Sierra 18oz Unsanforized Deep Indigo x Brown Weft - 1150K/fasfasf.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Bottom/7th Anniversary Special  Sierra 18oz Unsanforized Deep Indigo x Brown Weft - 1150K/fasfasffa.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Bottom/7th Anniversary Special  Sierra 18oz Unsanforized Deep Indigo x Brown Weft - 1150K/asfasf.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Bottom/7th Anniversary Special  Sierra 18oz Unsanforized Deep Indigo x Brown Weft - 1150K/fasfasf.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Bottom/7th Anniversary Special  Sierra 18oz Unsanforized Deep Indigo x Brown Weft - 1150K/fasfasffa.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Bottom/7th Anniversary Special  Sierra 18oz Unsanforized Deep Indigo x Brown Weft - 1150K/asfasf.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo Denim - 520K/gheh.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo Denim - 520K/hrjrj.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo Denim - 520K/faag.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo Denim - 520K/gheh.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo Denim - 520K/hrjrj.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo Denim - 520K/faag.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo x Black Denim- 600K/afseg.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo x Black Denim- 600K/vasf.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo x Black Denim- 600K/aggee.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo x Black Denim- 600K/afseg.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo x Black Denim- 600K/vasf.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Bottom/Rover Denim – 14oz Indigo x Black Denim- 600K/aggee.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Bottom/Wolfberg 21oz Sanforized Deep Indigo - 1250K/fafss.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Bottom/Wolfberg 21oz Sanforized Deep Indigo - 1250K/fasse.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Bottom/Wolfberg 21oz Sanforized Deep Indigo - 1250K/asfs.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Bottom/Wolfberg 21oz Sanforized Deep Indigo - 1250K/fafss.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Bottom/Wolfberg 21oz Sanforized Deep Indigo - 1250K/fasse.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Bottom/Wolfberg 21oz Sanforized Deep Indigo - 1250K/asfs.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Accessories/Sage Craftworks  Bearer Belt Tan - 320K/fasff.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Accessories/Sage Craftworks  Bearer Belt Tan - 320K/gasgass.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Accessories/Sage Craftworks  Bearer Belt Tan - 320K/fasff.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Accessories/Sage Craftworks  Bearer Belt Tan - 320K/gasgass.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Accessories/Sage Craftworks  Mountwise Bifold Wallet Natural - 600K/fasffs.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Accessories/Sage Craftworks  Mountwise Bifold Wallet Natural - 600K/geafaa.jpg',
-                'image_detail_3' => 'Sage Denim/Men/Accessories/Sage Craftworks  Mountwise Bifold Wallet Natural - 600K/gegadf.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Accessories/Sage Craftworks  Mountwise Bifold Wallet Natural - 600K/fasffs.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Accessories/Sage Craftworks  Mountwise Bifold Wallet Natural - 600K/geafaa.JPG',
+                'image_detail_3' => 'Sage Denim/Men/Accessories/Sage Craftworks  Mountwise Bifold Wallet Natural - 600K/gegadf.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'Sage Denim/Men/Accessories/Talon Lanyard II Tan - 80K/agsf.jpg',
-                'image_detail_2' => 'Sage Denim/Men/Accessories/Talon Lanyard II Tan - 80K/gegaef.jpg',
+                'image_detail_1' => 'Sage Denim/Men/Accessories/Talon Lanyard II Tan - 80K/agsf.JPG',
+                'image_detail_2' => 'Sage Denim/Men/Accessories/Talon Lanyard II Tan - 80K/gegaef.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -3023,240 +3023,240 @@ class ImageDetailProductSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Brown - 135K/zvxzvxz.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Brown - 135K/bdzvd - Copy.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Brown - 135K/zvxzvxz.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Brown - 135K/bdzvd - Copy.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Red - 135K/xzzcz.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Red - 135K/aszxz.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Red - 135K/zxzc.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Red - 135K/xzzcz.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Red - 135K/aszxz.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Heart T-Shirt Red - 135K/zxzc.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Smile Tee White - 143K/acxz.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Smile Tee White - 143K/ascxz.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Smile Tee White - 143K/xzzz.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Smile Tee White - 143K/acxz.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Smile Tee White - 143K/ascxz.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Good Smile Tee White - 143K/xzzz.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Jarvis Short Sleeve Shirt Dark Olive - 250K/vxzx.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Jarvis Short Sleeve Shirt Dark Olive - 250K/nfiykg.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Jarvis Short Sleeve Shirt Dark Olive - 250K/vxzvz.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Jarvis Short Sleeve Shirt Dark Olive - 250K/vxzx.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Jarvis Short Sleeve Shirt Dark Olive - 250K/nfiykg.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Jarvis Short Sleeve Shirt Dark Olive - 250K/vxzvz.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/abva.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/avavas.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/acva.jpg',
-                'image_detail_4' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/ntdndn.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/abva.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/avavas.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/acva.JPG',
+                'image_detail_4' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Sam Pocket T-Shirt Dark Green - 225K/ntdndn.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue - 175K/vavsacx.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue - 175K/vasase.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue - 175K/vavsacx.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue - 175K/vavsacx.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue - 175K/vasase.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Tops/THE GOODS DEPT - Tom Pocket T-Shirt Dark Blue - 175K/vavsacx.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/vava.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/vaa.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/gng.jpg',
-                'image_detail_4' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/mgfmgf.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/vava.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/vaa.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/gng.JPG',
+                'image_detail_4' => 'The Goods Dept/Men/Shoes/DREAM SLIDE - NAVY - 279K/mgfmgf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/vavsa.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/avsav.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/ngng.jpg',
-                'image_detail_4' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/avsa.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/vavsa.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/avsav.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/ngng.JPG',
+                'image_detail_4' => 'The Goods Dept/Men/Shoes/NEON SLIDE - LIGHT GREEN - 279K/avsa.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/vavssa.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/vavsac.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/ascz.jpg',
-                'image_detail_4' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/asc.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/vavssa.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/vavsac.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/ascz.JPG',
+                'image_detail_4' => 'The Goods Dept/Men/Shoes/Rama Sneakers - Black - 269K/asc.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/agaa.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/gagav.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/hrhrs.jpg',
-                'image_detail_4' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/mfmf.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/agaa.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/gagav.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/hrhrs.JPG',
+                'image_detail_4' => 'The Goods Dept/Men/Accessories/88RISING SACOCHE ORANGE - 199K/mfmf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Accessories/88RISING STICKER PACK - 29K/nsfnsf.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Accessories/88RISING STICKER PACK - 29K/kgkh.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Accessories/88RISING STICKER PACK - 29K/mgfmf.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Accessories/88RISING STICKER PACK - 29K/nsfnsf.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Accessories/88RISING STICKER PACK - 29K/kgkh.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Accessories/88RISING STICKER PACK - 29K/mgfmf.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Accessories/OVER-P EASY LARGE SLING BAG BLACK - 300K/agaf.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Accessories/OVER-P EASY LARGE SLING BAG BLACK - 300K/csac.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Accessories/OVER-P EASY LARGE SLING BAG BLACK - 300K/gagdv.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Accessories/OVER-P EASY LARGE SLING BAG BLACK - 300K/agaf.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Accessories/OVER-P EASY LARGE SLING BAG BLACK - 300K/csac.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Accessories/OVER-P EASY LARGE SLING BAG BLACK - 300K/gagdv.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Accessories/OVER-P EASY SHOULDER BAG BLACK - 180K/hljhl.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Accessories/OVER-P EASY SHOULDER BAG BLACK - 180K/bjtjd.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Accessories/OVER-P EASY SHOULDER BAG BLACK - 180K/grshs.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Accessories/OVER-P EASY SHOULDER BAG BLACK - 180K/hljhl.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Accessories/OVER-P EASY SHOULDER BAG BLACK - 180K/bjtjd.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Accessories/OVER-P EASY SHOULDER BAG BLACK - 180K/grshs.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Accessories/STICKER PACK RIPPLE.MIX - 29K/jtjfg.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Accessories/STICKER PACK RIPPLE.MIX - 29K/gjgfjf.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Accessories/STICKER PACK RIPPLE.MIX - 29K/khhvmv.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Accessories/STICKER PACK RIPPLE.MIX - 29K/jtjfg.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Accessories/STICKER PACK RIPPLE.MIX - 29K/gjgfjf.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Accessories/STICKER PACK RIPPLE.MIX - 29K/khhvmv.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/gfnfg.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/vagga.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/abab.jpg',
-                'image_detail_4' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/mfgmf.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/gfnfg.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/vagga.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/abab.JPG',
+                'image_detail_4' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT CRUMPLED MINI SLING BLACK - 300K/mfgmf.JPG',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT SINGLE LOGO DRAWSTRING BAG - 49K/dnd.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT SINGLE LOGO DRAWSTRING BAG - 49K/dfndd.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT SINGLE LOGO DRAWSTRING BAG - 49K/dnd.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Accessories/THE GOODS DEPT SINGLE LOGO DRAWSTRING BAG - 49K/dfndd.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Men/Accessories/The Goods Dept Tote Bag Jakarta Coklat - 149K/fasfa.jpg',
-                'image_detail_2' => 'The Goods Dept/Men/Accessories/The Goods Dept Tote Bag Jakarta Coklat - 149K/gasdgd.jpg',
-                'image_detail_3' => 'The Goods Dept/Men/Accessories/The Goods Dept Tote Bag Jakarta Coklat - 149K/jykfk.jpg',
+                'image_detail_1' => 'The Goods Dept/Men/Accessories/The Goods Dept Tote Bag Jakarta Coklat - 149K/fasfa.JPG',
+                'image_detail_2' => 'The Goods Dept/Men/Accessories/The Goods Dept Tote Bag Jakarta Coklat - 149K/gasdgd.JPG',
+                'image_detail_3' => 'The Goods Dept/Men/Accessories/The Goods Dept Tote Bag Jakarta Coklat - 149K/jykfk.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Tops/LOGO LONGSLEEVE .DARK BROWN.S - 279K/fafsad.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Tops/LOGO LONGSLEEVE .DARK BROWN.S - 279K/asad.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Tops/LOGO LONGSLEEVE .DARK BROWN.S - 279K/afsafa.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Tops/LOGO LONGSLEEVE .DARK BROWN.S - 279K/fafsad.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Tops/LOGO LONGSLEEVE .DARK BROWN.S - 279K/asad.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Tops/LOGO LONGSLEEVE .DARK BROWN.S - 279K/afsafa.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Tops/MULTICOLOR TEE SS.BLUE - 249K/afsaf.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Tops/MULTICOLOR TEE SS.BLUE - 249K/agwe.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Tops/MULTICOLOR TEE SS.BLUE - 249K/avsf.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Tops/MULTICOLOR TEE SS.BLUE - 249K/afsaf.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Tops/MULTICOLOR TEE SS.BLUE - 249K/agwe.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Tops/MULTICOLOR TEE SS.BLUE - 249K/avsf.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Tops/PUFF TEE SS.MUSTARD - 249K/agsge.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Tops/PUFF TEE SS.MUSTARD - 249K/asgag.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Tops/PUFF TEE SS.MUSTARD - 249K/agsge.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Tops/PUFF TEE SS.MUSTARD - 249K/asgag.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Tops/PUFF TEE SS.OFF WHITE - 249K/gafa.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Tops/PUFF TEE SS.OFF WHITE - 249K/afdfee.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Tops/PUFF TEE SS.OFF WHITE - 249K/gags.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Tops/PUFF TEE SS.OFF WHITE - 249K/gafa.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Tops/PUFF TEE SS.OFF WHITE - 249K/afdfee.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Tops/PUFF TEE SS.OFF WHITE - 249K/gags.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Shoes/88RISING SANDAL SLIP ON WHITE - 199K/asvacz.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Shoes/88RISING SANDAL SLIP ON WHITE - 199K/favzzx.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Shoes/88RISING SANDAL SLIP ON WHITE - 199K/avxzx.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Shoes/88RISING SANDAL SLIP ON WHITE - 199K/asvacz.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Shoes/88RISING SANDAL SLIP ON WHITE - 199K/favzzx.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Shoes/88RISING SANDAL SLIP ON WHITE - 199K/avxzx.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Shoes/DONNA FLAT SHOES BLUE - 175K/asva.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Shoes/DONNA FLAT SHOES BLUE - 175K/avxz.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Shoes/DONNA FLAT SHOES BLUE - 175K/asxzvxz.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Shoes/DONNA FLAT SHOES BLUE - 175K/asva.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Shoes/DONNA FLAT SHOES BLUE - 175K/avxz.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Shoes/DONNA FLAT SHOES BLUE - 175K/asxzvxz.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Shoes/GOODS LIZZY SANDAL MIX - 100K/vaasa.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Shoes/GOODS LIZZY SANDAL MIX - 100K/vavsx.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Shoes/GOODS LIZZY SANDAL MIX - 100K/aasv.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Shoes/GOODS LIZZY SANDAL MIX - 100K/vaasa.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Shoes/GOODS LIZZY SANDAL MIX - 100K/vavsx.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Shoes/GOODS LIZZY SANDAL MIX - 100K/aasv.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Shoes/GOODS ROUND HEELS GREEN - 149K/avszsax.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Shoes/GOODS ROUND HEELS GREEN - 149K/asvc.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Shoes/GOODS ROUND HEELS GREEN - 149K/avs.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Shoes/GOODS ROUND HEELS GREEN - 149K/avszsax.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Shoes/GOODS ROUND HEELS GREEN - 149K/asvc.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Shoes/GOODS ROUND HEELS GREEN - 149K/avs.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Shoes/NEON SLIDE - PINK - 279K/aaa.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Shoes/NEON SLIDE - PINK - 279K/vsvsa.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Shoes/NEON SLIDE - PINK - 279K/vavsa.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Shoes/NEON SLIDE - PINK - 279K/aaa.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Shoes/NEON SLIDE - PINK - 279K/vsvsa.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Shoes/NEON SLIDE - PINK - 279K/vavsa.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Accessories/LOGO HAT.OLIVE.F - 159K/ndn.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Accessories/LOGO HAT.OLIVE.F - 159K/gnce.jpg',
-                'image_detail_3' => 'The Goods Dept/Women/Accessories/LOGO HAT.OLIVE.F - 159K/zvzc.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Accessories/LOGO HAT.OLIVE.F - 159K/ndn.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Accessories/LOGO HAT.OLIVE.F - 159K/gnce.JPG',
+                'image_detail_3' => 'The Goods Dept/Women/Accessories/LOGO HAT.OLIVE.F - 159K/zvzc.JPG',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Accessories/MULTICOLOR TOTE.OFF WHITE - 179K/aczx.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Accessories/MULTICOLOR TOTE.OFF WHITE - 179K/bzbdd.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Accessories/MULTICOLOR TOTE.OFF WHITE - 179K/aczx.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Accessories/MULTICOLOR TOTE.OFF WHITE - 179K/bzbdd.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Accessories/The Goods Dept TRANSPARANT POUCH SET - 55K/asczc.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Accessories/The Goods Dept TRANSPARANT POUCH SET - 55K/svdg.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Accessories/The Goods Dept TRANSPARANT POUCH SET - 55K/asczc.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Accessories/The Goods Dept TRANSPARANT POUCH SET - 55K/svdg.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image_detail_1' => 'The Goods Dept/Women/Accessories/THUNDER R TOTE.OLIVE - 179K/avxzc.jpg',
-                'image_detail_2' => 'The Goods Dept/Women/Accessories/THUNDER R TOTE.OLIVE - 179K/ngmgj.jpg',
+                'image_detail_1' => 'The Goods Dept/Women/Accessories/THUNDER R TOTE.OLIVE - 179K/avxzc.JPG',
+                'image_detail_2' => 'The Goods Dept/Women/Accessories/THUNDER R TOTE.OLIVE - 179K/ngmgj.JPG',
                 'image_detail_3' => '',
                 'image_detail_4' => '',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
