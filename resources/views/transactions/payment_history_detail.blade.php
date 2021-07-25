@@ -15,10 +15,35 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12 mb-4"><h3 class="font-weight-bold mt-3" style="
+        <div class="col-md-12 mb-4">
+            <h3 class="font-weight-bold mt-3" style="
             text-align: left;
         ">Transaction History</h3>
-        <div class="top-border my-4"></div>
+
+            <!-- Status -->
+            @if ($message = Session::get('success'))
+            <div class="row">
+                <div class="col-md-4 align-self-center">
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @if ($message = Session::get('already'))
+            <div class="row">
+                <div class="col-md-4 align-self-center">
+                    <div class="alert alert-warning alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
+                </div>
+            </div>
+            @endif
+            <!-- EndStatus -->
+
+            <div class="top-border my-4"></div>
 
             <table class="table table-striped table-bordered" style="width:100%">
                 <thead class="thead-dark">

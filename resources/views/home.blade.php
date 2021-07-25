@@ -3,6 +3,24 @@
 @section('title','TokoLokal')
 
 @section('content')
+<div class="loader"></div>
+
+
+@if ($message = Session::get('success'))
+<div class="row mt-4">
+    <div class="col align-self-start">
+    </div>
+    <div class="col align-self-center">
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    </div>
+    <div class="col align-self-end">
+    </div>
+</div>
+@endif
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -55,8 +73,7 @@
                         <div class="card-body text-center my-2">
                             <h5 class="card-title">MEN</h5>
                             <p class="card-text font-weight-bold">COLLECTION</p>
-                            <button class="btn-gender visibleBtn"><a href="/men"
-                                    style="text-decoration:none; color:#6c757d">VIEW
+                            <button class="btn-gender visibleBtn"><a href="/men" style="text-decoration:none; color:#6c757d">VIEW
                                     MORE</a></button>
                         </div>
                     </div>
@@ -76,8 +93,7 @@
                         <div class="card-body text-center my-2">
                             <h5 class="card-title">WOMEN</h5>
                             <p class="card-text font-weight-bold">COLLECTION</p>
-                            <button class="btn-gender visibleBtn"><a href="/women"
-                                    style="text-decoration:none; color:#6c757d">VIEW
+                            <button class="btn-gender visibleBtn"><a href="/women" style="text-decoration:none; color:#6c757d">VIEW
                                     MORE</a></button>
                         </div>
                     </div>
@@ -102,44 +118,47 @@
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
-                    <img src="{{ asset('../storage/images/Category/top.png') }}" class="rounded-0 image-cat" alt="..."
-                        width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
-                    <div class="middle-cat">
-                        <div class="text-cat"><a href="/top" style="text-decoration:none; color:black">TOP</a></div>
-                    </div>
+                    <a href="/top" style="text-decoration:none;">
+                        <img src="{{ asset('../storage/images/Category/top.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover">
+                        <div class="middle-cat">
+                            <div class="text-cat"><a href="/top" style="text-decoration:none; color:black">TOP</a></div>
+                        </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
-                    <img src="{{ asset('../storage/images/Category/bottom.png') }}" class="rounded-0 image-cat"
-                        alt="..." width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
-                    <div class="middle-cat">
-                        <div class="text-cat"><a href="/bottom" style="text-decoration:none; color:black">BOTTOM</a>
+                    <a href="/bottom" style="text-decoration:none;">
+                        <img src="{{ asset('../storage/images/Category/bottom.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover">
+                        <div class="middle-cat">
+                            <div class="text-cat"><a href="/bottom" style="text-decoration:none; color:black">BOTTOM</a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-md-6 mb-1 p-0">
                 <!--offset-md-3  mr-1 -->
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
-                    <img src="{{ asset('../storage/images/Category/shoes.png') }}" class="rounded-0 image-cat" alt="..."
-                        width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
-                    <div class="middle-cat">
-                        <div class="text-cat"><a href="/shoes" style="text-decoration:none; color:black">SHOES</a></div>
-                    </div>
+                    <a href="/shoes" style="text-decoration:none;">
+                        <img src="{{ asset('../storage/images/Category/shoes.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
+                        <div class="middle-cat">
+                            <div class="text-cat"><a href="/shoes" style="text-decoration:none; color:black">SHOES</a></div>
+                        </div>
+                    </a>
                 </div>
             </div>
 
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
-                    <img src="{{ asset('../storage/images/Category/accessories.png') }}" class="rounded-0 image-cat"
-                        alt="..." width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
-                    <div class="middle-cat">
-                        <div class="text-cat"><a href="/accessories"
-                                style="text-decoration:none; color:black">ACCESSORIES</a></div>
-                    </div>
+                    <a href="/accessories" style="text-decoration:none;">
+                        <img src="{{ asset('../storage/images/Category/accessories.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
+                        <div class="middle-cat">
+                            <div class="text-cat"><a href="/accessories" style="text-decoration:none; color:black">ACCESSORIES</a></div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -151,10 +170,8 @@
             <h6>EXPLORE MORE BRAND THAT WE LOVE</h6>
         </div>
         <div class="row justify-content-center">
-            <button class="btn-gender my-1 visibleBtn" id="boxx"><a href="/allbrand"
-                    style="text-decoration:none; color:#6c757d">EXPLORE MORE</a></button>
+            <button class="btn-gender my-1 visibleBtn" id="boxx"><a href="/allbrand" style="text-decoration:none; color:#6c757d">EXPLORE MORE</a></button>
         </div>
     </div>
 </div>
-<script src="{{ asset('js/app.js') }}" defer></script>
 @endsection

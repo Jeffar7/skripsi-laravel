@@ -9,16 +9,13 @@
     </div>
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                aria-controls="profile" aria-selected="true">Profile</a>
+            <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#notification" role="tab"
-                aria-controls="notification" aria-selected="false">Notification</a>
+            <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#notification" role="tab" aria-controls="notification" aria-selected="false">Notification</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab"
-                aria-controls="privacy" aria-selected="false">Privacy</a>
+            <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab" aria-controls="privacy" aria-selected="false">Privacy</a>
         </li>
     </ul>
     <div class="card mt-4 pl-3 pr-3" style="border-radius: 10px; box-shadow: 1px 2px #888888">
@@ -34,7 +31,8 @@
                     <div class="col-md-8 pt-2">
                         <tbody>
                             <h1 style="text-transform:capitalize;">{{Auth::user()->first_name}}
-                                {{Auth::user()->last_name}}</h1>
+                                {{Auth::user()->last_name}}
+                            </h1>
                             <p style="text-transform:capitalize;">{{Auth::user()->role}}</p>
                             <p style="font-style: italic;">"{{Auth::user()->about}}"</p>
                         </tbody>
@@ -164,12 +162,9 @@
                     <div class="row mt-4">
                         <div class="col-md-6 form-group pl-5">
 
-                            <input type="password" class="form-control mb-3" name="current_password"
-                                placeholder="Current Password">
-                            <input type="password" class="form-control mb-3" name="new_password"
-                                placeholder="New Password">
-                            <input type="password" class="form-control mb-3" id="password_confirm"
-                                name="password_confirmation" placeholder="Confirm New Password">
+                            <input type="password" class="form-control mb-3" name="current_password" placeholder="Current Password">
+                            <input type="password" class="form-control mb-3" name="new_password" placeholder="New Password">
+                            <input type="password" class="form-control mb-3" id="password_confirm" name="password_confirmation" placeholder="Confirm New Password">
 
                             <button type="submit" class="btn btn-dark" style="
     width: 100%;

@@ -24,15 +24,6 @@
     @endforeach
 </div>
 
-{{-- <div class="pro col-4">     
-    <!-- Gambar 1 -->
-    <div class="card border-0" style="width: 100%; height: 20%;">
-        <a href="/product/detail/{{$p->id}}" ><img src="{{asset('../storage/images/Products/' . $p->productimage)}}"  alt="Image" class="card-img-top border-0" style="object-fit:cover;"></a>
-    </div>
-    <div class="card px-2 mb-4 border-0 pt-5" style="width: 100%; background-color: #f3f7f9">
-        <a href="/product/detail/{{$p->id}}" style="color:black;"><p class="mt-3 mb-0 text-truncate font-weight-bold">{{$p->productname}}</p></a>
-        <a class="about-title mb-0" style="color:#757575;" href="/brands/{{$p->brand->id}}">{{$p->brand->name}}</a>
-        <p class="font-weight-bold mt-2" style="color: black">Rp. {{number_format($p->productprice)}}</p>
-    </div>
-    <!-- Akhir Gambar 1 -->
-</div> --}}
+<div class="row justify-content-around mt-5">
+    {{ $products->links() }}
+</div>

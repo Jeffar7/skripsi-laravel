@@ -13,7 +13,7 @@
                     <h5 class="text-white">Brand</h5>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="/brands/{{$brand->id}}">
+                    <form method="POST" action="/brands/{{$brand->id}}" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
                         <div class="form-group ">

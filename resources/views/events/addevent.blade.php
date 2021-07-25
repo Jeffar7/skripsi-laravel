@@ -28,12 +28,12 @@
                         @csrf
                         <div class="form-group ">
                             <label for="name">Event Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="theme">Theme</label>
-                            <input type="text" class="form-control" id="theme" name="theme">
+                            <input type="text" class="form-control" id="theme" name="theme" required>
                         </div>
 
                         <div class="form-group ">
@@ -45,24 +45,33 @@
                             </div>
                         </div>
 
+                        <div class="form-group ">
+                            <label for="detail_picture">Detail Picture</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="detail_picture" id="detail_picture" required>
+                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="held_on">Held On</label>
-                            <input type="date" class="form-control" id="held_on" name="held_on">
+                            <input type="date" class="form-control" id="held_on" name="held_on" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="website">Website</label>
-                            <input type="text" class="form-control" id="website" placeholder="" name="website">
+                            <input type="text" class="form-control" id="website" placeholder="" name="website" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="capacity">Capacity</label>
-                            <input type="number" class="form-control" id="capacity" placeholder="" name="capacity">
+                            <input type="number" class="form-control" id="capacity" placeholder="" name="capacity" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="about_us">About Us</label>
-                            <input type="textarea" class="form-control" id="about_us" placeholder="" name="about_us">
+                            <input type="textarea" class="form-control" id="about_us" placeholder="" name="about_us" required>
                         </div>
 
                         <div class="form-group">

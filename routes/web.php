@@ -38,6 +38,8 @@ Route::group(['middleware' =>  'auth'], function () {
     Route::patch('/users/cstm/{user}', 'UserController@update');
     Route::delete('/delete-my-account/{user}', 'UserController@deleteMyAccount');
     Route::get('/userprofile', 'UserController@index');
+    Route::get('/usersettings', 'UserController@usersettings');
+    Route::post('/users/changepassword', 'UserController@changePassword');
 
     // PRODUCTWISH
     Route::get('/product-wish', 'ProductController@productwish');
@@ -92,7 +94,7 @@ Route::group(['middleware' =>  'auth'], function () {
     Route::get('/payment-history/buy-again/{product}', 'StatusController@buyAgain');
 
     // RAFFLE
-    // Route::get('/raffle', 'RaffleController@raffle');
+    Route::get('/raffle', 'RaffleController@raffle');
     Route::get('/raffles/checkout/{id}', 'RaffleController@raffleCheckout');
     Route::get('/raffles/checkout', 'RaffleController@raffleCheckoutView');
     Route::post('/raffles/summary', 'RaffleController@raffleSummary');
@@ -151,23 +153,19 @@ Route::group(['middleware' =>  'role:admin'], function () {
 });
 
 Route::group(['middleware' =>  'role:customer'], function () {
-
-    // USER
-    Route::get('/usersettings', 'UserController@usersettings');
-    Route::post('/users/changepassword', 'UserController@changePassword');
 });
 
 
 
 //notiification 
-Route::get('/test', function(){
+Route::get('/test', function () {
     $notifications = auth()->user()->unreadNotifications;
-    foreach($notifications as $notification){
-         dd($notification->data['user']['name']); //buat yang duplicate array
+    foreach ($notifications as $notification) {
+        dd($notification->data['user']['name']); //buat yang duplicate array
     }
 });
 
-Route::get('/markAsRead', function(){
+Route::get('/markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
 });
 
@@ -192,6 +190,7 @@ Route::get('/itemdetail', 'PageController@itemdetail');
 //GUEST
 Route::get('/raffle', 'RaffleController@raffleGuest');
 Route::get('/allraffle', 'RaffleController@allraffle');
+Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
 Route::get('/raffle/detail/{raffle}', 'RaffleController@raffledetail');
 Route::get('/raffle/description/{raffle}', 'RaffleController@raffledescription');
 
@@ -201,34 +200,34 @@ Route::get('/allbrand', 'BrandController@allbrand')->name('brand');
 Route::get('/event', 'EventController@event');
 Route::get('/events/detail/{event}', 'EventController@eventdetail');
 
-Route::get('/men-tops', 'ManController@tops');
 Route::get('/product/detail/{product}', 'ManController@topsdetail');
-Route::get('/men-bottoms', 'ManController@bottoms');
-Route::get('/men-shoes', 'ManController@shoes');
-Route::get('/men-accessories', 'ManController@accessories');
+
 // Route::get('/men-new', 'ManController@new');
 // Route::get('/men-sale', 'ManController@sale');
-Route::get('/men', 'ManController@men');
-Route::post('/men', 'ManController@filterMen')->name('men');
-Route::post('/men-tops', 'ManController@filterMenTops')->name('men-tops');
-Route::post('/men-bottoms', 'ManController@filterMenBottoms')->name('men-bottoms');
-Route::post('/men-accessories', 'ManController@filterMenAccessories')->name('men-accessories');
-Route::post('/men-shoes', 'ManController@filterMenShoes')->name('men-shoes');
+// Route::get('/men', 'ManController@men');
+Route::get('/men', 'ManController@men')->name('men');
+Route::post('/men', 'ManController@men')->name('men');
+Route::get('/men-tops', 'ManController@tops');
+Route::post('/men-tops', 'ManController@tops')->name('men-tops');
+Route::get('/men-bottoms', 'ManController@bottoms');
+Route::post('/men-bottoms', 'ManController@bottoms')->name('men-bottoms');
+Route::get('/men-shoes', 'ManController@shoes');
+Route::post('/men-shoes', 'ManController@shoes')->name('men-shoes');
+Route::get('/men-accessories', 'ManController@accessories');
+Route::post('/men-accessories', 'ManController@accessories')->name('men-accessories');
 
 Route::get('/women', 'WomenController@women');
-Route::post('/women', 'WomenController@filterWomen')->name('women');
+Route::post('/women', 'WomenController@women')->name('women');
 Route::get('/women-tops', 'WomenController@tops');
-Route::post('/women-tops', 'WomenController@filterWomenTops')->name('women-tops');
+Route::post('/women-tops', 'WomenController@tops')->name('women-tops');
 Route::get('/women-bottoms', 'WomenController@bottoms');
-Route::post('/women-bottoms', 'WomenController@filterWomenBottoms')->name('women-bottoms');
+Route::post('/women-bottoms', 'WomenController@bottoms')->name('women-bottoms');
 Route::get('/women-shoes', 'WomenController@shoes');
-Route::post('/women-shoes', 'WomenController@filterWomenShoes')->name('women-shoes');
+Route::post('/women-shoes', 'WomenController@shoes')->name('women-shoes');
 Route::get('/women-accessories', 'WomenController@accessories');
-Route::post('/women-accessories', 'WomenController@filterWomenAccessories')->name('women-accessories');
+Route::post('/women-accessories', 'WomenController@accessories')->name('women-accessories');
 
 Route::get('/search', 'ProductController@search')->name('search');
-Route::post('/allraffle', 'RaffleController@sortRaffle')->name('allraffle');
-Route::post('/men', 'ManController@filterMen')->name('men');
 Route::get('/top', 'ProductController@tops');
 Route::get('/shoes', 'ProductController@shoes');
 Route::get('/bottom', 'ProductController@bottoms');
@@ -277,7 +276,9 @@ Route::get('/privacypolicy', function () {
 });
 
 
-
+// Socialite Google Login
+Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/google/callback', 'Auth\LoginController@handleProviderCallBack');
 
 
 

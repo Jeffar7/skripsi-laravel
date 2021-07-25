@@ -1,5 +1,5 @@
 @foreach($raffles as $raffle)
-<div class="raf col-md-10 mb-4">
+<div class="raf col-md-12 mb-3">
     @if($raffle->status === 'running' || $raffle->status === 'not_started')
     <div class="event-card rounded-lg">
         <div class="row no-gutters">
@@ -23,21 +23,21 @@
                             </u>
                         </h5>
                         <p class="about-title mb-0" style="
-                        font-size: 18px;
+                        font-size: 16px;
                     ">Item</p>
                         <p class="mb-0" style="
                         font-size: 12px;
                         padding-top: -20%;
                     ">{{$raffle->brand->name}}
                         </p>
-                        <p class="font-weight-bolder mb-0 pl-2" style="
-                        font-size: 24px;
+                        <p class="font-weight-bolder mb-0" style="
+                        font-size: 20px;
                     ">{{$raffle->rafflename}}
                         </p>
                         <p class="about-title mb-0" style="
-                        font-size: 18px;
+                        font-size: 16px;
                     ">Price</p>
-                        <p class="pl-2 font-weight-bold" style="font-size: 24px">Rp. {{number_format($raffle->raffleprice)}}</p>
+                        <p class="font-weight-bold" style="font-size: 20px">Rp. {{number_format($raffle->raffleprice)}}</p>
                     </a>
                     <div class="text-right">
                         @guest
@@ -156,3 +156,8 @@
     @endif
 </div>
 @endforeach
+
+
+<div class="row justify-content-around mt-5">
+    {{ $raffles->links() }}
+</div>

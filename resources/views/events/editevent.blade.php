@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">Add Event</button>
+                            <button type="submit" class="btn btn-primary btn-block">Edit Event</button>
                         </div>
 
                     </form>

@@ -113,6 +113,16 @@ class OrderController extends Controller
 
     public function addaddress(Request $request)
     {
+        $request->validate([
+            'recipient_name' => 'required',
+            'contact_number' => 'required|numeric',
+            'address' => 'required',
+            'post_code' => 'required|numeric',
+            'province' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+        ]);
+
         if ($request->has('formaddress')) {
             $address = new Address_Delivery_Users();
 
@@ -128,7 +138,7 @@ class OrderController extends Controller
 
             $address->save();
         } else {
-            return back();
+            return back()->with('berhasil', 'Success add new address!');
         }
 
         $products = json_decode($request->products);
@@ -138,7 +148,11 @@ class OrderController extends Controller
         $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
         $detailaddresses = null;
 
-        return view('/transactions/delivery', compact('order', 'addresses', 'detailaddresses', 'shipments', 'products'));
+        return view('/transactions/delivery', compact('order', 'addresses', 'detailaddresses', 'shipments', 'products'))->with('berhasil', 'Success add new address!');
+    }
+
+    public function addressDeliverySummary()
+    {
     }
 
     public function addaddresspage()
@@ -274,7 +288,7 @@ class OrderController extends Controller
 
         $products = session()->get('checkout')['product'];
         $address = Address_Delivery_Users::where('id', '=', session()->get('detailcheckout')['address_id'])->first();
-        $shipment = Shipment::where('id', '=', session()->get('detailcheckout')['address_id'])->first();
+        $shipment = Shipment::where('id', '=', session()->get('detailcheckout')['shipment_id'])->first();
         $orders = session()->get('detailcheckout')['orders'];
 
         $discount = session()->get('voucher')['discount'] ?? 0;
