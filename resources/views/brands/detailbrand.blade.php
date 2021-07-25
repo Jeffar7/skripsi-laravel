@@ -24,10 +24,10 @@
                 <img src="{{asset('../storage/images/Brands/' . $brand->detail_picture)}}" class="img-fluid p-3" alt="Couldn't process image" height="323px" width="400px">
             </div>
             <h5 class="text-center mt-3" style="font-weight:bold">Website</h5>
-            <div class="text-center"><a href="">{{$brand->website}}</a></div>
+            <div class="text-center"><p class="text-center font-weight-light">{{$brand->website}}</p></div>
 
             <h5 class="text-center mt-3" style="font-weight:bold">About Us</h5>
-            <p class="text-center">{{$brand->about}}</p>
+            <p class="text-center font-weight-light">{{$brand->about}}</p>
         </div>
     </div>
 </div>
