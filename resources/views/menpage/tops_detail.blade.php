@@ -105,12 +105,18 @@
                         <div class="row my-4">
                             <div class="col-auto">
                                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                @if($product_tops->categoryid = 1)
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size" disabled>
+                                    <option selected>Select Size</option>
+                                </select>
+                                @else
                                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size">
                                     <option selected>Select Size</option>
                                     @foreach($product_tops->category->sizeDetails as $size)
                                     <option value="{{$size->size}}">{{$size->size}}</option>
                                     @endforeach
                                 </select>
+                                @endif
                             </div>
 
                             <div class="col">
