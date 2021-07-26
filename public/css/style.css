@@ -432,7 +432,7 @@ hr {
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
-    line-height: 16px;
+    /* line-height: 16px; */
     letter-spacing: 0em;
     /* text-align: left; */
     /* text-transform: uppercase; */
@@ -971,12 +971,11 @@ hr {
     color: white;
 }
 
-
-
 .yuhu {
     width: 600px;
     margin: 100px auto; 
 }
+
 .progressbar {
     /* counter-reset: step; */
 }
