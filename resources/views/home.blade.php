@@ -8,18 +8,10 @@
 <? use Illuminate\Support\Facades\Auth; ?>
 
 @if ($message = Session::get('success'))
-<div class="row mt-4">
-    <div class="col align-self-start">
+    <div class="alert alert-success alert-block mt-3" id="success-alert">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
     </div>
-    <div class="col align-self-center">
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
-        </div>
-    </div>
-    <div class="col align-self-end">
-    </div>
-</div>
 @endif
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

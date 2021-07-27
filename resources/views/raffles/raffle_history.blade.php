@@ -3,20 +3,18 @@
 @section('title','TokoLokal | Raffle History')
 
 @section('content')
-
+<div class="loader"></div>
 <div class="container pt-2">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h3 class="font-weight-bold mt-3" style="
-    text-align: left;
-">Raffle Entries Item</h3>
-            <div class="top-border my-4"></div>
-
-            @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
+            @if ($message = Session::get('status'))
+            <div class="alert alert-success alert-block" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
             </div>
             @endif
+            <h3 class="font-weight-bold mt-3" style="text-align: left;">Raffle Entries Item</h3>
+            <div class="top-border my-4"></div>
 
             @if($raffles->count() > 0)
             <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
@@ -38,7 +36,7 @@
                         <td class="text-center font-weight-normal">{{$raffle->rafflename}}</td>
                         <td class="text-center font-weight-normal">Rp. {{number_format($raffle->raffleprice)}}</td>
                         <td class="text-center font-weight-normal">{{$raffle->raffleclosedate}}</td>
-                        <td class="text-center font-weight-normal">{{$raffle->status}}</td>
+                        <td class="text-center font-weight-normal text-capitalize">{{$raffle->status}}</td>
                         @if($raffle->status == 'running')
                         <td class="text-center font-weight-normal">Waiting until Raffle Close</td>
                         @else
@@ -48,9 +46,9 @@
                             Raffle Has Been Paid
                         </td>
                         @else
-                        <td class="text-center font-weight-normal">Congratulations you win! Continue
-                            <a href="/raffles/checkout/{{$raffle->id}}" type="button" class="btn btn-outline-danger">Checkout</a>
-                        </td>
+                        <td class="row text-center font-weight-normal">
+                            <div class="col-sm-12">Congratulations you win! Continue</div>
+                            <div class="col-sm-12 my-2"><a href="/raffles/checkout/{{$raffle->id}}" type="button" class="btn btn-success">Checkout</a></div>
                         @endif
                         @elseif($raffle->is_win == 'lose')
                         <td class="text-center font-weight-normal">Sorry you are not lucky, please choose another raffle product.</td>
@@ -72,7 +70,6 @@
             @enderror
             @endif
             <div class="mt-4"></div>
-
         </div>
     </div>
 </div>

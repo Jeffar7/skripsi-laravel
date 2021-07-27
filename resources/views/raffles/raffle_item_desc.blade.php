@@ -25,7 +25,7 @@
     <div class="row justify-content-around">
         <div class="col-md-4 text-center">
             <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="rounded-lg" alt="..." width="100%" height="300px" style="
-            border: 1px solid #c4c4c4; box-shadow: 4px 4px 4px 4px #888888; object-fit:contain
+            border: 1px solid #c4c4c4; box-shadow: 4px 4px 4px 4px #888888; object-fit:cover
         ">
             <div class="my-5">
                 @guest

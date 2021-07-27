@@ -193,12 +193,16 @@ class ManController extends Controller
         $others = Product::where('categoryid', '=', $product_tops->category->id)
             ->where('gender_id', '=', $product_tops->gender->id)->get();
 
-        $itemuser = Auth::user();
-        $validasiwishlist = product_user::where('product_id', '=', $product_tops->id)
-        ->where('user_id', '=', $itemuser->id)
-        ->first();
-
-        return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others', 'image_detail', 'validasiwishlist'));
+        if(Auth::user()){
+            $itemuser = Auth::user();
+            $validasiwishlist = product_user::where('product_id', '=', $product_tops->id)
+            ->where('user_id', '=', $itemuser->id)
+            ->first();
+    
+            return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others', 'image_detail', 'validasiwishlist'));
+        } else {
+            return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others', 'image_detail'));
+        }
     }
 
     public function bottoms(Request $request)

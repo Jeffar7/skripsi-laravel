@@ -9,6 +9,36 @@ $(document).ready(function(){
         $(".loader").fadeOut("fast");
     });
 
+    $("#success-alert").fadeTo(5000, 500).slideUp(500, function(){
+        $("#success-alert").slideUp(500);
+    });
+
+    $(".see-eye").hide();
+    
+    $('.close-eye').on('click', function() {
+        $(".close-eye").hide();
+        $(".see-eye").show();
+        
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    });
+
+    $('.see-eye').on('click', function() {
+        $(".close-eye").show();
+        $(".see-eye").hide();
+
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    });
+
     $('.filter-header').click(function() {
         $(this).find('i').toggleClass('fas fa-chevron-down fas fa-chevron-up');
     });

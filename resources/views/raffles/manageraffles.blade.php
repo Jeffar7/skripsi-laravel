@@ -3,9 +3,7 @@
 @section('title','TokoLokal | Manage Raffle')
 
 @section('content')
-
-
-
+<div class="loader"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">

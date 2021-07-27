@@ -3,7 +3,7 @@
 @section('title','TokoLokal | Add Raffle')
 
 @section('content')
-
+<div class="loader"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -28,7 +28,7 @@
                         @csrf
                         <div class="form-group ">
                             <label for="rafflename">Raffle Name</label>
-                            <input type="text" class="form-control" id="rafflename" name="rafflename">
+                            <input type="text" class="form-control" id="rafflename" name="rafflename" required>
                         </div>
 
                         <div class="form-group ">
@@ -43,7 +43,7 @@
 
                         <div class="form-group ">
                             <label for="rafflebrand">Brand</label>
-                            <select name="brand_id" class="form-control">
+                            <select name="brand_id" class="form-control" required>
                                 @foreach($brands as $brand)
                                 <option value="{{$brand->id}}">
                                     {{$brand->name}}
@@ -54,7 +54,7 @@
 
                         <div class="form-group ">
                             <label for="category">Category</label>
-                            <select name="category_id" class="form-control">
+                            <select name="category_id" class="form-control" required>
                                 @foreach($categoryraffles as $categoryraffle)
                                 <option value="{{$categoryraffle->id}}">
                                     {{$categoryraffle->categoryname}}
@@ -65,32 +65,32 @@
 
                         <div class="form-group ">
                             <label for="raffleprice">Price</label>
-                            <input type="number" class="form-control" id="raffleprice" placeholder="" name="raffleprice">
+                            <input type="number" class="form-control" id="raffleprice" placeholder="" name="raffleprice" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="rafflequantity">Quantity</label>
-                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequantity">
+                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequantity" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="rafflequantity">Quota</label>
-                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequota">
+                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequota" required>
                         </div>
 
                         <div class="form-group">
                             <label for="rafflereleasedate">Release Date</label>
-                            <input type="datetime-local" class="form-control" id="rafflereleasedate" name="rafflereleasedate">
+                            <input type="datetime-local" class="form-control" id="rafflereleasedate" name="rafflereleasedate" required>
                         </div>
 
                         <div class="form-group">
                             <label for="raffleclosedate">Close Date</label>
-                            <input type="datetime-local" class="form-control" id="raffleclosedate" name="raffleclosedate">
+                            <input type="datetime-local" class="form-control" id="raffleclosedate" name="raffleclosedate" required>
                         </div>
 
                         <div class="form-group">
                             <label for="raffledescription">Raffle Description</label>
-                            <textarea class="form-control" id="raffledescription" rows="3" placeholder="add product information here..." name="raffledescription"></textarea>
+                            <textarea class="form-control" id="raffledescription" rows="3" placeholder="add product information here..." name="raffledescription"></textarea required> 
                         </div>
 
 

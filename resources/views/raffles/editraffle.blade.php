@@ -3,7 +3,7 @@
 @section('title','TokoLokal | Edit Raffle')
 
 @section('content')
-
+<div class="loader"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -29,13 +29,13 @@
                         @csrf
                         <div class="form-group ">
                             <label for="rafflename">Raffle Name</label>
-                            <input type="text" class="form-control" id="rafflename" name="rafflename" value="{{$raffle->rafflename}}">
+                            <input type="text" class="form-control" id="rafflename" name="rafflename" value="{{$raffle->rafflename}}" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="raffleimage">Picture</label>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="raffleimage" id="raffleimage" value="{{$raffle->raffleimage}}">
+                                <input type="file" class="custom-file-input" name="raffleimage" id="raffleimage" value="{{$raffle->raffleimage}}" required>
                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                 <div class="invalid-feedback">Example invalid custom file feedback</div>
                             </div>
@@ -44,7 +44,7 @@
 
                         <div class="form-group ">
                             <label for="rafflebrand">Brand</label>
-                            <select name="brand_id" class="form-control">
+                            <select name="brand_id" class="form-control" required>
                                 @foreach($brands as $brand)
                                 <option value="{{$brand->id}}">
                                     {{$brand->name}}
@@ -55,7 +55,7 @@
 
                         <div class="form-group ">
                             <label for="category">Category</label>
-                            <select name="category_id" class="form-control">
+                            <select name="category_id" class="form-control" required>
                                 @foreach($categoryraffles as $categoryraffle)
                                 <option value="{{$categoryraffle->id}}">
                                     {{$categoryraffle->categoryname}}
@@ -66,33 +66,33 @@
 
                         <div class="form-group ">
                             <label for="raffleprice">Price</label>
-                            <input type="number" class="form-control" id="raffleprice" placeholder="" name="raffleprice" value="{{$raffle->raffleprice}}">
+                            <input type="number" class="form-control" id="raffleprice" placeholder="" name="raffleprice" value="{{$raffle->raffleprice}}" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="rafflequantity">Quantity</label>
-                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequantity" value="{{$raffle->rafflequantity}}">
+                            <input type="number" class="form-control" id="rafflequantity" placeholder="" name="rafflequantity" value="{{$raffle->rafflequantity}}" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="rafflequota">Quota</label>
-                            <input type="number" class="form-control" id="rafflequota" placeholder="" name="rafflequota" value="{{$raffle->rafflequota}}">
+                            <input type="number" class="form-control" id="rafflequota" placeholder="" name="rafflequota" value="{{$raffle->rafflequota}}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="rafflereleasedate">Release Date</label>
-                            <input type="datetime-local" class="form-control" id="rafflereleasedate" name="rafflereleasedate" value="{{$raffle->rafflereleasedate}}">
+                            <input type="datetime-local" class="form-control" id="rafflereleasedate" name="rafflereleasedate" value="{{$raffle->rafflereleasedate}}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="raffleclosedate">Close Date</label>
-                            <input type="datetime-local" class="form-control" id="raffleclosedate" name="raffleclosedate" value="{{$raffle->raffleclosedate}}">
+                            <input type="datetime-local" class="form-control" id="raffleclosedate" name="raffleclosedate" value="{{$raffle->raffleclosedate}}" required>
                         </div>
 
 
                         <div class="form-group">
                             <label for="raffledescription">Description</label>
-                            <textarea class="form-control" id="raffledescription" rows="3" placeholder="add product information here..." name="raffledescription">{{$raffle->raffledescription}}</textarea>
+                            <textarea class="form-control" id="raffledescription" rows="3" placeholder="add product information here..." name="raffledescription" required>{{$raffle->raffledescription}}</textarea>
                         </div>
 
 

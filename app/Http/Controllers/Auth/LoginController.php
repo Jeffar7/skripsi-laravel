@@ -47,10 +47,10 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->hasRole('admin')) {
-            return redirect('/');
+            return redirect('/')->with('success', 'Your account has been successfully logged in!');;
         }
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Your account has been successfully logged in!');;
     }
 
     public function redirectToProvider()
