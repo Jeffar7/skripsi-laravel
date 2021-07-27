@@ -24,9 +24,10 @@
 
 <div class="container">
     <div class="row">
-        @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
+        @if ($message = Session::get('status'))
+        <div class="alert alert-success alert-block" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
         </div>
         @endif
     </div>
@@ -87,7 +88,7 @@
                     <div class="row mb-3">
                         <div class="col-auto">
                             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size">
+                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size" required>
                                 <option selected>Select Size</option>
                                 @foreach($product_tops->category->sizeDetails as $size)
                                 <option value="{{$size->size}}">{{$size->size}}</option>
@@ -110,9 +111,11 @@
 
                     <!-- wish list button -->
                     @guest
-                    <div class="row" style="margin-bottom: -5%">
-                        <div class="col-3">
-                            <button class="heart" style="border:none;"><a href="/login"></a></button>
+                    <div class="row mb-2">
+                        <div class="col-3 filter-heart text-center">
+                            <button class="btn" style="border:none;">
+                                <i class="fas fa-heart wish-not-active"style="font-size: 23px"><a href="/login"></a></i>
+                            </button>
                         </div>
                         <div class="col">
                             <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
@@ -128,16 +131,13 @@
                     <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
                     <div class="row mb-2">
                         <div class="col-3 filter-heart text-center">
-                            <!-- <button type="submit" class="heart" style="border:none;"></button> -->
                             <button class="btn" style="border:none;" type="submit">
-                                <!-- <i class="far fa-heart" style="font-size: 23px"></i> -->
                                 @if(isset($validasiwishlist) && $validasiwishlist)
                                 <i class="fas fa-heart wish-active"style="font-size: 23px"></i>
                                 @else
                                 <i class="fas fa-heart wish-not-active"style="font-size: 23px"></i>
                                 @endif
                             </button>
-                            <!-- <i class="fas fa-heart"></i> -->
                         </div>
                         <div class="col">
                             <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
@@ -306,10 +306,6 @@
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>
     $(document).ready(function() {
-        // $('.filter-heart').click(function() {
-        //     $(this).find('i').toggleClass('far fa-heart fas fa-heart');
-        // });
-
         $('.increment-btn').click(function(e) {
             e.preventDefault();
             var incre_value = $(this).parents('.quantity').find('.qty-input').val();
@@ -331,42 +327,6 @@
                 $(this).parents('.quantity').find('.qty-input').val(value);
             }
         });
-
-        // $(function() {
-        $(".heart").on("click", function() {
-            $(this).toggleClass("is-active");
-        });
-
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-
-        // $('.heart').click(function () {
-        //     var user = $("#userid").val();
-        //     var product = $("#productid").val();
-        //     var url = "http://127.0.0.1:8000/wish-list/save"
-
-        //     // console.log(user, product);
-
-        //     $.ajax({
-        //         url: url,
-        //         method: 'POST',
-        //         // data: {user:user, product:product, url:url},
-        //         data: $("#wish-list").serialize(),
-        //         success: function(data){
-        //             if(data<1){
-        //                 alert("Data has already added");
-        //                 console.log(data)
-        //             }else{
-        //                 alert("Data has successfully added")
-        //             }
-        //         }
-        //     })
-        // });
     });
 </script>
-
-
-    @endsection
+ @endsection
