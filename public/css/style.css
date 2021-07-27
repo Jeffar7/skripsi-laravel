@@ -233,10 +233,23 @@ position:absolute; */
     color: #8b8b8b;
 }
 
+.inner-addon .far {
+    position: absolute;
+    padding: 10px;
+    color: #8b8b8b;
+}
+
 .left-addon .fas {
     left: 17px;
     top: 1.7px;
 }
+
+.right-addon .far {
+    right: 20px;
+    top: 1.7px;
+    cursor: pointer;
+}
+
 .left-addon-regist .fas {
     left: 10px;
     top: 1.7px;
