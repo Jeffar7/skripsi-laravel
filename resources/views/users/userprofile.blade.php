@@ -11,9 +11,9 @@
         <li class="nav-item" role="presentation">
             <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
         </li>
-        <li class="nav-item" role="presentation">
+        {{-- <li class="nav-item" role="presentation">
             <a class="nav-link bg-transparent" id="notification-tab" data-toggle="tab" href="#notification" role="tab" aria-controls="notification" aria-selected="false">Notification</a>
-        </li>
+        </li> --}}
         <li class="nav-item" role="presentation">
             <a class="nav-link bg-transparent" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab" aria-controls="privacy" aria-selected="false">Privacy</a>
         </li>
@@ -105,7 +105,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade m-3" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+            {{-- <div class="tab-pane fade m-3" id="notification" role="tabpanel" aria-labelledby="notification-tab">
                 <h4 class="font-weight-bold">Notification</h4>
                 <p>Set the notifications you want to receive here</p>
                 <table class="table mt-2">
@@ -134,7 +134,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
             <div class="tab-pane fade m-3" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
 
                 @if(session('errorCurrentPassword'))

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'TokoLokal | Payment History')
+@section('title', 'TokoLokal | Transaction History')
 
 @section('content')
 

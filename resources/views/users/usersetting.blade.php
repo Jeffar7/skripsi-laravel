@@ -429,11 +429,7 @@
                                 <p class="text-center font-weight-normal mb-0">Do you really want to delete your <span class="font-weight-bold">account.</span> This process cannot be undone.</p>
                             </div>
                             <div class="modal-footer justify-content-around pt-0 border-top-0">
-                                <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal" style="
-                                background-color: #C4C4C4;
-                                border: none;
-                                width: 40%;
-                            ">Close</button>
+                                <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-danger" name="formaddress" style="                                        width: 40%;
                                 ">Delete</button>
                             </div>

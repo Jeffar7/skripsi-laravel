@@ -15,7 +15,7 @@
 
 	<div class="col-md-12 mb-1 p-0">
 		<div class="card rounded-0 border-0 con-photo w-100">
-			<img src="{{ asset('../storage/images/Men Page/-tops.jpg') }}" class="rounded-0 image-cat"
+			<img src="{{ asset('../storage/images/Men Page/men-tops.jpg') }}" class="rounded-0 image-cat"
 				alt="Men Display Picture" height="472px" style="object-fit: cover;">
 			<div class="middle-cat">
 				<div class="text-cat">TOPS FOR MEN</div>

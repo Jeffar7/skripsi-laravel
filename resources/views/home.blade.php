@@ -5,6 +5,7 @@
 @section('content')
 <div class="loader"></div>
 
+<? use Illuminate\Support\Facades\Auth; ?>
 
 @if ($message = Session::get('success'))
 <div class="row mt-4">
@@ -113,15 +114,18 @@
         @include('bestseller')
     </div>
 
+   
+    {{-- @guest --}}
     <div class="container mb-5">
         <p class="title-home font-weight-bold">CATEGORY</p>
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
-                    <a href="/top" style="text-decoration:none;">
+                    <a href="/men-tops" style="text-decoration:none;">
                         <img src="{{ asset('../storage/images/Category/top.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover">
                         <div class="middle-cat">
-                            <div class="text-cat"><a href="/top" style="text-decoration:none; color:black">TOP</a></div>
+                            <div class="text-cat">
+                                <a href="/top" style="text-decoration:none; color:black">TOP</a></div>
                         </div>
                     </a>
                 </div>
@@ -129,7 +133,7 @@
 
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
-                    <a href="/bottom" style="text-decoration:none;">
+                    <a href="/men-bottoms" style="text-decoration:none;">
                         <img src="{{ asset('../storage/images/Category/bottom.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover">
                         <div class="middle-cat">
                             <div class="text-cat"><a href="/bottom" style="text-decoration:none; color:black">BOTTOM</a>
@@ -142,7 +146,7 @@
             <div class="col-md-6 mb-1 p-0">
                 <!--offset-md-3  mr-1 -->
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
-                    <a href="/shoes" style="text-decoration:none;">
+                    <a href="/men-shoes" style="text-decoration:none;">
                         <img src="{{ asset('../storage/images/Category/shoes.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
                         <div class="middle-cat">
                             <div class="text-cat"><a href="/shoes" style="text-decoration:none; color:black">SHOES</a></div>
@@ -153,7 +157,7 @@
 
             <div class="col-md-6 mb-1 p-0">
                 <div class="card rounded-0 border-0 con-photo" style="background-color: #f3f7f9;">
-                    <a href="/accessories" style="text-decoration:none;">
+                    <a href="/men-accessories" style="text-decoration:none;">
                         <img src="{{ asset('../storage/images/Category/accessories.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover"> <!-- card-img -->
                         <div class="middle-cat">
                             <div class="text-cat"><a href="/accessories" style="text-decoration:none; color:black">ACCESSORIES</a></div>
@@ -163,9 +167,10 @@
             </div>
         </div>
     </div>
+    {{-- @endguest --}}
 
     <div class="container pb-5">
-        <p class="title-home font-weight-bold">FEATURE BRANDS</p>
+        <p class="title-home font-weight-bold">FEATURE BRANDS </p>
         <div class="row justify-content-center my-1">
             <h6>EXPLORE MORE BRAND THAT WE LOVE</h6>
         </div>

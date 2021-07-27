@@ -16,14 +16,24 @@
                         <div class="row justify-content-center">
                             <div class="form-group col-md-6">
                                 <label for="name">Your Name</label>
-                                <input type="text" class="form-control" name="name" id="name"
+                                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" id="name"
                                     placeholder="Enter your name ...">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label for="email">Your Email</label>
                                 <input type="text" class="form-control @error('email') is-invalid @enderror"
                                     name="email" id="email" placeholder="Enter your email ...">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                             </div>
                         </div>
                     {{-- </div> --}}

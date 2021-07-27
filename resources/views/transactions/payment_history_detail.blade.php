@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Payment History Detail')
+@section('title','TokoLokal | Transaction History Detail')
 
 @section('content')
 
@@ -18,7 +18,7 @@
         <div class="col-md-12 mb-4">
             <h3 class="font-weight-bold mt-3" style="
             text-align: left;
-        ">Transaction History</h3>
+        ">Transaction History Detail</h3>
 
             <!-- Status -->
             @if ($message = Session::get('success'))

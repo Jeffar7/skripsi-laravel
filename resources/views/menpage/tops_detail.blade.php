@@ -105,7 +105,7 @@
                         <div class="row my-4">
                             <div class="col-auto">
                                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                                @if($product_tops->categoryid = 1)
+                                @if($product_tops->categoryid == 4)
                                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size" disabled>
                                     <option selected>Select Size</option>
                                 </select>
