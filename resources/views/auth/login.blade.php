@@ -10,28 +10,51 @@
 
     <title>TokoLokal | Login</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- Bootstrap Data Table CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <!-- JQuery UI CSS -->
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Customize Css -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+    <!-- fav icon -->
     <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png">
+
+    <!-- style for stripe -->
+    @yield('extra-css')
 </head>
 
 <body>
+    <div class="loader"></div>
     <div class="container card-middle-sizing">
+        @if ($message = Session::get('status'))
+        <div class="alert alert-success alert-block" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+        @endif
         <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
             <div class="row no-gutters" style="height: 600px;">
                 <div class="col-md-6 no-gutters" style="height: 600px;">
@@ -61,10 +84,11 @@
                             </div>
 
                             <div class="form-group row justify-content-center">
-                                <div class="col-md-12 inner-addon left-addon">
+                                <div class="col-md-12 inner-addon left-addon right-addon">
                                     <i class="fas fa-lock"></i>
+                                    <i class="far fa-eye-slash close-eye"></i>
+                                    <i class="far fa-eye see-eye"></i>
                                     <input id="password" placeholder="Password" type="password" class="log-field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -72,10 +96,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-6 my-2">
-                                    <!-- An element to toggle between password visibility -->
-                                    <input type="checkbox" onclick="myFunction()"> Show Password
-                                </div>
+
 
                             </div>
 
@@ -123,20 +144,15 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="/login/google" type="button" class="btn btn-outline-danger"> <i class="fab fa-google"></i> Google</a>
-                                </div>
-                            </div>
 
                             <div class="form-row justify-content-center">
                                 <div class="form-group">
                                     <a href="www.gmail.com"></a>
                                     {{-- <a href="mailto:info@example.com?subject=subject&cc=cc@example.com"> --}}
-                                    <i class="fab fa-google"></i>
-                                    <i class="fab fa-facebook"></i>
-                                    <i class="fab fa-twitter"></i>
-                                    <i class="fab fa-apple"></i>
+                                    <a href="/login/google"><i class="fab fa-google" style="color:red;"></i></a>
+                                    <i class="fab fa-facebook" style="color:blue;"></i>
+                                    <i class="fab fa-twitter" style="color:navy;"></i>
+                                    <i class="fab fa-apple" style="color:grey;"></i>
                                 </div>
                             </div>
                         </form>
@@ -149,16 +165,4 @@
         </div>
     </div>
 </body>
-
-<script>
-    function myFunction() {
-        var x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
-</script>
-
 </html>
