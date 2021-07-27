@@ -3,15 +3,16 @@
 @section('title','TokoLokal | Cart')
 
 @section('content')
-
+<div class="loader"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <h3 class="text-left my-4">Your Cart</h3>
 
-            @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
+            @if ($message = Session::get('status'))
+            <div class="alert alert-success alert-block" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
             </div>
             @endif
             <form action="/checkout" id="form_checkout" method="POST">
@@ -143,22 +144,15 @@
             var price = parseInt($(this).find('.price').text());
             var subTotal = qty * price;
             grandTotal += subTotal;
-            // document.getElementById("subtotal").innerText = "Rp. " + subTotal.toLocaleString('en');
-            // $(this).text("Rp. " + subTotal.toLocaleString('en'));
             $(this).find('.subtotal').text('Rp. ' + subTotal.toLocaleString('en'));
 
             var sub_total = $('.subtotal').html();
             $("#subtotal").val(sub_total);
         });
-        // document.getElementById("grandtotal").innerText = "Rp. " + grandTotal.toLocaleString('en');
-        // $('.grandtotal').text("Rp. " + grandTotal.toLocaleString('en'));
         $('.grandtotal').text('Rp. ' + grandTotal.toLocaleString('en'));
 
         var grand_total = $('.grandtotal').html();
         $("#grandtotal").val(grand_total);
-
-        // (".grandtotal").empty();
-        // $(".grandtotal").html(grand_total);
     }
 
     $(document).ready(function() {
