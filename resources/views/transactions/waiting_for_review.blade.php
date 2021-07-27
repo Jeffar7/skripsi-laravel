@@ -9,7 +9,7 @@
         <div class="col-md-12 mb-4">
 
             @if ($message = Session::get('status'))
-            <div class="alert alert-success alert-block">
+            <div class="alert alert-success alert-block" id="success-alert">
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>{{ $message }}</strong>
             </div>
