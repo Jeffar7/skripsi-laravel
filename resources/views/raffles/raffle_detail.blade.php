@@ -3,6 +3,7 @@
 @section('title','TokoLokal | ' .e($raffle->rafflename))
 
 @section('content')
+<div class="loader"></div>
 <div class="container py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
@@ -389,15 +390,11 @@
                 </div>
 
                 <div class="row text-center">
-                    <p class="font-weight-normal" style="
-    font-size: 14px;
-">By submitting the form you agree to the Terms &amp; Conditions below.</p>
+                    <p class="font-weight-normal" style="font-size: 14px;">By submitting the form you agree to the Terms &amp; Conditions below.</p>
                 </div>
 
                 <div class="row  text-center">
-                    <p class="font-weight-normal" style="
-    font-size: 14px;
-">Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment
+                    <p class="font-weight-normal" style="font-size: 14px;">Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment
                         will be taken and the product will be sent via your choosen delivery method after draw has
                         closed. If unsucessful your held payment will be released after the close of the draw, depending
                         on your bank this may take 3-5 days.</p>
