@@ -3,7 +3,7 @@
 @section('title','TokoLokal | Edit Product')
 
 @section('content')
-
+<div class="loader"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -29,7 +29,7 @@
                         @csrf
                         <div class="form-group ">
                             <label for="name">Item Name</label>
-                            <input type="text" class="form-control" id="name" name="productname" value="{{$product->productname}}">
+                            <input type="text" class="form-control" id="name" name="productname" value="{{$product->productname}}" required>
                         </div>
 
                         <div class="form-group ">
@@ -43,7 +43,7 @@
 
                         <div class="form-group ">
                             <label for="brand">Brand</label>
-                            <select class="form-control" name="categoryid">
+                            <select class="form-control" name="categoryid" required>
                                 @foreach($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
@@ -52,7 +52,7 @@
 
                         <div class="form-group ">
                             <label for="brand">Product Gender</label>
-                            <select class="form-control" name="gender_id">
+                            <select class="form-control" name="gender_id" required>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
@@ -61,7 +61,7 @@
 
                         <div class="form-group ">
                             <label for="brand">Brand</label>
-                            <select class="form-control" name="brandid">
+                            <select class="form-control" name="brandid" required>
                                 @foreach($brands as $brand)
                                 <option value="{{$brand->id}}">{{$brand->name}}</option>
                                 @endforeach
@@ -70,27 +70,27 @@
 
                         <div class="form-group ">
                             <label for="productprice">Price</label>
-                            <input type="text" class="form-control" id="productprice" placeholder="" name="productprice" value="{{$product->productprice}}">
+                            <input type="text" class="form-control" id="productprice" placeholder="" name="productprice" value="{{$product->productprice}}" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="productquantity">Quantity</label>
-                            <input type="text" class="form-control" id="productquantity" placeholder="" name="productquantity" value="{{$product->productquantity}}">
+                            <input type="text" class="form-control" id="productquantity" placeholder="" name="productquantity" value="{{$product->productquantity}}" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="productprice">Size</label>
-                            <input type="text" class="form-control" id="productprice" placeholder="" name="productsize" value="{{$product->productsize}}">
+                            <input type="text" class="form-control" id="productprice" placeholder="" name="productsize" value="{{$product->productsize}}" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="sku">SKU</label>
-                            <input type="text" class="form-control" id="sku" placeholder="" name="sku" value="{{$product->sku}}">
+                            <input type="text" class="form-control" id="sku" placeholder="" name="sku" value="{{$product->sku}}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="productdescription">Product Description</label>
-                            <textarea class="form-control" id="productdescription" rows="3" placeholder="add product information here..." name="productdescription" value="{{$product->productdescription}}"></textarea>
+                            <textarea class="form-control" id="productdescription" rows="3" placeholder="add product information here..." name="productdescription" value="{{$product->productdescription}}" required></textarea>
                         </div>
 
 
