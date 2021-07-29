@@ -146,6 +146,7 @@ class RaffleController extends Controller
         $raffle->raffleclosedate = $request->raffleclosedate;
         $raffle->brand_id = $request->brand_id;
         $raffle->category_id = $request->category_id;
+        $raffle->status = 'not_started';
 
         if ($request->hasFile('raffleimage')) {
             $file = $request->file('raffleimage');

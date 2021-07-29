@@ -246,6 +246,7 @@ class OrderController extends Controller
         $carts = Cart::where('user_id', '=', Auth::user()->id)->forceDelete();
 
         session()->forget('voucher');
+        session()->forget('detailcheckout');
 
         return redirect('/payment-history');
     }

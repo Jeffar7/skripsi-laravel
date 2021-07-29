@@ -111,7 +111,11 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
+                            @if($product_tops->productquantity > 0)
+                            <button class="btn btn-dark disabled" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
+                            @else
+                            <button class="btn btn-danger" style="width:100%;" disabled><a href="#" class="card-link" style="color:white;">Out Of Stock!</a></button>
+                            @endif
                         </div>
                     </div>
                     @else
@@ -122,12 +126,20 @@
                             <button type="submit" class="heart" style="border:none;"></button>
                         </div>
                         <div class="col">
+                            @if($product_tops->productquantity > 0)
                             <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
+                            @else
+                            <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add" disabled>Add to Cart</button>
+                            @endif
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
+                            @if($product_tops->productquantity > 0)
                             <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
+                            @else
+                            <button type="submit" class="btn btn-danger" style="width:100%;" formaction="/buy-now/add" disabled>Out Of Stock!</button>
+                            @endif
                         </div>
                     </div>
                     @endguest

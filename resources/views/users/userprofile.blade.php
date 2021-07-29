@@ -40,7 +40,7 @@
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item active row">
 
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home" aria-selected="true" style="width: 100px;"><i class="fas fa-user" style=""></i><span style="
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home" aria-selected="true" style="width: 100px;"><i class="fas fa-user"></i><span style="
                                     padding-left: 10%;
                                 ">About</span></a>
                             </li>

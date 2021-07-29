@@ -13,11 +13,13 @@ use App\Product;
 use App\product_user;
 use App\Review;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 /*
@@ -302,8 +304,16 @@ Route::get('/read_product', function () {
 });
 
 Route::get('/check', function () {
+    $closed = DB::table('raffles')
+        ->whereDate('raffleclosedate', '<', Carbon::now())
+        ->orWhereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
+        ->get();
 
-    dd(Order::find(1)->raffle()->id);
+    foreach ($closed as $close) {
+        echo $close->id;
+    }
+
+    // dd(Order::find(1)->raffle()->id);
 
     // $stripe = new \Stripe\StripeClient(
     //     'sk_test_51Isn0aBee1Lnamoc8KJgliAPILEguv2sGs4Nm44t49rXBLlVIeXa82j8duyNhmBUhNTdi4Zr99FEjjxQ44psWuUx00OpjKFRXn'

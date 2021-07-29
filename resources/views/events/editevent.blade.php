@@ -64,7 +64,8 @@
 
                         <div class="form-group ">
                             <label for="about_us">About Us</label>
-                            <input type="textarea" class="form-control" id="about_us" placeholder="" name="about_us">
+                            <textarea type="textarea" class="form-control" id="about_us" name="about_us" rows="5" value="" placeholder="add brand information here...">{{$event->about_us}}
+                            </textarea>
                         </div>
 
                         <div class="form-group">

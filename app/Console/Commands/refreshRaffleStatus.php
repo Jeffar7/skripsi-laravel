@@ -58,13 +58,13 @@ class refreshRaffleStatus extends Command
 
         $closed = DB::table('raffles')
             ->whereDate('raffleclosedate', '<', Carbon::now())
-            // ->whereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
+            ->orWhereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
             ->update(['status' => 'closed']);
 
-        Mail::raw("This is automatically generated minute update", function ($message) {
-            $message->from('Jeffarmanurung66@gmail.com');
-            $message->to('Jeffarmanurung66@gmail.com')->subject('Minute Update');
-        });
+        // Mail::raw("This is automatically generated minute update", function ($message) {
+        //     $message->from('Jeffarmanurung66@gmail.com');
+        //     $message->to('Jeffarmanurung66@gmail.com')->subject('Minute Update');
+        // });
 
         $this->info('Minute Update has been send successfully');
     }
