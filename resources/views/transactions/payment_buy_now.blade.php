@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Delivery')
+@section('title','TokoLokal | Payment')
 
 @section('extra-css')
 
@@ -155,7 +155,7 @@
 
 
               <div class="form-row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="bank_type">Bank Type</label>
                   <select class="form-control" id="bank_type" name="bank_type">
                     <option value="M-Banking">M-Banking</option>

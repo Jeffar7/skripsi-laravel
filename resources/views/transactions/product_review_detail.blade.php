@@ -21,11 +21,11 @@
                     </div>
                     <div class="card-body">
                         <div class="row mx-4">
-                            <div class="col-md-4">
+                            <div class="col-4">
                                 <img src="{{asset('../storage/images/Products/' . $product->productimage)}}" alt="Image" width="100%;">
                             </div>
 
-                            <div class="col-md-8">
+                            <div class="col-8">
                                 <p class="about-title mb-0" style="text-decoration:normal;">{{$product->brand->name}}</p>
                                 <p class="mb-0" style="font-weight:bold;">{{$product->productname}}</p>
                                 <input type="hidden" id="selected_rating" name="selected_rating" value="" required="required">
@@ -87,30 +87,21 @@
 
 <script>
     jQuery(document).ready(function($) {
-
         $(".btnrating").on('click', (function(e) {
-
             var previous_value = $("#selected_rating").val();
-
             var selected_value = $(this).attr("data-attr");
             $("#selected_rating").val(selected_value);
-
             $(".selected-rating").empty();
             $(".selected-rating").html(selected_value);
-
             for (i = 1; i <= selected_value; ++i) {
                 $("#rating-star-" + i).toggleClass('btn-light');
                 $("#rating-star-" + i).toggleClass('btn-default');
             }
-
             for (ix = 1; ix <= previous_value; ++ix) {
                 $("#rating-star-" + ix).toggleClass('btn-light');
                 $("#rating-star-" + ix).toggleClass('btn-default');
             }
-
         }));
-
-
     });
 </script>
 

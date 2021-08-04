@@ -47,7 +47,7 @@
             @foreach ($users as $user)
             <div class="modal fade" id="exampleModal{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
-                    <div class="modal-content shadow-sm">
+                    <div class="modal-content" style="box-shadow: 4px 4px 4px 4px #575252;">
                         <form action="/users/{{ $user->id }}" method="POST" class="d-inline">
                             @method('delete')
                             @csrf
@@ -62,8 +62,8 @@
                                 <p class="text-center font-weight-normal mb-0">This process cannot be undone.</p>
                             </div>
                             <div class="modal-footer justify-content-around pt-0 border-top-0">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-danger" name="delete_user">Delete</button>
+                                <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger" name="delete_user" style="width: 40%">Delete</button>
                             </div>
                         </form>
                     </div>

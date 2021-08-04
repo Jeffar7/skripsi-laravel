@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Delivery')
+@section('title','TokoLokal | Payment')
 
 @section('extra-css')
 
@@ -149,6 +149,7 @@
                   <option value="BRI">BRI</option>
                 </select>
               </div>
+
               <div class="col-md-6 mb-3">
                 <label for="account_number">Account Number</label>
                 <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="ex: 12345678910" required>
@@ -156,7 +157,7 @@
             </div>
 
             <div class="form-row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="bank_type">Bank Type</label>
                 <select class="form-control" id="bank_type" name="bank_type">
                   <option value="M-Banking">M-Banking</option>
@@ -169,8 +170,8 @@
             <input type="hidden" name="payment_type" value="debit">
             <input type="hidden" name="order" value="{{$order->id}}">
           </form>
-        </div>
-
+        </div>x
+      </div>
       </div>
 
       <div class="row justify-content-center mt-5">
@@ -183,8 +184,6 @@
           <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
         </div>
       </div>
-      
-    </div>
   </div>
 </div>
 

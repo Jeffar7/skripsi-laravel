@@ -1297,10 +1297,23 @@ textarea{
     width: 50%;
 }
 
+/* Raffle Delivery Page */
+.order-card{
+    background-color: #f3f1f1;
+    background-clip: border-box;
+    /* border: 1px solid rgba(0, 0, 0, 0.125); */
+    border-radius: 0.25rem;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
+}
+
+@media only screen and (min-width: 992px) {
+    /* .dropdownMenu{
+        margin-top: 2%;
+    } */
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -1437,10 +1450,10 @@ textarea{
     }
 
     /* Transaction Page - Delivery  */
-    .dropdownSize{
+    /* .dropdownSize{
         width: 80%;
         margin-left: 10%;
-    }
+    } */
 
     /* Transaction Page - Summary  */
     .voucherBtn{

@@ -26,8 +26,8 @@
                     </div>
 
                     <div class="row justify-content-center m-3">
-                        <div class="col-sm-9">
-                            <select class="form-control dropdownSize" id="address" name="address_detail" required>
+                        <div class="col-sm-8 mt-2">
+                            <select class="form-control" id="address" name="address_detail" required>
                                 <option value="">Select Address</option>
                                 @foreach($addresses as $address)
                                 <option id="address-{{$address->id}}" value="{{$address->id}}"
@@ -40,7 +40,7 @@
                             </select>
                         </div>
 
-                        <div class="col-sm-3">
+                        <div class="col-sm-3 mt-2">
                             <div class="form-row">
                                 <button type="button" class="btn btn-secondary dropdownSize" data-toggle="modal"
                                     data-target="#exampleModal"><i
@@ -49,15 +49,15 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-around">
-                        <div class="col-sm-10 bg-light card mb-3" style="border:none">
-                            <div class="detail-info-address">
+                    <div class="row justify-content-around m-3">
+                        <div class="col-sm-11" style="padding: 0">
+                            <div class="detail-info-address order-card text-left">
                                 @if (empty($addresses))
-                                <div class="text-left">
+                                <div class="">
                                     Please select or add new address.
                                 </div>
                                 @else
-                                <div class="info-address text-left">
+                                <div class="info-address">
                                     <div id="details"></div>
                                 </div>
                                 @endif
@@ -66,7 +66,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <!-- End Address -->
 
@@ -83,8 +82,8 @@
                     </div>
 
                     <div class="row justify-content-center m-3">
-                        <div class="col-sm-12">
-                            <select class="form-control dropdownSize" id="shipment_type" name="shipment" required>
+                        <div class="col-sm-11" style="padding: 0">
+                            <select class="form-control" id="shipment_type" name="shipment" required>
                                 <option value="">Select Shipment Type</option>
                                 @foreach($shipments as $shipment)
                                 <option id="shipment-{{$shipment->id}}" value="{{$shipment->id}}"
@@ -97,15 +96,15 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-around">
-                        <div class="col-sm-11 bg-light card mb-3" style="border:none">
-                            <div class="detail-info-shipment">
+                    <div class="row justify-content-around m-3">
+                        <div class="col-sm-11" style="padding: 0">
+                            <div class="detail-info-shipment order-card text-left">
                                 @if (empty($shipments))
-                                <div class="text-left">
+                                <div class="">
                                     Please select the shipment type.
                                 </div>
                                 @else
-                                <div class="info-address text-left">
+                                <div class="info-address">
                                     <div id="details_shipment"></div>
                                 </div>
                                 @endif
@@ -248,7 +247,6 @@
 <!-- {{-- End Address Form --}} -->
 
 </div>
-
 <script>
     $(document).ready(function() {
         //Address
@@ -270,7 +268,7 @@
 
             //layout for the detail
             $('#details').html(
-                "<div class='row my-3'> <div class='col-sm-1 col-md-2'>" +
+                "<div class='row p-3 mb-3'> <div class='col-6 col-md-3 col-lg-2'>" +
                 "<p class='mb-1 font-weight-normal'>Recipient Name  </p>" +
                 "<p class='mb-1 font-weight-normal'>Contact Number  </p>" +
                 "<p class='mb-1 font-weight-normal'>Address         </p>" +
@@ -279,7 +277,7 @@
                 "<p class='mb-1 font-weight-normal'>Province        </p>" + 
                 "<p class='mb-1 font-weight-normal'>City            </p>" + 
                 "<p class='mb-1 font-weight-normal'>District        </p></div>" + 
-                "<div class='col-sm-5 offset-sm-2 col-md-10 offset-md-0'>" +
+                "<div class='col-6 col-md-9 col-lg-10 offset-md-0'>" +
                 "<p class='mb-1 font-weight-normal'>: " + recName + "</p>" +
                 "<p class='mb-1 font-weight-normal'>: " + contactNum + "</p>" +
                 "<p class='mb-1 font-weight-normal'>: " + addressName + "</p>" +
@@ -305,11 +303,11 @@
 
             //layout for the detail
             $('#details_shipment').html(
-                "<h4 class='my-3 font-weight-bold'>" + shipMethod + "</h4>" +
-                "<div class='row'> <div class='col-sm-1 col-md-2'>" +
+                "<h4 class='mt-3 font-weight-bold p-3'>" + shipMethod + "</h4>" +
+                "<div class='row p-3 mb-3'> <div class='col-5 col-md-3 col-lg-2'>" +
                 "<p class='mb-1 font-weight-normal'>Delivery Cost       </p>" +
                 "<p class='mb-1 font-weight-normal'>Estimated Delivery  </p></div>" 
-                + "<div class='col-sm-5 offset-sm-2 col-md-10 offset-md-0'>" +
+                + "<div class='col-7 col-md-9 col-lg-10 offset-md-0'>" +
                     "<p class='mb-1 font-weight-normal'>" + ": Rp. " + delivCost.toLocaleString('en') + "</p>"
                     + "<p class='mb-1 font-weight-normal'>: " + estimatedCost + "</p>"
                     + "</div></div>"
