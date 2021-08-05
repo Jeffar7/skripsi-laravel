@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Delivery')
+@section('title','TokoLokal | Payment')
 
 @section('extra-css')
 
@@ -51,7 +51,7 @@
 
 
 <div class="container mt-2 mb-5">
-  <div class="row justify-content-center mb-3">
+  <div class="row justify-content-center">
     <div class="col-md-12 text-center">
       <div class="breadcrumb-a flat mt-4 mb-5">
         <a class="col-sm-4"><span class="ml-2">DELIVERY</span></a>
@@ -149,6 +149,7 @@
                   <option value="BRI">BRI</option>
                 </select>
               </div>
+
               <div class="col-md-6 mb-3">
                 <label for="account_number">Account Number</label>
                 <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="ex: 12345678910" required>
@@ -156,7 +157,7 @@
             </div>
 
             <div class="form-row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-12 mb-3">
                 <label for="bank_type">Bank Type</label>
                 <select class="form-control" id="bank_type" name="bank_type">
                   <option value="M-Banking">M-Banking</option>
@@ -169,21 +170,20 @@
             <input type="hidden" name="payment_type" value="debit">
             <input type="hidden" name="order" value="{{$order->id}}">
           </form>
+        </div>x
+      </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+
+        <div class="col-6 text-left my-4">
+          <a href="/transactions/ordersummary" name="formsummary" class="btn btn-dark h-100"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
         </div>
 
+        <div class="col-6 text-right my-4">
+          <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
+        </div>
       </div>
-    </div>
-      
-    </div>
-  </div>
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-6 text-left">
-      <a href="/transactions/ordersummary" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
-    </div>
-    <div class="col-md-6 text-right">
-      <button type="button" class="btn btn-dark" id="submitBtn">SUBMIT</button>
-    </div>
-    </div>
   </div>
 </div>
 
@@ -204,23 +204,22 @@
     // function submit() {
     //   console.log('berhasil');
 
-
-    $("#submitBtn").hide();
+    $("#submitBtn").attr('disabled', 'disabled');
 
     $('#select_payment').on('change', function() {
       var option_value = $(this).val();
       if (option_value == 'credit') {
-        $("#submitBtn").show();
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#payment-form").submit(); // Submit the form
         });
       } else if (option_value == 'debit') {
-        $("#submitBtn").show();
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#debit_payment").submit(); // Submit the form
         });
       } else {
-        $("#submitBtn").hide();
+        $("#submitBtn").attr('disabled', 'disabled');
       }
     });
   });

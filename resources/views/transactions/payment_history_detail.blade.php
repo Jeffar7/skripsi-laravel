@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Payment History Detail')
+@section('title','TokoLokal | Transaction History Detail')
 
 @section('content')
 
@@ -8,7 +8,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Payment History Detail</li>
+            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Transaction History Detail</li>
         </ol>
     </nav>
 </div>
@@ -18,7 +18,7 @@
         <div class="col-md-12 mb-4">
             <h3 class="font-weight-bold mt-3" style="
             text-align: left;
-        ">Payment History</h3>
+        ">Transaction History Detail</h3>
 
             <!-- Status -->
             @if ($message = Session::get('success'))

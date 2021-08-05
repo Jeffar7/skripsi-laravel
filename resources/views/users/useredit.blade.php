@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 class="title-home mt-3">Edit User</h1>
+            <h1 class="title-home mt-3 font-weight-bold">Edit User</h1>
             <div class="card shadow-lg">
                 <div class="card-header text-left bg-dark">
                     <h5 class="text-white">USER</h5>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Delivery')
+@section('title','TokoLokal | Payment')
 
 @section('extra-css')
 
@@ -155,7 +155,7 @@
 
 
               <div class="form-row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                   <label for="bank_type">Bank Type</label>
                   <select class="form-control" id="bank_type" name="bank_type">
                     <option value="M-Banking">M-Banking</option>
@@ -173,11 +173,11 @@
 
       <div class="row justify-content-center mt-5">
 
-        <div class="col-md-6 text-left">
-          <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+        <div class="col-6 text-left my-4">
+          <a href="{{ url()->previous() }}" name="formsummary" class="btn btn-dark h-100"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
         </div>
 
-        <div class="col-md-6 text-right">
+        <div class="col-6 text-right my-4">
           <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
         </div>
       </div>

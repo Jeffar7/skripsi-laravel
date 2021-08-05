@@ -82,26 +82,30 @@
                     <p>Delivery and discount will be calculated during the checkout process.</p>
                 </div>
                 <input type="hidden" value="{{$cartlists}}" name="cartlists">
+                @if ($cartlists->count() > 0)
                 <div class="form-group row" style="
                 margin-bottom: 6%;
             ">
-                    <div class="col-md-6">
-                    <a href="/" class="continueShopBtn" style="text-decoration: none">Continue Shopping</a>
+                    <div class="col-md-6" style="width: 50%">
+                    <a href="/" class="continueShopBtn" style="text-decoration: none;">Continue Shopping</a>
                     </div>
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary mt-4" for="form_checkout" style="
+                        <button type="submit" class="btn btn-primary" for="form_checkout" style="
                         width: 30%;
                         float: right;
+                        height: 40px;
                     ">Checkout</button>
                     </div>
                 </div>
+                @else
+                @endif
         </div>
         </form>
 
         @foreach($cartlists as $cartlist)
         <div class="modal fade" id="exampleModal{{$cartlist->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-sm">
-                <div class="modal-content" style="4px 4px 4px 4px #575252">
+                <div class="modal-content" style="box-shadow: 4px 4px 4px 4px #575252;">
                     <form action="/product-cart/delete/{{$cartlist->id}}" method="POST" class="d-inline">
                         @method('delete')
                         @csrf
@@ -119,11 +123,8 @@
                             <p class="text-center font-weight-normal mb-0">This process cannot be undone.</p>
                         </div>
                         <div class="modal-footer justify-content-around pt-0 border-top-0">
-                            <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal" style="
-                            background-color: #C4C4C4;
-                            border: none;
-                            width: 40%;
-                        ">Cancel</button>
+                            <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal" 
+                        >Cancel</button>
                             <button type="submit" class="btn btn-danger" name="delete_user" style="
                             width: 40%;
                         ">Delete</button>

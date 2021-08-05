@@ -13,7 +13,7 @@
 
 <div class="container">
     <div class="row justify-content-center my-4">
-        <div class="col-md-12">
+        <div class="col-md-12 text-center">
             <h5>TokoLokal is a concept electronic store based in Jakarta. Started in 2021, TokoLokal become a point for
                 fashion and lifestyle from Indonesian local brands. TokoLokal is a place for curated local products to
                 compete with international products. Working with passionate and like-minded individuals, constantly
@@ -25,7 +25,7 @@
     {{-- <hr> --}}
 
     <div class="row justify-content-center my-4">
-        <div class="col-md-6" style="margin-top: 60px;">
+        <div class="col-md-6" style="margin-top: 2%;">
             <h3 class="font-weight-bold mb-4">Our Location</h3>
             {{-- <div class=""> --}}
             <div class="my-5">
@@ -33,7 +33,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-2"> <img src="{{ asset('../storage/images/About Page/locationLogo.png') }}"
-                                style="width: 50%" class="location" alt="">
+                                 class="location about-map" alt="">
                         </div>
                         <div class="col-md-10"><span class="pull-right">
                                 <h5 class="card-title">Office 8 Building, 19th Floor Unit A</h5>

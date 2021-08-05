@@ -17,14 +17,14 @@
     </div>
 </div>
 <div class="container pb-5">
-    <ul class="nav nav-tabs-brand justify-content-between" id="myTab" role="tablist"
-        style="margin-left: 360px;margin-right: 360px;">
-        <li class="nav-item-brand" role="presentation">
-            <a class="nav-link-brand bg-transparent" id="hash-tab" data-toggle="tab" href="#hash" role="tab"
+    <ul class="nav nav-tabs-brand justify-content-start" id="myTab" role="tablist"
+        style="margin-left: 30%;margin-right: 30%;">
+        <li class="nav-item-brand active" role="presentation">
+            <a class="nav-link-brand active bg-transparent" id="hash-tab" data-toggle="tab" href="#hash" role="tab"
                 aria-controls="hash" aria-selected="false">#</a>
         </li>
-        <li class="nav-item-brand active" role="presentation">
-            <a class="nav-link-brand active bg-transparent" id="alphabeta-tab" data-toggle="tab" href="#alphabeta"
+        <li class="nav-item-brand" role="presentation">
+            <a class="nav-link-brand bg-transparent" id="alphabeta-tab" data-toggle="tab" href="#alphabeta"
                 role="tab" aria-controls="alphabeta" aria-selected="false">A</a>
         </li>
         <li class="nav-item-brand" role="presentation">
@@ -130,7 +130,7 @@
     </ul>
     <div class="mt-4 pl-3 pr-3">
         <div class="tab-content py-3">
-            <div class="tab-pane fade" id="hash" role="tabpanel" aria-labelledby="hash-tab">
+            <div class="tab-pane fade show active" id="hash" role="tabpanel" aria-labelledby="hash-tab">
                 <h4>#</h4>
                 <div class="row pl-3">
                     @foreach($groups as $letter => $group)
@@ -145,7 +145,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="tab-pane fade show active" id="alphabeta" role="tabpanel" aria-labelledby="alphabeta-tab">
+            <div class="tab-pane fade" id="alphabeta" role="tabpanel" aria-labelledby="alphabeta-tab">
                 <h4>A</h4>
                 <div class="row pl-3">
                     @foreach($groups as $letter => $group)

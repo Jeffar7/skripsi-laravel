@@ -7,20 +7,20 @@
     <div class="ta-title" style="color: white;">
         <img src="{{ asset('../storage/images/Terms & Condition Page/Terms&Condition.png') }}" height="200" alt=""
             style="width: 100%;">
-        <h5 class="centered font-weight-bold">TERMS & CONDITIONS</h5>
+        <h5 class="centered font-weight-bold">TERMS & CONDITIONS</h3>
     </div>
 
     <div class="container-xl my-5">
 
         <div class="spacing">
-            <h5 class="text-terms">WELCOME</h5>
+            <h3 class="text-terms">WELCOME</h3>
             <p class="silver">Please review the following basic terms that govern your use of, and purchase of,
                 products from our Site. Please note that your use of our Site constitutes your agreement to follow and
                 be bound by those terms.</p>
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">COPYRIGHT & TRADEMARKS</h5>
+            <h3 class="text-terms">COPYRIGHT & TRADEMARKS</h3>
             <p class="silver">Unless otherwise noted all materials, including images, illustrations, designs, icons,
                 photographs, video clips, written and other materials that appear as part of this site are copyrights,
                 trademarks, trade dress and/or other forms of intellectual property owned, controlled, and/or used under
@@ -29,7 +29,7 @@
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">CORRECTION OF ERRORS AND INACCURACIE</h5>
+            <h3 class="text-terms">CORRECTION OF ERRORS AND INACCURACIE</h3>
             <p class="silver">The information on the site may contain typographical errors or inaccuracies and may not
                 be complete or current. TokoLokal therefore reserves the right to correct any errors, inaccuracies or
                 omissions and to change or update information at any time with or without prior notice (including after
@@ -38,7 +38,7 @@
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">ORDER</h5>
+            <h3 class="text-terms">ORDER</h3>
             <p class="silver">If you purchase a product from us, we request certain personally identifiable
                 information from you on our order form. You must provide contact information (such as name, email, and
                 shipping address) and financial information (such as credit card number, expiration date).We use the
@@ -48,19 +48,19 @@
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">ORDER PROCESSING</h5>
+            <h3 class="text-terms">ORDER PROCESSING</h3>
             <p class="silver">All orders made in the weekend will be processed on the following business day. Please
                 allow a maximum 48 hours for us to process your orders.</p>
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">SHIPPING</h5>
+            <h3 class="text-terms">SHIPPING</h3>
             <p class="silver">INDONESIAN ORDER
                 We ship Domestic orders via JNE, please allow 2-5 business days for shipping and delivery.</p>
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">RETURN & EXCHANGE POLICY</h5>
+            <h3 class="text-terms">RETURN & EXCHANGE POLICY</h3>
             <p class="silver">We accept returns for SIZE EXCHANGE ONLY up to 10 business days for International Orders
                 and 3 business days for Domestic Orders from the delivery date. Sorry, but there are NO REFUNDS. Returns
                 will only be accepted if clothing is unworn with all tags attached. Please email shop@tokolokal.com with
@@ -79,7 +79,7 @@
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">COLORS</h5>
+            <h3 class="text-terms">COLORS</h3>
             <p class="silver">We have made every effort to display as accurately as possible the colors of our
                 products on our Site. However, as the actual colors you see will depend on your monitor, we cannot
                 guarantee that your monitor’s display of any color will be accurate.
@@ -88,14 +88,14 @@
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">PRIVACY</h5>
+            <h3 class="text-terms">PRIVACY</h3>
             <p class="silver">All information we receive during your visit to tokolokal.com is kept private and
                 confidential.
             </p>
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">QUESTIONS & CONCERNS</h5>
+            <h3 class="text-terms">QUESTIONS & CONCERNS</h3>
             <div class="silver">
                 <p>If you have any questions or concerns about your online order and our policies please
                     contact us at info@tokolokal.com </p>
@@ -115,7 +115,7 @@
         </div>
 
         <div class="spacing">
-            <h5 class="text-terms">TERMS OF USE</h5>
+            <h3 class="text-terms">TERMS OF USE</h3>
             <p class="silver">By Using this website you agree to the Terms of Use. We have the right to change these
                 terms at anytime, so please check back regularly.
             </p>

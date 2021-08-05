@@ -14,20 +14,20 @@
     </nav>
 </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10 text-center mt-2 mb-4">
-            <p class="title-home mt-0 mb-4 font-weight-bold">Raffle Item Description</p>
+
+    <div class="justify-content-center">
+        <div class="col-md-10 text-center mt-3 mb-4">
+        <p class="title-home mt-0 mb-4 font-weight-bold">Raffle Item Description</p>
         </div>
     </div>
-</div>
 
 <div class="container pb-5">
     <div class="row justify-content-around">
         <div class="col-md-4 text-center">
-            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="rounded-lg bg-white" alt="..." width="100%" height="300px" style="
-            border: 1px solid #c4c4c4; box-shadow: 4px 4px 4px 4px #888888; object-fit:contain">
-            <div class="mt-5">
+            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="rounded-lg" alt="..." width="100%" height="300px" style="
+            border: 1px solid #c4c4c4; box-shadow: 4px 4px 4px 4px #888888; object-fit:cover
+        ">
+            <div class="my-5">
                 @guest
                 @if($raffle->status === 'running')
                 <a href="/register" class="btn btn-primary" style="
@@ -60,7 +60,8 @@
             </div>
         </div>
         <div class="col">
-            <div class="card pl-3 pr-3 rounded-lg" style="border: 1px solid #c4c4c4; box-shadow: 4px 4px 4px 4px #888888;">
+            <div class="card px-3 rounded-lg" style="border: 1px solid #c4c4c4; box-shadow: 4px 4px 4px 4px #888888;
+            ">
                 <ul class="nav nav-tabs bg-transparent justify-content-around my-2" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a class="nav-link font-weight-bold active bg-transparent" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">SUMMARY</a>
@@ -75,7 +76,7 @@
 
                 <div class="tab-content py-2" id="myTabContent">
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="rounded-lg text-center" style="background-color: #c4c4c4;height: 50px;">
+                        <div style="background-color: #c4c4c4;height: 10%;">
                             <h2 class="px-5 py-2">{{$raffle->rafflename}}</h2>
                         </div>
                         <table class="mt-2 table table-borderless mx-5" style="
@@ -116,12 +117,10 @@
                         </table>
                     </div>
                     <div class="tab-pane fade mt-3" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-                        <div class="pb-1 pt-3 rounded-lg" style="background-color: #c4c4c4;">
-                            <p class="py-2" style="text-align: center">{{$raffle->raffledescription}}</p>
-                        </div>
+                        <div class="pb-1 pt-3 mb-3" style="background-color: #c4c4c4;"><p class="py-2" style="text-align: center">{{$raffle->raffledescription}}</p></div>
                     </div>
                     <div class="tab-pane fade mt-3" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
-                        <div class="pb-1 pt-3 rounded-lg" style="background-color: #c4c4c4;">
+                        <div class="pb-1 pt-3 mb-3" style="background-color: #c4c4c4;">
                             <p class="py-2" style="text-align: center">Please read our <a href="/termsandcondition" class="text-dark font-weight-bold">Terms & Condition</a> before joining the raffles for the convenience</p>
                         </div>
                     </div>

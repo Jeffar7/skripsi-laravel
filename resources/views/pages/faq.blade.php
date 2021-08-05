@@ -3,8 +3,8 @@
 @section('title', 'TokoLokal | FAQ')
 
 @section('content')
-<img src="{{ asset('../storage/images/FAQ Page/FAQ_Background.png') }}" alt="" style="width: 100%; height: 1000px;">
-<div style="margin-left: 2%;margin-right: 2%;">
+<div>
+  <img src="{{ asset('../storage/images/FAQ Page/FAQ_Background.png') }}" alt="" style="width: 100%; height: 1000px;">
   <div class="center-faq text-center" style="margin: 1% 0;">
     <h1>Have a Question?</h1>
     <p style="font-size: 18px">If you have any question you can ask below or enter what are you looking for!</p>
@@ -18,14 +18,14 @@
     </div>
   </div>
 
-  <div class="" style="margin-top: -30%;">
+  <div class="px-4" style="margin-top: -30%;">
 
 
     <div class="row">
       @foreach ($faqs as $faq)
       
         <div class="ol col-sm-4" style="margin-bottom: 5%">
-          <a href="faq/detailfaqinfo/{{$faq->id}}">
+          <a href="faq/detailfaqinfo/{{$faq->id}}" class="text-decoration-none">
           <div class="card-body card-faq">
             <div class="faq-section-logo"><img src="{{ asset('../storage/images/FAQ Page/'.$faq->image) }}" alt=""
                 style="width: 35%;"></div>
@@ -41,5 +41,7 @@
       
       @endforeach
     </div>
+
+    
 
     @endsection

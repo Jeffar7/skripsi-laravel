@@ -4,9 +4,9 @@
             @foreach($others as $key => $product)
             <div class="carousel-item carousel-item-custom col col-md-3 {{$key == 0 ? 'active' : '' }}">
                 <div class="card">
-                    <a href="/product/detail/{{$product->id}}" style="width: 239.5px;height:272px;"><img
+                    <a href="/product/detail/{{$product->id}}" class="TrendingNow" ><img
                             src="{{asset('../storage/images/Products/' . $product->productimage)}}"
-                            width="239.5px;" height="272px;" alt="Image" class="card-img-top border" style="object-fit:cover;"></a>
+                             alt="Image" class="card-img-top border TrendingNow"></a>
                 </div>
                 <div class="card px-2 mb-4" style="border:none; background-color: #f3f7f9">
                     <a href="/product/detail/{{$product->id}}" style="color:black;">
