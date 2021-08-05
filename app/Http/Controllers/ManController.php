@@ -57,6 +57,9 @@ class ManController extends Controller
 
     public function topsdetail(Product $product)
     {
+        //Delete Session Voucher
+        session()->forget('voucher');
+
         $product_tops = Product::where('id', '=', $product->id)->first();
         $reviews = Review::all();
 
@@ -126,50 +129,50 @@ class ManController extends Controller
 
     public function filterMen(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1);
-            
+
             // sorting product
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
-    
+
             $sizes = $request->size_alphabet;
-            if(isset($sizes) && !empty($sizes)){
+            if (isset($sizes) && !empty($sizes)) {
                 $products->whereIn('productsize', $sizes);
             }
 
             $size_number = $request->size_number;
-            if(isset($size_number) && !empty($size_number)){
+            if (isset($size_number) && !empty($size_number)) {
                 $products->whereIn('productsize', $size_number);
-            }   
+            }
 
             // filter price
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
+            }
 
-            
+
             $products = $products->get();
 
             if ($products->count() == 0)
@@ -177,8 +180,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/filter_men_product', compact('products'));
-
-        }else {
+        } else {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1);
             $productscount = Product::where('gender_id', '=', 1)->count();
@@ -196,41 +198,40 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/men', compact('products', 'brands', 'categories', 'productscount', 'genders'));
-
         }
     }
 
     public function filterMenTops(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '1');
-            
+
             // sorting product
             // if(isset($request->sort) && !empty($request->sort)){}
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
 
             // filter size
             $sizes = $request->size_alphabet;
-            if(isset($sizes) && !empty($sizes)){
+            if (isset($sizes) && !empty($sizes)) {
                 $products->whereIn('productsize', $sizes);
             }
 
@@ -238,10 +239,10 @@ class ManController extends Controller
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
-            
+            }
+
             $products = $products->get();
 
             // dd($products);
@@ -251,8 +252,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/filter_men_product', compact('products'));
-
-        }else {
+        } else {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '1');
             $productscount = Product::where('gender_id', '=', 1)->where('categoryid', '1')->count();
@@ -270,52 +270,51 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/tops', compact('products', 'brands', 'categories', 'productscount', 'genders'));
-
         }
     }
 
     public function filterMenBottoms(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '2');
-            
+
             // sorting product
             // if(isset($request->sort) && !empty($request->sort)){}
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
 
             // filter size
             $sizes = $request->size_alphabet;
-            if(isset($sizes) && !empty($sizes)){
+            if (isset($sizes) && !empty($sizes)) {
                 $products->whereIn('productsize', $sizes);
-            }  
+            }
 
             // filter price
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
-            
+            }
+
             $products = $products->get();
 
             // dd($products);
@@ -325,8 +324,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/filter_men_product', compact('products'));
-
-        }else {
+        } else {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '2');
             $productscount = Product::where('gender_id', '=', 1)->where('categoryid', '2')->count();
@@ -344,41 +342,40 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/bottoms', compact('products', 'brands', 'categories', 'productscount', 'genders'));
-
         }
     }
 
     public function filterMenShoes(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '3');
-            
+
             // sorting product
             // if(isset($request->sort) && !empty($request->sort)){}
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
 
             // filter size
             $size_number = $request->size_number;
-            if(isset($size_number) && !empty($size_number)){
+            if (isset($size_number) && !empty($size_number)) {
                 $products->whereIn('productsize', $size_number);
             }
 
@@ -386,10 +383,10 @@ class ManController extends Controller
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
-            
+            }
+
             $products = $products->get();
 
             // dd($products);
@@ -399,8 +396,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/filter_men_product', compact('products'));
-
-        }else {
+        } else {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '3');
             $productscount = Product::where('gender_id', '=', 1)->where('categoryid', '3')->count();
@@ -418,35 +414,34 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/shoes', compact('products', 'brands', 'categories', 'productscount', 'genders'));
-
         }
     }
 
     public function filterMenAccessories(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '4');
-            
+
             // sorting product
             // if(isset($request->sort) && !empty($request->sort)){}
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
 
@@ -454,10 +449,10 @@ class ManController extends Controller
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
-            
+            }
+
             $products = $products->get();
 
             if ($products->count() == 0)
@@ -465,8 +460,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/filter_men_product', compact('products'));
-
-        }else {
+        } else {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '4');
             $productscount = Product::where('gender_id', '=', 1)->where('categoryid', '4')->count();
@@ -484,7 +478,6 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.']);
             else
                 return view('menpage/accessories', compact('products', 'brands', 'categories', 'productscount', 'genders'));
-
         }
     }
 }

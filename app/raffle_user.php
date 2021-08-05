@@ -16,7 +16,8 @@ class raffle_user extends Model
         'user_id',
         'address_raffle_id',
         'status',
-        'payment_id'
+        'payment_id',
+        'is_random_clicked'
     ];
 
     public function addressForRaffle()

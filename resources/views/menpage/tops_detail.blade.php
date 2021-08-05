@@ -98,7 +98,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- wish list button -->
                     @guest
                     <div class="row" style="margin-bottom: -5%">

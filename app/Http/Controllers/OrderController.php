@@ -296,7 +296,6 @@ class OrderController extends Controller
         $totals = session()->get('detailcheckout')['totals'];
         $newTotal = ($totals + $shipment->delivery_cost) - $discount;
 
-
         return view('/transactions/ordersummary', compact('products', 'address', 'shipment', 'orders', 'totals'))->with([
             'newTotal' => $newTotal
         ]);

@@ -17,8 +17,7 @@
       <div class="card" style="box-shadow: 4px 4px 4px 4px #888888;">
         <!-- Title -->
         <div class="card-header text-left bg-dark text-white">
-          <img src="{{ asset('../storage/images/Transaction Page/orderSummaryLogo.png') }}" alt=""
-            style="width: 2%;height: 20px;margin-top: -0.5%;">
+          <img src="{{ asset('../storage/images/Transaction Page/orderSummaryLogo.png') }}" alt="" style="width: 2%;height: 20px;margin-top: -0.5%;">
           <strong class="ml-2">
             Order Summary
           </strong>
@@ -44,10 +43,8 @@
                 <tbody class="down-border bg-transparent">
                   @foreach ($orders as $product)
                   <tr class="top-border">
-                    <td scope="row" class="text-center"><img
-                        src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;"
-                        height="100px;" alt="Image"></td>
-                    <td class="text-center py-4"></td>
+                    <td scope="row" class="text-center"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
+                    <td class="text-center py-4">{{$product->brand}}</td>
                     <td class="text-center py-4">{{$product->productname}}</td>
                     <td class="text-center py-4">{{$product->productsize}}</td>
                     <td class="text-center py-4">Rp. {{ number_format($product->productprice)}}</td>
@@ -70,18 +67,18 @@
           background-clip: border-box;
           border: 1px solid rgba(0, 0, 0, 0.125);
           border-radius: 0.25rem;">
-          <div class="col-md-3 text-left mt-2">
-            <p class='mb-1'>Recipient Name</p>
-            <p class='mb-1'>Contact Number</p>
-            <p class='mb-1'>Address</p>
-            <p class='mb-1'>Address Note (optional)</p>
-            <p class='mb-1'>Post Code</p>
-            <p class='mb-1'>Province</p>
-            <p class='mb-1'>City</p>
-            <p class='mb-1'>District</p>
-          </div>
-          <div class="col-md-7 text-left mt-2">
-            <p class='mb-1'>: Rp. {{$address->recipient_name}}
+            <div class="col-md-3 text-left mt-2">
+              <p class='mb-1'>Recipient Name</p>
+              <p class='mb-1'>Contact Number</p>
+              <p class='mb-1'>Address</p>
+              <p class='mb-1'>Address Note (optional)</p>
+              <p class='mb-1'>Post Code</p>
+              <p class='mb-1'>Province</p>
+              <p class='mb-1'>City</p>
+              <p class='mb-1'>District</p>
+            </div>
+            <div class="col-md-7 text-left mt-2">
+              <p class='mb-1'>: Rp. {{$address->recipient_name}}
               <p class='mb-1'>: {{$address->contact_number}}</p>
               <p class='mb-1'>: {{$address->address}}</p>
               <p class='mb-1'>: {{$address->address_note}}</p>
@@ -89,8 +86,8 @@
               <p class='mb-1'>: {{$address->province}}</p>
               <p class='mb-1'>: {{$address->city}}</p>
               <p class='mb-3'>: {{$address->district}}</p>
+            </div>
           </div>
-        </div>
         </div>
 
         @else
@@ -105,8 +102,8 @@
         <!--End Detail Address -->
 
         <!-- Shipping Option-->
-        
-        
+
+
         <div class="row justify-content-around mt-4">
           <div class="row col-md-10 py-2" style="background-color: #f3f1f1;
           background-clip: border-box;
@@ -121,7 +118,7 @@
             </div>
             <div class="col-md-8 text-left mt-2">
               <p class='mb-1'>: Rp. {{number_format($shipment->delivery_cost)}}
-                <p class='mb-3'>: {{$shipment->estimated_delivery}}</p>
+              <p class='mb-3'>: {{$shipment->estimated_delivery}}</p>
             </div>
           </div>
         </div>
@@ -132,8 +129,7 @@
         <div class="row justify-content-around mb-5">
 
           <div class="col-sm-11 text-center ">
-            <textarea name="notes" id="notes" cols="96" rows="5"
-              placeholder="Special shipping request or anything you need to know" form="form-id" class="notes" style="
+            <textarea name="notes" id="notes" cols="96" rows="5" placeholder="Special shipping request or anything you need to know" form="form-id" class="notes" style="
     width: 94%;
 "></textarea>
           </div>
@@ -190,7 +186,8 @@
                   </form>
                   @endif
                   <td class="text-right top-border down-border">Rp.
-                    {{number_format(session()->get('voucher')['discount'])}}</td>
+                    {{number_format(session()->get('voucher')['discount'])}}
+                  </td>
                 </tr>
                 <tr>
                   <td class="text-left border-0 font-weight-normal">Take Advantage of our exclusive offers</td>
@@ -221,12 +218,11 @@
         <a href="/transactions/delivery" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
       </div>
       {{-- <form action="/payment" method="post" id="form-id"> --}}
-        @csrf
-        <div class="col-md-6 text-right my-4">
-          <button type="submit" name="formsummary" class="btn btn-dark" style="width: 40%"><i
-              class="fas fa-arrow-circle-right pr-2"></i> PROCEED
-            TO PAYMENT</button>
-        </div>
+      @csrf
+      <div class="col-md-6 text-right my-4">
+        <button type="submit" name="formsummary" class="btn btn-dark" style="width: 40%"><i class="fas fa-arrow-circle-right pr-2"></i> PROCEED
+          TO PAYMENT</button>
+      </div>
     </div>
     <!-- End Button -->
   </form>

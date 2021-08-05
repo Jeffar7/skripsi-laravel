@@ -228,6 +228,8 @@ class RaffleController extends Controller
             'post_code' => ['required', 'numeric'],
             'address' => ['required', 'max:255'],
             'address2' => ['max:255'],
+            'district' => ['required'],
+            'province' => ['required'],
             'city' => ['required'],
             'country' => ['required'],
         ]);
@@ -241,6 +243,8 @@ class RaffleController extends Controller
         $addressForRaffle->post_code = $request->post_code;
         $addressForRaffle->number_street_address_1 = $request->address;
         $addressForRaffle->number_street_address_2 = $request->address2;
+        $addressForRaffle->province = $request->province;
+        $addressForRaffle->district = $request->district;
         $addressForRaffle->city = $request->city;
         $addressForRaffle->country = $request->country;
         $addressForRaffle->save();
@@ -287,9 +291,14 @@ class RaffleController extends Controller
             ->where('raffle_id', '=', $raffle->id)
             ->get();
 
-        // dd($users);
+        if ($users->count() > 0) {
+            $is_random_clicked = DB::table('raffle_user')->where('raffle_id', '=', $raffle->id)->first();
+            $is_random = $is_random_clicked->is_random_clicked;
+        } else {
+            $is_random = 0;
+        }
 
-        return view('raffles.check', compact('users', 'raffle'));
+        return view('raffles.check', compact('users', 'raffle', 'is_random'));
     }
 
     public function random($id)
@@ -312,7 +321,11 @@ class RaffleController extends Controller
             ->limit(3) //RANDOM FOR 2 USERS
             ->get();
 
-
+        //UPDATE IF RANDOM CLICKED
+        $raffle_user_clicked = raffle_user::where('raffle_id', '=', $id)
+            ->update([
+                'is_random_clicked' => 1
+            ]);
 
         // USER WINNERS
         $winners = $random_winners->pluck('user_id');
