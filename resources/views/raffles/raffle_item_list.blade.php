@@ -39,12 +39,11 @@
                     <p class="title-home text-left" style="font-weight:bold;">ITEMS TO BE RAFFLE</p>
                 </div>
 
-                {{-- <div> --}}
                 <div class="col-md-1 px-0 raffle-sort-text">
 					<p class="" style="font-weight:bold; margin-top: 1rem; margin-bottom: 1rem;">Sort By</p>
 				</div>
                 
-				<div class="col-md-3 raffle-option-text">
+				<div class="col-md-1 raffle-option-text">
 					<form name="sortProducts" id="sortProducts" style="margin-top: 1rem; margin-bottom: 1rem;">
 						<select id="sort" name="sort">
                             <option value="">Select Option</option>
@@ -55,20 +54,14 @@
 						</select>
 					</form>
                 </div>
-				</div>
-                {{-- </div> --}}
             </div>
         </div>
     </div>
 
     <div class="container">
-    <div class="filter_raffles row justify-content-around" id="filter_raffles">
-        @include('raffles.filter_raffle')
-    </div>
-</div>
-
-    <div class="row justify-content-around mt-5">
-        {{ $raffles->links() }}
+        <div class="filter_raffles row justify-content-around" id="filter_raffles">
+            @include('raffles.filter_raffle')
+        </div>
     </div>
 </div>
 @endsection
