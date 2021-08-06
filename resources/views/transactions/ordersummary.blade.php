@@ -44,7 +44,7 @@
                   @foreach ($orders as $product)
                   <tr class="top-border">
                     <td scope="row" class="text-center"><img src="{{asset('../storage/images/Products/' . $product->productimage)}}" width="100px;" height="100px;" alt="Image"></td>
-                    <td class="text-center py-4">{{$product->brand}}</td>
+                    <td class="text-center py-4">{{$product->brand->name}}</td>
                     <td class="text-center py-4">{{$product->productname}}</td>
                     <td class="text-center py-4">{{$product->productsize}}</td>
                     <td class="text-center py-4">Rp. {{ number_format($product->productprice)}}</td>

@@ -12,7 +12,7 @@ use App\Shipment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Psy\VarDumper\Dumper;
 
 class OrderController extends Controller
 {
@@ -55,7 +55,7 @@ class OrderController extends Controller
 
                 $order_product->save();
 
-                Cart::where('id', $cart->id)
+                $isi =  Cart::where('id', $cart->id)
                     ->update([
                         'quantity' => $request->quantity
                     ]);
@@ -290,11 +290,24 @@ class OrderController extends Controller
         $products = session()->get('checkout')['product'];
         $address = Address_Delivery_Users::where('id', '=', session()->get('detailcheckout')['address_id'])->first();
         $shipment = Shipment::where('id', '=', session()->get('detailcheckout')['shipment_id'])->first();
-        $orders = session()->get('detailcheckout')['orders'];
+        $order = session()->get('detailcheckout')['orders'];
 
         $discount = session()->get('voucher')['discount'] ?? 0;
         $totals = session()->get('detailcheckout')['totals'];
         $newTotal = ($totals + $shipment->delivery_cost) - $discount;
+
+
+        // CHANGE ORDER TO COLLECTIONS
+        $orders = [];
+        foreach ($order as $key => $value) {
+            $productss = Product::where('products.id', '=', $value->product_id)->first();
+            $product = $productss
+                ->join('carts', 'carts.product_id', '=', 'products.id')
+                ->where('products.id', '=', $value->product_id)
+                ->where('user_id', '=', Auth::user()->id)
+                ->first();
+            $orders[$key] = (object)$product;
+        }
 
         return view('/transactions/ordersummary', compact('products', 'address', 'shipment', 'orders', 'totals'))->with([
             'newTotal' => $newTotal
