@@ -3,7 +3,20 @@
 @section('title','TokoLokal | User Profile')
 
 @section('content')
+
+
+
 <div class="container">
+    <div class="row pt-2">
+        <div class="col">
+            @if ($message = Session::get('status'))
+            <div class="alert alert-success alert-block" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+            @endif
+        </div>
+    </div>
     <div class="row pt-4 pb-2">
         <h4>My Profile</h4>
     </div>
