@@ -26,6 +26,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
@@ -41,8 +46,6 @@
     @yield('extra-css')
 </head>
 
-
-
 <body>
     <div id="app">
         <?php
@@ -56,9 +59,9 @@
         }
         ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="50" height="40"
+                    <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="60" height="50"
                         alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -70,26 +73,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     @if(Auth::check() && Auth::user()->role === 'admin')
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/usercontrol">ADMIN</a>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
+                        <li class="nav-item mx-1">
+                            <a class="nav-link" href="/usercontrol">USER</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/manageproduct">PRODUCT</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/manageraffle">RAFFLE</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/managebrand">BRAND</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/manageevent">EVENT</a>
                         </li>
                     </ul>
                     @elseif(Auth::check() && Auth::user()->role === 'customer' || Auth::guest())
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item dropdown">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
+                        <li class="nav-item dropdown mx-1">
                             <a class="nav-link " href="/men" role="button" aria-haspopup="true"
                                 aria-expanded="false">MEN</a>
                             <div class="dropdown-menu">
@@ -100,7 +103,7 @@
                             </div>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown mx-1">
                             <a class="nav-link " href="/women" role="button" aria-haspopup="true"
                                 aria-expanded="false">WOMEN</a>
                             <div class="dropdown-menu">
@@ -111,19 +114,19 @@
                             </div>
                         </li>
 
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/allbrand">BRANDS</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/event">EVENTS</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/raffle">RAFFLES</a>
                         </li>
                     </ul>
                     @endif
                     <!-- Middle Side of Navbar -->
-                    <form class="form-inline my-2 my-lg-0 rounded left-addon-search inner-addon"
+                    <form class="form-inline my-2 my-lg-0 rounded left-addon-search inner-addon" style="width: 40%;"
                         action="{{ route('search') }}" method="GET">
                         <i class="fas fa-search"></i>
                         <input type="text" name="allsearch" value="{{ request()->allsearch }}"
@@ -133,35 +136,35 @@
                     </form>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
                         <!-- Authentication Links -->
 
                         @if(Auth::check() && Auth::user()->role === 'customer')
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"><span
                                         class="badge badge-pill badge-danger">{{$totalItemCart}}</span></i></a>
                         </li>
                         @endif
                         @guest
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/product-wish"><i class="far fa-heart"></i></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="/product-cart"><i class="fas fa-shopping-basket"></i></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('LOG IN') }}</a>
                         </li>
                         @if (Route::has('register'))
-                        <li class="nav-item">
+                        <li class="nav-item mx-1">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('SIGN UP') }}</a>
                         </li>
                         @endif
                         @else
-                        <li class="nav-item dropdown" id="markasread" onclick="markNotificationAsRead()">
+                        <li class="nav-item dropdown mx-1" id="markasread" onclick="markNotificationAsRead()">
                             <a class="nav-link" href="/notification"><i class="far fa-bell"></i><span
                                     class="badge badge-pill badge-danger">{{count(auth()->user()->unreadNotifications)}}</span></a>
 
@@ -184,21 +187,23 @@
                                     </li>
                                 </ul>
                             </div>
+                            @if(Auth::check() && Auth::user()->role === 'customer')
+                            <li class="nav-item dropdown mx-1">
+                                <a class="nav-link" href="#"><i class="fas fa-list"></i></a>
+    
+                                <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/raffle/history">My Raffle <span
+                                            class="badge badge-primary badge-pill"></span></a>
+                                    <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span
+                                            class="badge badge-primary badge-pill"></span></a>
+                                    <a class="dropdown-item" href="/payment-history">Payment History <span
+                                            class="badge badge-primary badge-pill"></span></a>
+                                </div>
+    
+                            </li>
+                            @endif
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#"><i class="fas fa-envelope"></i></a>
-
-                            <div class="dropdown-menu-log dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/raffle/history">My Raffle <span
-                                        class="badge badge-primary badge-pill"></span></a>
-                                <a class="dropdown-item" href="/waiting-for-review">Waiting For Review<span
-                                        class="badge badge-primary badge-pill"></span></a>
-                                <a class="dropdown-item" href="/payment-history">Payment History <span
-                                        class="badge badge-primary badge-pill"></span></a>
-                            </div>
-
-                        </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown mx-1">
                             <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" v-pre>
                                 <i class="fas fa-user-circle"></i>
@@ -222,8 +227,6 @@
             </div>
         </nav>
 
-
-
         <main class="pt-0">
             @yield('content')
         </main>
@@ -232,36 +235,36 @@
         bottom: 0;
         width: 100%;
     ">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-4">
-                        <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="100"
+                    <div class="col-sm-4">
+                        <img src="{{ asset('../storage/images/Store/TokoLokalLogoWithPic.png') }}" width="60"
                             height="50" alt="Tokolokal Logo" style="object-fit:contain;">
                         <p class="pt-4">TokoLokal is a concept electronic store based in Jakarta. Started in 2021,
                             TokoLokal become a point for fashion and lifestyle from Indonesian local brands. TokoLokal
                             is a place for curated local products to compete with international products.</p>
                         <p>© 2021 TokoLokal. All Rights Reserved.</p>
                     </div>
-                    <div class="col-2 px-5">
-                        <div class="row pt-4">
+                    <div class="col-sm-2">
+                        <div class=" pt-4">
                             <p class="font-weight-bold">EXPLORE</p>
                         </div>
                         <div class="pt-2">
-                            <div class="row"><a style="color:black;" href="/">Home</a></div>
-                            <div class="row"><a style="color:black;" href="/about">About Us</a></div>
-                            <div class="row"><a style="color:black;" href="/contact">Contact Us</a></div>
-                            <div class="row"><a style="color:black;" href="/termsandcondition">Terms & Condition</a>
+                            <div class=""><a style="color:black;" href="/">Home</a></div>
+                            <div class=""><a style="color:black;" href="/about">About Us</a></div>
+                            <div class=""><a style="color:black;" href="/contact">Contact Us</a></div>
+                            <div class=""><a style="color:black;" href="/termsandcondition">Terms & Condition</a>
                             </div>
-                            <div class="row"><a style="color:black;" href="/privacypolicy">Privacy Policy</a></div>
+                            <div class=""><a style="color:black;" href="/privacypolicy">Privacy Policy</a></div>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-sm-2">
                         <p class="font-weight-bold pt-4">HELP CENTER</p>
                         <div class="pt-2">
                             <a href="/faq" style="color:black;">Customer Services</a>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-sm-4">
                         <p class="font-weight-bold pt-4">VISIT</p>
                         <div class="pt-2">
                             <p>PT. CIPTA RETAIL PRAKARSA
@@ -274,8 +277,5 @@
             </div>
         </footer>
     </div>
-
-
 </body>
-
 </html>

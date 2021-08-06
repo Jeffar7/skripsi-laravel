@@ -3,11 +3,11 @@
 @section('title','TokoLokal | Add Product')
 
 @section('content')
-
+<div class="loader"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 class="title-home mt-3">Add Product</h1>
+            <h1 class="title-home mt-3 font-weight-bold">Add Product</h1>
             <div class="card shadow-lg">
                 <div class="card-header text-left bg-dark">
                     <h5 class="text-white">PRODUCT</h5>

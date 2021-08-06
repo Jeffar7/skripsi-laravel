@@ -2,6 +2,7 @@
 
 @section('title','TokoLokal | ' .e($raffle->rafflename))
 @section('content')
+<div class="loader"></div>
 <div class="container py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
@@ -15,7 +16,11 @@
 <div class="container">
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">
+{{-- <<<<<<< HEAD --}}
+            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" width="100%">
+{{-- =======
             <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 500px; width: 100%; object-fit:contain">
+>>>>>>> 122acf5ca9e96ae9661bbbd9afcee46a6939edf4 --}}
         </div>
     </div>
 
@@ -74,8 +79,8 @@
 
     <form action="/raffle/submit" method="post" class="">
         @csrf
-        <div class="form-row justify-content-around">
-            <div class="col-md-4 pl-3">
+        <div class="form-row justify-content-around" style="margin: 2%">
+            <div class="col-md-4">
                 <div class="row mb-3">
                     <label for="firstname">First Name*</label>
                     <input type="text" id="firstname" class="form-control" value="{{Auth::user()->first_name}}" name="first_name" required>
@@ -118,7 +123,7 @@
 
 
             </div>
-            <div class="col-md-4 pr-3">
+            <div class="col-md-4">
                 <div class="row mb-3">
                     <label for="address">Number and street address*</label>
                     <input type="text" id="address" class="form-control" value="{{Auth::user()->address}}" name="address" required>
@@ -392,15 +397,11 @@
                 </div>
 
                 <div class="row text-center">
-                    <p class="font-weight-normal" style="
-    font-size: 14px;
-">By submitting the form you agree to the Terms &amp; Conditions below.</p>
+                    <p class="font-weight-normal" style="font-size: 14px;">By submitting the form you agree to the Terms &amp; Conditions below.</p>
                 </div>
 
                 <div class="row  text-center">
-                    <p class="font-weight-normal" style="
-    font-size: 14px;
-">Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment
+                    <p class="font-weight-normal" style="font-size: 14px;">Once you have completed the payment, you have commited to purchasing the product should you win. If you win, payment
                         will be taken and the product will be sent via your choosen delivery method after draw has
                         closed. If unsucessful your held payment will be released after the close of the draw, depending
                         on your bank this may take 3-5 days.</p>

@@ -118,7 +118,7 @@ class BuynowController extends Controller
         //forget session continue after completed payment
         session()->forget('continueCheckOut');
 
-        return redirect('/payment-history');
+        return redirect('/payment-history')->with('status', 'Your payment has been successfully paid!');
     }
 
 
@@ -257,7 +257,7 @@ class BuynowController extends Controller
 
         $payments = Payment::all();
 
-        return redirect('/transactions/payment_buy_now');
+        return redirect('/transactions/payment_buy_now')->with('status', 'Your payment has been successfully paid!');;
     }
 
     public function paymentBuyNow()
@@ -268,6 +268,6 @@ class BuynowController extends Controller
         $payments = Payment::all();
         $quantityBuy = $flashData->quantity;
 
-        return view('/transactions/payment_buy_now', compact('payments', 'order', 'quantityBuy'));
+        return view('/transactions/payment_buy_now', compact('payments', 'order', 'quantityBuy'))->with('status', 'Your payment has been successfully paid!');;
     }
 }

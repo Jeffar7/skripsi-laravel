@@ -3,6 +3,7 @@
 @section('title','TokoLokal | Raffle')
 
 @section('content')
+<div class="loader"></div>
 <div class="container pt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
@@ -14,7 +15,7 @@
 
 <div class="col-md-12 mb-1 p-0">
     <div class="card rounded-0 border-0 con-photo">
-        <img src="{{ asset('../storage/images/Raffles/ahhagang.png') }}" class="rounded-0 image-cat" alt="Men Display Picture" height="472px"> <!-- card-img -->
+        <img src="{{ asset('../storage/images/Raffles/ahhagang.png') }}" class="rounded-0 image-cat display-rafle-img" alt="Men Display Picture"> <!-- card-img -->
         <div class="middle-cat" style="color: white; opacity: 1;">
             <h1>Enter A Raffle</h1>
             <h6>If you want to enter the raffle please read our rules & regulation first</h6>

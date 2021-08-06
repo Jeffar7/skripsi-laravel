@@ -51,8 +51,13 @@ class RaffleController extends Controller
 
     public function allraffle(Request $request)
     {
-        $raffles = Raffle::paginate(3);
-        return view('/raffles/raffle_item_list', compact('raffles'));
+        if ($request->ajax()) {
+            $raffles = Raffle::paginate(3);
+            return view('/raffles/filter_raffle', compact('raffles'));
+        } else {
+            $raffles = Raffle::paginate(3);
+            return view('/raffles/raffle_item_list', compact('raffles'));
+        }
     }
 
     public function sortRaffle(Request $request)
@@ -258,7 +263,7 @@ class RaffleController extends Controller
             'rafflejoined' => DB::raw('rafflejoined + 1')
         ]);
 
-        return  redirect('/raffle/history');
+        return redirect('/raffle/history')->with('status', 'Success Join Raffle Product!');
     }
 
     public function history()
@@ -275,7 +280,7 @@ class RaffleController extends Controller
         if ($raffles->count() == 0)
             return view('raffles.raffle_history', compact('raffles'))->withErrors(['no_post_result' => 'No data raffle found.']);
         else
-            return view('raffles.raffle_history', compact('raffles'))->with('status', 'Success Join Raffle Product!');
+            return view('raffles.raffle_history', compact('raffles'));
     }
 
     public function check($id)
@@ -298,7 +303,10 @@ class RaffleController extends Controller
             $is_random = 0;
         }
 
-        return view('raffles.check', compact('users', 'raffle', 'is_random'));
+        if ($users->count() == 0)
+            return view('raffles.check', compact('users', 'raffle', 'is_random'))->withErrors(['no_post_result' => 'There is no user found.']);
+        else
+            return view('raffles.check', compact('users', 'raffle'));
     }
 
     public function random($id)
@@ -482,6 +490,6 @@ class RaffleController extends Controller
 
         session()->forget(['raffle_user', 'raffleData']);
 
-        return redirect('/payment-history');
+        return redirect('/payment-history')->with('status', 'Your payment has been successfully paid!');;
     }
 }

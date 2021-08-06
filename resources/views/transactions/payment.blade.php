@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','TokoLokal | Delivery')
+@section('title','TokoLokal | Payment')
 
 @section('extra-css')
 
@@ -51,195 +51,139 @@
 
 
 <div class="container mt-2 mb-5">
-  <div class="row justify-content-center mb-3">
+  <div class="row justify-content-center">
     <div class="col-md-12 text-center">
       <div class="breadcrumb-a flat mt-4 mb-5">
         <a class="col-sm-4"><span class="ml-2">DELIVERY</span></a>
         <a class="col-sm-4"><span class="ml-2">SUMMARY</span></a>
         <a class="active col-sm-4"><span class="ml-2">PAYMENT</span></a>
     </div>
-      <div class="card" style="box-shadow: 4px 4px 4px 4px #888888;">
-        <div class="card-header text-left bg-dark text-white">
-          <img src="{{ asset('../storage/images/Transaction Page/paymentLogo.png') }}" alt=""
-                            style="width: 2%;height: 20px;margin-top: -0.5%;">
-          <strong class="ml-2">
-            Payment Overview
-          </strong>
-        </div>
+    <!-- Flash Error Message -->
+      @if ($errors->any())
+      <div class="alert alert-danger" id="success-alert">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          @foreach ($errors->all() as $error)
+          <p class="font-weight-bold text-left mb-0">{{ $error }}</p>
+          @endforeach
+      </div>
+      @endif
+      <!-- End Flash Error Message -->
+    <div class="card" style="box-shadow: 4px 4px 4px 4px #888888;">
+      <div class="card-header text-left bg-dark text-white">
+        <img src="{{ asset('../storage/images/Transaction Page/paymentLogo.png') }}" alt=""
+                          style="width: 2%;height: 20px;margin-top: -0.5%;">
+        <strong class="ml-2">
+          Payment Overview
+        </strong>
+      </div>
 
-        <!-- Flash Error Message -->
-        @if ($errors->any())
-        <div class="alert alert-danger">
-          <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
-        <!-- End Flash Error Message -->
-
-        <div class="row justify-content-center m-3">
-          <div class="col-sm-12">
-            <select class="form-control div-toggle-payment" data-target=".payment-info" id="select_payment">
-              <option value="">Select Payment Type</option>
-              <option value="credit" data-show=".credit">Credit</option>
-              <option value="debit" data-show=".debit">Debit</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="payment-info">
-          <div class="credit hide">
-            <form class="m-3 card p-4" action="/makepayment" method="POST" id="payment-form">
-              @csrf
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="first_name">First name</label>
-                  <input type="text" class="form-control" id="first_name" name="first_name" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="last_name">Last name</label>
-                  <input type="text" class="form-control" id="last_name" name="last_name" required>
-                </div>
-              </div>
-
-              <!-- <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="card_number">Card Number</label>
-                  <input type="number" class="form-control" id="card_number" name="card_number" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="cvv">CVV</label>
-                  <input type="number" class="form-control" id="cvv" name="cvv" required>
-                </div>
-              </div>
-
-               credit type -->
-              <!-- <div class="row">
-                <div class="col-sm-12 mb-3">
-                  <div class="card-group">
-                    <div class="card">
-                      <a href="">
-                        <img src="{{asset('uploads/payments/visa.png')}}" class="card-img-top p-2" alt="VISA">
-                      </a>
-                      <input type="radio" value="VISA" name="credit_type">
-                    </div>
-
-                    <div class="card">
-                      <a href="">
-                        <img src="{{asset('uploads/payments/mastercard.png')}}" class="card-img-top p-2" alt="MASTER CARD">
-                      </a>
-                      <input type="radio" value="MasterCard" name="credit_type">
-                    </div>
-
-                    <div class="card">
-                      <a href="">
-                        <img src="{{asset('uploads/payments/americanexpress.png')}}" class="card-img-top p-2" alt="AMERICAN EXPRESS">
-                      </a>
-                      <input type="radio" value="AmericanExpress" name="credit_type">
-                    </div>
-
-                    <div class="card">
-                      <a href="">
-                        <img src="{{asset('uploads/payments/discover.png')}}" class="card-img-top p-2" alt="DISCOVER">
-                      </a>
-                      <input type="radio" value="Discover" name="credit_type">
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-
-              <!-- credit type end-->
-              <!-- 
-              <div class="form-row">
-                <div class="col-md-12 mb-3">
-                  Valid Until <input type="month" class="form-control" id="valid_until" name="valid_until" required>
-                </div>
-              </div>  -->
-
-              <div class="form-group">
-                <label for="card-element">Credit Card</label>
-                <div id="card-element">
-                  <!-- a Stripe Element will be inserted here. -->
-                </div>
-
-                <!-- Used to display form errors -->
-                <div id="card-errors" role="alert"></div>
-              </div>
-
-
-              <input type="hidden" name="payment_type" value="credit">
-              <input type="hidden" name="order" value="{{$order->id}}">
-
-              <!-- <div class="row justify-content-center mb-1">
-                <div class="col-md-12 text-right">
-                  <button type="submit" class="btn btn-dark">SUBMIT</button>
-                </div>
-              </div> -->
-            </form>
-          </div>
-
-          <div class="debit hide">
-            <form class="m-3 card p-4" action="/makepayment" method="POST" id="debit_payment">
-              @csrf
-              <div class=" form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="first_name">First name</label>
-                  <input type="text" class="form-control" id="first_name" name="first_name" required>
-                </div>
-
-                <div class="col-md-6 mb-3">
-                  <label for="last_name">Last name</label>
-                  <input type="text" class="form-control" id="last_name" name="last_name" required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="bank_name">Bank Name</label>
-                  <select class="form-control" id="bank_name" name="bank_name">
-                    <option value="BCA">BCA</option>
-                    <option value="BNI">BNI</option>
-                    <option value="MANDIRI">MANDIRI</option>
-                    <option value="BRI">BRI</option>
-                  </select>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="account_number">Account Number</label>
-                  <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="ex: 12345678910" required>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label for="bank_type">Bank Type</label>
-                  <select class="form-control" id="bank_type" name="bank_type">
-                    <option value="M-Banking">M-Banking</option>
-                    <option value="BRIVA">BRIVA</option>
-                    <option value="Virtual Account">Virtual Account</option>
-                  </select>
-                </div>
-              </div>
-
-              <input type="hidden" name="payment_type" value="debit">
-              <input type="hidden" name="order" value="{{$order->id}}">
-            </form>
-          </div>
-
+      <div class="row justify-content-center m-3">
+        <div class="col-sm-12">
+          <select class="form-control div-toggle-payment" data-target=".payment-info" id="select_payment">
+            <option value="">Select Payment Type</option>
+            <option value="credit" data-show=".credit">Credit</option>
+            <option value="debit" data-show=".debit">Debit</option>
+          </select>
         </div>
       </div>
-      
-    </div>
-  </div>
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-6 text-left">
-      <a href="/transactions/ordersummary" name="formsummary" class="btn btn-dark"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
-    </div>
-    <div class="col-md-6 text-right">
-      <button type="button" class="btn btn-dark" id="submitBtn">SUBMIT</button>
-    </div>
-    </div>
+
+      <div class="payment-info">
+        <div class="credit hide">
+          <form class="m-3 card p-4" action="/makepayment" method="POST" id="payment-form">
+            @csrf
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="first_name">First name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="last_name">Last name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="card-element">Credit Card</label>
+              <div id="card-element">
+                <!-- a Stripe Element will be inserted here. -->
+              </div>
+
+              <!-- Used to display form errors -->
+              <div id="card-errors" role="alert"></div>
+            </div>
+
+
+            <input type="hidden" name="payment_type" value="credit">
+            <input type="hidden" name="order" value="{{$order->id}}">
+
+            <!-- <div class="row justify-content-center mb-1">
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-dark">SUBMIT</button>
+              </div>
+            </div> -->
+          </form>
+        </div>
+
+        <div class="debit hide">
+          <form class="m-3 card p-4" action="/makepayment" method="POST" id="debit_payment">
+            @csrf
+            <div class=" form-row">
+              <div class="col-md-6 mb-3">
+                <label for="first_name">First name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" required>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="last_name">Last name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="bank_name">Bank Name</label>
+                <select class="form-control" id="bank_name" name="bank_name">
+                  <option value="BCA">BCA</option>
+                  <option value="BNI">BNI</option>
+                  <option value="MANDIRI">MANDIRI</option>
+                  <option value="BRI">BRI</option>
+                </select>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="account_number">Account Number</label>
+                <input type="account_number" class="form-control" id="account_number" name="account_number" placeholder="ex: 12345678910" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label for="bank_type">Bank Type</label>
+                <select class="form-control" id="bank_type" name="bank_type">
+                  <option value="M-Banking">M-Banking</option>
+                  <option value="BRIVA">BRIVA</option>
+                  <option value="Virtual Account">Virtual Account</option>
+                </select>
+              </div>
+            </div>
+
+            <input type="hidden" name="payment_type" value="debit">
+            <input type="hidden" name="order" value="{{$order->id}}">
+          </form>
+        </div>x
+      </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+
+        <div class="col-6 text-left my-4">
+          <a href="/transactions/ordersummary" name="formsummary" class="btn btn-dark h-100"><i class="fas fa-arrow-circle-left"></i> PREVIOUS</a>
+        </div>
+
+        <div class="col-6 text-right my-4">
+          <button type="submit" class="btn btn-dark" id="submitBtn">SUBMIT</button>
+        </div>
+      </div>
   </div>
 </div>
 
@@ -260,23 +204,22 @@
     // function submit() {
     //   console.log('berhasil');
 
-
-    $("#submitBtn").hide();
+    $("#submitBtn").attr('disabled', 'disabled');
 
     $('#select_payment').on('change', function() {
       var option_value = $(this).val();
       if (option_value == 'credit') {
-        $("#submitBtn").show();
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#payment-form").submit(); // Submit the form
         });
       } else if (option_value == 'debit') {
-        $("#submitBtn").show();
+        $('#submitBtn').removeAttr('disabled');
         $("#submitBtn").click(function() {
           $("#debit_payment").submit(); // Submit the form
         });
       } else {
-        $("#submitBtn").hide();
+        $("#submitBtn").attr('disabled', 'disabled');
       }
     });
   });

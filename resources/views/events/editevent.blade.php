@@ -3,11 +3,11 @@
 @section('title','TokoLokal | Edit Event')
 
 @section('content')
-
+<div class="loader"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 class="title-home mt-3">Edit Event</h1>
+            <h1 class="title-home mt-3 font-weight-bold">Edit Event</h1>
             <div class="card shadow-lg">
                 <div class="card-header text-left bg-dark">
                     <h5 class="text-white">EVENT</h5>
@@ -30,12 +30,12 @@
 
                         <div class="form-group ">
                             <label for="rafflename">Event Name</label>
-                            <input type="text" class="form-control" id="rafflename" name="name" value="{{$event->name}}">
+                            <input type="text" class="form-control" id="rafflename" name="name" value="{{$event->name}}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="theme">Theme</label>
-                            <input type="text" class="form-control" id="theme" name="theme" value="{{$event->theme}}">
+                            <input type="text" class="form-control" id="theme" name="theme" value="{{$event->theme}}" required>
                         </div>
 
                         <div class="form-group ">
@@ -49,17 +49,17 @@
 
                         <div class="form-group">
                             <label for="held_on">Held On</label>
-                            <input type="date" class="form-control" id="held_on" name="held_on" value="{{$event->held_on}}">
+                            <input type="date" class="form-control" id="held_on" name="held_on" value="{{$event->held_on}}" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="website">Website</label>
-                            <input type="text" class="form-control" id="website" placeholder="" name="website" value="{{$event->website}}">
+                            <input type="text" class="form-control" id="website" placeholder="" name="website" value="{{$event->website}}" required>
                         </div>
 
                         <div class="form-group ">
                             <label for="capacity">Capacity</label>
-                            <input type="number" class="form-control" id="capacity" placeholder="" name="capacity" value="{{$event->capacity}}">
+                            <input type="number" class="form-control" id="capacity" placeholder="" name="capacity" value="{{$event->capacity}}" required>
                         </div>
 
                         <div class="form-group ">

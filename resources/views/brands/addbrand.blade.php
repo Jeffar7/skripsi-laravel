@@ -3,11 +3,11 @@
 @section('title','TokoLokal | Manage Brand')
 
 @section('content')
-
+<div class="loader"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 class="title-home mt-3">Add Brand</h1>
+            <h1 class="title-home mt-3 font-weight-bold">Add Brand</h1>
             @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

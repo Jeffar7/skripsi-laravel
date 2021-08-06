@@ -203,6 +203,16 @@ class OrderController extends Controller
 
         if ($request->payment_type === 'credit') {
 
+            $request->validate([
+                'payment_type' => ['required'],
+                'first_name' => ['required'],
+                'last_name' => ['required'],
+                // 'card_number' => ['required', 'digits:16'],
+                // 'cvv' => ['required', 'digits:3'],
+                // 'credit_type' => ['required'],
+                // 'valid_until' => ['required']
+            ]);
+
             $payment = new Payment();
 
             $payment->payment_type = 'credit';
@@ -248,7 +258,7 @@ class OrderController extends Controller
         session()->forget('voucher');
         session()->forget('detailcheckout');
 
-        return redirect('/payment-history');
+        return redirect('/payment-history')->with('status', 'Your payment has been successfully paid!');;
     }
 
     public function summary(Request $request, Order $order)

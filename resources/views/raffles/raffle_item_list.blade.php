@@ -3,6 +3,7 @@
 @section('title','TokoLokal | List Raffle')
 
 @section('content')
+<div class="loader"></div>
 <div class="container pt-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent mb-0">
@@ -18,11 +19,11 @@
             <h3 class="mt-4 font-weight-bold">Raffle Item List</h3>
             <p class="font-weight-bold">Here are all our listed raffle item that you can joined, hope you enjoyed it!</p>
             <div class="search-group rounded left-addon-search inner-addon" style="width:100%;">
-                <div class="col-md-10" style="margin-top: 2%;">
+                <div class="col-md-9" style="margin-top: 2%;">
                 <i class="fas fa-search ml-3"></i>
                 <input type="search" class="search-field rounded search-input" name="search" placeholder="Type your search here..." aria-label="Search" aria-describedby="search-addon" style="width:100%;" autocomplete="off" />
                 </div>
-                <div class="col-md-2" style=" margin: 2% 0;">
+                <div class="col-md-3" style=" margin: 2% 0;">
                     <button type="submit" class="btn btn-clock btn-faq" style="height: 100%">Search</button>
                   </div>
             </div>
@@ -34,15 +35,16 @@
     <div class="row justify-content-around">
         <div class="col-md-10">
             <div class="row">
-                <div class="col">
+                <div class="col-md-8">
                     <p class="title-home text-left" style="font-weight:bold;">ITEMS TO BE RAFFLE</p>
                 </div>
 
-                <div class="col-sm-0 px-0">
+                {{-- <div> --}}
+                <div class="col-md-1 px-0 raffle-sort-text">
 					<p class="" style="font-weight:bold; margin-top: 1rem; margin-bottom: 1rem;">Sort By</p>
 				</div>
-
-				<div class="col-sm-2 text-left">
+                
+				<div class="col-md-3 raffle-option-text">
 					<form name="sortProducts" id="sortProducts" style="margin-top: 1rem; margin-bottom: 1rem;">
 						<select id="sort" name="sort">
                             <option value="">Select Option</option>
@@ -52,14 +54,18 @@
 							<option value="latest_raffle" @if (request()->sort == "latest_raffle") selected @endif>Latest Raffle</option>
 						</select>
 					</form>
+                </div>
 				</div>
+                {{-- </div> --}}
             </div>
         </div>
     </div>
 
+    <div class="container">
     <div class="filter_raffles row justify-content-around" id="filter_raffles">
         @include('raffles.filter_raffle')
     </div>
+</div>
 
     <div class="row justify-content-around mt-5">
         {{ $raffles->links() }}
@@ -126,5 +132,25 @@
                 })
             } 
         });
+
+        $(document).on('click', '.pagination a', function(e) { 
+            e.preventDefault(); 
+            var url = $(this).attr('href');  
+            getRaffles(url);
+            window.history.pushState("", "", url); 
+        });
+
+        function getRaffles(url) {
+            var sort = $('#sort').val();
+            var search = $('.search-input').val();
+            $.ajax({
+                url : url, 
+                data: {sort:sort, search:search, url:url},
+            }).done(function (data) {
+                $('.filter_raffles').html(data);  
+            }).fail(function () {
+                alert('Data could not be loaded.');
+            });
+        }
 	});
 </script>

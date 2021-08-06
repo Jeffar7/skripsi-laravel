@@ -3,11 +3,21 @@
 @section('title','TokoLokal | ' .e($product_tops->productname))
 
 @section('content')
+<div class="loader"></div>
 <div class="container py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
             <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item"><a href="#" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @if($product_tops->category->name == 'Top')
+            <li class="breadcrumb-item"><a href="/top" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @elseif($product_tops->category->name == 'Bottom')
+            <li class="breadcrumb-item"><a href="/bottom" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @elseif($product_tops->category->name == 'Shoes')
+            <li class="breadcrumb-item"><a href="/shoes" class="text-dark">{{$product_tops->category->name}}</a></li>
+            @elseif($product_tops->category->name == 'Accessories')
+            <li class="breadcrumb-item"><a href="/accessories" class="text-dark">{{$product_tops->category->name}}</a>
+            </li>
+            @endif
             <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$product_tops->productname}}</li>
         </ol>
     </nav>
@@ -15,16 +25,17 @@
 
 <div class="container">
     <div class="row">
-        @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
+        @if ($message = Session::get('status'))
+        <div class="alert alert-success alert-block" id="success-alert">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
         </div>
         @endif
     </div>
     <div class="row">
-        <div id='carousel-custom' class='col carousel slide m-0' data-interval='false'>
+        <div id='carousel-custom' class='col-6 carousel slide m-0' data-interval='false'>
             <div class="row">
-                <div class="col-3">
+                <div class="col-sm-3">
                     <ol class='carousel-indicators justify-content-center flex-column'>
                         <li data-target='#carousel-custom' data-slide-to='0' class="active"><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark photo-thumb" /></li>
                         @if(!empty($image_detail->image_detail_2))
@@ -38,10 +49,11 @@
                         @endif
                     </ol>
                 </div>
-                <div class="col">
+                <div class="col-sm-9">
                     <div class='carousel-inner text-center'>
                         <div class='carousel-item active'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark photo-detail" />
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark" style="    width: 100%;
+                            height: 400px;" />
                         </div>
                         @if(!empty($image_detail->image_detail_2))
                         <div class='carousel-item'>
@@ -63,89 +75,118 @@
             </div>
         </div>
 
-        <div class="col-6">
-            <div class="card p-4 border border-dark">
+        <div class="col-sm-6">
+            <div class="card p-4 border border-dark" style="height: 100%">
                 <!-- product about -->
-                <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
-                <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
-                <p style="font-weight:bold;">Rp. {{number_format($product_tops->productprice)}}</p>
-                <p>{{$product_tops->productdescription}}</p>
+                <div class="my-3">
+                    <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
+                    <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
+                    <p class="about-title mb-2" style="font-size: 10px">Stock:<span style="padding-left: 2%">{{$product_tops->productquantity}}</span></p>
+                    <p class="mb-2" style="font-weight:bold;">Rp. {{number_format($product_tops->productprice)}}</p>
+                    <p style="font-size: 10px">{{$product_tops->productdescription}}</p>
 
-                <!-- button size and quantity -->
-                <form action="/wish-list/save" method="POST">
-                    <input type="hidden" name="product_id" value="{{$product_tops->id}}">
-                    @csrf
-                    <div class="row mb-3">
-                        <div class="col-auto">
-                            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size">
-                                <option selected>Select Size</option>
-                                @foreach($product_tops->category->sizeDetails as $size)
-                                <option value="{{$size->size}}">{{$size->size}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                    <!-- button size and quantity -->
+                    <form action="/wish-list/save" method="POST">
+                        <input type="hidden" name="product_id" value="{{$product_tops->id}}">
+                        @csrf
+                        <div class="row my-4">
+                            <div class="col-auto">
+                                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                                @if($product_tops->categoryid == 4)
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size" disabled>
+                                    <option selected>Select Size</option>
+                                </select>
+                                @else
+                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size">
+                                    <option selected>Select Size</option>
+                                    @foreach($product_tops->category->sizeDetails as $size)
+                                    <option value="{{$size->size}}">{{$size->size}}</option>
+                                    @endforeach
+                                </select>
+                                @endif
+                            </div>
 
-                        <div class="col">
-                            <div class="input-group quantity">
-                                <div class="input-group-prepend decrement-btn changeQuantity" style="cursor: pointer">
-                                    <span class="input-group-text">-</span>
-                                </div>
-                                <input type="text" class="qty-input form-control text-center" maxlength="2" value="1" id="qty-input" name="quantity">
-                                <div class="input-group-append increment-btn changeQuantity" style="cursor: pointer">
-                                    <span class="input-group-text">+</span>
+                            <div class="col">
+                                <div class="input-group quantity">
+                                    <div class="input-group-prepend decrement-btn changeQuantity" style="cursor: pointer">
+                                        <span class="input-group-text">-</span>
+                                    </div>
+                                    <input type="text" class="qty-input form-control text-center" maxlength="2" value="1" id="qty-input" name="quantity">
+                                    <div class="input-group-append increment-btn changeQuantity" style="cursor: pointer">
+                                        <span class="input-group-text">+</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                </div>
+                <!-- wish list button -->
+                @guest
+                <div class="row my-4">
+                    <div class="col-3 filter-heart text-center">
+                        <button class="btn" style="border:none;">
+                            <i class="fas fa-heart wish-not-active" style="font-size: 23px"><a href="/login"></a></i>
+                        </button>
                     </div>
-                    <!-- wish list button -->
-                    @guest
-                    <div class="row" style="margin-bottom: -5%">
-                        <div class="col-3">
-                            <button class="heart" style="border:none;"><a href="/login"></a></button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
-                        </div>
+                    <div class="col">
+                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            @if($product_tops->productquantity > 0)
-                            <button class="btn btn-dark disabled" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
+                </div>
+                <div class="row my-4">
+                    <div class="col">
+                        @if($product_tops->productquantity > 0)
+                        <button class="btn btn-dark disabled" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
+                        @else
+                        <button class="btn btn-danger" style="width:100%;" disabled><a href="#" class="card-link" style="color:white;">Out Of Stock!</a></button>
+                        @endif
+                    </div>
+                </div>
+                @else
+                <input type="hidden" id="userid" name="user_id" value="{{Auth::user()->id}}">
+                <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
+                <div class="row my-4">
+                    <div class="col-3 filter-heart text-center">
+                        <button class="btn" style="border:none;" type="submit">
+                            @if(isset($validasiwishlist) && $validasiwishlist)
+                            <i class="fas fa-heart wish-active" style="font-size: 23px"></i>
                             @else
-                            <button class="btn btn-danger" style="width:100%;" disabled><a href="#" class="card-link" style="color:white;">Out Of Stock!</a></button>
+                            <i class="fas fa-heart wish-not-active" style="font-size: 23px"></i>
                             @endif
-                        </div>
+                        </button>
                     </div>
+                    <<<<<<< HEAD <div class="col">
+                        @if($product_tops->productquantity > 0)
+                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
+                        @else
+                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add" disabled>Add to Cart</button>
+                        @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    @if($product_tops->productquantity > 0)
+                    <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
                     @else
-                    <input type="hidden" id="userid" name="user_id" value="{{Auth::user()->id}}">
-                    <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
-                    <div class="row" style="margin-bottom: -5%">
-                        <div class="col-3">
-                            <button type="submit" class="heart" style="border:none;"></button>
-                        </div>
-                        <div class="col">
-                            @if($product_tops->productquantity > 0)
-                            <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
-                            @else
-                            <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add" disabled>Add to Cart</button>
-                            @endif
-                        </div>
+                    <button type="submit" class="btn btn-danger" style="width:100%;" formaction="/buy-now/add" disabled>Out Of Stock!</button>
+                    @endif
+                    =======
+
+                    <div class="col">
+                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to
+                            Cart</button>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            @if($product_tops->productquantity > 0)
-                            <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
-                            @else
-                            <button type="submit" class="btn btn-danger" style="width:100%;" formaction="/buy-now/add" disabled>Out Of Stock!</button>
-                            @endif
-                        </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col">
+                        <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
                     </div>
-                    @endguest
+                    >>>>>>> 487f644c7122f5f1915bd24c09904343d3e2f00d
+                </div>
+                @endguest
                 </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <div class="container mt-3">
@@ -165,41 +206,50 @@
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active mt-3" id="detail" role="tabpanel" aria-labelledby="detail-tab">
-            <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="detail-tab" style="
+        <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="detail-tab" style="
             margin: 0 4%;">
-                <div class="row">
-                    <div class="col-sm-1 col-md-2">
-                        <p class="about-title">SKU </p>
-                        <p class="about-title">Category </p>
-                        <p class="about-title">Care Instruction </p>
-                        <p class="about-title">Material </p>
-                    </div>
-                    <div class="col-sm-5 offset-sm-2 col-md-10 offset-md-0">
-                        <p class="about-title">: <span style="padding-left: 2%">{{$product_tops->sku}}</span></p>
-                        <p class="about-title">: <span style="padding-left: 2%">{{$product_tops->category->name}}</span></p>
-                        <p class="about-title">: <span style="padding-left: 2%">{{$product_tops->productcare}}</span></p>
-                        <p class="about-title">: <span style="padding-left: 2%">{{$product_tops->productmaterial}}</span></p>
-                    </div>
-                </div>
+            <div class="table-responsive-sm" style="border: none">
+                <table class="mb-0" style="width: 100%; color: #212529; border-collapse: collapse; display: table; text-indent: initial; border-spacing: 2px; ">
+                    <tr class="about-title border-0">
+                        <td class="col-3" style="padding: 0">SKU</td>
+                        <td class="col-9" style="padding: 0"> : <span style="padding-left: 2%">
+                                {{$product_tops->sku}}</span></td>
+                    </tr>
+                    <tr class="about-title">
+                        <td class="" style="padding: 0">Category</td>
+                        <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->category->name}}</span></td>
+                    </tr>
+                    <tr class="about-title">
+                        <td class="" style="padding: 0">Care Instruction</td>
+                        <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->productcare}}</span></td>
+                    </tr>
+                    <tr class="about-title">
+                        <td class="" style="padding: 0">Material</td>
+                        <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->productmaterial}}</span></td>
+                    </tr>
+                </table>
             </div>
         </div>
+
+
         <div class="tab-pane fade mt-3 show mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">
             <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="sizedetail-tab" style="
         margin: 0 4%;">
-                <div class="row">
-                    <div class="col-sm-1 col-md-2">
-                        <p class="about-title">Size :</p>
-                        <p class="about-title">Color :</p>
-                        <p class="about-title">Quantity :</p>
-                        <p class="about-title">Weight :</p>
-                    </div>
-                    <div class="col-sm-5 offset-sm-2 col-md-10 offset-md-0">
-                        <p class="about-title"><span style="padding-left: 2%">{{$product_tops->productquantity}}</span></p>
-                        <p class="about-title"><span style="padding-left: 2%">{{$product_tops->productcolor}}</span></p>
-                        <p class="about-title"><span style="padding-left: 2%">{{$product_tops->productquantity}}</span></p>
-                        <p class="about-title"><span style="padding-left: 2%">{{$product_tops->productweight}}</span></p>
-                    </div>
+                <div class="table-responsive-sm" style="border: none">
+                    <table class="mb-0" style="width: 100%; color: #212529; border-collapse: collapse; display: table; text-indent: initial; border-spacing: 2px; ">
+                        <tr class="about-title border-0">
+                            <td class="col-3" style="padding: 0">Size</td>
+                            <td class="col-9" style="padding: 0"> : <span style="padding-left: 2%">{{$product_tops->productsize}}</span></td>
+                        </tr>
+                        <tr class="about-title">
+                            <td class="" style="padding: 0">Color</td>
+                            <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->productcolor}}</td>
+                        </tr>
+                        <tr class="about-title">
+                            <td class="" style="padding: 0">Weight</td>
+                            <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->productweight}}</span></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -221,7 +271,8 @@
                                         {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 4.5)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i> {{ $review->rating_score }}
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i>
+                                        {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 4)
                                     <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -253,7 +304,8 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <p class="mt-0 font-italic" style="font-size:12px; color: #888888;">{{$review->created_at}}
+                                <p class="mt-0 font-italic" style="font-size:12px; color: #888888;">
+                                    {{$review->created_at}}
                                 </p>
                             </div>
                         </div>
@@ -283,8 +335,9 @@
     </div>
 
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active bg-transparent" id="other-choice-tab" data-toggle="tab" href="#otherchoice" role="tab" aria-controls="other-choice" aria-selected="false"><span class="font-weight-bold">Other Choice</span></a>
+        <li class="nav-item " role="presentation">
+            <a class="nav-link active bg-transparent" id="other-choice-tab" data-toggle="tab" href="#otherchoice" role="tab" aria-controls="other-choice" aria-selected="false"><span class="font-weight-bold">Other
+                    Choice</span></a>
         </li>
     </ul>
 
@@ -294,67 +347,32 @@
         @include('bestseller')
     </div>
     <!-- End Other Product -->
+</div>
 
-    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-    <script>
-        $(document).ready(function() {
-            $('.increment-btn').click(function(e) {
-                e.preventDefault();
-                var incre_value = $(this).parents('.quantity').find('.qty-input').val();
-                var value = parseInt(incre_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value < 100) {
-                    value++;
-                    $(this).parents('.quantity').find('.qty-input').val(value);
-                }
-            });
-
-            $('.decrement-btn').click(function(e) {
-                e.preventDefault();
-                var decre_value = $(this).parents('.quantity').find('.qty-input').val();
-                var value = parseInt(decre_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value > 1) {
-                    value--;
-                    $(this).parents('.quantity').find('.qty-input').val(value);
-                }
-            });
-
-            // $(function() {
-            $(".heart").on("click", function() {
-                $(this).toggleClass("is-active");
-            });
-
-            // $.ajaxSetup({
-            //     headers: {
-            //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            //     }
-            // });
-
-            // $('.heart').click(function () {
-            //     var user = $("#userid").val();
-            //     var product = $("#productid").val();
-            //     var url = "http://127.0.0.1:8000/wish-list/save"
-
-            //     // console.log(user, product);
-
-            //     $.ajax({
-            //         url: url,
-            //         method: 'POST',
-            //         // data: {user:user, product:product, url:url},
-            //         data: $("#wish-list").serialize(),
-            //         success: function(data){
-            //             if(data<1){
-            //                 alert("Data has already added");
-            //                 console.log(data)
-            //             }else{
-            //                 alert("Data has successfully added")
-            //             }
-            //         }
-            //     })
-            // });
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+    $(document).ready(function() {
+        $('.increment-btn').click(function(e) {
+            e.preventDefault();
+            var incre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(incre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value < 100) {
+                value++;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
         });
-    </script>
 
-
-    @endsection
+        $('.decrement-btn').click(function(e) {
+            e.preventDefault();
+            var decre_value = $(this).parents('.quantity').find('.qty-input').val();
+            var value = parseInt(decre_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value > 1) {
+                value--;
+                $(this).parents('.quantity').find('.qty-input').val(value);
+            }
+        });
+    });
+</script>
+@endsection

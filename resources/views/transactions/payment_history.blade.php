@@ -1,16 +1,20 @@
 @extends('layouts.app')
 
-@section('title', 'TokoLokal | Payment History')
+@section('title', 'TokoLokal | Transaction History')
 
 @section('content')
 
 <div class="container pt-2">
   <div class="row justify-content-center">
     <div class="col-md-12">
-      <h3 class="font-weight-bold mt-3" style="
-    text-align: left;
-">Payment History</h3>
-<div class="top-border my-4"></div>
+      @if ($message = Session::get('status'))
+      <div class="alert alert-success alert-block" id="success-alert">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>{{ $message }}</strong>
+      </div>
+      @endif
+      <h3 class="font-weight-bold mt-3" style="text-align: left;">Transaction History</h3>
+      <div class="top-border my-4"></div>
 
       @if ($all_order->count() > 0)
       <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
