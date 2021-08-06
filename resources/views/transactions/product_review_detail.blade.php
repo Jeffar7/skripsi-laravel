@@ -11,10 +11,7 @@
                 @csrf
                 <div class="card shadow-lg">
                     <div class="card-header text-left bg-dark text-white">
-                        <i class="far fa-comment mr-2" style="
-    color: black;
-    font-size: 16px;
-"></i>
+                        <i class="far fa-comment mr-2" style="color: black; font-size: 16px;"></i>
                         <strong>
                             Write Review
                         </strong>
@@ -66,7 +63,7 @@
 
                                 <div class="form-group mt-2">
                                     <p>What do you think about this product?</p>
-                                    <textarea name="review_description" class="form-control notes" id="exampleFormControlTextarea1" placeholder="type your review here..." rows="3" col="2"></textarea>
+                                    <textarea name="review_description" class="form-control notes" id="exampleFormControlTextarea1" placeholder="Type your review here..." rows="3" col="2"></textarea>
                                 </div>
 
                                 <div class="row justify-content-end">
@@ -84,29 +81,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    jQuery(document).ready(function($) {
-        $(".btnrating").on('click', (function(e) {
-            var previous_value = $("#selected_rating").val();
-            var selected_value = $(this).attr("data-attr");
-            $("#selected_rating").val(selected_value);
-            $(".selected-rating").empty();
-            $(".selected-rating").html(selected_value);
-            for (i = 1; i <= selected_value; ++i) {
-                $("#rating-star-" + i).toggleClass('btn-light');
-                $("#rating-star-" + i).toggleClass('btn-default');
-            }
-            for (ix = 1; ix <= previous_value; ++ix) {
-                $("#rating-star-" + ix).toggleClass('btn-light');
-                $("#rating-star-" + ix).toggleClass('btn-default');
-            }
-        }));
-    });
-</script>
-
-{{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 @endsection
