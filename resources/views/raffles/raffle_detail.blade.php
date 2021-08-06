@@ -17,7 +17,11 @@
 <div class="container">
     <div class="row justify-content-center mb-5">
         <div class="col-12 text-center">
+{{-- <<<<<<< HEAD --}}
+            <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" width="100%">
+{{-- =======
             <img src="{{asset('../storage/images/Raffles/'. $raffle->raffleimage)}}" class="border border-secondary rounded-lg shadow-lg" alt="image" style="height: 500px; width: 100%; object-fit:contain">
+>>>>>>> 122acf5ca9e96ae9661bbbd9afcee46a6939edf4 --}}
         </div>
     </div>
 
@@ -76,8 +80,8 @@
 
     <form action="/raffle/submit" method="post" class="">
         @csrf
-        <div class="form-row justify-content-around">
-            <div class="col-md-4 pl-3">
+        <div class="form-row justify-content-around" style="margin: 2%">
+            <div class="col-md-4">
                 <div class="row mb-3">
                     <label for="firstname">First Name*</label>
                     <input type="text" id="firstname" class="form-control" value="{{Auth::user()->first_name}}" name="first_name">
@@ -120,7 +124,7 @@
 
 
             </div>
-            <div class="col-md-4 pr-3">
+            <div class="col-md-4">
                 <div class="row mb-3">
                     <label for="address">Number and street address*</label>
                     <input type="text" id="address" class="form-control" value="{{Auth::user()->address}}" name="address">

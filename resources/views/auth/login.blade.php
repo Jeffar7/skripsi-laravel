@@ -55,7 +55,7 @@
             <strong>{{ $message }}</strong>
         </div>
         @endif
-        <div class="card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
+        <div class="card login-card" style="box-shadow: 4px 4px 4px 4px #888888; margin-top: 4%;">
             <div class="row no-gutters" style="height: 600px;">
                 <div class="col-md-6 no-gutters" style="height: 600px;">
                     <div class="leftside">
@@ -74,7 +74,7 @@
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-12 inner-addon left-addon">
                                     <i class="fas fa-user"></i>
-                                    <input id="email" type="email" placeholder="Email" class="log-field @error('email') is-invalid @enderror " name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+                                    <input id="email" type="text" placeholder="Email" class="log-field @error('email') is-invalid @enderror " name="email" value="{{ old('email') }}" required />
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -88,7 +88,7 @@
                                     <i class="fas fa-lock"></i>
                                     <i class="far fa-eye-slash close-eye"></i>
                                     <i class="far fa-eye see-eye"></i>
-                                    <input id="password" placeholder="Password" type="password" class="log-field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input id="password" placeholder="Password" type="password" class="log-field @error('password') is-invalid @enderror" name="password" required >
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

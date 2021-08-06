@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'TokoLokal | Payment History')
+@section('title', 'TokoLokal | Transaction History')
 
 @section('content')
 
@@ -13,7 +13,7 @@
           <strong>{{ $message }}</strong>
       </div>
       @endif
-      <h3 class="font-weight-bold mt-3" style="text-align: left;">Payment History</h3>
+      <h3 class="font-weight-bold mt-3" style="text-align: left;">Transaction History</h3>
       <div class="top-border my-4"></div>
 
       @if ($all_order->count() > 0)

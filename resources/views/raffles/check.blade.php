@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-row justify-content-around mb-3">
-        <div class="col-md-12">
+        <div class="col-md-12 text-center">
             @if($raffle->status == 'closed')
             <a href="/raffles/check/random/{{$raffle->id}}" type="button" class="btn btn-primary" id="btn-submit">Choose Random Winner</a>
             @else

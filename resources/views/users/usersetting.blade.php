@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row pt-4 pb-2">
-        <h4>Edit Profile</h4>
+        <h4 class="pl-4">Edit Profile</h4>
     </div>
 
     @if ($errors->any())
@@ -37,7 +37,7 @@
                             @csrf
                             <div class="text-center">
                                 <img src="{{asset('../storage/images/Users/' . $user->picture)}}" class=" img-thumbnail  mb-3" width="250" alt="profileimage">
-                                <div class="form-group">
+                                <div class="form-group pt-2">
                                     <div class="custom-file">
                                         <!-- <label for="picture">Picture</label> -->
                                         <input type="file" class="custom-file-input" name="picture" id="picture">
@@ -398,20 +398,17 @@
 
                             <input type="hidden" name="role" value="{{$user->role}}">
 
-                            <div class="row justify-content-between mt-4 mb-4">
-                                <div class="col-md-6 ">
-                                    <div class="text-left">
-                                        <button type="submit" id="submit" name="submit" class="btn btn-primary" style="
-                                        width: 50%;
-                                    ">Save</button>
-                                    </div>
+                            <div class="row justify-content-center mb-3">
+                                <div class="col-6 text-left my-4">
+                                    <button type="submit" id="submit" name="submit" class="btn btn-primary saveBtn">Save</button>
                                 </div>
-                                <div class="col-md-6 text-right">
-                                    <button type="button" id="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger" style="
-                                    width: 50%;
-                                ">Delete Account</button>
-                                </div>
-                            </div>
+                                
+                                <div class="col-6 text-right my-4">
+                                    <button type="button" id="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger saveBtn">Delete Account</button>
+                                  </div>
+                              </div>
+
+                              
                         </form>
                     </div>
                 </div>
@@ -432,11 +429,7 @@
                                 <p class="text-center font-weight-normal mb-0">Do you really want to delete your <span class="font-weight-bold">account.</span> This process cannot be undone.</p>
                             </div>
                             <div class="modal-footer justify-content-around pt-0 border-top-0">
-                                <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal" style="
-                                background-color: #C4C4C4;
-                                border: none;
-                                width: 40%;
-                            ">Close</button>
+                                <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-danger" name="formaddress" style="                                        width: 40%;
                                 ">Delete</button>
                             </div>

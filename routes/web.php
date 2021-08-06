@@ -178,7 +178,7 @@ Route::get('/markAsRead', function () {
 Route::get('/notification', 'NotificationController@show');
 
 // Check again this route
-Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
 Route::get('/', 'ProductController@home')->name('home');
 Route::get('/search', 'ProductController@search')->name('search');
 Route::get('/pagehome', 'PageController@home')->middleware('auth');
