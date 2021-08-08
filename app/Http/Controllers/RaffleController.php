@@ -31,6 +31,7 @@ class RaffleController extends Controller
 
     public function raffle()
     {
+
         $raffles = Raffle::where('status', '=', 'running')->orWhere('status', '=', 'not started')->paginate(3);
         $joined = raffle_user::where('user_id', '=', Auth::user()->id)->first();
 
@@ -108,7 +109,14 @@ class RaffleController extends Controller
 
     public function raffledescription(Raffle $raffle)
     {
-        return view('/raffles/raffle_item_desc', compact('raffle'));
+
+        $is_full = $raffle->rafflequota - $raffle->rafflejoined;
+        if ($is_full <= 0)
+            $is_full = 'yes';
+        else
+            $is_full = 'no';
+
+        return view('/raffles/raffle_item_desc', compact('raffle', 'is_full'));
     }
 
     public function index()
@@ -306,7 +314,7 @@ class RaffleController extends Controller
         if ($users->count() == 0)
             return view('raffles.check', compact('users', 'raffle', 'is_random'))->withErrors(['no_post_result' => 'There is no user found.']);
         else
-            return view('raffles.check', compact('users', 'raffle'));
+            return view('raffles.check', compact('users', 'raffle', 'is_random'));
     }
 
     public function random($id)
@@ -319,14 +327,23 @@ class RaffleController extends Controller
             ->where('raffle_id', '=', $id)
             ->get();
 
-        //MAKE RANDOM WINNERS
+        //GET QUANTITY
+        $random_winnerss = DB::table('raffle_user')
+            ->join('users', 'raffle_user.user_id', '=', 'users.id')
+            ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
+            ->select('raffle_user.*', 'raffles.rafflename', 'raffles.rafflequantity', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
+            ->where('raffle_id', '=', $id)
+            ->inRandomOrder()
+            ->limit(1)
+            ->first();
+
         $random_winners = DB::table('raffle_user')
             ->join('users', 'raffle_user.user_id', '=', 'users.id')
             ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
-            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
+            ->select('raffle_user.*', 'raffles.rafflename', 'raffles.rafflequantity', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $id)
             ->inRandomOrder()
-            ->limit(3) //RANDOM FOR 2 USERS
+            ->limit($random_winnerss->rafflequantity) //RANDOM FOR TOTAL QUANTITY RAFFLE PRODUCT
             ->get();
 
         //UPDATE IF RANDOM CLICKED

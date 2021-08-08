@@ -287,6 +287,9 @@ class UserController extends Controller
         if (strcmp($request->current_password, $request->new_password) == 0) {
             return back()->with('errorCurrentPassword', 'Your current password cannot be same with the new password');
         }
+        if (strcmp($request->new_password, $request->password_confirmation) != 0) {
+            return back()->with('errorCurrentPassword', 'Your new password does not match with the confirm new password');
+        }
         $request->validate([
             'current_password' => 'required',
             'new_password' =>  ['required', 'string', 'min:8', 'required_with:password_confirmation', 'same:password_confirmation']

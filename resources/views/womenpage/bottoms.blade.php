@@ -5,18 +5,17 @@
 @section('content')
 <div class="loader"></div>
 <div class="container py-4">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb p-0 bg-transparent">
-            <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb p-0 bg-transparent">
+			<li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
 			<li class="breadcrumb-item"><a href="/women" class="text-dark">Women</a></li>
-            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Bottom</li>
-        </ol>
-    </nav>
+			<li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">Bottom</li>
+		</ol>
+	</nav>
 
 	<div class="col-md-12 mb-1 p-0">
-		<div class="card rounded-0 border-0 con-photo w-100">
-			<img src="../storage/images/Women Page/women-bottoms.jpg" class="rounded-0 image-cat"
-				alt="Women Display Picture" height="472px" style="object-fit: cover;">
+		<div class="card rounded-0 border-0 con-photo">
+			<img src="{{ asset('../storage/images/Women Page/women-bottoms.jpg') }}" class="rounded-0 image-cat" alt="Men Display Picture" width="1110px" height="472px" style="object-fit: cover;">
 			<div class="middle-cat">
 				<div class="text-cat">BOTTOMS FOR WOMEN</div>
 			</div>
@@ -26,7 +25,9 @@
 </div>
 
 <div class="container pb-4">
-    <div class="row">
+	<div class="row">
+		<div class="col">
+		</div>
 		<div class="col text-right mr-3">
 			<div class="row">
 				<div class="col px-0 mr-3">
@@ -47,15 +48,15 @@
 		</div>
 	</div>
 
-    <div class="row">
-		<div class="sm-3">
+	<div class="row">
+		<div class="col-3">
 			<div class="card border">
 				<div class="bg-light border-bottom filter-header">
-					<p class="mb-1 pt-2 px-2 font-weight-bold">Women Bottoms ({{$productscount}})</p>			
+					<p class="mb-1 pt-2 px-2 font-weight-bold">Women Bottoms ({{$productscount}})</p>
 				</div>
 
-				<input type="hidden" name="min_price" class="min_price" value="{{ $minprice }}" id="min_price"/>
-				<input type="hidden" name="max_price" class="max_price" value="{{ $maxprice }}" id="max_price"/>
+				<input type="hidden" name="min_price" class="min_price" value="{{ $minprice }}" id="min_price" />
+				<input type="hidden" name="max_price" class="max_price" value="{{ $maxprice }}" id="max_price" />
 
 				<div class="bg-light border-bottom filter-header">
 					<p class="my-2 px-2 font-weight-bold" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
@@ -91,7 +92,7 @@
 							{{ $color->productcolor }}
 						</label>
 					</div>
-                    @endforeach
+					@endforeach
 				</div>
 
 				<div class="bg-light border-bottom filter-header">
@@ -173,12 +174,12 @@
 				<input type="button" value="RESET FILTER" id="btnUncheckAll" class="btn btn-light border border-dark mt-3 mb-3" style="width:100%; background-color:white;" />
 			</div>
 		</div>
-        <!-- Akhir Drop Down -->
-        <!-- Tampilan Gambar Produk -->
-        <div class="filter_products col-sm-9">
+		<!-- Akhir Drop Down -->
+		<!-- Tampilan Gambar Produk -->
+		<div class="filter_products col-9">
 			@include('menpage.filter_men_product')
-        </div>
-        <!--AKhir Tampilan Gambar Produk -->
-    </div>
+		</div>
+		<!--AKhir Tampilan Gambar Produk -->
+	</div>
 </div>
 @endsection

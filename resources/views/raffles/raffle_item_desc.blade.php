@@ -15,11 +15,11 @@
 </div>
 
 
-    <div class="justify-content-center">
-        <div class="col-md-10 text-center mt-3 mb-4">
+<div class="justify-content-center">
+    <div class="col-md-10 text-center mt-3 mb-4">
         <p class="title-home mt-0 mb-4 font-weight-bold">Raffle Item Description</p>
-        </div>
     </div>
+</div>
 
 <div class="container pb-5">
     <div class="row justify-content-around">
@@ -29,7 +29,7 @@
         ">
             <div class="my-5">
                 @guest
-                @if($raffle->status === 'running')
+                @if($raffle->status === 'running' && $is_full === 'no')
                 <a href="/register" class="btn btn-primary" style="
                         width: 50%;
                     ">ENTER NOW</a>
@@ -37,13 +37,17 @@
                 <a href="#" class="btn btn-danger disabled" style="
                         width: 50%;
                     ">CLOSED</a>
+                @elseif($is_full === 'yes')
+                <a href="#" class="btn btn-danger disabled" style="
+                        width: 50%;
+                    ">FULL</a>
                 @else
                 <a href="#" class="btn btn-secondary disabled" style="
                         width: 50%;
                     ">UPCOMING</a>
                 @endif
                 @else
-                @if($raffle->status === 'running')
+                @if($raffle->status === 'running' && $is_full === 'no')
                 <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary" style="
                         width: 50%;
                     ">ENTER NOW</a>
@@ -51,6 +55,10 @@
                 <a href="#" class="btn btn-danger disabled" style="
                         width: 50%;
                     ">CLOSED</a>
+                @elseif($is_full === 'yes')
+                <a href="#" class="btn btn-danger disabled" style="
+                        width: 50%;
+                    ">FULL</a>
                 @else
                 <a href="#" class="btn btn-secondary disabled" style="
                         width: 50%;
@@ -99,9 +107,9 @@
                                 ">{{$raffle->categoryraffle->categoryname}}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row" style=" font-weight: bold; width: 40%;">Capacity</th>
+                                    <th scope="row" style=" font-weight: bold; width: 40%;">Joined/Capacity</th>
                                     <td style="color: #8b8b8b;
-                                ">{{$raffle->rafflequota}}</td>
+                                ">{{$raffle->rafflejoined}}/{{$raffle->rafflequota}}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row" style=" font-weight: bold; width: 40%;">Start Date</th>
@@ -117,7 +125,9 @@
                         </table>
                     </div>
                     <div class="tab-pane fade mt-3" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-                        <div class="pb-1 pt-3 mb-3" style="background-color: #c4c4c4;"><p class="py-2" style="text-align: center">{{$raffle->raffledescription}}</p></div>
+                        <div class="pb-1 pt-3 mb-3" style="background-color: #c4c4c4;">
+                            <p class="py-2" style="text-align: center">{{$raffle->raffledescription}}</p>
+                        </div>
                     </div>
                     <div class="tab-pane fade mt-3" id="privacy" role="tabpanel" aria-labelledby="privacy-tab">
                         <div class="pb-1 pt-3 mb-3" style="background-color: #c4c4c4;">
