@@ -464,6 +464,9 @@ class ProductController extends Controller
 
     public function productcart()
     {
+        //Delete Session Voucher
+        session()->forget('voucher');
+
         $cartlists = Cart::where('user_id', '=', Auth::user()->id)->get();
 
         // return view('/products/pagecart', compact('cartlists'));

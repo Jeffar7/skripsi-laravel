@@ -27,57 +27,58 @@ class ManController extends Controller
 
     public function men(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1);
-            
+
             // sorting product
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
-    
+
             $sizes = $request->size_alphabet;
-            if(isset($sizes) && !empty($sizes)){
+            if (isset($sizes) && !empty($sizes)) {
                 $products->whereIn('productsize', $sizes);
             }
 
             $size_number = $request->size_number;
-            if(isset($size_number) && !empty($size_number)){
+            if (isset($size_number) && !empty($size_number)) {
                 $products->whereIn('productsize', $size_number);
-            }   
+            }
 
             // filter price
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
+            }
 
-            if(isset($request->color) && !empty($request->color)){
+
+            if (isset($request->color) && !empty($request->color)) {
                 $products->whereIn('productcolor', $request->color);
             }
 
-            if(isset($request->material) && !empty($request->material)){
+            if (isset($request->material) && !empty($request->material)) {
                 $products->whereIn('productmaterial', $request->material);
             }
-            
+
             $products = $products->paginate(12);
 
             if ($products->count() == 0)
@@ -85,9 +86,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.'])->render();
             else
                 return view('menpage/filter_men_product', compact('products'))->render();
-
-        }
-        else {
+        } else {
             $products = Product::where('gender_id', '=', 1)->paginate(12);
             $categories = Category::all();
             $brands = Brand::all();
@@ -109,57 +108,57 @@ class ManController extends Controller
 
     public function tops(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '1');
-            
+
             // sorting product
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
-    
+
             $sizes = $request->size_alphabet;
-            if(isset($sizes) && !empty($sizes)){
+            if (isset($sizes) && !empty($sizes)) {
                 $products->whereIn('productsize', $sizes);
             }
 
             $size_number = $request->size_number;
-            if(isset($size_number) && !empty($size_number)){
+            if (isset($size_number) && !empty($size_number)) {
                 $products->whereIn('productsize', $size_number);
-            }   
+            }
 
             // filter price
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
+            }
 
-            if(isset($request->color) && !empty($request->color)){
+            if (isset($request->color) && !empty($request->color)) {
                 $products->whereIn('productcolor', $request->color);
             }
 
-            if(isset($request->material) && !empty($request->material)){
+            if (isset($request->material) && !empty($request->material)) {
                 $products->whereIn('productmaterial', $request->material);
             }
-            
+
             $products = $products->paginate(12);
 
             if ($products->count() == 0)
@@ -167,9 +166,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.'])->render();
             else
                 return view('menpage/filter_men_product', compact('products'))->render();
-
-        }
-        else {
+        } else {
             $products = Product::where('gender_id', '=', 1)->where('categoryid', '1')->paginate(12);
             $categories = Category::all();
             $brands = Brand::all();
@@ -193,12 +190,12 @@ class ManController extends Controller
         $others = Product::where('categoryid', '=', $product_tops->category->id)
             ->where('gender_id', '=', $product_tops->gender->id)->get();
 
-        if(Auth::user()){
+        if (Auth::user()) {
             $itemuser = Auth::user();
             $validasiwishlist = product_user::where('product_id', '=', $product_tops->id)
-            ->where('user_id', '=', $itemuser->id)
-            ->first();
-    
+                ->where('user_id', '=', $itemuser->id)
+                ->first();
+
             return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others', 'image_detail', 'validasiwishlist'));
         } else {
             return view('/menpage/tops_detail', compact('product_tops', 'reviews', 'others', 'image_detail'));
@@ -207,57 +204,57 @@ class ManController extends Controller
 
     public function bottoms(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '2');
-            
+
             // sorting product
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
-    
+
             $sizes = $request->size_alphabet;
-            if(isset($sizes) && !empty($sizes)){
+            if (isset($sizes) && !empty($sizes)) {
                 $products->whereIn('productsize', $sizes);
             }
 
             $size_number = $request->size_number;
-            if(isset($size_number) && !empty($size_number)){
+            if (isset($size_number) && !empty($size_number)) {
                 $products->whereIn('productsize', $size_number);
-            }   
+            }
 
             // filter price
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
+            }
 
-            if(isset($request->color) && !empty($request->color)){
+            if (isset($request->color) && !empty($request->color)) {
                 $products->whereIn('productcolor', $request->color);
             }
 
-            if(isset($request->material) && !empty($request->material)){
+            if (isset($request->material) && !empty($request->material)) {
                 $products->whereIn('productmaterial', $request->material);
             }
-            
+
             $products = $products->paginate(12);
 
             if ($products->count() == 0)
@@ -265,9 +262,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.'])->render();
             else
                 return view('menpage/filter_men_product', compact('products'))->render();
-
-        }
-        else {
+        } else {
             $products = Product::where('gender_id', '=', 1)->where('categoryid', '2')->paginate(12);
             $categories = Category::all();
             $brands = Brand::all();
@@ -283,57 +278,57 @@ class ManController extends Controller
 
     public function shoes(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '3');
-            
+
             // sorting product
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
-    
+
             $sizes = $request->size_alphabet;
-            if(isset($sizes) && !empty($sizes)){
+            if (isset($sizes) && !empty($sizes)) {
                 $products->whereIn('productsize', $sizes);
             }
 
             $size_number = $request->size_number;
-            if(isset($size_number) && !empty($size_number)){
+            if (isset($size_number) && !empty($size_number)) {
                 $products->whereIn('productsize', $size_number);
-            }   
+            }
 
             // filter price
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
+            }
 
-            if(isset($request->color) && !empty($request->color)){
+            if (isset($request->color) && !empty($request->color)) {
                 $products->whereIn('productcolor', $request->color);
             }
 
-            if(isset($request->material) && !empty($request->material)){
+            if (isset($request->material) && !empty($request->material)) {
                 $products->whereIn('productmaterial', $request->material);
             }
-            
+
             $products = $products->paginate(12);
 
             if ($products->count() == 0)
@@ -341,9 +336,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.'])->render();
             else
                 return view('menpage/filter_men_product', compact('products'))->render();
-
-        }
-        else {
+        } else {
             $products = Product::where('gender_id', '=', 1)->where('categoryid', '3')->paginate(12);
             $categories = Category::all();
             $brands = Brand::all();
@@ -359,57 +352,57 @@ class ManController extends Controller
 
     public function accessories(Request $request)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $products = new Product();
             $products = $products->where('gender_id', '=', 1)->where('categoryid', '4');
-            
+
             // sorting product
             if ($request->sort == "product_price_low_high") {
-                $products->orderBy('productprice','asc');
+                $products->orderBy('productprice', 'asc');
             } elseif ($request->sort == "product_price_high_low") {
-                $products->orderBy('productprice','desc');
+                $products->orderBy('productprice', 'desc');
             } elseif ($request->sort == "product_latest") {
-                $products->orderBy('products.id','desc');
+                $products->orderBy('products.id', 'desc');
             } elseif ($request->sort == "product_relevance") {
                 $products;
-            }          
+            }
 
             // filter category
-            if(isset($request->category) && !empty($request->category)){
+            if (isset($request->category) && !empty($request->category)) {
                 $products->whereIn('categoryid', $request->category);
             }
 
             // filter product
-            if(isset($request->brand) && !empty($request->brand)){
+            if (isset($request->brand) && !empty($request->brand)) {
                 $products->whereIn('brandid', $request->brand);
             }
-    
+
             $sizes = $request->size_alphabet;
-            if(isset($sizes) && !empty($sizes)){
+            if (isset($sizes) && !empty($sizes)) {
                 $products->whereIn('productsize', $sizes);
             }
 
             $size_number = $request->size_number;
-            if(isset($size_number) && !empty($size_number)){
+            if (isset($size_number) && !empty($size_number)) {
                 $products->whereIn('productsize', $size_number);
-            }   
+            }
 
             // filter price
             $min = $request->min;
             $max = $request->max;
 
-            if(isset($min) && !empty($min) && isset($max) && !empty($max)){
+            if (isset($min) && !empty($min) && isset($max) && !empty($max)) {
                 $products->whereBetween('productprice', [$min, $max]);
-            }   
+            }
 
-            if(isset($request->color) && !empty($request->color)){
+            if (isset($request->color) && !empty($request->color)) {
                 $products->whereIn('productcolor', $request->color);
             }
 
-            if(isset($request->material) && !empty($request->material)){
+            if (isset($request->material) && !empty($request->material)) {
                 $products->whereIn('productmaterial', $request->material);
             }
-            
+
             $products = $products->paginate(12);
 
             if ($products->count() == 0)
@@ -417,9 +410,7 @@ class ManController extends Controller
                     ->withErrors(['no_post_result' => 'No data found with current filters.'])->render();
             else
                 return view('menpage/filter_men_product', compact('products'))->render();
-
-        }
-        else {
+        } else {
             $products = Product::where('gender_id', '=', 1)->where('categoryid', '4')->paginate(12);
             $categories = Category::all();
             $brands = Brand::all();

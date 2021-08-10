@@ -89,6 +89,7 @@ class StatusController extends Controller
 
     public function continue_checkout($id)
     {
+
         $order = Order::find($id);
         $payments = Payment::all();
         $shipments = Shipment::all();
@@ -118,7 +119,30 @@ class StatusController extends Controller
         if ($order->is_buy_now == 1)
             return view('/transactions/delivery_buy_now', compact('product_id', 'quantity', 'payments', 'shipments', 'addresses'));
         else
-            return view('/transactions/continue/checkout');
+            return $this->continueCheckout($id);
+        // return view('/transactions/continue/checkout');
+
+    }
+
+    public function continueCheckout($id)
+    {
+        $shipments = Shipment::all();
+        $addresses = Address_Delivery_Users::where('user_id', '=', Auth::user()->id)->get();
+        $detailaddresses = null;
+        $order = Order::find($id);
+        $lists = DB::table('order_product')
+            ->join('products', 'order_product.product_id', '=', 'products.id')
+            ->where('order_id', '=', $id)
+            ->get();
+
+        $products = [];
+        foreach ($lists as $list) {
+            $product = Product::where('id', '=', $list->product_id)
+                ->first();
+            $products[] = $product;
+        }
+
+        return view('/transactions/delivery', compact('order', 'products', 'addresses', 'shipments', 'detailaddresses'));
     }
 
     public function buyAgain(Product $product)

@@ -18,7 +18,7 @@
             <form action="/checkout" id="form_checkout" method="POST">
                 @csrf
                 @if ($cartlists->count() > 0)
-                <div class="card "> 
+                <div class="card ">
                     <table class="table" id="cart_checkout">
                         <thead class="bg-transparent">
                             <tr>
@@ -87,7 +87,7 @@
                 margin-bottom: 6%;
             ">
                     <div class="col-md-6" style="width: 50%">
-                    <a href="/" class="continueShopBtn" style="text-decoration: none;">Continue Shopping</a>
+                        <a href="/" class="continueShopBtn" style="text-decoration: none;">Continue Shopping</a>
                     </div>
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary" for="form_checkout" style="
@@ -111,20 +111,19 @@
                         @csrf
                         <div class="modal-body">
                             <div class="faq-section-logo">
-                                <img src="{{ asset('../storage/images/Wish List Page/DeleteLogo.png') }}" class="rounded-0 image-cat"
-                        alt="Men Display Picture" width="50px" height="">
-                    </div>
-                            <h3 class="text-center"  >Are you sure?</h3>
+                                <img src="{{ asset('../storage/images/Wish List Page/DeleteLogo.png') }}" class="rounded-0 image-cat" alt="Men Display Picture" width="50px" height="">
+                            </div>
+                            <h3 class="text-center">Are you sure?</h3>
                             <p class="text-center font-weight-normal mb-0" style="
                             color: black;
-                        ">Do you really want to delete 
-                            <br>
-                            <span class="font-weight-bold">{{$cartlist->product->productname}}</span> item?</p> 
+                        ">Do you really want to delete
+                                <br>
+                                <span class="font-weight-bold">{{$cartlist->product->productname}}</span> item?
+                            </p>
                             <p class="text-center font-weight-normal mb-0">This process cannot be undone.</p>
                         </div>
                         <div class="modal-footer justify-content-around pt-0 border-top-0">
-                            <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal" 
-                        >Cancel</button>
+                            <button type="button" class="btn btn-secondary modalBtn" data-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn btn-danger" name="delete_user" style="
                             width: 40%;
                         ">Delete</button>

@@ -29,6 +29,20 @@ class RaffleTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
+                'rafflename' => 'BLK Buck Barkley Saint Cls Heaven',
+                'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
+                'raffleprice' => 648000,
+                'raffleimage' => 'raffle4.jpg',
+                'rafflequantity' => 2,
+                'rafflequota' => 5,
+                'rafflereleasedate' => Carbon::now()->format('Y-m-d H:i:s'),
+                'raffleclosedate' => Carbon::tomorrow()->format('Y-m-d H:i:s'),
+                'brand_id' => 1,
+                'category_id' => 3,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
                 'rafflename' => 'NAH Project Shoes',
                 'raffledescription' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, harum.',
                 'raffleprice' => 400000,

@@ -41,7 +41,7 @@
                     </a>
                     <div class="text-right">
                         @guest
-                        @if($raffle->status === 'running')
+                        @if($raffle->status === 'running' && $raffle->rafflequota - $raffle->rafflejoined > 0)
                         <a href="/register" class="btn btn-primary">ENTER NOW</a>
                         @elseif($raffle->status === 'closed')
                         <a href="#" class="btn btn-danger disabled">CLOSED</a>
@@ -49,14 +49,15 @@
                         <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
                         @endif
                         @else
-                        @if($raffle->status === 'running')
+                        @if($raffle->status === 'running' && $raffle->rafflequota - $raffle->rafflejoined > 0)
                         <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-primary">ENTER NOW</a>
                         @elseif($raffle->status === 'closed')
                         <a href="#" class="btn btn-danger disabled">CLOSED</a>
-                        @else
-                        <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
-                        @endif
-                        @endguest
+                        @elseif($raffle->rafflequota - $raffle->rafflejoined <= 0) <a href="#" class="btn btn-danger disabled">FULL</a>
+                            @else
+                            <a href="/raffle/detail/{{$raffle->id}}" class="btn btn-secondary disabled">UPCOMING</a>
+                            @endif
+                            @endguest
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-3">

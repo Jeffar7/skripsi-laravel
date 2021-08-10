@@ -23,6 +23,8 @@ class CreateAddressForRaffleTable extends Migration
             $table->integer('post_code');
             $table->string('number_street_address_1');
             $table->string('number_street_address_2')->nullable();
+            $table->string('district');
+            $table->string('province');
             $table->string('city');
             $table->string('country');
             $table->softDeletes();

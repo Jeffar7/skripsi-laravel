@@ -47,9 +47,6 @@ class refreshRaffleStatus extends Command
         $date = Carbon::now();
         $time = Carbon::now()->toTimeString();
 
-        $running = DB::table('raffles')
-            ->whereRaw('"' . $date . '" between `rafflereleasedate` and `raffleclosedate`')
-            ->update(['status' => 'running']);
 
         $not_started = DB::table('raffles')
             ->whereDate('rafflereleasedate', '>', Carbon::now())
@@ -58,13 +55,17 @@ class refreshRaffleStatus extends Command
 
         $closed = DB::table('raffles')
             ->whereDate('raffleclosedate', '<', Carbon::now())
-            // ->whereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
+            ->orWhereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
             ->update(['status' => 'closed']);
 
-        Mail::raw("This is automatically generated minute update", function ($message) {
-            $message->from('Jeffarmanurung66@gmail.com');
-            $message->to('Jeffarmanurung66@gmail.com')->subject('Minute Update');
-        });
+        $running = DB::table('raffles')
+            ->whereRaw('"' . $date . '" between `rafflereleasedate` and `raffleclosedate`')
+            ->update(['status' => 'running']);
+
+        // Mail::raw("This is automatically generated minute update", function ($message) {
+        //     $message->from('Jeffarmanurung66@gmail.com');
+        //     $message->to('Jeffarmanurung66@gmail.com')->subject('Minute Update');
+        // });
 
         $this->info('Minute Update has been send successfully');
     }
