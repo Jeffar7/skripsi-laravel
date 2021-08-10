@@ -23,10 +23,8 @@
             <div class="tab-pane fade show active m-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row justify-content-center">
                     <div class="col-md-4 pt-2">
-                        <img src="{{asset('../storage/images/Users/'.Auth::user()->picture)}}"
-                            class="rounded img-thumbnail " alt="..." width="200" height="150" style="margin-left: 15%;">
-                        <div style="padding-top: 20px;text-decoration: underline;text-align: center;"><a
-                                href="/usersettings">Edit My Profile</a></div>
+                        <img src="{{asset('../storage/images/Users/'.Auth::user()->picture)}}" class="rounded img-thumbnail " alt="..." width="200" height="150" style="margin-left: 15%;">
+                        <div style="padding-top: 20px;text-decoration: underline;text-align: center;"><a href="/usersettings">Edit My Profile</a></div>
                     </div>
                     <div class="col-md-8 pt-2">
                         <tbody>
@@ -39,12 +37,9 @@
 
                         <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#1a"
-                                    role="tab" aria-controls="home" aria-selected="true" style="
+                                <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home" aria-selected="true" style="
                                 width: 100px;
-                            "><i class="fas fa-user" style="=
-                                    "></i><span style="
-                                        padding-left: 10%;
+                            "><i class="fas fa-user"></i><span style="padding-left: 10%;
                                     ">About</span></a>
                             </li></a>
                             </li>
@@ -55,31 +50,38 @@
                             <div class="table-responsive-sm">
                                 <table class="table mb-0">
                                     <tr class="border-0 about-title">
-                                        <td  class="text-left border-0 font-weight-bold" style="color: black">
+                                        <td class="text-left border-0 font-weight-bold" style="color: black">
                                             <p class="about-title" style="color: black">Phone</p>
 
                                         </td>
-                                        <td class="text-left border-0" style="color: black"><p class="about-title" style="color: black">: <span
-                                            style="padding-left: 2%">{{Auth::user()->phone}}</span></p></td>
+                                        <td class="text-left border-0" style="color: black">
+                                            <p class="about-title" style="color: black">: <span style="padding-left: 2%">{{Auth::user()->phone}}</span></p>
+                                        </td>
                                     </tr>
                                     <tr class="about-title">
-                                        
-                                        <td class="text-left border-0" style="color: black">                                <p class="about-title" style="color: black">Address</p>
+
+                                        <td class="text-left border-0" style="color: black">
+                                            <p class="about-title" style="color: black">Address</p>
                                         </td>
-                                        <td class="text-left border-0" style="color: black"><p class="about-title" style="color: black">: <span
-                                            style="padding-left: 2%">{{Auth::user()->address}}</span></p></td>
+                                        <td class="text-left border-0" style="color: black">
+                                            <p class="about-title" style="color: black">: <span style="padding-left: 2%">{{Auth::user()->address}}</span></p>
+                                        </td>
                                     </tr>
                                     <tr class="about-title">
-                                        <td class="text-left border-0" style="color: black">                                <p class="about-title" style="color: black">Email</p>
+                                        <td class="text-left border-0" style="color: black">
+                                            <p class="about-title" style="color: black">Email</p>
                                         </td>
-                                        <td class="text-left border-0" style="color: black"><p class="about-title" style="color: black">: <span
-                                            style="padding-left: 2%">{{Auth::user()->email}}</span></p></td>
+                                        <td class="text-left border-0" style="color: black">
+                                            <p class="about-title" style="color: black">: <span style="padding-left: 2%">{{Auth::user()->email}}</span></p>
+                                        </td>
                                     </tr>
                                     <tr class="about-title">
-                                        <td class="text-left border-0" style="color: black">                                <p class="about-title" style="color: black">Site</p>
+                                        <td class="text-left border-0" style="color: black">
+                                            <p class="about-title" style="color: black">Site</p>
                                         </td>
-                                        <td class="text-left border-0" style="color: black"><p class="about-title" style="color: black">: <span
-                                            style="padding-left: 2%">{{Auth::user()->site}}</span></p></td>
+                                        <td class="text-left border-0" style="color: black">
+                                            <p class="about-title" style="color: black">: <span style="padding-left: 2%">{{Auth::user()->site}}</span></p>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>

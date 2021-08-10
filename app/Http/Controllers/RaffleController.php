@@ -31,6 +31,7 @@ class RaffleController extends Controller
 
     public function raffle()
     {
+
         $raffles = Raffle::where('status', '=', 'running')->orWhere('status', '=', 'not started')->paginate(3);
         $joined = raffle_user::where('user_id', '=', Auth::user()->id)->first();
 
@@ -54,8 +55,7 @@ class RaffleController extends Controller
         if ($request->ajax()) {
             $raffles = Raffle::paginate(3);
             return view('/raffles/filter_raffle', compact('raffles'));
-        }
-        else {
+        } else {
             $raffles = Raffle::paginate(3);
             return view('/raffles/raffle_item_list', compact('raffles'));
         }
@@ -109,7 +109,14 @@ class RaffleController extends Controller
 
     public function raffledescription(Raffle $raffle)
     {
-        return view('/raffles/raffle_item_desc', compact('raffle'));
+
+        $is_full = $raffle->rafflequota - $raffle->rafflejoined;
+        if ($is_full <= 0)
+            $is_full = 'yes';
+        else
+            $is_full = 'no';
+
+        return view('/raffles/raffle_item_desc', compact('raffle', 'is_full'));
     }
 
     public function index()
@@ -152,6 +159,7 @@ class RaffleController extends Controller
         $raffle->raffleclosedate = $request->raffleclosedate;
         $raffle->brand_id = $request->brand_id;
         $raffle->category_id = $request->category_id;
+        $raffle->status = 'not_started';
 
         if ($request->hasFile('raffleimage')) {
             $file = $request->file('raffleimage');
@@ -233,6 +241,8 @@ class RaffleController extends Controller
             'post_code' => ['required', 'numeric'],
             'address' => ['required', 'max:255'],
             'address2' => ['max:255'],
+            'district' => ['required'],
+            'province' => ['required'],
             'city' => ['required'],
             'country' => ['required'],
         ]);
@@ -246,6 +256,8 @@ class RaffleController extends Controller
         $addressForRaffle->post_code = $request->post_code;
         $addressForRaffle->number_street_address_1 = $request->address;
         $addressForRaffle->number_street_address_2 = $request->address2;
+        $addressForRaffle->province = $request->province;
+        $addressForRaffle->district = $request->district;
         $addressForRaffle->city = $request->city;
         $addressForRaffle->country = $request->country;
         $addressForRaffle->save();
@@ -292,12 +304,17 @@ class RaffleController extends Controller
             ->where('raffle_id', '=', $raffle->id)
             ->get();
 
-        // dd($users);
+        if ($users->count() > 0) {
+            $is_random_clicked = DB::table('raffle_user')->where('raffle_id', '=', $raffle->id)->first();
+            $is_random = $is_random_clicked->is_random_clicked;
+        } else {
+            $is_random = 0;
+        }
 
         if ($users->count() == 0)
-            return view('raffles.check', compact('users', 'raffle'))->withErrors(['no_post_result' => 'There is no user found.']);
+            return view('raffles.check', compact('users', 'raffle', 'is_random'))->withErrors(['no_post_result' => 'There is no user found.']);
         else
-            return view('raffles.check', compact('users', 'raffle'));
+            return view('raffles.check', compact('users', 'raffle', 'is_random'));
     }
 
     public function random($id)
@@ -310,17 +327,30 @@ class RaffleController extends Controller
             ->where('raffle_id', '=', $id)
             ->get();
 
-        //MAKE RANDOM WINNERS
+        //GET QUANTITY
+        $random_winnerss = DB::table('raffle_user')
+            ->join('users', 'raffle_user.user_id', '=', 'users.id')
+            ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
+            ->select('raffle_user.*', 'raffles.rafflename', 'raffles.rafflequantity', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
+            ->where('raffle_id', '=', $id)
+            ->inRandomOrder()
+            ->limit(1)
+            ->first();
+
         $random_winners = DB::table('raffle_user')
             ->join('users', 'raffle_user.user_id', '=', 'users.id')
             ->join('raffles', 'raffle_user.raffle_id', '=', 'raffles.id')
-            ->select('raffle_user.*', 'raffles.rafflename', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
+            ->select('raffle_user.*', 'raffles.rafflename', 'raffles.rafflequantity', 'users.username', 'users.picture', 'users.email', 'raffles.raffleimage', 'raffles.status', 'raffles.raffleclosedate')
             ->where('raffle_id', '=', $id)
             ->inRandomOrder()
-            ->limit(3) //RANDOM FOR 2 USERS
+            ->limit($random_winnerss->rafflequantity) //RANDOM FOR TOTAL QUANTITY RAFFLE PRODUCT
             ->get();
 
-
+        //UPDATE IF RANDOM CLICKED
+        $raffle_user_clicked = raffle_user::where('raffle_id', '=', $id)
+            ->update([
+                'is_random_clicked' => 1
+            ]);
 
         // USER WINNERS
         $winners = $random_winners->pluck('user_id');

@@ -20,6 +20,8 @@ class AddressForRaffle extends Model
         'post_code',
         'number_street_address_1',
         'number_street_address_2',
+        'district',
+        'province',
         'city',
         'country'
     ];

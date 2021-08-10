@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('title','TokoLokal | ' .e($raffle->rafflename))
-
 @section('content')
 <div class="loader"></div>
 <div class="container py-4">
@@ -84,12 +83,12 @@
             <div class="col-md-4">
                 <div class="row mb-3">
                     <label for="firstname">First Name*</label>
-                    <input type="text" id="firstname" class="form-control" value="{{Auth::user()->first_name}}" name="first_name">
+                    <input type="text" id="firstname" class="form-control" value="{{Auth::user()->first_name}}" name="first_name" required>
                 </div>
 
                 <div class="row mb-3">
                     <label for="lastname">Last Name*</label>
-                    <input type="text" id="lastname" class="form-control" value="{{Auth::user()->last_name}}" name="last_name">
+                    <input type="text" id="lastname" class="form-control" value="{{Auth::user()->last_name}}" name="last_name" required>
                 </div>
 
                 <fieldset disabled>
@@ -101,25 +100,25 @@
 
                 <div class="row mb-3">
                     <label for="lastname">Province*</label>
-                    <input type="text" id="province" class="form-control" value="{{Auth::user()->detailaddress->province}}" name="province">
+                    <input type="text" id="province" class="form-control" value="{{Auth::user()->detailaddress->province}}" name="province" required>
                 </div>
 
                 <div class="row mb-3">
                     <label for="number">Mobile Number*</label>
-                    <input type="number" id="number" class="form-control" value="{{Auth::user()->phone}}" name="phone">
+                    <input type="number" id="number" class="form-control" value="{{Auth::user()->phone}}" name="phone" required>
                 </div>
 
                 <fieldset disabled>
                     <div class="row mb-3">
                         <label for="dob">Date of Birth*</label>
-                        <input type="date" id="dob" class="form-control" value="{{Auth::user()->DOB}}" name="dob">
+                        <input type="date" id="dob" class="form-control" value="{{Auth::user()->DOB}}" name="dob" required>
                     </div>
                 </fieldset>
 
 
                 <div class="row mb-3">
                     <label for="postcode">Post Code*</label>
-                    <input type="number" id="postcode" class="form-control" value="{{Auth::user()->detailaddress->zip_code}}" name="post_code">
+                    <input type="number" id="postcode" class="form-control" value="{{Auth::user()->detailaddress->zip_code}}" name="post_code" required>
                 </div>
 
 
@@ -127,17 +126,21 @@
             <div class="col-md-4">
                 <div class="row mb-3">
                     <label for="address">Number and street address*</label>
-                    <input type="text" id="address" class="form-control" value="{{Auth::user()->address}}" name="address">
+                    <input type="text" id="address" class="form-control" value="{{Auth::user()->address}}" name="address" required>
                 </div>
 
                 <div class="row mb-3">
                     <label for="address2">Address Line 2</label>
                     <input type="text" id="address2" class="form-control" name="address2">
                 </div>
+                <div class="row mb-3">
+                    <label for="district">District*</label>
+                    <input type="text" id="district" class="form-control" name="district" required>
+                </div>
 
                 <div class="row mb-3">
                     <label for="city">Town City*</label>
-                    <input type="text" id="city" class="form-control" value="{{Auth::user()->detailaddress->city}}" name="city">
+                    <input type="text" id="city" class="form-control" value="{{Auth::user()->detailaddress->city}}" name="city" required>
                 </div>
 
                 <div class="row mb-3">
