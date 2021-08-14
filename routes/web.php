@@ -12,6 +12,7 @@ use App\Order;
 use App\Product;
 use App\product_user;
 use App\Review;
+use App\Trending;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -159,6 +161,8 @@ Route::group(['middleware' =>  'role:customer'], function () {
 
 
 
+
+
 //notiification 
 Route::get('/test', function () {
     $notifications = auth()->user()->unreadNotifications;
@@ -245,7 +249,7 @@ Route::get('payments/completed', 'PaymentController@completed');
 Route::get('payments/failed', 'PaymentController@failed');
 Route::get('payments/unfinish', 'PaymentController@unfinished');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/testing', function () {
     return view('check');
@@ -305,14 +309,17 @@ Route::get('/read_product', function () {
 });
 
 Route::get('/check', function () {
-    $closed = DB::table('raffles')
-        ->whereDate('raffleclosedate', '<', Carbon::now())
-        ->orWhereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
-        ->get();
+    $trendings = Trending::find(1);
 
-    foreach ($closed as $close) {
-        echo $close->id;
-    }
+    dd($trendings->product->brand);
+    // $closed = DB::table('raffles')
+    //     ->whereDate('raffleclosedate', '<', Carbon::now())
+    //     ->orWhereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
+    //     ->get();
+
+    // foreach ($closed as $close) {
+    //     echo $close->id;
+    // }
 
     // dd(Order::find(1)->raffle()->id);
 

@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\refreshRaffleStatus::class,
+        Commands\RefreshTrendingNow::class,
     ];
 
     /**
@@ -26,8 +27,9 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('command:refreshRaffleStatus')
             ->everyMinute();
+        $schedule->command('command:refreshTrendingNow')
+            ->weekly()->mondays()->at('01:00');
     }
-
     /**
      * Register the commands for the application.
      *

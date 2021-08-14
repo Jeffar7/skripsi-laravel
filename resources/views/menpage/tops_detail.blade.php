@@ -118,75 +118,54 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <!-- wish list button -->
-                @guest
-                <div class="row my-4">
-                    <div class="col-3 filter-heart text-center">
-                        <button class="btn" style="border:none;">
-                            <i class="fas fa-heart wish-not-active" style="font-size: 23px"><a href="/login"></a></i>
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
-                    </div>
-                </div>
-                <div class="row my-4">
-                    <div class="col">
-                        @if($product_tops->productquantity > 0)
-                        <button class="btn btn-dark disabled" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
-                        @else
-                        <button class="btn btn-danger" style="width:100%;" disabled><a href="#" class="card-link" style="color:white;">Out Of Stock!</a></button>
-                        @endif
-                    </div>
-                </div>
-                @else
-                <input type="hidden" id="userid" name="user_id" value="{{Auth::user()->id}}">
-                <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
-                <div class="row my-4">
-                    <div class="col-3 filter-heart text-center">
-                        <button class="btn" style="border:none;" type="submit">
-                            @if(isset($validasiwishlist) && $validasiwishlist)
-                            <i class="fas fa-heart wish-active" style="font-size: 23px"></i>
-                            @else
-                            <i class="fas fa-heart wish-not-active" style="font-size: 23px"></i>
-                            @endif
-                        </button>
-                    </div>
-                    <<<<<<< HEAD <div class="col">
-                        @if($product_tops->productquantity > 0)
-                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
-                        @else
-                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add" disabled>Add to Cart</button>
-                        @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    @if($product_tops->productquantity > 0)
-                    <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
-                    @else
-                    <button type="submit" class="btn btn-danger" style="width:100%;" formaction="/buy-now/add" disabled>Out Of Stock!</button>
-                    @endif
-                    =======
 
-                    <div class="col">
-                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to
-                            Cart</button>
-                    </div>
+                        <!-- wish list button -->
+                        @guest
+                        <div class="row my-4">
+                            <div class="col-3 filter-heart text-center">
+                                <button class="btn" style="border:none;">
+                                    <i class="fas fa-heart wish-not-active" style="font-size: 23px"><a href="/login"></a></i>
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col">
+                                <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
+                            </div>
+                        </div>
+                        @else
+                        <input type="hidden" id="userid" name="user_id" value="{{Auth::user()->id}}">
+                        <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
+                        <div class="row my-4">
+                            <div class="col-3 filter-heart text-center">
+                                <button class="btn" style="border:none;" type="submit">
+                                    @if(isset($validasiwishlist) && $validasiwishlist)
+                                    <i class="fas fa-heart wish-active" style="font-size: 23px"></i>
+                                    @else
+                                    <i class="fas fa-heart wish-not-active" style="font-size: 23px"></i>
+                                    @endif
+                                </button>
+                            </div>
+
+                            <div class="col">
+                                <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to
+                                    Cart</button>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col">
+                                <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
+                            </div>
+                        </div>
+                        @endguest
+                    </form>
                 </div>
-                <div class="row my-4">
-                    <div class="col">
-                        <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
-                    </div>
-                    >>>>>>> 487f644c7122f5f1915bd24c09904343d3e2f00d
-                </div>
-                @endguest
-                </form>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <div class="container mt-3">

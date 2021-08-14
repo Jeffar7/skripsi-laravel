@@ -7,8 +7,10 @@ use App\Cart;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Console\Commands\RefreshTrendingNow;
 use App\Gender;
 use App\product_user;
+use App\Trending;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -177,7 +179,16 @@ class ProductController extends Controller
 
     public function home()
     {
-        $others = Product::all();
+        // $others = Product::all();
+
+        // $others = Product::limit(12)
+        //     ->select("*")
+        //     ->orderBy(DB::raw('RAND()'))
+        //     ->get();
+
+        $others = Product::select('products.*', 'trendings.*')
+            ->join('trendings', 'products.id', '=', 'trendings.product_id')
+            ->get();
 
         return view('/home', compact('others'));
     }
@@ -216,15 +227,14 @@ class ProductController extends Controller
         // $wishlist = product_user::all();
 
         $validasiwishlist = product_user::where('product_id', '=', $request->product_id)
-        ->where('user_id', '=', $request->user_id)
-        ->first();
+            ->where('user_id', '=', $request->user_id)
+            ->first();
 
 
         if ($validasiwishlist) {
             $validasiwishlist->delete();
             return back()->with('status', 'Item successfully removed to wish list!');
-        }
-        else {
+        } else {
             $productwishsave = new product_user();
             $productwishsave->product_id = $request->product_id;
             $productwishsave->user_id = Auth::user()->id;
