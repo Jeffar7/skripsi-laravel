@@ -35,6 +35,11 @@ class OrderController extends Controller
 
         $carts = Cart::where('user_id', '=', Auth::user()->id)->get();
 
+        // $updateQtyCart =  Cart::where('id', $cart->id)
+        //             ->update([
+        //                 'quantity' => $request->quantity
+        //             ]);
+
         if ($carts->count() > 0) {
 
             $order = new Order();
@@ -50,15 +55,15 @@ class OrderController extends Controller
                 $order_product->order_id = $order->id;
                 $order_product->product_id = $cart->product_id;
                 $order_product->is_review = 'no';
-                $order_product->quantity = $request->quantity;
-                $order_product->subtotal = $cart->product->productprice * $request->quantity;
+                $order_product->quantity = $cart->quantity;
+                $order_product->subtotal = $cart->product->productprice * $cart->quantity;
+
+                // $updateQtyCart =  Cart::where('product_id', '=', Auth::user()->id)
+                //     ->update([
+                //         'quantity' => $request->quantity
+                //     ]);
 
                 $order_product->save();
-
-                $isi =  Cart::where('id', $cart->id)
-                    ->update([
-                        'quantity' => $request->quantity
-                    ]);
             }
 
             //after click checkout, cart list product delete

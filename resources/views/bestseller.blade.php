@@ -56,23 +56,11 @@
     .carousel-inner-custom .active.carousel-item-custom+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom {
         position: absolute;
         top: 0;
-        right: -25%;
+        /* right: -25%; */
         z-index: -1;
         /* display: block; */
         visibility: visible;
     }
-
-    .active.carousel-item-left+.carousel-item-next.carousel-item-left,
-    .carousel-item-next.carousel-item-left+.carousel-item-custom,
-    .carousel-item-next.carousel-item-left+.carousel-item-custom+.carousel-item-custom,
-    .carousel-item-next.carousel-item-left+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom,
-    .carousel-item-next.carousel-item-left+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom {
-        position: relative;
-        transform: translateX(-100%);
-        /*ini yg diganti */
-        visibility: visible;
-    }
-
     .carousel-inner-custom .carousel-item-next.carousel-item-left {
         position: absolute;
         top: 0;
@@ -85,7 +73,7 @@
     .carousel-inner-custom .carousel-item-prev.carousel-item-right {
         position: absolute;
         top: 0;
-        left: -25%;
+        /* left: -25%; */
         z-index: -1;
         display: block;
         visibility: visible;
@@ -100,5 +88,16 @@
         transform: translate3d(100%, 0, 0);
         display: block;
         visibility: visible;
-    }
+    } 
+ 
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item-custom,
+    .carousel-item-next.carousel-item-left + .carousel-item-custom + .carousel-item-custom,
+    .carousel-item-next.carousel-item-left + .carousel-item-custom + .carousel-item-custom + .carousel-item-custom,
+    .carousel-item-next.carousel-item-left + .carousel-item-custom + .carousel-item-custom + .carousel-item-custom+.carousel-item-custom {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+        /* display: block; */
+        visibility: visible;
+    } 
 </style>
