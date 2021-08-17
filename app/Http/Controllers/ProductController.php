@@ -186,9 +186,13 @@ class ProductController extends Controller
         //     ->orderBy(DB::raw('RAND()'))
         //     ->get();
 
-        $others = Product::select('products.*', 'trendings.*')
+        $others = Product::select('products.id AS product_id', 'trendings.product_id AS id', 'products.productimage', 'products.productname', 'products.brandid', 'products.productprice')
             ->join('trendings', 'products.id', '=', 'trendings.product_id')
             ->get();
+
+        // dd($others);
+
+
 
         return view('/home', compact('others'));
     }

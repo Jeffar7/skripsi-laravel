@@ -161,8 +161,6 @@ Route::group(['middleware' =>  'role:customer'], function () {
 
 
 
-
-
 //notiification 
 Route::get('/test', function () {
     $notifications = auth()->user()->unreadNotifications;
@@ -175,10 +173,6 @@ Route::get('/markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
 });
 
-// Route::get('/', function () {
-
-//     return view('home');
-// });
 
 // Route::delete('/notification-/delete/{id}', 'NotificationController@destroywish');
 Route::get('/notification', 'NotificationController@show');
@@ -286,47 +280,6 @@ Route::get('/privacypolicy', function () {
 Route::get('/login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('/login/google/callback', 'Auth\LoginController@handleProviderCallBack');
 
-
-
-//route for debug
-
-Route::get('/send-email', function () {
-    $details = [
-        'title' => 'Test Mail',
-        'body' => 'Hi There!'
-    ];
-    Mail::to('jeffarmanurung66@gmail.com')->send(new \App\Mail\MyMail($details));
-});
-
-Route::get('/read_product', function () {
-    $order = Order::find(1);
-
-    $products = $order->product;
-
-    foreach ($products as $product) {
-        echo $product->productname . '<br>';
-    }
-});
-
 Route::get('/check', function () {
-    $trendings = Trending::find(1);
-
-    dd($trendings->product->brand);
-    // $closed = DB::table('raffles')
-    //     ->whereDate('raffleclosedate', '<', Carbon::now())
-    //     ->orWhereTime('raffleclosedate', '<', Carbon::now()->toTimeString())
-    //     ->get();
-
-    // foreach ($closed as $close) {
-    //     echo $close->id;
-    // }
-
-    // dd(Order::find(1)->raffle()->id);
-
-    // $stripe = new \Stripe\StripeClient(
-    //     'sk_test_51Isn0aBee1Lnamoc8KJgliAPILEguv2sGs4Nm44t49rXBLlVIeXa82j8duyNhmBUhNTdi4Zr99FEjjxQ44psWuUx00OpjKFRXn'
-    // );
-
-
-    // return  $stripe->charges->all(['limit' => 3]);
+    dd(session()->get('url.intended'));
 });

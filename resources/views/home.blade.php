@@ -5,13 +5,15 @@
 @section('content')
 <div class="loader"></div>
 
-<? use Illuminate\Support\Facades\Auth; ?>
+<?
+
+use Illuminate\Support\Facades\Auth; ?>
 
 @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block mt-3" id="success-alert">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
+<div class="alert alert-success alert-block mt-3" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ $message }}</strong>
+</div>
 @endif
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -72,8 +74,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card-body text-center">
-                            <img src="{{ asset('../storage/images/Category/men.png') }}" alt="" height="141px"
-                                width="100%">
+                            <img src="{{ asset('../storage/images/Category/men.png') }}" alt="" height="141px" width="100%">
                         </div>
                     </div>
                 </div>
@@ -92,8 +93,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card-body text-center">
-                            <img src="{{ asset('../storage/images/Category/woman.png') }}" alt="" height="141px"
-                                width="100%">
+                            <img src="{{ asset('../storage/images/Category/woman.png') }}" alt="" height="141px" width="100%">
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
         @include('bestseller')
     </div>
 
-   
+
     {{-- @guest --}}
     <div class="container mb-5">
         <p class="title-home font-weight-bold">CATEGORY</p>
@@ -216,7 +216,8 @@
                         <img src="{{ asset('../storage/images/Category/top.png') }}" class="rounded-0 image-cat" alt="..." width="100%" height="300px" style="object-fit:cover">
                         <div class="middle-cat">
                             <div class="text-cat">
-                                <a href="/top" style="text-decoration:none; color:black">TOP</a></div>
+                                <a href="/top" style="text-decoration:none; color:black">TOP</a>
+                            </div>
                         </div>
                     </a>
                 </div>
