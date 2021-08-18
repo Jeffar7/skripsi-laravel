@@ -18,8 +18,7 @@
             <li class="breadcrumb-item"><a href="/accessories" class="text-dark">{{$product_tops->category->name}}</a>
             </li>
             @endif
-            <li class="breadcrumb-item active text-bold text-dark" aria-current="page"
-                style="color:black;font-weight:bold;">{{$product_tops->productname}}</li>
+            <li class="breadcrumb-item active text-bold text-dark" aria-current="page" style="color:black;font-weight:bold;">{{$product_tops->productname}}</li>
         </ol>
     </nav>
 </div>
@@ -38,23 +37,15 @@
             <div class="row">
                 <div class="col-sm-3">
                     <ol class='carousel-indicators justify-content-center flex-column'>
-                        <li data-target='#carousel-custom' data-slide-to='0' class="active"><img
-                                src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}"
-                                alt='Image' class="border border-dark photo-thumb" /></li>
+                        <li data-target='#carousel-custom' data-slide-to='0' class="active"><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark photo-thumb" /></li>
                         @if(!empty($image_detail->image_detail_2))
-                        <li data-target='#carousel-custom' data-slide-to='1'><img
-                                src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}"
-                                alt='Image' class="border border-dark photo-thumb" /></li>
+                        <li data-target='#carousel-custom' data-slide-to='1'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-thumb" /></li>
                         @endif
                         @if(!empty($image_detail->image_detail_3))
-                        <li data-target='#carousel-custom' data-slide-to='2'><img
-                                src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}"
-                                alt='Image' class="border border-dark photo-thumb" /></li>
+                        <li data-target='#carousel-custom' data-slide-to='2'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-thumb" /></li>
                         @endif
                         @if(!empty($image_detail->image_detail_4))
-                        <li data-target='#carousel-custom' data-slide-to='3'><img
-                                src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}"
-                                alt='Image' class="border border-dark photo-thumb" /></li>
+                        <li data-target='#carousel-custom' data-slide-to='3'><img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-thumb" /></li>
                         @endif
                     </ol>
                 </div>
@@ -97,8 +88,7 @@
                 <div class="my-3">
                     <p class="about-title mb-0" style="text-decoration:normal;">{{$product_tops->brand->name}}</p>
                     <p class="mb-0" style="font-weight:bold;">{{$product_tops->productname}}</p>
-                    <p class="about-title mb-2" style="font-size: 10px">Stock:<span
-                            style="padding-left: 2%">{{$product_tops->productquantity}}</span></p>
+                    <p class="about-title mb-2" style="font-size: 10px">Stock:<span style="padding-left: 2%">{{$product_tops->productquantity}}</span></p>
                     <p class="mb-2" style="font-weight:bold;">Rp. {{number_format($product_tops->productprice)}}</p>
                     <p style="font-size: 10px">{{$product_tops->productdescription}}</p>
 
@@ -125,14 +115,11 @@
 
                             <div class="col">
                                 <div class="input-group quantity">
-                                    <div class="input-group-prepend decrement-btn changeQuantity"
-                                        style="cursor: pointer">
+                                    <div class="input-group-prepend decrement-btn changeQuantity" style="cursor: pointer">
                                         <span class="input-group-text">-</span>
                                     </div>
-                                    <input type="text" class="qty-input form-control text-center" maxlength="2"
-                                        value="1" id="qty-input" name="quantity">
-                                    <div class="input-group-append increment-btn changeQuantity"
-                                        style="cursor: pointer">
+                                    <input type="text" class="qty-input form-control text-center" maxlength="2" value="1" id="qty-input" name="quantity">
+                                    <div class="input-group-append increment-btn changeQuantity" style="cursor: pointer">
                                         <span class="input-group-text">+</span>
                                     </div>
                                 </div>
@@ -190,28 +177,33 @@
                         @endguest
                     </form>
                 </div>
+                <div class="row my-4">
+                    <div class="col">
+                        <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
+                    </div>
+                    >>>>>>> 487f644c7122f5f1915bd24c09904343d3e2f00d
+                </div>
+                @endguest
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <div class="container mt-3">
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active bg-transparent" id="detail-tab" data-toggle="tab" href="#detail" role="tab"
-                aria-controls="detail" aria-selected="false">Details</a>
+            <a class="nav-link active bg-transparent" id="detail-tab" data-toggle="tab" href="#detail" role="tab" aria-controls="detail" aria-selected="false">Details</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link bg-transparent" id="sizedetail-tab" data-toggle="tab" href="#sizedetail" role="tab"
-                aria-controls="sizedetail" aria-selected="false">Size Details</a>
+            <a class="nav-link bg-transparent" id="sizedetail-tab" data-toggle="tab" href="#sizedetail" role="tab" aria-controls="sizedetail" aria-selected="false">Size Details</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link bg-transparent" id="review-tab" data-toggle="tab" href="#review" role="tab"
-                aria-controls="review" aria-selected="true">Review</a>
+            <a class="nav-link bg-transparent" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="true">Review</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link bg-transparent" id="policy-tab" data-toggle="tab" href="#policy" role="tab"
-                aria-controls="policy" aria-selected="false">Return Policy</a>
+            <a class="nav-link bg-transparent" id="policy-tab" data-toggle="tab" href="#policy" role="tab" aria-controls="policy" aria-selected="false">Return Policy</a>
         </li>
     </ul>
 
@@ -219,8 +211,7 @@
         <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="detail-tab" style="
             margin: 0 4%;">
             <div class="table-responsive-sm" style="border: none">
-                <table class="mb-0"
-                    style="width: 100%; color: #212529; border-collapse: collapse; display: table; text-indent: initial; border-spacing: 2px; ">
+                <table class="mb-0" style="width: 100%; color: #212529; border-collapse: collapse; display: table; text-indent: initial; border-spacing: 2px; ">
                     <tr class="about-title border-0">
                         <td class="col-3" style="padding: 0">SKU</td>
                         <td class="col-9" style="padding: 0"> : <span style="padding-left: 2%">
@@ -228,18 +219,15 @@
                     </tr>
                     <tr class="about-title">
                         <td class="" style="padding: 0">Category</td>
-                        <td class="" style="padding: 0">: <span
-                                style="padding-left: 2%">{{$product_tops->category->name}}</span></td>
+                        <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->category->name}}</span></td>
                     </tr>
                     <tr class="about-title">
                         <td class="" style="padding: 0">Care Instruction</td>
-                        <td class="" style="padding: 0">: <span
-                                style="padding-left: 2%">{{$product_tops->productcare}}</span></td>
+                        <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->productcare}}</span></td>
                     </tr>
                     <tr class="about-title">
                         <td class="" style="padding: 0">Material</td>
-                        <td class="" style="padding: 0">: <span
-                                style="padding-left: 2%">{{$product_tops->productmaterial}}</span></td>
+                        <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->productmaterial}}</span></td>
                     </tr>
                 </table>
             </div>
@@ -247,26 +235,21 @@
 
 
         <div class="tab-pane fade mt-3 show mt-3" id="sizedetail" role="tabpanel" aria-labelledby="sizedetail-tab">
-            <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="sizedetail-tab"
-                style="
+            <div class="tab-pane fade show active mt-4" id="detail" role="tabpanel" aria-labelledby="sizedetail-tab" style="
         margin: 0 4%;">
                 <div class="table-responsive-sm" style="border: none">
-                    <table class="mb-0"
-                        style="width: 100%; color: #212529; border-collapse: collapse; display: table; text-indent: initial; border-spacing: 2px; ">
+                    <table class="mb-0" style="width: 100%; color: #212529; border-collapse: collapse; display: table; text-indent: initial; border-spacing: 2px; ">
                         <tr class="about-title border-0">
                             <td class="col-3" style="padding: 0">Size</td>
-                            <td class="col-9" style="padding: 0"> : <span
-                                    style="padding-left: 2%">{{$product_tops->productsize}}</span></td>
+                            <td class="col-9" style="padding: 0"> : <span style="padding-left: 2%">{{$product_tops->productsize}}</span></td>
                         </tr>
                         <tr class="about-title">
                             <td class="" style="padding: 0">Color</td>
-                            <td class="" style="padding: 0">: <span
-                                    style="padding-left: 2%">{{$product_tops->productcolor}}</td>
+                            <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->productcolor}}</td>
                         </tr>
                         <tr class="about-title">
                             <td class="" style="padding: 0">Weight</td>
-                            <td class="" style="padding: 0">: <span
-                                    style="padding-left: 2%">{{$product_tops->productweight}}</span></td>
+                            <td class="" style="padding: 0">: <span style="padding-left: 2%">{{$product_tops->productweight}}</span></td>
                         </tr>
                     </table>
                 </div>
@@ -277,68 +260,45 @@
                 @foreach($reviews as $review)
                 @if($review->product_id == $product_tops->id)
                 <div class="row">
-                    <div class="card mb-3 col-md-11"
-                        style="border-radius: 10px;margin: 0 4%;box-shadow: 1px 2px #888888;">
+                    <div class="card mb-3 col-md-11" style="border-radius: 10px;margin: 0 4%;box-shadow: 1px 2px #888888;">
                         <div class="media ml-3 mt-3">
                             <div class="col-md-2">
-                                <img src="{{asset('../storage/images/Users/' . $review->user->picture)}}" width="100px;"
-                                    height="100px;" alt="Image" class="mr-3">
+                                <img src="{{asset('../storage/images/Users/' . $review->user->picture)}}" width="100px;" height="100px;" alt="Image" class="mr-3">
                             </div>
                             <div class="col-md-8">
                                 <div class="media-body">
                                     <h4 class="mt-0 text-left">{{$review->user->username}}</h4>
                                     @if($review->rating_score == 5)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i>
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                         {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 4.5)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="fas fa-star"></i> <i
-                                            class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i>
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i>
                                         {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 4)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="far fa-star"></i>
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                                         {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 3.5)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="fa fa-star-half-o"
-                                            aria-hidden="true"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i> {{ $review->rating_score }}
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 3)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i>
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                                         {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 2.5)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fa fa-star-half-o" aria-hidden="true"></i><i
-                                            class="far fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i> {{ $review->rating_score }}
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 2)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="far fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i>
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                                         {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 1.5)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="fa fa-star-half-o"
-                                            aria-hidden="true"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i> {{ $review->rating_score }}
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="fa fa-star-half-o" aria-hidden="true"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> {{ $review->rating_score }}
                                     </p>
                                     @elseif($review->rating_score == 1)
-                                    <p class="card-text"><i class="fas fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i>
+                                    <p class="card-text"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                                         {{ $review->rating_score }}
                                     </p>
                                     @endif

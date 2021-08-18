@@ -61,6 +61,18 @@
         /* display: block; */
         visibility: visible;
     }
+
+    .active.carousel-item-left+.carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left+.carousel-item-custom,
+    .carousel-item-next.carousel-item-left+.carousel-item-custom+.carousel-item-custom,
+    .carousel-item-next.carousel-item-left+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom,
+    .carousel-item-next.carousel-item-left+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom {
+        position: relative;
+        transform: translateX(-100%);
+        /*ini yg diganti */
+        visibility: visible;
+    }
+
     .carousel-inner-custom .carousel-item-next.carousel-item-left {
         position: absolute;
         top: 0;
@@ -88,16 +100,5 @@
         transform: translate3d(100%, 0, 0);
         display: block;
         visibility: visible;
-    } 
- 
-    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-    .carousel-item-next.carousel-item-left + .carousel-item-custom,
-    .carousel-item-next.carousel-item-left + .carousel-item-custom + .carousel-item-custom,
-    .carousel-item-next.carousel-item-left + .carousel-item-custom + .carousel-item-custom + .carousel-item-custom,
-    .carousel-item-next.carousel-item-left + .carousel-item-custom + .carousel-item-custom + .carousel-item-custom+.carousel-item-custom {
-        position: relative;
-        transform: translate3d(0, 0, 0);
-        /* display: block; */
-        visibility: visible;
-    } 
+    }
 </style>

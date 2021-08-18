@@ -63,7 +63,10 @@ class OrderController extends Controller
                 //         'quantity' => $request->quantity
                 //     ]);
 
-                $order_product->save();
+                $isi =  Cart::where('id', $cart->id)
+                    ->update([
+                        'quantity' => $request->quantity
+                    ]);
             }
 
             //after click checkout, cart list product delete
