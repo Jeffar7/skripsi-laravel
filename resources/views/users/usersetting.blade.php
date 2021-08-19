@@ -7,15 +7,15 @@
     <div class="row pt-4 pb-2">
         <h4 class="pl-4">Edit Profile</h4>
     </div>
+
     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+      <div class="alert alert-danger" id="success-alert">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          @foreach ($errors->all() as $error)
+          <p class="font-weight-bold text-left mb-0">{{ $error }}</p>
+          @endforeach
+      </div>
+      @endif
 </div>
 
 

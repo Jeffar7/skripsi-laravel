@@ -83,9 +83,7 @@
                 </div>
                 <input type="hidden" value="{{$cartlists}}" name="cartlists">
                 @if ($cartlists->count() > 0)
-                <div class="form-group row" style="
-                margin-bottom: 6%;
-            ">
+                <div class="form-group row" style="margin-bottom: 6%;">
                     <div class="col-md-6" style="width: 50%">
                         <a href="/" class="continueShopBtn" style="text-decoration: none;">Continue Shopping</a>
                     </div>

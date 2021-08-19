@@ -3,8 +3,21 @@
 @section('title','TokoLokal | User Profile')
 
 @section('content')
+
+
+
 <div class="container">
-    <div class=" pt-4 pb-2">
+    <div class="row pt-2">
+        <div class="col">
+            @if ($message = Session::get('status'))
+            <div class="alert alert-success alert-block" id="success-alert">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+            @endif
+        </div>
+    </div>
+    <div class="row pt-4 pb-2">
         <h4>My Profile</h4>
     </div>
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
@@ -37,11 +50,10 @@
 
                         <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home" aria-selected="true" style="
-                                width: 100px;
-                            "><i class="fas fa-user"></i><span style="padding-left: 10%;
-                                    ">About</span></a>
-                            </li></a>
+                                <a class="nav-link bg-transparent active" id="profile-tab" data-toggle="tab" href="#1a" role="tab" aria-controls="home" aria-selected="true" style="width: 100px;">
+                                    <i class="fas fa-user"></i>
+                                    <span style="padding-left: 10%;">About</span>
+                                </a>
                             </li>
                         </ul>
 

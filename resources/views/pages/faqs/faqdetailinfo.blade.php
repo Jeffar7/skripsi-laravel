@@ -4,18 +4,6 @@
 
 @section('content')
 
-<script>
-    function showOrHideContent(x){
-        if(x.style.display === "none"){
-            x.style.display = "block";
-            x.className = "";
-        }else{
-            x.style.display = "none";
-            x.className = "down";
-        }
-    }
-</script>
-
 <div class="container py-4">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb p-0 bg-transparent">
@@ -28,26 +16,25 @@
     </nav>
 </div>
 
-@foreach($detailFaqInformations as $detailFaqInformation)
-<div class="container pb-1">
+<div class="container mb-4">
     <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="px-5">
-                <div class="row">
-                    <h4 class=" mt-1" style="text-transform:capitalize;font-weight:bold">
-                        {{$detailFaqInformation->question}}
-                    </h4>
-                    <span class="drop-down" onclick="showOrHideContent(document.getElementById('showOrHideContent' + {{ $detailFaqInformation->id }}))"><i class="arrow " ></i></span>
-                </div>
-                <div id="showOrHideContent{{ $detailFaqInformation->id }}">
-                    <p class=" mt-3" style="text-transform:capitalize;font-weight:bold">
+        @foreach($detailFaqInformations as $index => $detailFaqInformation)
+        <div class="col-md-12 mb-2">
+            <div class="row border-bottom filter-header">
+                <h4 class="my-2 px-2 font-weight-bold col-12" data-toggle="collapse" href="#multiCollapseExample1-{{$index}}" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                    <i class="fas fa-chevron-up my-1 more-less"></i>        
+                    {{$detailFaqInformation->question}}
+                </h4>
+            </div>
+            <div class="collapse multi-collapse show" id="multiCollapseExample1-{{ $index }}">
+                <div class="mt-1">
+                    <p class="mt-3">
                         {{$detailFaqInformation->answer}}
                     </p>
                 </div>
             </div>
-            <hr>
         </div>
+        @endforeach
     </div>
 </div>
-@endforeach
 @endsection

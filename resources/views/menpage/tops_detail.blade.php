@@ -52,22 +52,25 @@
                 <div class="col-sm-9">
                     <div class='carousel-inner text-center'>
                         <div class='carousel-item active'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark" style="    width: 100%;
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark" style="width: 100%;
                             height: 400px;" />
                         </div>
                         @if(!empty($image_detail->image_detail_2))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-detail" />
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;" />
                         </div>
                         @endif
                         @if(!empty($image_detail->image_detail_3))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-detail" />
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;" />
                         </div>
                         @endif
                         @if(!empty($image_detail->image_detail_4))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-detail" />
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;" />
                         </div>
                         @endif
                     </div>
@@ -151,17 +154,29 @@
                             </div>
 
                             <div class="col">
-                                <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to
-                                    Cart</button>
+                                @if($product_tops->productquantity > 0)
+                                <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
+                                @else
+                                <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add" disabled>Add to Cart</button>
+                                @endif
                             </div>
                         </div>
                         <div class="row my-4">
                             <div class="col">
+                                @if($product_tops->productquantity > 0)
                                 <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
+                                @else
+                                <button type="submit" class="btn btn-danger" style="width:100%;" formaction="/buy-now/add" disabled>Out Of Stock!</button>
+                                @endif
                             </div>
                         </div>
                         @endguest
                     </form>
+                </div>
+                <div class="row my-4">
+                    <div class="col">
+                        <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -315,8 +330,9 @@
 
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
         <li class="nav-item " role="presentation">
-            <a class="nav-link active bg-transparent" id="other-choice-tab" data-toggle="tab" href="#otherchoice" role="tab" aria-controls="other-choice" aria-selected="false"><span class="font-weight-bold">Other
-                    Choice</span></a>
+            <a class="nav-link active bg-transparent" id="other-choice-tab" data-toggle="tab" href="#otherchoice" role="tab" aria-controls="other-choice" aria-selected="false">
+                <span class="font-weight-bold">Other Choice</span>
+            </a>
         </li>
     </ul>
 
