@@ -52,22 +52,29 @@
                 <div class="col-sm-9">
                     <div class='carousel-inner text-center'>
                         <div class='carousel-item active'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark" style="    width: 100%;
-                            height: 400px;" />
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}"
+                                alt='Image' class="border border-dark" style="width: 100%;
+                            height: 400px;"/>
                         </div>
                         @if(!empty($image_detail->image_detail_2))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-detail" />
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}"
+                                alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;"/>
                         </div>
                         @endif
                         @if(!empty($image_detail->image_detail_3))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-detail" />
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}"
+                                alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;"/>
                         </div>
                         @endif
                         @if(!empty($image_detail->image_detail_4))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-detail" />
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}"
+                                alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;"/>
                         </div>
                         @endif
                     </div>
@@ -118,62 +125,57 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                <!-- wish list button -->
-                @guest
-                <div class="row my-4">
-                    <div class="col-3 filter-heart text-center">
-                        <button class="btn" style="border:none;">
-                            <i class="fas fa-heart wish-not-active" style="font-size: 23px"><a href="/login"></a></i>
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
-                    </div>
-                </div>
-                <div class="row my-4">
-                    <div class="col">
-                        @if($product_tops->productquantity > 0)
-                        <button class="btn btn-dark disabled" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
-                        @else
-                        <button class="btn btn-danger" style="width:100%;" disabled><a href="#" class="card-link" style="color:white;">Out Of Stock!</a></button>
-                        @endif
-                    </div>
-                </div>
-                @else
-                <input type="hidden" id="userid" name="user_id" value="{{Auth::user()->id}}">
-                <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
-                <div class="row my-4">
-                    <div class="col-3 filter-heart text-center">
-                        <button class="btn" style="border:none;" type="submit">
-                            @if(isset($validasiwishlist) && $validasiwishlist)
-                            <i class="fas fa-heart wish-active" style="font-size: 23px"></i>
-                            @else
-                            <i class="fas fa-heart wish-not-active" style="font-size: 23px"></i>
-                            @endif
-                        </button>
-                    </div>
-                    <<<<<<< HEAD <div class="col">
-                        @if($product_tops->productquantity > 0)
-                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
-                        @else
-                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add" disabled>Add to Cart</button>
-                        @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    @if($product_tops->productquantity > 0)
-                    <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
-                    @else
-                    <button type="submit" class="btn btn-danger" style="width:100%;" formaction="/buy-now/add" disabled>Out Of Stock!</button>
-                    @endif
-                    =======
 
-                    <div class="col">
-                        <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to
-                            Cart</button>
-                    </div>
+                        <!-- wish list button -->
+                        @guest
+                        <div class="row my-4">
+                            <div class="col-3 filter-heart text-center">
+                                <button class="btn" style="border:none;">
+                                    <i class="fas fa-heart wish-not-active"style="font-size: 23px"><a href="/login"></a></i>
+                                </button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-light border border-dark" style="width:100%; background-color:white;"><a href="/login" class="card-link" style="color:black;">Add to Cart</a></button>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col">
+                                <button class="btn btn-dark" style="width:100%;"><a href="/login" class="card-link" style="color:white;">Buy Now</a></button>
+                            </div>
+                        </div>
+                        @else
+                        <input type="hidden" id="userid" name="user_id" value="{{Auth::user()->id}}">
+                        <input type="hidden" id="productid" name="product_id" value="{{$product_tops->id}}">
+                        <div class="row my-4">
+                            <div class="col-3 filter-heart text-center">
+                                <button class="btn" style="border:none;" type="submit">
+                                    @if(isset($validasiwishlist) && $validasiwishlist)
+                                    <i class="fas fa-heart wish-active"style="font-size: 23px"></i>
+                                    @else
+                                    <i class="fas fa-heart wish-not-active"style="font-size: 23px"></i>
+                                    @endif
+                                </button>
+                            </div>
+                        
+                            <div class="col">
+                                @if($product_tops->productquantity > 0)
+                                <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
+                                @else
+                                <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add" disabled>Add to Cart</button>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col">
+                                @if($product_tops->productquantity > 0)
+                                <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
+                                @else
+                                <button type="submit" class="btn btn-danger" style="width:100%;" formaction="/buy-now/add" disabled>Out Of Stock!</button>
+                                @endif
+                            </div>
+                        </div>
+                        @endguest
+                    </form>
                 </div>
                 <div class="row my-4">
                     <div class="col">
@@ -336,8 +338,10 @@
 
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
         <li class="nav-item " role="presentation">
-            <a class="nav-link active bg-transparent" id="other-choice-tab" data-toggle="tab" href="#otherchoice" role="tab" aria-controls="other-choice" aria-selected="false"><span class="font-weight-bold">Other
-                    Choice</span></a>
+            <a class="nav-link active bg-transparent" id="other-choice-tab" data-toggle="tab" href="#otherchoice"
+            role="tab" aria-controls="other-choice" aria-selected="false">
+                <span class="font-weight-bold">Other Choice</span>
+            </a>
         </li>
     </ul>
 

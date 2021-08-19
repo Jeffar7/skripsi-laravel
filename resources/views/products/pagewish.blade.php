@@ -39,8 +39,8 @@
                     <img src="{{asset('../storage/images/Products/' . $productwish->product->productimage)}}"
                         alt="Image" style="
                     height: 220px;
-                    margin: 5% 0; 
                     width: 100%;
+                    object-fit: contain;
                 ">
                 </div>
             </div>

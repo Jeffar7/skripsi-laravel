@@ -61,35 +61,6 @@
 
         <!-- Detail Address -->
         @if (!empty($address))
-        <<<<<<< HEAD <div class="row justify-content-around">
-          <div class="row col-md-10 py-2" style="background-color: #f3f1f1;
-          background-clip: border-box;
-          border: 1px solid rgba(0, 0, 0, 0.125);
-          border-radius: 0.25rem;">
-            <div class="col-md-3 text-left mt-2">
-              <p class='mb-1'>Recipient Name</p>
-              <p class='mb-1'>Contact Number</p>
-              <p class='mb-1'>Address</p>
-              <p class='mb-1'>Address Note (optional)</p>
-              <p class='mb-1'>Post Code</p>
-              <p class='mb-1'>Province</p>
-              <p class='mb-1'>City</p>
-              <p class='mb-1'>District</p>
-            </div>
-            <div class="col-md-7 text-left mt-2">
-              <p class='mb-1'>: Rp. {{$address->recipient_name}}
-              <p class='mb-1'>: {{$address->contact_number}}</p>
-              <p class='mb-1'>: {{$address->address}}</p>
-              <p class='mb-1'>: {{$address->address_note}}</p>
-              <p class='mb-1'>: {{$address->post_code}}</p>
-              <p class='mb-1'>: {{$address->province}}</p>
-              <p class='mb-1'>: {{$address->city}}</p>
-              <p class='mb-3'>: {{$address->district}}</p>
-            </div>
-          </div>
-      </div>
-
-      =======
       <div class="row justify-content-around m-3">
         <div class="col-sm-10 order-card">
           <div class="my-3 text-left">
@@ -118,7 +89,6 @@
           </div>
         </div>
       </div>
-      >>>>>>> 487f644c7122f5f1915bd24c09904343d3e2f00d
       @else
       <div class="row justify-content-center m-3">
         <div class="col-md-5 bg-light">

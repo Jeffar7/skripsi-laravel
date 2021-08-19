@@ -56,7 +56,7 @@
     .carousel-inner-custom .active.carousel-item-custom+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom+.carousel-item-custom {
         position: absolute;
         top: 0;
-        right: -25%;
+        /* right: -25%; */
         z-index: -1;
         /* display: block; */
         visibility: visible;
@@ -85,7 +85,7 @@
     .carousel-inner-custom .carousel-item-prev.carousel-item-right {
         position: absolute;
         top: 0;
-        left: -25%;
+        /* left: -25%; */
         z-index: -1;
         display: block;
         visibility: visible;
