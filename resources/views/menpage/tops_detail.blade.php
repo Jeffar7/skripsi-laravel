@@ -173,11 +173,7 @@
                         @endguest
                     </form>
                 </div>
-                <div class="row my-4">
-                    <div class="col">
-                        <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
