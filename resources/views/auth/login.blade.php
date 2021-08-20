@@ -26,7 +26,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -36,8 +36,7 @@
     <script src="{{ asset('js/main.js') }}"></script>
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 
     <!-- fav icon -->
     <link rel="shortcut icon" href="../storage/images/Store/TokoLokalLogoWithPic.png" type="image/png">
@@ -88,7 +87,7 @@
                                     <i class="fas fa-lock"></i>
                                     <i class="far fa-eye-slash close-eye"></i>
                                     <i class="far fa-eye see-eye"></i>
-                                    <input id="password" placeholder="Password" type="password" class="log-field @error('password') is-invalid @enderror" name="password" required >
+                                    <input id="password" placeholder="Password" type="password" class="log-field @error('password') is-invalid @enderror" name="password" required>
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -149,7 +148,7 @@
                                 <div class="form-group">
                                     <a href="www.gmail.com"></a>
                                     {{-- <a href="mailto:info@example.com?subject=subject&cc=cc@example.com"> --}}
-                                    <a href="/login/google"><i class="fab fa-google" style="color:red;"></i></a>
+                                    <a href="/login/google" target="_blank"><i class="fab fa-google" style="color:red;"></i></a>
                                     <i class="fab fa-facebook" style="color:blue;"></i>
                                     <i class="fab fa-twitter" style="color:navy;"></i>
                                     <i class="fab fa-apple" style="color:grey;"></i>
@@ -165,4 +164,5 @@
         </div>
     </div>
 </body>
+
 </html>

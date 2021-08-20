@@ -62,10 +62,6 @@ class refreshRaffleStatus extends Command
             ->whereRaw('"' . $date . '" between `rafflereleasedate` and `raffleclosedate`')
             ->update(['status' => 'running']);
 
-        // Mail::raw("This is automatically generated minute update", function ($message) {
-        //     $message->from('Jeffarmanurung66@gmail.com');
-        //     $message->to('Jeffarmanurung66@gmail.com')->subject('Minute Update');
-        // });
 
         $this->info('Minute Update has been send successfully');
     }

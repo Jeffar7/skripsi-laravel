@@ -51,13 +51,13 @@
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="fullName">First Name</label>
-                                        <input type="text" class="form-control" id="fullName" placeholder="Enter full name" value="{{$user->first_name}}" name="first_name">
+                                        <input type="text" class="form-control" id="fullName" placeholder="Enter First Name" value="{{$user->first_name}}" name="first_name">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="eMail">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" placeholder="Enter email ID" value="{{$user->last_name}}" name="last_name">
+                                        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" value="{{$user->last_name}}" name="last_name">
                                     </div>
                                 </div>
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-6 col-12">
@@ -402,13 +402,13 @@
                                 <div class="col-6 text-left my-4">
                                     <button type="submit" id="submit" name="submit" class="btn btn-primary saveBtn">Save</button>
                                 </div>
-                                
+
                                 <div class="col-6 text-right my-4">
                                     <button type="button" id="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger saveBtn">Delete Account</button>
-                                  </div>
-                              </div>
+                                </div>
+                            </div>
 
-                              
+
                         </form>
                     </div>
                 </div>

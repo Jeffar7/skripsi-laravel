@@ -142,18 +142,22 @@ class BrandController extends Controller
             $brand->picture = '';
         }
 
-        // $request->validate([
-        //     'name' => 'required | unique:posts',
-        //     'picture' => 'required',
-        //     'owner' => 'required',
-        //     'website' => 'required',
-        //     'about' => 'required'
-        // ]);
+        if ($request->hasFile('detail_picture')) {
+            $file = $request->file('detail_picture');
+            $filenameWithoutExt = $file->getClientOriginalName();
+            $filenamesave = $filenameWithoutExt;
+            $file->storeAs('public/images/Brands/', $filenamesave);
+            $brand->detail_picture = $filenamesave;
+        } else {
+            return $request;
+            $brand->detail_picture = '';
+        }
 
         Brand::where('id', $brand->id)
             ->update([
                 'name' => $request->name,
                 'picture' => $brand->picture,
+                'detail_picture' => $brand->detail_picture,
                 'owner' => $request->owner,
                 'website' => $request->website,
                 'about' => $request->about

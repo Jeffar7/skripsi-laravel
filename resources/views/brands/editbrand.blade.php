@@ -37,6 +37,18 @@
                         </div>
 
                         <div class="form-group ">
+                            <label for="detail_picture">Detail Picture</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input @error('picture') is-invalid @enderror" name="detail_picture" id="detail_picture" required value="{{$brand->detail_picture}}">
+                                <label class="custom-file-label" for="validatedCustomFile">{{$brand->detail_picture}}</label>
+                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                            </div>
+                            @error('picture')
+                            <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group ">
                             <label for="owner">Owner</label>
                             <input type="text" class="form-control @error('owner') is-invalid @enderror" id="owner" name="owner" value="{{$brand->owner}}" required>
                             @error('owner')

@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -32,7 +33,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -41,16 +42,24 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        session(['url.intended' => url()->previous()]);
+        if (session()->get('url.intended') == '/register' || session()->get('url.intended') == '/login') {
+            $this->redirectTo = '/';
+        } else {
+            $this->redirectTo = session()->get('url.intended');
+        }
         $this->middleware('guest')->except('logout');
     }
 
     protected function authenticated(Request $request, $user)
     {
+
         if ($user->hasRole('admin')) {
-            return redirect('/')->with('success', 'Your account has been successfully logged in!');;
+
+            return redirect($this->redirectTo)->with('success', 'Your account has been successfully logged in!');
         }
 
-        return redirect('/')->with('success', 'Your account has been successfully logged in!');;
+        return redirect($this->redirectTo)->with('success', 'Your account has been successfully logged in!');
     }
 
     public function redirectToProvider()
@@ -70,8 +79,6 @@ class LoginController extends Controller
 
     protected function _registerOrLoginUser($data)
     {
-
-
 
         $user = User::where('email', '=', $data->email)->first();
         if (!$user) {
@@ -96,5 +103,24 @@ class LoginController extends Controller
 
 
         Auth::login($user);
+    }
+
+    public function showLoginForm()
+    {
+
+        if (!session()->has('url.intended')) {
+
+            $prev = url()->previous();
+            $url_one = 'your url';
+            $url_two = 'your second url';
+
+            if ($prev == $url_one or $prev == $url_two) {
+                session(['url.intended' => 'dashboard']);
+            } else {
+                session(['url.intended' => url()->previous()]);
+            }
+        }
+
+        return view('auth.login');
     }
 }

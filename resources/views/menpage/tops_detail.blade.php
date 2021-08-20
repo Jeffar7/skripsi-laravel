@@ -52,29 +52,25 @@
                 <div class="col-sm-9">
                     <div class='carousel-inner text-center'>
                         <div class='carousel-item active'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}"
-                                alt='Image' class="border border-dark" style="width: 100%;
-                            height: 400px;"/>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_1)}}" alt='Image' class="border border-dark" style="width: 100%;
+                            height: 400px;" />
                         </div>
                         @if(!empty($image_detail->image_detail_2))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}"
-                                alt='Image' class="border border-dark photo-detail" style="width: 100%;
-                            height: 400px;"/>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_2)}}" alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;" />
                         </div>
                         @endif
                         @if(!empty($image_detail->image_detail_3))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}"
-                                alt='Image' class="border border-dark photo-detail" style="width: 100%;
-                            height: 400px;"/>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_3)}}" alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;" />
                         </div>
                         @endif
                         @if(!empty($image_detail->image_detail_4))
                         <div class='carousel-item'>
-                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}"
-                                alt='Image' class="border border-dark photo-detail" style="width: 100%;
-                            height: 400px;"/>
+                            <img src="{{asset('../storage/images/Products/' . $image_detail->image_detail_4)}}" alt='Image' class="border border-dark photo-detail" style="width: 100%;
+                            height: 400px;" />
                         </div>
                         @endif
                     </div>
@@ -131,7 +127,7 @@
                         <div class="row my-4">
                             <div class="col-3 filter-heart text-center">
                                 <button class="btn" style="border:none;">
-                                    <i class="fas fa-heart wish-not-active"style="font-size: 23px"><a href="/login"></a></i>
+                                    <i class="fas fa-heart wish-not-active" style="font-size: 23px"><a href="/login"></a></i>
                                 </button>
                             </div>
                             <div class="col">
@@ -150,13 +146,13 @@
                             <div class="col-3 filter-heart text-center">
                                 <button class="btn" style="border:none;" type="submit">
                                     @if(isset($validasiwishlist) && $validasiwishlist)
-                                    <i class="fas fa-heart wish-active"style="font-size: 23px"></i>
+                                    <i class="fas fa-heart wish-active" style="font-size: 23px"></i>
                                     @else
-                                    <i class="fas fa-heart wish-not-active"style="font-size: 23px"></i>
+                                    <i class="fas fa-heart wish-not-active" style="font-size: 23px"></i>
                                     @endif
                                 </button>
                             </div>
-                        
+
                             <div class="col">
                                 @if($product_tops->productquantity > 0)
                                 <button type="submit" class="btn btn-light border border-dark" style="width:100%; background-color:white;" formaction="/cart-list/add">Add to Cart</button>
@@ -177,18 +173,10 @@
                         @endguest
                     </form>
                 </div>
-                <div class="row my-4">
-                    <div class="col">
-                        <button type="submit" class="btn btn-dark" style="width:100%;" formaction="/buy-now/add">Buy Now</button>
-                    </div>
-                    >>>>>>> 487f644c7122f5f1915bd24c09904343d3e2f00d
-                </div>
-                @endguest
-                </form>
+
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <div class="container mt-3">
@@ -338,8 +326,7 @@
 
     <ul class="nav nav-tabs bg-transparent" id="myTab" role="tablist">
         <li class="nav-item " role="presentation">
-            <a class="nav-link active bg-transparent" id="other-choice-tab" data-toggle="tab" href="#otherchoice"
-            role="tab" aria-controls="other-choice" aria-selected="false">
+            <a class="nav-link active bg-transparent" id="other-choice-tab" data-toggle="tab" href="#otherchoice" role="tab" aria-controls="other-choice" aria-selected="false">
                 <span class="font-weight-bold">Other Choice</span>
             </a>
         </li>
